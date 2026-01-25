@@ -1,3 +1,48 @@
 {
-  "raids": []
+  "raids": [
+    {
+      "id": "1737820800000",
+      "date": "2026-01-25",
+      "raidName": "ICC 25 HC LOD 6.2 + GS",
+      "startTime": "16:30 ST",
+      "bossKills": 12,
+      "composition": {
+        "tanks": [
+          { "name": "Kredoring", "class": "Death Knight", "spec": "Blood" },
+          { "name": "Chagra", "class": "Paladin", "spec": "Protection" }
+        ],
+        "melee": [
+          { "name": "Bartu", "class": "Death Knight", "spec": "Unholy" },
+          { "name": "Penatrated", "class": "Warrior", "spec": "Fury" },
+          { "name": "Oldmb", "class": "Warrior", "spec": "Fury" },
+          { "name": "CBDCisJail", "class": "Warrior", "spec": "Fury" },
+          { "name": "Hitsu", "class": "Paladin", "spec": "Retribution" },
+          { "name": "Waawaa", "class": "Paladin", "spec": "Retribution" },
+          { "name": "Ellenor", "class": "Rogue", "spec": "Combat" },
+          { "name": "rf", "class": "Rogue", "spec": "Combat" },
+          { "name": "kaczor", "class": "Druid", "spec": "Feral" }
+        ],
+        "ranged": [
+          { "name": "Rasta", "class": "Druid", "spec": "Balance" },
+          { "name": "Djubretarka", "class": "Druid", "spec": "Balance" },
+          { "name": "Doloriann", "class": "Hunter", "spec": "Marksmanship" },
+          { "name": "Shatzie", "class": "Hunter", "spec": "Marksmanship" },
+          { "name": "Verbalabuse", "class": "Mage", "spec": "Fire" },
+          { "name": "Tito", "class": "Mage", "spec": "Fire" },
+          { "name": "Halo", "class": "Mage", "spec": "Fire" },
+          { "name": "Seerhona", "class": "Mage", "spec": "Fire" },
+          { "name": "Tropyco", "class": "Warlock", "spec": "Demonology" },
+          { "name": "Schwepsy", "class": "Priest", "spec": "Shadow" },
+          { "name": "Xerxei", "class": "Priest", "spec": "Shadow" }
+        ],
+        "healers": [
+          { "name": "bral", "class": "Paladin", "spec": "Holy" },
+          { "name": "Arius", "class": "Priest", "spec": "Discipline" },
+          { "name": "Paadron", "class": "Shaman", "spec": "Restoration" }
+        ]
+      },
+      "notes": "Bring your flasks",
+      "createdAt": "2026-01-25T10:00:00.000Z"
+    }
+  ]
 }
