@@ -1,0 +1,317 @@
+{
+  "logId": "25-11-01--21-07--Duleedk--Icecrown",
+  "date": "2025-11-01",
+  "logger": "Duleedk",
+  "raid": "Icecrown",
+  "mode": "25H",
+  "url": "https://uwu-logs.xyz/reports/25-11-01--21-07--Duleedk--Icecrown/",
+  "bosses": {
+    "Lord Marrowgar": {
+      "dps": [
+        { "player": "Atreff", "class": "Mage", "dps": 20034.6 },
+        { "player": "Bisclother", "class": "Warrior", "dps": 18397.3 },
+        { "player": "Papawarlock", "class": "Warlock", "dps": 18321.0 },
+        { "player": "Duknukesm", "class": "Warrior", "dps": 17878.2 },
+        { "player": "Halovodka", "class": "Druid", "dps": 17645.8 },
+        { "player": "Felhart", "class": "Warlock", "dps": 17641.8 },
+        { "player": "Diablooss", "class": "Priest", "dps": 17393.6 },
+        { "player": "Stoleh", "class": "Hunter", "dps": 17096.1 },
+        { "player": "Lalakers", "class": "Mage", "dps": 16946.6 },
+        { "player": "Selkoo", "class": "Rogue", "dps": 16351.5 },
+        { "player": "Catalyzer", "class": "Hunter", "dps": 16204.1 },
+        { "player": "Nunay", "class": "Druid", "dps": 16080.5 },
+        { "player": "Duleedk", "class": "Death Knight", "dps": 15713.1 },
+        { "player": "Ninjaku", "class": "Rogue", "dps": 13734.2 },
+        { "player": "Polivach", "class": "Druid", "dps": 12364.8 },
+        { "player": "Markovina", "class": "Druid", "dps": 12150.8 },
+        { "player": "Murtral", "class": "Death Knight", "dps": 3301.0 }
+      ],
+      "healing": [
+        { "player": "Namica", "class": "Paladin", "hps": 33169.1 },
+        { "player": "Lmheal", "class": "Druid", "hps": 20344.3 },
+        { "player": "Palanator", "class": "Priest", "hps": 13267.7 },
+        { "player": "Shildboss", "class": "Priest", "hps": 12260.6 },
+        { "player": "Priestpride", "class": "Priest", "hps": 11360.9 },
+        { "player": "Silvezhina", "class": "Priest", "hps": 10968.9 }
+      ]
+    },
+    "Lady Deathwhisper": {
+      "dps": [
+        { "player": "Catalyzer", "class": "Hunter", "dps": 14844.1 },
+        { "player": "Papawarlock", "class": "Warlock", "dps": 13761.3 },
+        { "player": "Atreff", "class": "Mage", "dps": 13533.6 },
+        { "player": "Bisclother", "class": "Warrior", "dps": 13075.1 },
+        { "player": "Stoleh", "class": "Hunter", "dps": 12942.6 },
+        { "player": "Priestpride", "class": "Priest", "dps": 12922.8 },
+        { "player": "Lalakers", "class": "Mage", "dps": 11817.8 },
+        { "player": "Selkoo", "class": "Rogue", "dps": 11733.4 },
+        { "player": "Felhart", "class": "Warlock", "dps": 11701.2 },
+        { "player": "Silvezhina", "class": "Priest", "dps": 11525.2 },
+        { "player": "Duknukesm", "class": "Warrior", "dps": 10563.7 },
+        { "player": "Palanator", "class": "Paladin", "dps": 10331.6 },
+        { "player": "Duleedk", "class": "Death Knight", "dps": 9942.0 },
+        { "player": "Gangreene", "class": "Warrior", "dps": 9815.3 },
+        { "player": "Ninjaku", "class": "Rogue", "dps": 9592.0 },
+        { "player": "Diablooss", "class": "Paladin", "dps": 9305.8 },
+        { "player": "Nunay", "class": "Druid", "dps": 9071.6 },
+        { "player": "Shildboss", "class": "Priest", "dps": 7816.3 },
+        { "player": "Markovina", "class": "Druid", "dps": 7679.5 },
+        { "player": "Halovodka", "class": "Druid", "dps": 7334.6 },
+        { "player": "Polivach", "class": "Druid", "dps": 5397.5 },
+        { "player": "Waawaapaly", "class": "Paladin", "dps": 2294.6 },
+        { "player": "Murtral", "class": "Death Knight", "dps": 2139.0 }
+      ],
+      "healing": [
+        { "player": "Lmheal", "class": "Druid", "hps": 6539.8 },
+        { "player": "Namica", "class": "Priest", "hps": 6456.9 }
+      ]
+    },
+    "Deathbringer Saurfang": {
+      "dps": [
+        { "player": "Lalakers", "class": "Mage", "dps": 22428.8 },
+        { "player": "Gangreene", "class": "Warrior", "dps": 21985.6 },
+        { "player": "Bisclother", "class": "Warrior", "dps": 21156.8 },
+        { "player": "Catalyzer", "class": "Hunter", "dps": 20784.9 },
+        { "player": "Papawarlock", "class": "Warlock", "dps": 20104.9 },
+        { "player": "Halovodka", "class": "Druid", "dps": 18921.7 },
+        { "player": "Felhart", "class": "Warlock", "dps": 18891.3 },
+        { "player": "Stoleh", "class": "Hunter", "dps": 18603.8 },
+        { "player": "Atreff", "class": "Mage", "dps": 18472.1 },
+        { "player": "Duknukesm", "class": "Warrior", "dps": 18432.4 },
+        { "player": "Ninjaku", "class": "Rogue", "dps": 18352.1 },
+        { "player": "Silvezhina", "class": "Priest", "dps": 18060.2 },
+        { "player": "Nunay", "class": "Druid", "dps": 17890.1 },
+        { "player": "Selkoo", "class": "Rogue", "dps": 17875.6 },
+        { "player": "Markovina", "class": "Druid", "dps": 13411.2 },
+        { "player": "Polivach", "class": "Druid", "dps": 11783.1 }
+      ],
+      "healing": [
+        { "player": "Namica", "class": "Paladin", "hps": 43788.3 },
+        { "player": "Lmheal", "class": "Priest", "hps": 22132.4 },
+        { "player": "Priestpride", "class": "Priest", "hps": 17458.1 },
+        { "player": "Palanator", "class": "Paladin", "hps": 13975.7 },
+        { "player": "Shildboss", "class": "Priest", "hps": 12717.9 },
+        { "player": "Waawaapaly", "class": "Paladin", "hps": 8337.7 },
+        { "player": "Duleedk", "class": "Death Knight", "hps": 1061.9 },
+        { "player": "Murtral", "class": "Death Knight", "hps": 830.7 }
+      ]
+    },
+    "Rotface": {
+      "dps": [
+        { "player": "Lalakers", "class": "Mage", "dps": 22472.9 },
+        { "player": "Bisclother", "class": "Warrior", "dps": 20061.8 },
+        { "player": "Catalyzer", "class": "Hunter", "dps": 19577.9 },
+        { "player": "Atreff", "class": "Mage", "dps": 18681.8 },
+        { "player": "Gangreene", "class": "Warrior", "dps": 18180.8 },
+        { "player": "Palanator", "class": "Paladin", "dps": 17723.8 },
+        { "player": "Papawarlock", "class": "Warlock", "dps": 17660.0 },
+        { "player": "Stoleh", "class": "Hunter", "dps": 17496.8 },
+        { "player": "Felhart", "class": "Warlock", "dps": 17059.0 },
+        { "player": "Nunay", "class": "Druid", "dps": 16698.2 },
+        { "player": "Ninjaku", "class": "Rogue", "dps": 16214.7 },
+        { "player": "Selkoo", "class": "Rogue", "dps": 16038.8 },
+        { "player": "Priestpride", "class": "Priest", "dps": 15922.8 },
+        { "player": "Diablooss", "class": "Paladin", "dps": 15843.0 },
+        { "player": "Silvezhina", "class": "Priest", "dps": 15753.8 },
+        { "player": "Duleedk", "class": "Death Knight", "dps": 15668.3 },
+        { "player": "Halovodka", "class": "Druid", "dps": 15280.9 },
+        { "player": "Duknukesm", "class": "Warrior", "dps": 15224.7 },
+        { "player": "Markovina", "class": "Druid", "dps": 14272.8 },
+        { "player": "Polivach", "class": "Druid", "dps": 13080.2 }
+      ],
+      "healing": [
+        { "player": "Lmheal", "class": "Shaman", "hps": 8238.0 },
+        { "player": "Namica", "class": "Priest", "hps": 7353.3 },
+        { "player": "Waawaapaly", "class": "Paladin", "hps": 1407.4 },
+        { "player": "Shildboss", "class": "Priest", "hps": 368.1 },
+        { "player": "Murtral", "class": "Death Knight", "hps": 134.8 }
+      ]
+    },
+    "Festergut": {
+      "dps": [
+        { "player": "Papawarlock", "class": "Warlock", "dps": 18394.1 },
+        { "player": "Iznabadabada", "class": "Rogue", "dps": 18084.6 },
+        { "player": "Catalyzer", "class": "Hunter", "dps": 17800.1 },
+        { "player": "Gangreene", "class": "Warrior", "dps": 17773.5 },
+        { "player": "Lalakers", "class": "Mage", "dps": 17352.4 },
+        { "player": "Palanator", "class": "Paladin", "dps": 17165.6 },
+        { "player": "Bisclother", "class": "Warrior", "dps": 16990.3 },
+        { "player": "Selkoo", "class": "Rogue", "dps": 16942.6 },
+        { "player": "Atreff", "class": "Mage", "dps": 16695.7 },
+        { "player": "Stoleh", "class": "Hunter", "dps": 16096.5 },
+        { "player": "Priestpride", "class": "Priest", "dps": 15629.3 },
+        { "player": "Duknukesm", "class": "Warrior", "dps": 15274.6 },
+        { "player": "Felhart", "class": "Warlock", "dps": 15091.0 },
+        { "player": "Nunay", "class": "Druid", "dps": 14479.0 },
+        { "player": "Halovodka", "class": "Druid", "dps": 13678.0 },
+        { "player": "Silvezhina", "class": "Priest", "dps": 13627.4 },
+        { "player": "Duleedk", "class": "Death Knight", "dps": 13615.5 },
+        { "player": "Markovina", "class": "Druid", "dps": 12414.0 },
+        { "player": "Polivach", "class": "Druid", "dps": 11838.8 }
+      ],
+      "healing": [
+        { "player": "Namica", "class": "Priest", "hps": 29105.1 },
+        { "player": "Lmheal", "class": "Druid", "hps": 24129.0 },
+        { "player": "Shildboss", "class": "Priest", "hps": 11579.5 },
+        { "player": "Diablooss", "class": "Paladin", "hps": 9858.2 },
+        { "player": "Waawaapaly", "class": "Paladin", "hps": 8600.7 },
+        { "player": "Murtral", "class": "Death Knight", "hps": 3748.8 }
+      ]
+    },
+    "Professor Putricide": {
+      "dps": [
+        { "player": "Papawarlock", "class": "Warlock", "dps": 16660.4 },
+        { "player": "Catalyzer", "class": "Hunter", "dps": 15938.6 },
+        { "player": "Atreff", "class": "Mage", "dps": 15915.1 },
+        { "player": "Lalakers", "class": "Mage", "dps": 15750.0 },
+        { "player": "Felhart", "class": "Warlock", "dps": 15162.6 },
+        { "player": "Priestpride", "class": "Priest", "dps": 14331.7 },
+        { "player": "Silvezhina", "class": "Priest", "dps": 14198.1 },
+        { "player": "Stoleh", "class": "Hunter", "dps": 13814.2 },
+        { "player": "Palanator", "class": "Paladin", "dps": 13557.0 },
+        { "player": "Bisclother", "class": "Warrior", "dps": 13358.5 },
+        { "player": "Duleedk", "class": "Death Knight", "dps": 12657.8 },
+        { "player": "Iznabadabada", "class": "Rogue", "dps": 12393.2 },
+        { "player": "Gangreene", "class": "Warrior", "dps": 12339.3 },
+        { "player": "Halovodka", "class": "Druid", "dps": 11329.8 },
+        { "player": "Duknukesm", "class": "Warrior", "dps": 11051.4 },
+        { "player": "Diablooss", "class": "Paladin", "dps": 10599.4 },
+        { "player": "Polivach", "class": "Druid", "dps": 10073.0 },
+        { "player": "Nunay", "class": "Druid", "dps": 9759.7 },
+        { "player": "Selkoo", "class": "Rogue", "dps": 7735.5 },
+        { "player": "Markovina", "class": "Druid", "dps": 7315.6 },
+        { "player": "Murtral", "class": "Death Knight", "dps": 2606.6 }
+      ],
+      "healing": [
+        { "player": "Namica", "class": "Priest", "hps": 29484.8 },
+        { "player": "Lmheal", "class": "Druid", "hps": 22880.5 },
+        { "player": "Palanator", "class": "Paladin", "hps": 11855.7 },
+        { "player": "Shildboss", "class": "Priest", "hps": 11739.7 },
+        { "player": "Waawaapaly", "class": "Paladin", "hps": 2524.2 }
+      ]
+    },
+    "Blood Prince Council": {
+      "dps": [
+        { "player": "Lalakers", "class": "Mage", "dps": 16433.0 },
+        { "player": "Atreff", "class": "Mage", "dps": 15789.0 },
+        { "player": "Silvezhina", "class": "Priest", "dps": 14347.2 },
+        { "player": "Papawarlock", "class": "Warlock", "dps": 14116.2 },
+        { "player": "Iznabadabada", "class": "Rogue", "dps": 13587.8 },
+        { "player": "Priestpride", "class": "Priest", "dps": 13362.2 },
+        { "player": "Catalyzer", "class": "Hunter", "dps": 13314.5 },
+        { "player": "Gangreene", "class": "Warrior", "dps": 12279.9 },
+        { "player": "Halovodka", "class": "Druid", "dps": 11863.9 },
+        { "player": "Stoleh", "class": "Hunter", "dps": 11856.6 },
+        { "player": "Selkoo", "class": "Rogue", "dps": 11597.6 },
+        { "player": "Duleedk", "class": "Death Knight", "dps": 10838.1 },
+        { "player": "Felhart", "class": "Warlock", "dps": 10826.6 },
+        { "player": "Bisclother", "class": "Warrior", "dps": 10777.8 },
+        { "player": "Palanator", "class": "Paladin", "dps": 10323.5 },
+        { "player": "Nunay", "class": "Druid", "dps": 10275.2 },
+        { "player": "Polivach", "class": "Druid", "dps": 9428.7 },
+        { "player": "Duknukesm", "class": "Warrior", "dps": 9051.3 },
+        { "player": "Diablooss", "class": "Paladin", "dps": 8915.1 },
+        { "player": "Markovina", "class": "Druid", "dps": 7727.0 }
+      ],
+      "healing": [
+        { "player": "Namica", "class": "Priest", "hps": 34433.4 },
+        { "player": "Lmheal", "class": "Druid", "hps": 23152.7 },
+        { "player": "Shildboss", "class": "Priest", "hps": 13412.7 },
+        { "player": "Waawaapaly", "class": "Paladin", "hps": 5724.7 },
+        { "player": "Murtral", "class": "Death Knight", "hps": 899.7 }
+      ]
+    },
+    "Blood-Queen Lanathel": {
+      "dps": [
+        { "player": "Lalakers", "class": "Mage", "dps": 39589.8 },
+        { "player": "Atreff", "class": "Mage", "dps": 29323.0 },
+        { "player": "Duknukesm", "class": "Warrior", "dps": 20408.6 },
+        { "player": "Selkoo", "class": "Rogue", "dps": 18841.8 },
+        { "player": "Papawarlock", "class": "Warlock", "dps": 18794.8 },
+        { "player": "Stoleh", "class": "Hunter", "dps": 17928.7 },
+        { "player": "Bisclother", "class": "Warrior", "dps": 17007.9 },
+        { "player": "Iznabadabada", "class": "Rogue", "dps": 16730.9 },
+        { "player": "Nunay", "class": "Druid", "dps": 16252.9 },
+        { "player": "Silvezhina", "class": "Priest", "dps": 15562.7 },
+        { "player": "Catalyzer", "class": "Hunter", "dps": 15414.8 },
+        { "player": "Felhart", "class": "Warlock", "dps": 15230.6 },
+        { "player": "Palanator", "class": "Paladin", "dps": 14928.8 },
+        { "player": "Priestpride", "class": "Priest", "dps": 14766.9 },
+        { "player": "Duleedk", "class": "Death Knight", "dps": 14452.2 },
+        { "player": "Shildboss", "class": "Paladin", "dps": 14263.9 },
+        { "player": "Diablooss", "class": "Paladin", "dps": 14223.9 },
+        { "player": "Polivach", "class": "Druid", "dps": 13415.2 },
+        { "player": "Markovina", "class": "Druid", "dps": 13182.3 },
+        { "player": "Halovodka", "class": "Druid", "dps": 9871.7 },
+        { "player": "Waawaapaly", "class": "Paladin", "dps": 4832.6 },
+        { "player": "Murtral", "class": "Death Knight", "dps": 3442.4 }
+      ],
+      "healing": [
+        { "player": "Namica", "class": "Priest", "hps": 43060.7 },
+        { "player": "Lmheal", "class": "Druid", "hps": 32019.8 }
+      ]
+    },
+    "Sindragosa": {
+      "dps": [
+        { "player": "Bisclother", "class": "Warrior", "dps": 12210.4 },
+        { "player": "Catalyzer", "class": "Hunter", "dps": 11915.3 },
+        { "player": "Lalakers", "class": "Mage", "dps": 11768.9 },
+        { "player": "Duleedk", "class": "Death Knight", "dps": 11610.5 },
+        { "player": "Stoleh", "class": "Hunter", "dps": 10893.8 },
+        { "player": "Papawarlock", "class": "Warlock", "dps": 10713.2 },
+        { "player": "Diablooss", "class": "Paladin", "dps": 10020.7 },
+        { "player": "Gangreene", "class": "Warrior", "dps": 9957.4 },
+        { "player": "Palanator", "class": "Paladin", "dps": 9663.9 },
+        { "player": "Selkoo", "class": "Rogue", "dps": 9527.7 },
+        { "player": "Iznabadabada", "class": "Rogue", "dps": 9404.9 },
+        { "player": "Atreff", "class": "Mage", "dps": 9295.4 },
+        { "player": "Priestpride", "class": "Priest", "dps": 8861.2 },
+        { "player": "Duknukesm", "class": "Warrior", "dps": 8823.7 },
+        { "player": "Nunay", "class": "Druid", "dps": 8717.6 },
+        { "player": "Halovodka", "class": "Druid", "dps": 8429.2 },
+        { "player": "Silvezhina", "class": "Priest", "dps": 7734.7 },
+        { "player": "Felhart", "class": "Warlock", "dps": 7468.2 },
+        { "player": "Markovina", "class": "Druid", "dps": 6780.4 },
+        { "player": "Shildboss", "class": "Priest", "dps": 5408.4 },
+        { "player": "Polivach", "class": "Druid", "dps": 2281.7 },
+        { "player": "Murtral", "class": "Death Knight", "dps": 1882.9 }
+      ],
+      "healing": [
+        { "player": "Waawaapaly", "class": "Paladin", "hps": 28674.1 },
+        { "player": "Namica", "class": "Paladin", "hps": 19650.1 },
+        { "player": "Lmheal", "class": "Shaman", "hps": 17173.9 }
+      ]
+    },
+    "The Lich King": {
+      "dps": [
+        { "player": "Gangreene", "class": "Warrior", "dps": 12277.5 },
+        { "player": "Papawarlock", "class": "Warlock", "dps": 12266.7 },
+        { "player": "Felhart", "class": "Warlock", "dps": 11392.3 },
+        { "player": "Duknukesm", "class": "Warrior", "dps": 11099.5 },
+        { "player": "Iznabadabada", "class": "Rogue", "dps": 11072.1 },
+        { "player": "Catalyzer", "class": "Hunter", "dps": 11027.1 },
+        { "player": "Bisclother", "class": "Warrior", "dps": 10632.3 },
+        { "player": "Halovodka", "class": "Druid", "dps": 10567.1 },
+        { "player": "Diablooss", "class": "Paladin", "dps": 10310.7 },
+        { "player": "Selkoo", "class": "Rogue", "dps": 10309.3 },
+        { "player": "Duleedk", "class": "Death Knight", "dps": 10268.5 },
+        { "player": "Stoleh", "class": "Hunter", "dps": 10178.5 },
+        { "player": "Atreff", "class": "Mage", "dps": 9995.2 },
+        { "player": "Palanator", "class": "Paladin", "dps": 9502.3 },
+        { "player": "Silvezhina", "class": "Priest", "dps": 9193.5 },
+        { "player": "Lalakers", "class": "Mage", "dps": 8534.5 },
+        { "player": "Markovina", "class": "Druid", "dps": 7215.1 },
+        { "player": "Priestpride", "class": "Priest", "dps": 6543.6 },
+        { "player": "Nunay", "class": "Druid", "dps": 5638.3 }
+      ],
+      "healing": [
+        { "player": "Namica", "class": "Paladin", "hps": 30611.8 },
+        { "player": "Lmheal", "class": "Priest", "hps": 19165.1 },
+        { "player": "Polivach", "class": "Druid", "hps": 13618.6 },
+        { "player": "Shildboss", "class": "Priest", "hps": 11832.7 },
+        { "player": "Waawaapaly", "class": "Paladin", "hps": 4414.4 },
+        { "player": "Murtral", "class": "Death Knight", "hps": 521.0 }
+      ]
+    }
+  }
+}

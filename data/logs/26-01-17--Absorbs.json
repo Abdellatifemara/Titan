@@ -1,0 +1,331 @@
+{
+  "logId": "26-01-17--21-06--Absorbs--Icecrown",
+  "date": "2026-01-17",
+  "logger": "Absorbs",
+  "raid": "Icecrown",
+  "mode": "25H",
+  "note": "19:45 ST LOD - BIS healers",
+  "url": "https://uwu-logs.xyz/reports/26-01-17--21-06--Absorbs--Icecrown/",
+  "bosses": {
+    "Lord Marrowgar": {
+      "dps": [
+        {"player": "Waawaasap", "class": "Rogue", "dps": 21230.2},
+        {"player": "Compadree", "class": "Druid", "dps": 19800.1},
+        {"player": "Cromunist", "class": "Druid", "dps": 19327.6},
+        {"player": "Gangreene", "class": "Warrior", "dps": 18264.8},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 18267.8},
+        {"player": "Schweppsy", "class": "Mage", "dps": 18262.4},
+        {"player": "Jebenimage", "class": "Mage", "dps": 18160.6},
+        {"player": "Lalakers", "class": "Mage", "dps": 18142.7},
+        {"player": "Vacheronn", "class": "Warrior", "dps": 18100.6},
+        {"player": "Jaddonlok", "class": "Hunter", "dps": 18018.1},
+        {"player": "Extetdisco", "class": "Priest", "dps": 17973.2},
+        {"player": "Xduknuke", "class": "Warrior", "dps": 17105.2},
+        {"player": "Rastastabber", "class": "Rogue", "dps": 16997.3},
+        {"player": "Rexhan", "class": "Hunter", "dps": 16581.7},
+        {"player": "Jamesfranco", "class": "Druid", "dps": 16271.0},
+        {"player": "Straxedix", "class": "Warlock", "dps": 16079.0},
+        {"player": "Chrissy", "class": "Priest", "dps": 15856.6},
+        {"player": "Recklesmage", "class": "Mage", "dps": 14935.0}
+      ],
+      "healing": [
+        {"player": "Lastelement", "class": "Shaman", "hps": 8430.7},
+        {"player": "Avaya", "class": "Paladin", "hps": 5978.3},
+        {"player": "Holybreach", "class": "Paladin", "hps": 5667.0},
+        {"player": "Lasttoon", "class": "Paladin", "hps": 2268.0},
+        {"player": "Mecypala", "class": "Paladin", "hps": 707.8},
+        {"player": "Absorbs", "class": "Priest", "hps": 533.9}
+      ]
+    },
+    "Lady Deathwhisper": {
+      "dps": [
+        {"player": "Lastelement", "class": "Shaman", "dps": 20740.3},
+        {"player": "Extetdisco", "class": "Priest", "dps": 19053.1},
+        {"player": "Gangreene", "class": "Warrior", "dps": 17956.8},
+        {"player": "Waawaasap", "class": "Rogue", "dps": 17904.0},
+        {"player": "Jebenimage", "class": "Mage", "dps": 17377.0},
+        {"player": "Recklesmage", "class": "Mage", "dps": 15930.6},
+        {"player": "Jaddonlok", "class": "Hunter", "dps": 15779.7},
+        {"player": "Compadree", "class": "Druid", "dps": 15721.7},
+        {"player": "Vacheronn", "class": "Warrior", "dps": 15298.2},
+        {"player": "Straxedix", "class": "Warlock", "dps": 15045.8},
+        {"player": "Chrissy", "class": "Priest", "dps": 14998.2},
+        {"player": "Cromunist", "class": "Druid", "dps": 14838.9},
+        {"player": "Rastastabber", "class": "Rogue", "dps": 14636.8},
+        {"player": "Rexhan", "class": "Hunter", "dps": 14568.4},
+        {"player": "Jamesfranco", "class": "Druid", "dps": 14303.7},
+        {"player": "Lalakers", "class": "Mage", "dps": 14228.9},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 13866.5},
+        {"player": "Schweppsy", "class": "Mage", "dps": 13176.4},
+        {"player": "Mecypala", "class": "Paladin", "dps": 10914.4},
+        {"player": "Xduknuke", "class": "Warrior", "dps": 5048.3}
+      ],
+      "healing": [
+        {"player": "Holybreach", "class": "Priest", "hps": 29713.1},
+        {"player": "Avaya", "class": "Paladin", "hps": 11682.6},
+        {"player": "Absorbs", "class": "Priest", "hps": 10377.6},
+        {"player": "Lasttoon", "class": "Paladin", "hps": 3963.8},
+        {"player": "Riileboss", "class": "Death Knight", "hps": 972.1}
+      ]
+    },
+    "Deathbringer Saurfang": {
+      "dps": [
+        {"player": "Schweppsy", "class": "Mage", "dps": 22234.8},
+        {"player": "Gangreene", "class": "Warrior", "dps": 21902.7},
+        {"player": "Recklesmage", "class": "Mage", "dps": 21636.3},
+        {"player": "Lalakers", "class": "Mage", "dps": 20980.9},
+        {"player": "Jebenimage", "class": "Mage", "dps": 20883.7},
+        {"player": "Waawaasap", "class": "Rogue", "dps": 20708.0},
+        {"player": "Jaddonlok", "class": "Hunter", "dps": 20292.3},
+        {"player": "Cromunist", "class": "Druid", "dps": 19797.5},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 19273.3},
+        {"player": "Extetdisco", "class": "Priest", "dps": 19248.4},
+        {"player": "Rastastabber", "class": "Rogue", "dps": 19242.8},
+        {"player": "Compadree", "class": "Druid", "dps": 18793.2},
+        {"player": "Vacheronn", "class": "Warrior", "dps": 18216.9},
+        {"player": "Rexhan", "class": "Hunter", "dps": 17849.4},
+        {"player": "Chrissy", "class": "Priest", "dps": 17512.7},
+        {"player": "Xduknuke", "class": "Warrior", "dps": 16609.7},
+        {"player": "Straxedix", "class": "Warlock", "dps": 16081.2},
+        {"player": "Jamesfranco", "class": "Druid", "dps": 15042.9}
+      ],
+      "healing": [
+        {"player": "Holybreach", "class": "Paladin", "hps": 49643.6},
+        {"player": "Lastelement", "class": "Shaman", "hps": 25042.6},
+        {"player": "Lasttoon", "class": "Paladin", "hps": 15076.4},
+        {"player": "Absorbs", "class": "Priest", "hps": 14014.2},
+        {"player": "Avaya", "class": "Paladin", "hps": 6721.9},
+        {"player": "Riileboss", "class": "Death Knight", "hps": 1171.4},
+        {"player": "Mecypala", "class": "Paladin", "hps": 245.2}
+      ]
+    },
+    "Rotface": {
+      "dps": [
+        {"player": "Schweppsy", "class": "Mage", "dps": 22403.6},
+        {"player": "Waawaasap", "class": "Rogue", "dps": 21661.9},
+        {"player": "Jebenimage", "class": "Mage", "dps": 20232.9},
+        {"player": "Lalakers", "class": "Mage", "dps": 19948.4},
+        {"player": "Recklesmage", "class": "Mage", "dps": 19491.8},
+        {"player": "Cromunist", "class": "Druid", "dps": 19407.2},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 19144.2},
+        {"player": "Vacheronn", "class": "Warrior", "dps": 19136.1},
+        {"player": "Extetdisco", "class": "Priest", "dps": 18801.2},
+        {"player": "Jaddonlok", "class": "Hunter", "dps": 18708.4},
+        {"player": "Gangreene", "class": "Warrior", "dps": 18169.1},
+        {"player": "Compadree", "class": "Druid", "dps": 17597.5},
+        {"player": "Rastastabber", "class": "Rogue", "dps": 17585.7},
+        {"player": "Rexhan", "class": "Hunter", "dps": 16376.0},
+        {"player": "Xduknuke", "class": "Warrior", "dps": 16325.9},
+        {"player": "Chrissy", "class": "Priest", "dps": 15575.1},
+        {"player": "Straxedix", "class": "Warlock", "dps": 15461.2},
+        {"player": "Avaya", "class": "Paladin", "dps": 14072.3},
+        {"player": "Mecypala", "class": "Paladin", "dps": 14044.0},
+        {"player": "Jamesfranco", "class": "Druid", "dps": 13604.3},
+        {"player": "Riileboss", "class": "Death Knight", "dps": 3824.2}
+      ],
+      "healing": [
+        {"player": "Holybreach", "class": "Paladin", "hps": 36630.9},
+        {"player": "Lastelement", "class": "Shaman", "hps": 19388.3},
+        {"player": "Extetdisco", "class": "Priest", "hps": 15319.3},
+        {"player": "Avaya", "class": "Paladin", "hps": 15085.6},
+        {"player": "Chrissy", "class": "Priest", "hps": 13304.2},
+        {"player": "Lasttoon", "class": "Paladin", "hps": 4781.0},
+        {"player": "Straxedix", "class": "Warlock", "hps": 3199.0}
+      ]
+    },
+    "Festergut": {
+      "dps": [
+        {"player": "Gangreene", "class": "Warrior", "dps": 20211.6},
+        {"player": "Schweppsy", "class": "Mage", "dps": 20173.6},
+        {"player": "Vacheronn", "class": "Warrior", "dps": 20158.1},
+        {"player": "Lalakers", "class": "Mage", "dps": 20097.6},
+        {"player": "Waawaasap", "class": "Rogue", "dps": 19103.1},
+        {"player": "Cromunist", "class": "Druid", "dps": 19030.2},
+        {"player": "Extetdisco", "class": "Priest", "dps": 18480.0},
+        {"player": "Jaddonlok", "class": "Hunter", "dps": 18302.3},
+        {"player": "Xduknuke", "class": "Warrior", "dps": 18157.7},
+        {"player": "Rastastabber", "class": "Rogue", "dps": 17622.0},
+        {"player": "Recklesmage", "class": "Mage", "dps": 17344.6},
+        {"player": "Jebenimage", "class": "Mage", "dps": 17109.5},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 16814.1},
+        {"player": "Avaya", "class": "Paladin", "dps": 16507.1},
+        {"player": "Compadree", "class": "Druid", "dps": 15615.7},
+        {"player": "Chrissy", "class": "Priest", "dps": 15328.9},
+        {"player": "Rexhan", "class": "Hunter", "dps": 14704.7},
+        {"player": "Mecypala", "class": "Paladin", "dps": 14651.5},
+        {"player": "Straxedix", "class": "Warlock", "dps": 13882.8},
+        {"player": "Jamesfranco", "class": "Druid", "dps": 12731.2}
+      ],
+      "healing": [
+        {"player": "Holybreach", "class": "Priest", "hps": 35099.8},
+        {"player": "Lastelement", "class": "Shaman", "hps": 18362.1},
+        {"player": "Lasttoon", "class": "Paladin", "hps": 3977.1},
+        {"player": "Riileboss", "class": "Death Knight", "hps": 393.6}
+      ]
+    },
+    "Professor Putricide": {
+      "dps": [
+        {"player": "Waawaasap", "class": "Rogue", "dps": 19626.6},
+        {"player": "Schweppsy", "class": "Mage", "dps": 19291.9},
+        {"player": "Jebenimage", "class": "Mage", "dps": 17663.6},
+        {"player": "Extetdisco", "class": "Priest", "dps": 16729.5},
+        {"player": "Lalakers", "class": "Mage", "dps": 16046.5},
+        {"player": "Chrissy", "class": "Priest", "dps": 15794.2},
+        {"player": "Recklesmage", "class": "Mage", "dps": 15064.5},
+        {"player": "Compadree", "class": "Druid", "dps": 15011.3},
+        {"player": "Jaddonlok", "class": "Hunter", "dps": 14750.0},
+        {"player": "Vacheronn", "class": "Warrior", "dps": 14666.8},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 13814.5},
+        {"player": "Gangreene", "class": "Warrior", "dps": 13251.0},
+        {"player": "Xduknuke", "class": "Warrior", "dps": 13097.3},
+        {"player": "Rexhan", "class": "Hunter", "dps": 13027.4},
+        {"player": "Jamesfranco", "class": "Druid", "dps": 12285.0},
+        {"player": "Cromunist", "class": "Druid", "dps": 12149.7},
+        {"player": "Rastastabber", "class": "Rogue", "dps": 11539.7},
+        {"player": "Straxedix", "class": "Warlock", "dps": 11132.2}
+      ],
+      "healing": [
+        {"player": "Holybreach", "class": "Paladin", "hps": 41016.9},
+        {"player": "Lastelement", "class": "Shaman", "hps": 24087.6},
+        {"player": "Absorbs", "class": "Priest", "hps": 15417.5},
+        {"player": "Avaya", "class": "Paladin", "hps": 12277.1},
+        {"player": "Lasttoon", "class": "Paladin", "hps": 2662.1},
+        {"player": "Mecypala", "class": "Paladin", "hps": 363.5},
+        {"player": "Riileboss", "class": "Death Knight", "hps": 191.5}
+      ]
+    },
+    "Blood Prince Council": {
+      "dps": [
+        {"player": "Schweppsy", "class": "Mage", "dps": 19195.1},
+        {"player": "Lalakers", "class": "Mage", "dps": 18765.8},
+        {"player": "Cromunist", "class": "Druid", "dps": 16940.3},
+        {"player": "Jebenimage", "class": "Mage", "dps": 16916.7},
+        {"player": "Recklesmage", "class": "Mage", "dps": 16655.9},
+        {"player": "Waawaasap", "class": "Rogue", "dps": 14909.7},
+        {"player": "Compadree", "class": "Druid", "dps": 14168.9},
+        {"player": "Chrissy", "class": "Priest", "dps": 13754.5},
+        {"player": "Gangreene", "class": "Warrior", "dps": 13370.4},
+        {"player": "Vacheronn", "class": "Warrior", "dps": 12883.2},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 12828.7},
+        {"player": "Rastastabber", "class": "Rogue", "dps": 11402.9},
+        {"player": "Jamesfranco", "class": "Druid", "dps": 11237.8},
+        {"player": "Straxedix", "class": "Warlock", "dps": 11100.1},
+        {"player": "Xduknuke", "class": "Warrior", "dps": 10440.1},
+        {"player": "Avaya", "class": "Paladin", "dps": 10356.2},
+        {"player": "Extetdisco", "class": "Priest", "dps": 9735.6},
+        {"player": "Jaddonlok", "class": "Hunter", "dps": 6829.3},
+        {"player": "Rexhan", "class": "Hunter", "dps": 3306.5},
+        {"player": "Lasttoon", "class": "Paladin", "dps": 2822.6},
+        {"player": "Riileboss", "class": "Death Knight", "dps": 283.7},
+        {"player": "Mecypala", "class": "Paladin", "dps": 50.6},
+        {"player": "Holybreach", "class": "Priest", "dps": 38.5}
+      ],
+      "healing": [
+        {"player": "Holybreach", "class": "Priest", "hps": 41654.2},
+        {"player": "Lastelement", "class": "Shaman", "hps": 19563.5},
+        {"player": "Absorbs", "class": "Priest", "hps": 9287.5}
+      ]
+    },
+    "Blood-Queen Lana'thel": {
+      "dps": [
+        {"player": "Lalakers", "class": "Mage", "dps": 40047.8},
+        {"player": "Extetdisco", "class": "Priest", "dps": 26261.1},
+        {"player": "Rexhan", "class": "Hunter", "dps": 20286.1},
+        {"player": "Jebenimage", "class": "Mage", "dps": 19535.6},
+        {"player": "Recklesmage", "class": "Mage", "dps": 19300.8},
+        {"player": "Schweppsy", "class": "Mage", "dps": 19128.6},
+        {"player": "Compadree", "class": "Druid", "dps": 18590.5},
+        {"player": "Jaddonlok", "class": "Hunter", "dps": 17969.1},
+        {"player": "Waawaasap", "class": "Rogue", "dps": 17710.5},
+        {"player": "Gangreene", "class": "Warrior", "dps": 16527.3},
+        {"player": "Straxedix", "class": "Warlock", "dps": 16387.6},
+        {"player": "Xduknuke", "class": "Warrior", "dps": 16129.4},
+        {"player": "Vacheronn", "class": "Warrior", "dps": 15959.2},
+        {"player": "Rastastabber", "class": "Rogue", "dps": 15621.2},
+        {"player": "Chrissy", "class": "Priest", "dps": 15513.0},
+        {"player": "Cromunist", "class": "Druid", "dps": 15384.3},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 15237.6},
+        {"player": "Avaya", "class": "Paladin", "dps": 14685.4},
+        {"player": "Jamesfranco", "class": "Druid", "dps": 14153.3},
+        {"player": "Mecypala", "class": "Paladin", "dps": 13751.5},
+        {"player": "Lasttoon", "class": "Paladin", "dps": 4947.9},
+        {"player": "Riileboss", "class": "Death Knight", "dps": 3908.4},
+        {"player": "Holybreach", "class": "Priest", "dps": 94.3},
+        {"player": "Lastelement", "class": "Shaman", "dps": 29.9},
+        {"player": "Absorbs", "class": "Priest", "dps": 18.7}
+      ],
+      "healing": [
+        {"player": "Holybreach", "class": "Priest", "hps": 47433.7},
+        {"player": "Lastelement", "class": "Shaman", "hps": 30414.5},
+        {"player": "Absorbs", "class": "Priest", "hps": 20952.3},
+        {"player": "Avaya", "class": "Paladin", "hps": 14175.4},
+        {"player": "Jamesfranco", "class": "Druid", "hps": 14153.3},
+        {"player": "Chrissy", "class": "Priest", "hps": 13315.7},
+        {"player": "Lasttoon", "class": "Paladin", "hps": 6657.9},
+        {"player": "Riileboss", "class": "Death Knight", "hps": 1048.4}
+      ]
+    },
+    "Sindragosa": {
+      "dps": [
+        {"player": "Halodeath", "class": "Death Knight", "dps": 14820.9},
+        {"player": "Lalakers", "class": "Mage", "dps": 14381.9},
+        {"player": "Schweppsy", "class": "Mage", "dps": 13110.8},
+        {"player": "Jaddonlok", "class": "Hunter", "dps": 13070.5},
+        {"player": "Recklesmage", "class": "Mage", "dps": 13010.7},
+        {"player": "Waawaasap", "class": "Rogue", "dps": 12744.0},
+        {"player": "Cromunist", "class": "Druid", "dps": 12516.4},
+        {"player": "Jebenimage", "class": "Mage", "dps": 12501.3},
+        {"player": "Straxedix", "class": "Warlock", "dps": 10973.0},
+        {"player": "Lastelement", "class": "Shaman", "dps": 10232.4},
+        {"player": "Gangreene", "class": "Warrior", "dps": 10308.8},
+        {"player": "Vacheronn", "class": "Warrior", "dps": 10155.6},
+        {"player": "Chrissy", "class": "Priest", "dps": 9179.3},
+        {"player": "Rastastabber", "class": "Rogue", "dps": 9132.8},
+        {"player": "Xduknuke", "class": "Warrior", "dps": 9052.3},
+        {"player": "Rexhan", "class": "Hunter", "dps": 8628.1},
+        {"player": "Avaya", "class": "Paladin", "dps": 8579.3},
+        {"player": "Compadree", "class": "Druid", "dps": 8237.4},
+        {"player": "Mecypala", "class": "Paladin", "dps": 8133.2},
+        {"player": "Jamesfranco", "class": "Druid", "dps": 7311.2}
+      ],
+      "healing": [
+        {"player": "Holybreach", "class": "Paladin", "hps": 10199.7},
+        {"player": "Extetdisco", "class": "Priest", "hps": 8751.4},
+        {"player": "Lasttoon", "class": "Paladin", "hps": 3470.6},
+        {"player": "Absorbs", "class": "Priest", "hps": 1033.2},
+        {"player": "Riileboss", "class": "Death Knight", "hps": 558.4}
+      ]
+    },
+    "The Lich King": {
+      "dps": [
+        {"player": "Schweppsy", "class": "Mage", "dps": 15539.3},
+        {"player": "Gangreene", "class": "Warrior", "dps": 14179.2},
+        {"player": "Extetdisco", "class": "Priest", "dps": 13941.4},
+        {"player": "Waawaasap", "class": "Rogue", "dps": 13713.8},
+        {"player": "Vacheronn", "class": "Warrior", "dps": 12831.1},
+        {"player": "Cromunist", "class": "Druid", "dps": 12737.2},
+        {"player": "Recklesmage", "class": "Mage", "dps": 12286.8},
+        {"player": "Jebenimage", "class": "Mage", "dps": 12222.8},
+        {"player": "Lalakers", "class": "Mage", "dps": 11874.1},
+        {"player": "Rastastabber", "class": "Rogue", "dps": 11515.8},
+        {"player": "Xduknuke", "class": "Warrior", "dps": 11176.8},
+        {"player": "Chrissy", "class": "Priest", "dps": 11123.4},
+        {"player": "Straxedix", "class": "Warlock", "dps": 11113.0},
+        {"player": "Avaya", "class": "Paladin", "dps": 10975.1},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 10834.5},
+        {"player": "Compadree", "class": "Druid", "dps": 10013.9},
+        {"player": "Jaddonlok", "class": "Hunter", "dps": 9157.2},
+        {"player": "Jamesfranco", "class": "Druid", "dps": 9116.5},
+        {"player": "Rexhan", "class": "Hunter", "dps": 9061.3},
+        {"player": "Lastelement", "class": "Shaman", "dps": 8406.5},
+        {"player": "Mecypala", "class": "Paladin", "dps": 8039.9}
+      ],
+      "healing": [
+        {"player": "Absorbs", "class": "Priest", "hps": 10949.6},
+        {"player": "Holybreach", "class": "Priest", "hps": 10130.7},
+        {"player": "Lasttoon", "class": "Paladin", "hps": 1460.1},
+        {"player": "Riileboss", "class": "Death Knight", "hps": 493.2}
+      ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "logId": "26-01-07--20-37--Senrysuta--Icecrown",
+  "date": "2026-01-07",
+  "logger": "Senrysuta",
+  "raid": "Ruby Sanctum",
+  "mode": "25H",
+  "url": "https://uwu-logs.xyz/reports/26-01-07--20-37--Senrysuta--Icecrown/",
+  "bosses": {
+    "Halion": {
+      "dps": [
+        {"player": "Senrysuta", "class": "Druid", "dps": 11818.0},
+        {"player": "Valandrea", "class": "Priest", "dps": 10026.6},
+        {"player": "Legendoo", "class": "Warrior", "dps": 9762.8},
+        {"player": "Zenaratnica", "class": "Priest", "dps": 8335.6},
+        {"player": "Itsmage", "class": "Mage", "dps": 7905.4},
+        {"player": "Lalakers", "class": "Mage", "dps": 6724.9},
+        {"player": "Shotzy", "class": "Hunter", "dps": 5978.4},
+        {"player": "Ndmiibogaine", "class": "Warlock", "dps": 5922.6},
+        {"player": "Filyy", "class": "Priest", "dps": 5389.0},
+        {"player": "Holyshizter", "class": "Hunter", "dps": 5329.0},
+        {"player": "Guerrerro", "class": "Warrior", "dps": 5223.7},
+        {"player": "Waawaashadow", "class": "Priest", "dps": 5082.7},
+        {"player": "Kaydela", "class": "Rogue", "dps": 4900.4},
+        {"player": "Mecydudu", "class": "Druid", "dps": 4812.5},
+        {"player": "Reckles", "class": "Hunter", "dps": 4330.5},
+        {"player": "Bkara", "class": "Warrior", "dps": 2860.6},
+        {"player": "Verdinhotank", "class": "Death Knight", "dps": 2821.9},
+        {"player": "Mactalla", "class": "Death Knight", "dps": 2693.0},
+        {"player": "Tsinish", "class": "Death Knight", "dps": 2059.5},
+        {"player": "Rilewarr", "class": "Warrior", "dps": 1862.7},
+        {"player": "Cocobill", "class": "Rogue", "dps": 1612.1},
+        {"player": "Warka", "class": "Priest", "dps": 1269.1},
+        {"player": "Murtral", "class": "Death Knight", "dps": 1154.8},
+        {"player": "Lowftw", "class": "Rogue", "dps": 658.2},
+        {"player": "Baladin", "class": "Paladin", "dps": 648.1}
+      ],
+      "healing": [
+        {"player": "Holymastery", "class": "Priest", "hps": 7124.9},
+        {"player": "Lastelement", "class": "Shaman", "hps": 4159.1},
+        {"player": "Hesiod", "class": "Priest", "hps": 3121.6},
+        {"player": "Rastatroll", "class": "Shaman", "hps": 3160.3},
+        {"player": "Yunac", "class": "Druid", "hps": 3100.5},
+        {"player": "Holypalaswe", "class": "Priest", "hps": 3057.0},
+        {"player": "Otrovee", "class": "Druid", "hps": 2143.8}
+      ]
+    }
+  }
+}

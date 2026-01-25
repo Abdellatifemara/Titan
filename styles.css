@@ -1,0 +1,1339 @@
+/* =====================================================
+   TITAN GUILD - WoW WotLK Warmane
+   HORDE Theme - Red/Fire Design System
+   ===================================================== */
+
+/* CSS Reset & Base */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Core Colors - HORDE THEME */
+    --bg-primary: #0a0608;
+    --bg-secondary: #120a0c;
+    --bg-tertiary: #1a0e10;
+    --bg-card: #150c0e;
+    --bg-card-hover: #1e1214;
+
+    /* Horde Accent Colors */
+    --horde-red: #c41f3b;
+    --horde-red-light: #e63950;
+    --horde-red-dark: #8c1429;
+    --fire-orange: #ff6b35;
+    --fire-yellow: #ffa500;
+    --ember: #ff4500;
+    --blood: #8b0000;
+
+    /* Secondary Accents */
+    --ice-blue: #00d4ff;
+    --frost: #a5f3fc;
+    --arcane-purple: #a855f7;
+
+    /* Class Colors - WotLK */
+    --class-warrior: #C79C6E;
+    --class-paladin: #F58CBA;
+    --class-hunter: #ABD473;
+    --class-rogue: #FFF569;
+    --class-priest: #FFFFFF;
+    --class-deathknight: #C41F3B;
+    --class-shaman: #0070DE;
+    --class-mage: #69CCF0;
+    --class-warlock: #9482C9;
+    --class-druid: #FF7D0A;
+
+    /* WoW Class Icon URLs */
+    --icon-warrior: url('https://raw.githubusercontent.com/orourkek/Wow-Icons/master/images/class/64/warrior.png');
+    --icon-paladin: url('https://raw.githubusercontent.com/orourkek/Wow-Icons/master/images/class/64/paladin.png');
+    --icon-hunter: url('https://raw.githubusercontent.com/orourkek/Wow-Icons/master/images/class/64/hunter.png');
+    --icon-rogue: url('https://raw.githubusercontent.com/orourkek/Wow-Icons/master/images/class/64/rogue.png');
+    --icon-priest: url('https://raw.githubusercontent.com/orourkek/Wow-Icons/master/images/class/64/priest.png');
+    --icon-deathknight: url('https://raw.githubusercontent.com/orourkek/Wow-Icons/master/images/class/64/deathknight.png');
+    --icon-shaman: url('https://raw.githubusercontent.com/orourkek/Wow-Icons/master/images/class/64/shaman.png');
+    --icon-mage: url('https://raw.githubusercontent.com/orourkek/Wow-Icons/master/images/class/64/mage.png');
+    --icon-warlock: url('https://raw.githubusercontent.com/orourkek/Wow-Icons/master/images/class/64/warlock.png');
+    --icon-druid: url('https://raw.githubusercontent.com/orourkek/Wow-Icons/master/images/class/64/druid.png');
+
+    /* Role Colors */
+    --role-tank: #3b82f6;
+    --role-healer: #22c55e;
+    --role-dps: #ef4444;
+    --role-melee: #f97316;
+    --role-ranged: #a855f7;
+
+    /* Status Colors */
+    --status-confirmed: #22c55e;
+    --status-tentative: #eab308;
+    --status-declined: #ef4444;
+    --status-late: #f97316;
+    --status-bench: #6b7280;
+
+    /* Text Colors */
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+
+    /* Borders & Shadows */
+    --border-subtle: rgba(196, 31, 59, 0.1);
+    --border-medium: rgba(196, 31, 59, 0.2);
+    --border-strong: rgba(196, 31, 59, 0.4);
+    --shadow-glow: 0 0 40px rgba(196, 31, 59, 0.2);
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.5);
+
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 9999px;
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 400ms ease;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar - Horde Red */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--horde-red), var(--horde-red-dark));
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--horde-red-light);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h4 { font-size: 1.25rem; }
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* =====================================================
+   LAYOUT COMPONENTS
+   ===================================================== */
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+}
+
+.container-fluid {
+    width: 100%;
+    padding: 0 var(--space-xl);
+}
+
+/* =====================================================
+   NAVIGATION
+   ===================================================== */
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(10, 6, 8, 0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+    transition: all var(--transition-base);
+}
+
+.nav.scrolled {
+    background: rgba(10, 6, 8, 0.98);
+    box-shadow: 0 4px 30px rgba(196, 31, 59, 0.15);
+}
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    padding: 0 var(--space-xl);
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.nav-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    border: 2px solid var(--horde-red);
+    box-shadow: 0 0 20px rgba(196, 31, 59, 0.4);
+}
+
+.nav-logo-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--horde-red);
+    box-shadow: 0 0 20px rgba(196, 31, 59, 0.4);
+    background: linear-gradient(135deg, #c41f3b 0%, #8c1429 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.nav-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--horde-red-light), var(--fire-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 3px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    list-style: none;
+}
+
+.nav-link {
+    padding: var(--space-sm) var(--space-lg);
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+}
+
+.nav-link.active {
+    color: var(--horde-red-light);
+    background: rgba(196, 31, 59, 0.15);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: var(--space-lg);
+    right: var(--space-lg);
+    height: 2px;
+    background: var(--horde-red);
+    border-radius: 2px;
+}
+
+.nav-cta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+/* Mobile Nav Toggle */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-sm);
+}
+
+.nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all var(--transition-fast);
+}
+
+/* =====================================================
+   BUTTONS - HORDE STYLE
+   ===================================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-lg);
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left var(--transition-slow);
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--horde-red), var(--horde-red-dark));
+    color: white;
+    box-shadow: 0 4px 20px rgba(196, 31, 59, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(196, 31, 59, 0.5);
+    background: linear-gradient(135deg, var(--horde-red-light), var(--horde-red));
+}
+
+.btn-secondary {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-medium);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--horde-red);
+    color: var(--horde-red-light);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+}
+
+.btn-ghost:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.btn-lg {
+    padding: var(--space-md) var(--space-xl);
+    font-size: 1rem;
+}
+
+.btn-sm {
+    padding: var(--space-xs) var(--space-md);
+    font-size: 0.8rem;
+}
+
+.btn-icon {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: var(--radius-md);
+}
+
+/* =====================================================
+   CARDS
+   ===================================================== */
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.card:hover {
+    border-color: var(--border-medium);
+    box-shadow: var(--shadow-card);
+}
+
+.card-header {
+    padding: var(--space-lg);
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-body {
+    padding: var(--space-lg);
+}
+
+.card-footer {
+    padding: var(--space-lg);
+    border-top: 1px solid var(--border-subtle);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* =====================================================
+   HERO SECTION - HORDE FIRE THEME
+   ===================================================== */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 70px;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 30% 20%, rgba(196, 31, 59, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(139, 0, 0, 0.08) 0%, transparent 60%),
+        linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    z-index: -2;
+}
+
+.hero-particles {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--horde-red);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particle-float 10s infinite;
+    box-shadow: 0 0 10px var(--horde-red);
+}
+
+@keyframes particle-float {
+    0% { opacity: 0; transform: translateY(100vh) scale(0); }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { opacity: 0; transform: translateY(-10vh) scale(1); }
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 900px;
+    padding: var(--space-xl);
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-lg);
+    background: rgba(196, 31, 59, 0.15);
+    border: 1px solid rgba(196, 31, 59, 0.4);
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--horde-red-light);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: var(--space-xl);
+}
+
+.hero-badge .pulse {
+    width: 8px;
+    height: 8px;
+    background: var(--horde-red);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.hero-logo {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto var(--space-xl);
+    border-radius: var(--radius-xl);
+    border: 4px solid var(--horde-red);
+    box-shadow: 0 0 60px rgba(196, 31, 59, 0.4), 0 0 120px rgba(196, 31, 59, 0.2);
+    animation: logoGlow 3s ease-in-out infinite;
+}
+
+@keyframes logoGlow {
+    0%, 100% { box-shadow: 0 0 60px rgba(196, 31, 59, 0.4), 0 0 120px rgba(196, 31, 59, 0.2); }
+    50% { box-shadow: 0 0 80px rgba(196, 31, 59, 0.6), 0 0 150px rgba(196, 31, 59, 0.3); }
+}
+
+.hero-logo-text {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto var(--space-xl);
+    border-radius: var(--radius-xl);
+    border: 4px solid var(--horde-red);
+    box-shadow: 0 0 60px rgba(196, 31, 59, 0.4), 0 0 120px rgba(196, 31, 59, 0.2);
+    animation: logoGlow 3s ease-in-out infinite;
+    background: linear-gradient(135deg, #c41f3b 0%, #8c1429 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 6rem;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
+
+.hero-title {
+    font-size: clamp(4rem, 12vw, 10rem);
+    font-weight: 900;
+    line-height: 0.9;
+    margin-bottom: var(--space-lg);
+    background: linear-gradient(180deg, #fff 0%, var(--horde-red-light) 40%, var(--fire-orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 80px rgba(196, 31, 59, 0.4);
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% { filter: drop-shadow(0 0 20px rgba(196, 31, 59, 0.4)); }
+    50% { filter: drop-shadow(0 0 40px rgba(196, 31, 59, 0.6)); }
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-cta {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3xl);
+    margin-top: var(--space-3xl);
+    padding-top: var(--space-2xl);
+    border-top: 1px solid var(--border-subtle);
+}
+
+.hero-stat {
+    text-align: center;
+}
+
+.hero-stat-value {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--horde-red-light);
+    line-height: 1;
+}
+
+.hero-stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: var(--space-xs);
+}
+
+/* =====================================================
+   WOW CLASS ICONS
+   ===================================================== */
+
+.class-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #000;
+    flex-shrink: 0;
+    border: 1px solid rgba(0,0,0,0.3);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.class-icon.lg {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+    border-radius: var(--radius-md);
+}
+
+.class-icon.xl {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+}
+
+/* Class text colors */
+.class-warrior { color: var(--class-warrior); }
+.class-paladin { color: var(--class-paladin); }
+.class-hunter { color: var(--class-hunter); }
+.class-rogue { color: var(--class-rogue); }
+.class-priest { color: var(--class-priest); }
+.class-deathknight { color: var(--class-deathknight); }
+.class-shaman { color: var(--class-shaman); }
+.class-mage { color: var(--class-mage); }
+.class-warlock { color: var(--class-warlock); }
+.class-druid { color: var(--class-druid); }
+
+/* =====================================================
+   RAID SIGNUP SYSTEM
+   ===================================================== */
+
+.raids-page {
+    padding-top: 90px;
+    min-height: 100vh;
+}
+
+.page-header {
+    padding: var(--space-3xl) 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-subtle);
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
+.page-header h1 {
+    margin-bottom: var(--space-md);
+    background: linear-gradient(135deg, var(--horde-red-light), var(--text-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Raids Grid */
+.raids-container {
+    padding: var(--space-3xl) 0;
+}
+
+.raids-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+    flex-wrap: wrap;
+}
+
+.raids-filters {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.filter-btn {
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: rgba(196, 31, 59, 0.15);
+    border-color: var(--horde-red);
+    color: var(--horde-red-light);
+}
+
+.raids-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: var(--space-xl);
+}
+
+/* Raid Card */
+.raid-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.raid-card:hover {
+    border-color: var(--horde-red-dark);
+    box-shadow: 0 8px 40px rgba(196, 31, 59, 0.15);
+    transform: translateY(-4px);
+}
+
+.raid-card-header {
+    padding: var(--space-lg);
+    background: linear-gradient(135deg, rgba(196, 31, 59, 0.1), transparent);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.raid-card-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+}
+
+.raid-card-title h3 {
+    font-size: 1.3rem;
+    color: var(--horde-red-light);
+}
+
+.raid-difficulty {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: var(--radius-sm);
+}
+
+.raid-difficulty.heroic {
+    background: rgba(168, 85, 247, 0.2);
+    color: var(--arcane-purple);
+    border: 1px solid var(--arcane-purple);
+}
+
+.raid-difficulty.normal {
+    background: rgba(34, 197, 94, 0.2);
+    color: var(--status-confirmed);
+    border: 1px solid var(--status-confirmed);
+}
+
+.raid-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.raid-meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.raid-meta-item svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+}
+
+.raid-card-body {
+    padding: var(--space-lg);
+}
+
+/* Role Bars */
+.role-bars {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.role-bar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.role-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.role-icon.tank {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--role-tank);
+    border: 1px solid var(--role-tank);
+}
+
+.role-icon.healer {
+    background: rgba(34, 197, 94, 0.2);
+    color: var(--role-healer);
+    border: 1px solid var(--role-healer);
+}
+
+.role-icon.dps {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--role-dps);
+    border: 1px solid var(--role-dps);
+}
+
+.role-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-xs);
+}
+
+.role-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.role-count {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.role-progress {
+    height: 6px;
+    background: var(--bg-primary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.role-progress-bar {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width var(--transition-base);
+}
+
+.role-progress-bar.tank { background: var(--role-tank); }
+.role-progress-bar.healer { background: var(--role-healer); }
+.role-progress-bar.dps { background: linear-gradient(90deg, var(--role-melee), var(--role-ranged)); }
+
+/* Signed Players Preview */
+.signed-preview {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--bg-primary);
+    border-radius: var(--radius-md);
+}
+
+.signed-avatars {
+    display: flex;
+    margin-right: var(--space-sm);
+}
+
+.signed-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--bg-card);
+    margin-left: -8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.signed-avatar:first-child {
+    margin-left: 0;
+}
+
+.signed-count {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.signed-count strong {
+    color: var(--horde-red-light);
+}
+
+.raid-card-footer {
+    padding: var(--space-lg);
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    gap: var(--space-md);
+}
+
+.raid-card-footer .btn {
+    flex: 1;
+}
+
+/* =====================================================
+   GUILD PAGE
+   ===================================================== */
+
+.guild-hero {
+    padding: var(--space-3xl) 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.guild-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(196, 31, 59, 0.15) 0%, transparent 60%);
+    z-index: -1;
+}
+
+.guild-emblem {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto var(--space-xl);
+    border-radius: var(--radius-xl);
+    border: 4px solid var(--horde-red);
+    box-shadow: 0 0 60px rgba(196, 31, 59, 0.4);
+    object-fit: cover;
+}
+
+.guild-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+    padding: var(--space-3xl) 0;
+}
+
+.info-card {
+    padding: var(--space-xl);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+}
+
+.info-card h3 {
+    font-size: 1.25rem;
+    color: var(--horde-red-light);
+    margin-bottom: var(--space-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+/* Roster Section */
+.roster-container {
+    padding: var(--space-3xl) 0;
+}
+
+.roster-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-2xl);
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+}
+
+.roster-search {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.search-input {
+    padding: var(--space-sm) var(--space-lg);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-full);
+    color: var(--text-primary);
+    min-width: 250px;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--horde-red);
+}
+
+.roster-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.roster-table th,
+.roster-table td {
+    padding: var(--space-md) var(--space-lg);
+    text-align: left;
+}
+
+.roster-table th {
+    background: var(--bg-tertiary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.roster-table tr {
+    border-bottom: 1px solid var(--border-subtle);
+    transition: background var(--transition-fast);
+}
+
+.roster-table tr:hover {
+    background: var(--bg-tertiary);
+}
+
+.roster-table tr:last-child {
+    border-bottom: none;
+}
+
+.player-cell {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.player-rank {
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.player-rank.gm {
+    background: linear-gradient(135deg, var(--horde-red), var(--horde-red-dark));
+    color: white;
+}
+
+.player-rank.officer {
+    background: rgba(168, 85, 247, 0.2);
+    color: var(--arcane-purple);
+}
+
+.player-rank.raider {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--role-tank);
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.footer {
+    padding: var(--space-3xl) 0 var(--space-xl);
+    border-top: 1px solid var(--border-subtle);
+    background: var(--bg-secondary);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr);
+    gap: var(--space-3xl);
+    margin-bottom: var(--space-2xl);
+}
+
+.footer-brand {
+    max-width: 300px;
+}
+
+.footer-brand .nav-brand {
+    margin-bottom: var(--space-lg);
+}
+
+.footer-brand p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.footer-links h4 {
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--horde-red-light);
+    margin-bottom: var(--space-lg);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-links ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--horde-red-light);
+}
+
+.footer-social {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.social-icon:hover {
+    background: var(--horde-red);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+}
+
+.footer-bottom p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(10, 6, 8, 0.98);
+        flex-direction: column;
+        padding: var(--space-lg);
+        gap: 0;
+        border-bottom: 1px solid var(--border-subtle);
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-link {
+        display: block;
+        padding: var(--space-md) var(--space-lg);
+        border-radius: 0;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .nav-cta {
+        display: none;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: var(--space-xl);
+    }
+
+    .raids-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-brand {
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --space-xl: 1.5rem;
+        --space-2xl: 2rem;
+        --space-3xl: 2.5rem;
+    }
+}
+
+/* =====================================================
+   UTILITY CLASSES
+   ===================================================== */
+
+.text-horde { color: var(--horde-red-light); }
+.text-muted { color: var(--text-muted); }
+.text-center { text-align: center; }
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+.mt-auto { margin-top: auto; }
+.hidden { display: none; }
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.slide-up {
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

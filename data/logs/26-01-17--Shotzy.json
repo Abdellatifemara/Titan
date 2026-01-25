@@ -1,0 +1,309 @@
+{
+  "logId": "26-01-17--18-42--Shotzy--Icecrown",
+  "date": "2026-01-17",
+  "logger": "Shotzy",
+  "raid": "Icecrown",
+  "mode": "25H",
+  "note": "1st LOD",
+  "url": "https://uwu-logs.xyz/reports/26-01-17--18-42--Shotzy--Icecrown/",
+  "bosses": {
+    "Lord Marrowgar": {
+      "dps": [
+        {"player": "Cromaniac", "class": "Mage", "dps": 23079.8},
+        {"player": "Dafuan", "class": "Warrior", "dps": 22493.2},
+        {"player": "Brule", "class": "Mage", "dps": 20746.4},
+        {"player": "Izgoreo", "class": "Mage", "dps": 20341.7},
+        {"player": "Snippala", "class": "Priest", "dps": 20240.3},
+        {"player": "Panchis", "class": "Druid", "dps": 19681.0},
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 18914.7},
+        {"player": "Warka", "class": "Priest", "dps": 18410.2},
+        {"player": "Panetone", "class": "Druid", "dps": 18197.8},
+        {"player": "Mageforte", "class": "Mage", "dps": 18061.5},
+        {"player": "Xerxlock", "class": "Warlock", "dps": 17615.4},
+        {"player": "Shotzy", "class": "Hunter", "dps": 16589.8},
+        {"player": "Paadron", "class": "Shaman", "dps": 16334.8},
+        {"player": "Parhasard", "class": "Druid", "dps": 15936.9},
+        {"player": "Saverasta", "class": "Priest", "dps": 15928.1},
+        {"player": "Strangedude", "class": "Death Knight", "dps": 14823.3},
+        {"player": "Tryxer", "class": "Priest", "dps": 14599.8},
+        {"player": "Hogback", "class": "Death Knight", "dps": 14522.5},
+        {"player": "Bralson", "class": "Rogue", "dps": 13919.6},
+        {"player": "Trollfury", "class": "Warrior", "dps": 13658.0},
+        {"player": "Cylaxr", "class": "Rogue", "dps": 13465.8},
+        {"player": "Chibzhunt", "class": "Hunter", "dps": 12308.8}
+      ],
+      "healing": [
+        {"player": "Luminaryx", "class": "Priest", "hps": 57758.1},
+        {"player": "Jebenihpala", "class": "Paladin", "hps": 6131.1},
+        {"player": "Howiscalled", "class": "Death Knight", "hps": 718.0}
+      ]
+    },
+    "Lady Deathwhisper": {
+      "dps": [
+        {"player": "Paadron", "class": "Shaman", "dps": 18626.5},
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 17248.0},
+        {"player": "Dafuan", "class": "Warrior", "dps": 16381.9},
+        {"player": "Cromaniac", "class": "Mage", "dps": 15891.2},
+        {"player": "Warka", "class": "Priest", "dps": 14478.3},
+        {"player": "Panchis", "class": "Druid", "dps": 14174.0},
+        {"player": "Parhasard", "class": "Druid", "dps": 13567.2},
+        {"player": "Shotzy", "class": "Hunter", "dps": 13156.5},
+        {"player": "Izgoreo", "class": "Mage", "dps": 12913.1},
+        {"player": "Mageforte", "class": "Mage", "dps": 12618.5},
+        {"player": "Brule", "class": "Mage", "dps": 12504.8},
+        {"player": "Snippala", "class": "Paladin", "dps": 12190.4},
+        {"player": "Strangedude", "class": "Death Knight", "dps": 11831.9},
+        {"player": "Xerxlock", "class": "Warlock", "dps": 11794.7},
+        {"player": "Panetone", "class": "Druid", "dps": 10693.0},
+        {"player": "Cylaxr", "class": "Rogue", "dps": 10044.6},
+        {"player": "Tryxer", "class": "Paladin", "dps": 9753.6},
+        {"player": "Bralson", "class": "Rogue", "dps": 9406.0},
+        {"player": "Trollfury", "class": "Warrior", "dps": 8717.2},
+        {"player": "Hogback", "class": "Death Knight", "dps": 8673.1},
+        {"player": "Chibzhunt", "class": "Hunter", "dps": 7055.8}
+      ],
+      "healing": [
+        {"player": "Luminaryx", "class": "Paladin", "hps": 31486.7},
+        {"player": "Saverasta", "class": "Priest", "hps": 8929.8},
+        {"player": "Jebenihpala", "class": "Paladin", "hps": 3268.3}
+      ]
+    },
+    "Deathbringer Saurfang": {
+      "dps": [
+        {"player": "Brule", "class": "Mage", "dps": 23958.7},
+        {"player": "Cromaniac", "class": "Mage", "dps": 23161.5},
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 22136.7},
+        {"player": "Panchis", "class": "Druid", "dps": 21490.1},
+        {"player": "Izgoreo", "class": "Mage", "dps": 20536.6},
+        {"player": "Warka", "class": "Priest", "dps": 19145.4},
+        {"player": "Parhasard", "class": "Druid", "dps": 19049.9},
+        {"player": "Paadron", "class": "Shaman", "dps": 18992.1},
+        {"player": "Panetone", "class": "Druid", "dps": 18919.6},
+        {"player": "Xerxlock", "class": "Warlock", "dps": 18631.7},
+        {"player": "Shotzy", "class": "Hunter", "dps": 18142.5},
+        {"player": "Mageforte", "class": "Mage", "dps": 18106.8},
+        {"player": "Trollfury", "class": "Warrior", "dps": 16733.6},
+        {"player": "Tryxer", "class": "Paladin", "dps": 16094.6},
+        {"player": "Cylaxr", "class": "Rogue", "dps": 16076.4},
+        {"player": "Bralson", "class": "Rogue", "dps": 15838.5},
+        {"player": "Snippala", "class": "Paladin", "dps": 14447.7},
+        {"player": "Hogback", "class": "Death Knight", "dps": 14284.5},
+        {"player": "Chibzhunt", "class": "Hunter", "dps": 14230.4},
+        {"player": "Strangedude", "class": "Death Knight", "dps": 10350.6},
+        {"player": "Dafuan", "class": "Warrior", "dps": 7191.5}
+      ],
+      "healing": [
+        {"player": "Luminaryrx", "class": "Paladin", "hps": 59476.3},
+        {"player": "Saverasta", "class": "Priest", "hps": 16022.4},
+        {"player": "Jebenihpala", "class": "Paladin", "hps": 8356.3},
+        {"player": "Howiscalled", "class": "Death Knight", "hps": 634.9}
+      ]
+    },
+    "Rotface": {
+      "dps": [
+        {"player": "Brule", "class": "Mage", "dps": 20643.6},
+        {"player": "Cromaniac", "class": "Mage", "dps": 20057.1},
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 19604.7},
+        {"player": "Panchis", "class": "Druid", "dps": 19439.3},
+        {"player": "Warka", "class": "Priest", "dps": 19008.4},
+        {"player": "Snippala", "class": "Paladin", "dps": 18983.0},
+        {"player": "Izgoreo", "class": "Mage", "dps": 17644.7},
+        {"player": "Parhasard", "class": "Druid", "dps": 17608.7},
+        {"player": "Tryxer", "class": "Paladin", "dps": 17357.0},
+        {"player": "Cylaxr", "class": "Rogue", "dps": 17166.8},
+        {"player": "Mageforte", "class": "Mage", "dps": 17110.6},
+        {"player": "Shotzy", "class": "Hunter", "dps": 17094.7},
+        {"player": "Panetone", "class": "Druid", "dps": 16920.1},
+        {"player": "Xerxlock", "class": "Warlock", "dps": 16713.1},
+        {"player": "Strangedude", "class": "Death Knight", "dps": 16222.7},
+        {"player": "Trollfury", "class": "Warrior", "dps": 15387.6},
+        {"player": "Bralson", "class": "Rogue", "dps": 15309.6},
+        {"player": "Hogback", "class": "Death Knight", "dps": 13929.7},
+        {"player": "Chibzhunt", "class": "Hunter", "dps": 13817.6}
+      ],
+      "healing": [
+        {"player": "Luminaryx", "class": "Paladin", "hps": 39589.2},
+        {"player": "Saverasta", "class": "Priest", "hps": 13509.7},
+        {"player": "Jebenihpala", "class": "Paladin", "hps": 9789.5}
+      ]
+    },
+    "Festergut": {
+      "dps": [
+        {"player": "Brule", "class": "Mage", "dps": 20526.8},
+        {"player": "Cromaniac", "class": "Mage", "dps": 19855.8},
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 19369.5},
+        {"player": "Panchis", "class": "Druid", "dps": 18967.8},
+        {"player": "Snippala", "class": "Paladin", "dps": 18866.9},
+        {"player": "Parhasard", "class": "Druid", "dps": 16958.7},
+        {"player": "Shotzy", "class": "Hunter", "dps": 16630.6},
+        {"player": "Warka", "class": "Priest", "dps": 15894.1},
+        {"player": "Mageforte", "class": "Mage", "dps": 15496.4},
+        {"player": "Tryxer", "class": "Paladin", "dps": 15386.1},
+        {"player": "Panetone", "class": "Druid", "dps": 15217.0},
+        {"player": "Hahldoin", "class": "Warrior", "dps": 14993.6},
+        {"player": "Chibzhunt", "class": "Hunter", "dps": 14739.0},
+        {"player": "Strangedude", "class": "Death Knight", "dps": 14725.9},
+        {"player": "Cylaxr", "class": "Rogue", "dps": 14387.5},
+        {"player": "Izgoreo", "class": "Mage", "dps": 14158.6},
+        {"player": "Hogback", "class": "Death Knight", "dps": 13559.6},
+        {"player": "Trollfury", "class": "Warrior", "dps": 13312.8},
+        {"player": "Xerxlock", "class": "Warlock", "dps": 13174.3},
+        {"player": "Bralson", "class": "Rogue", "dps": 11540.7}
+      ],
+      "healing": [
+        {"player": "Luminaryx", "class": "Priest", "hps": 43458.6},
+        {"player": "Saverasta", "class": "Priest", "hps": 14592.6},
+        {"player": "Jebenihpala", "class": "Paladin", "hps": 4525.5},
+        {"player": "Howiscalled", "class": "Death Knight", "hps": 1585.1}
+      ]
+    },
+    "Professor Putricide": {
+      "dps": [
+        {"player": "Warka", "class": "Priest", "dps": 17100.0},
+        {"player": "Brule", "class": "Mage", "dps": 16259.9},
+        {"player": "Panchis", "class": "Druid", "dps": 16030.9},
+        {"player": "Izgoreo", "class": "Mage", "dps": 15778.1},
+        {"player": "Mageforte", "class": "Mage", "dps": 15135.8},
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 14676.5},
+        {"player": "Hahldoin", "class": "Warrior", "dps": 14353.3},
+        {"player": "Xerxlock", "class": "Warlock", "dps": 14257.1},
+        {"player": "Cromaniac", "class": "Mage", "dps": 14003.7},
+        {"player": "Shotzy", "class": "Hunter", "dps": 13226.8},
+        {"player": "Strangedude", "class": "Death Knight", "dps": 13152.8},
+        {"player": "Parhasard", "class": "Druid", "dps": 12842.2},
+        {"player": "Trollfury", "class": "Warrior", "dps": 12815.4},
+        {"player": "Panetone", "class": "Druid", "dps": 12797.6},
+        {"player": "Snippala", "class": "Paladin", "dps": 11751.8},
+        {"player": "Hogback", "class": "Death Knight", "dps": 10207.9},
+        {"player": "Tryxer", "class": "Paladin", "dps": 9673.5},
+        {"player": "Chibzhunt", "class": "Hunter", "dps": 9573.5},
+        {"player": "Cylaxr", "class": "Rogue", "dps": 7334.3},
+        {"player": "Bralson", "class": "Rogue", "dps": 7108.4}
+      ],
+      "healing": [
+        {"player": "Saverasta", "class": "Priest", "hps": 10850.2},
+        {"player": "Paadron", "class": "Shaman", "hps": 10530.6},
+        {"player": "Luminaryx", "class": "Priest", "hps": 8308.9},
+        {"player": "Jebenihpala", "class": "Paladin", "hps": 2457.9}
+      ]
+    },
+    "Blood Prince Council": {
+      "dps": [
+        {"player": "Brule", "class": "Mage", "dps": 20673.6},
+        {"player": "Panetone", "class": "Druid", "dps": 17107.3},
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 16807.6},
+        {"player": "Panchis", "class": "Druid", "dps": 16643.8},
+        {"player": "Izgoreo", "class": "Mage", "dps": 15607.0},
+        {"player": "Warka", "class": "Priest", "dps": 15497.0},
+        {"player": "Mageforte", "class": "Mage", "dps": 14221.3},
+        {"player": "Cromaniac", "class": "Mage", "dps": 14101.7},
+        {"player": "Snippala", "class": "Paladin", "dps": 13688.8},
+        {"player": "Parhasard", "class": "Druid", "dps": 13222.7},
+        {"player": "Hahldoin", "class": "Warrior", "dps": 12603.9},
+        {"player": "Xerxlock", "class": "Warlock", "dps": 12068.8},
+        {"player": "Trollfury", "class": "Warrior", "dps": 11245.8},
+        {"player": "Hogback", "class": "Death Knight", "dps": 11084.3},
+        {"player": "Shotzy", "class": "Hunter", "dps": 10874.1},
+        {"player": "Strangedude", "class": "Death Knight", "dps": 10580.2},
+        {"player": "Tryxer", "class": "Paladin", "dps": 10436.1}
+      ],
+      "healing": [
+        {"player": "Luminaryx", "class": "Priest", "hps": 49154.3},
+        {"player": "Saverasta", "class": "Priest", "hps": 14199.2},
+        {"player": "Jebenihpala", "class": "Paladin", "hps": 10113.0}
+      ]
+    },
+    "Blood-Queen Lana'thel": {
+      "dps": [
+        {"player": "Brule", "class": "Mage", "dps": 38429.6},
+        {"player": "Warka", "class": "Priest", "dps": 27407.3},
+        {"player": "Panchis", "class": "Druid", "dps": 24680.7},
+        {"player": "Xerxlock", "class": "Warlock", "dps": 17085.9},
+        {"player": "Mageforte", "class": "Mage", "dps": 17082.3},
+        {"player": "Izgoreo", "class": "Mage", "dps": 16970.7},
+        {"player": "Hahldoin", "class": "Warrior", "dps": 16623.1},
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 16419.3},
+        {"player": "Panetone", "class": "Druid", "dps": 15979.5},
+        {"player": "Snippala", "class": "Paladin", "dps": 15724.8},
+        {"player": "Shotzy", "class": "Hunter", "dps": 15585.3},
+        {"player": "Parhasard", "class": "Druid", "dps": 14447.4},
+        {"player": "Cromaniac", "class": "Mage", "dps": 14402.2},
+        {"player": "Chibzhunt", "class": "Hunter", "dps": 13870.2},
+        {"player": "Tryxer", "class": "Paladin", "dps": 13833.7},
+        {"player": "Strangedude", "class": "Death Knight", "dps": 13832.0},
+        {"player": "Bralson", "class": "Rogue", "dps": 13251.7},
+        {"player": "Hogback", "class": "Death Knight", "dps": 13013.2},
+        {"player": "Trollfury", "class": "Warrior", "dps": 12162.6},
+        {"player": "Cylaxr", "class": "Rogue", "dps": 9813.7}
+      ],
+      "healing": [
+        {"player": "Luminaryx", "class": "Priest", "hps": 20203.2},
+        {"player": "Saverasta", "class": "Priest", "hps": 14337.3},
+        {"player": "Jebenihpala", "class": "Paladin", "hps": 3887.0},
+        {"player": "Paadron", "class": "Shaman", "hps": 2351.2},
+        {"player": "Howiscalled", "class": "Death Knight", "hps": 439.8}
+      ]
+    },
+    "Sindragosa": {
+      "dps": [
+        {"player": "Cromaniac", "class": "Mage", "dps": 14595.1},
+        {"player": "Brule", "class": "Mage", "dps": 14050.8},
+        {"player": "Shotzy", "class": "Hunter", "dps": 13072.6},
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 12574.8},
+        {"player": "Parhasard", "class": "Druid", "dps": 12406.5},
+        {"player": "Strangedude", "class": "Death Knight", "dps": 12394.0},
+        {"player": "Panchis", "class": "Druid", "dps": 12101.6},
+        {"player": "Snippala", "class": "Paladin", "dps": 11645.1},
+        {"player": "Warka", "class": "Priest", "dps": 11402.9},
+        {"player": "Mageforte", "class": "Mage", "dps": 11348.6},
+        {"player": "Hogback", "class": "Death Knight", "dps": 10390.9},
+        {"player": "Chibzhunt", "class": "Hunter", "dps": 10225.4},
+        {"player": "Tryxer", "class": "Paladin", "dps": 8916.5},
+        {"player": "Xerxlock", "class": "Warlock", "dps": 8832.8},
+        {"player": "Izgoreo", "class": "Mage", "dps": 8678.9},
+        {"player": "Panetone", "class": "Druid", "dps": 8447.7},
+        {"player": "Trollfury", "class": "Warrior", "dps": 7480.4},
+        {"player": "Hahldoin", "class": "Warrior", "dps": 6486.4},
+        {"player": "Bralson", "class": "Rogue", "dps": 5528.1},
+        {"player": "Howiscalled", "class": "Death Knight", "dps": 2459.8},
+        {"player": "Cylaxr", "class": "Rogue", "dps": 1904.5}
+      ],
+      "healing": [
+        {"player": "Paadron", "class": "Shaman", "hps": 19224.0},
+        {"player": "Luminaryx", "class": "Paladin", "hps": 9093.5},
+        {"player": "Jebenihpala", "class": "Paladin", "hps": 8475.1},
+        {"player": "Saverasta", "class": "Priest", "hps": 1149.2}
+      ]
+    },
+    "The Lich King": {
+      "dps": [
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 13741.0},
+        {"player": "Panchis", "class": "Druid", "dps": 12388.2},
+        {"player": "Warka", "class": "Priest", "dps": 12367.0},
+        {"player": "Snippala", "class": "Paladin", "dps": 12004.2},
+        {"player": "Cromaniac", "class": "Mage", "dps": 11815.0},
+        {"player": "Brule", "class": "Mage", "dps": 11722.1},
+        {"player": "Izgoreo", "class": "Mage", "dps": 11687.5},
+        {"player": "Mageforte", "class": "Mage", "dps": 11445.3},
+        {"player": "Tryxer", "class": "Paladin", "dps": 10808.2},
+        {"player": "Xerxlock", "class": "Warlock", "dps": 10707.9},
+        {"player": "Shotzy", "class": "Hunter", "dps": 10601.8},
+        {"player": "Trollfury", "class": "Warrior", "dps": 10466.0},
+        {"player": "Panetone", "class": "Druid", "dps": 10458.0},
+        {"player": "Parhasard", "class": "Druid", "dps": 10140.6},
+        {"player": "Strangedude", "class": "Death Knight", "dps": 10077.0},
+        {"player": "Hogback", "class": "Death Knight", "dps": 9643.3},
+        {"player": "Hahldoin", "class": "Warrior", "dps": 8838.0},
+        {"player": "Paadron", "class": "Shaman", "dps": 8111.6},
+        {"player": "Chibzhunt", "class": "Hunter", "dps": 7766.5},
+        {"player": "Bralson", "class": "Rogue", "dps": 7679.5},
+        {"player": "Cylaxr", "class": "Rogue", "dps": 7618.1}
+      ],
+      "healing": [
+        {"player": "Luminaryx", "class": "Priest", "hps": 30207.3},
+        {"player": "Saverasta", "class": "Priest", "hps": 9427.8},
+        {"player": "Jebenihpala", "class": "Paladin", "hps": 2916.4}
+      ]
+    }
+  }
+}

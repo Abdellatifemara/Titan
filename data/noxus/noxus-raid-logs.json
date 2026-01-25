@@ -1,0 +1,321 @@
+{
+  "guild": "NOXUS",
+  "source": "data/noxus/log.md",
+  "raids": [
+    "Icecrown",
+    "Ruby Sanctum"
+  ],
+  "logs": [
+    {
+      "url": "https://uwu-logs.xyz/reports/25-08-30--10-40--Ellenorxo--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-08-30--22-36--Cwelniczka--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-08-31--02-28--Axamuk--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-08-31--18-22--Exuberantt--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-02--03-57--Serko--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-04--20-03--Ellenorqt--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-04--21-41--Slicee--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-06--01-57--Cwelmaker--Icecrown"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-06--03-10--Pyrogenic--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-07--00-20--Exuberantt--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-07--23-54--Hydrogeddon--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-08--01-57--Stoles--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-08--14-49--Riperdemo--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-08--15-57--Obeythegodx--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-09--02-53--Theserk--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-09--22-08--Serksham--Icecrown"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-10--14-38--Meekk--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-10--20-00--Ellenor--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-11--01-18--Gladiox--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-11--18-48--Ellenorxo--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-11--22-07--Eclipzz--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-13--02-02--Obeythegodx--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-14--01-50--Serksham--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-15--23-36--Acidhunts--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-15--23-52--Goonpa--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-16--16-58--Exuberantt--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-17--17-35--Ellenorp--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-18--17-33--Ellenorxo--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-19--22-22--Acidhunts--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-21--02-51--Gladiox--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-22--03-36--Serkwarrtwo--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-24--01-25--Shitdamage--Icecrown"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-25--00-25--Aciddudu--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-25--19-02--Betametazona--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-26--02-29--Obeythegodx--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-26--17-31--Ellenor--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-09-28--00-00--Acidhunts--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-10-03--00-31--Notframez--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-10-04--02-20--Serkwarrtwo--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-10-05--02-51--Serkclipse--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-10-06--01-34--Ephemera--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-10-07--00-26--Shibonator--Icecrown"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-10-08--03-06--Obeythegodx--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-10-09--03-14--Serkclipse--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-10-09--19-26--Acidhunts--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-10-10--01-23--Gladiox--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-10-14--03-41--Serksham--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-10-16--04-18--Serko--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-10-16--20-14--Serkboomkin--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-10-21--19-27--Serkwarr--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-10-22--00-12--Serkwarrtwo--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-10-25--23-39--Serkwarrtwo--Icecrown"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-10-26--17-21--Exuberantt--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-10-27--19-14--Serkwarr--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-10-29--23-54--Goonpa--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-01--01-22--Shibonator--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-02--00-11--Serkwarrtwo--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-02--19-38--Acidpala--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-02--20-47--Robotalian--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-04--14-44--Shortstacks--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-04--22-03--Serkwarr--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-05--01-46--Exuberantt--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-05--23-12--Serkclipse--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-07--01-33--Gladiox--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-07--17-18--Serkwarrtwo--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-10--02-48--Robotalian--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-16--00-39--Serkwarr--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-24--02-25--Firecopx--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-25--04-01--Shadowcopx--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-26--01-59--Serkclipse--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-26--02-43--Shibonator--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-26--03-27--Serkwarr--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-26--16-57--Serkwarr--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-11-27--01-04--Sugarlips--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-12-01--23-55--Shibonator--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-12-03--19-24--Serkwarr--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-12-03--20-02--Serko--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-12-10--17-06--Magxe--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-12-13--01-45--Serko--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-12-20--23-13--Meekk--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-12-22--00-27--Serkwarr--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-12-24--22-43--Hiroshiima--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-12-26--01-28--Tdibiswarry--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-12-28--00-01--Teatairova--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-12-28--19-12--Ellenor--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-12-28--23-34--Spread--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-12-30--00-11--Goonpa--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/25-12-31--00-00--Serkwarrtwo--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/26-01-01--02-34--Serkwarr--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/26-01-02--00-33--Exuberantt--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/26-01-02--01-31--Nerfmycurse--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/26-01-03--00-14--Teatairova--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/26-01-03--23-58--Betametazona--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/26-01-05--00-59--Healbill--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/26-01-05--23-30--Meekk--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/26-01-09--00-10--Txmmy--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/26-01-11--17-50--Ellenorxo--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/26-01-14--16-51--Betzyd--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/26-01-14--18-09--Murmelecke--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/26-01-14--18-23--Serkwarr--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/26-01-17--22-25--Serko--Icecrown/"
+    },
+    {
+      "url": "https://uwu-logs.xyz/reports/26-01-18--22-10--Robotalian--Icecrown/"
+    }
+  ],
+  "totalLogs": 102,
+  "dateRange": {
+    "from": "2025-08-30",
+    "to": "2026-01-18"
+  }
+}

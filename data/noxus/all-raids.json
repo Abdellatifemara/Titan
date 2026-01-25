@@ -1,0 +1,362 @@
+{
+  "lastUpdated": "2026-01-25",
+  "summary": {
+    "totalLogs": 103,
+    "dateRange": "2025-08-30 to 2026-01-18",
+    "raidsAnalyzed": 12
+  },
+  "raids": [
+    {
+      "id": "26-01-17-serko",
+      "date": "2026-01-17",
+      "logger": "Serko",
+      "url": "https://uwu-logs.xyz/reports/26-01-17--22-25--Serko--Icecrown/",
+      "instance": "ICC",
+      "mode": "25H",
+      "duration": "2:36:53",
+      "bosses": {
+        "Lord Marrowgar": { "time": "01:26.704", "wipes": 0 },
+        "Lady Deathwhisper": { "time": "02:16.271", "wipes": 3 },
+        "Gunship": { "time": "02:10.721", "wipes": 0 },
+        "Deathbringer Saurfang": { "time": "01:52.419", "wipes": 4 },
+        "Blood Prince Council": { "time": "01:29.311", "wipes": 0 },
+        "Blood-Queen Lana'thel": { "time": "03:10.310", "wipes": 0 },
+        "Rotface": { "time": "02:05.703", "wipes": 0 },
+        "Festergut": { "time": "02:22.295", "wipes": 1 },
+        "Professor Putricide": { "time": "03:11.044", "wipes": 1 },
+        "Valithria Dreamwalker": { "time": "02:11.314", "wipes": 1 },
+        "Sindragosa": { "time": "03:59.600", "wipes": 0 },
+        "The Lich King": { "time": "08:48.235", "wipes": 1 }
+      },
+      "topDps": [
+        { "rank": 1, "player": "Astigmatism", "dps": 8183, "class": "Rogue" },
+        { "rank": 2, "player": "Kinzzy", "dps": 8016, "class": "Mage" },
+        { "rank": 3, "player": "Framezboo", "dps": 7410, "class": "Druid" },
+        { "rank": 4, "player": "Stinngg", "dps": 6887, "class": "Mage" },
+        { "rank": 5, "player": "Fireaura", "dps": 6535, "class": "Warrior" }
+      ]
+    },
+    {
+      "id": "26-01-18-robotalian",
+      "date": "2026-01-18",
+      "logger": "Robotalian",
+      "url": "https://uwu-logs.xyz/reports/26-01-18--22-10--Robotalian--Icecrown/",
+      "instance": "RS",
+      "mode": "25H",
+      "bosses": {
+        "Halion": { "time": "07:02.878", "mode": "25H" }
+      },
+      "topDps": [
+        { "rank": 1, "player": "Oscobari", "damage": 12070257, "class": "Rogue" },
+        { "rank": 2, "player": "Priestelin", "damage": 10998657, "class": "Priest" },
+        { "rank": 3, "player": "Ivargodx", "damage": 10795593, "class": "Priest" },
+        { "rank": 4, "player": "Robotalian", "damage": 10744964, "class": "Rogue" },
+        { "rank": 5, "player": "Naidenovsr", "damage": 10634968, "class": "Death Knight" }
+      ]
+    },
+    {
+      "id": "26-01-09-txmmy",
+      "date": "2026-01-09",
+      "logger": "Txmmy",
+      "url": "https://uwu-logs.xyz/reports/26-01-09--00-10--Txmmy--Icecrown/",
+      "instance": "ICC",
+      "mode": "25H",
+      "bosses": {
+        "Lord Marrowgar": { "time": "01:32.004", "wipes": 0 },
+        "Lady Deathwhisper": { "time": "03:01.984", "wipes": 2 },
+        "Gunship": { "time": "02:15.389", "wipes": 0 },
+        "Deathbringer Saurfang": { "time": "01:52.391", "wipes": 0 },
+        "Rotface": { "time": "02:06.540", "wipes": 0 },
+        "Festergut": { "time": "02:31.116", "wipes": 0 },
+        "Blood Prince Council": { "time": "01:28.048", "wipes": 0 },
+        "Blood-Queen Lana'thel": { "time": "03:15.038", "wipes": 0 },
+        "Professor Putricide": { "time": "03:01.437", "wipes": 0 },
+        "Valithria Dreamwalker": { "time": "03:18.436", "wipes": 0 },
+        "Sindragosa": { "time": "04:07.207", "wipes": 1 },
+        "The Lich King": { "time": "09:18.730", "wipes": 0 }
+      },
+      "topDps": [
+        { "rank": 1, "player": "Tdibiswarry", "dps": 7116, "class": "Warrior" },
+        { "rank": 2, "player": "Dictated", "dps": 6848, "class": "Warrior" },
+        { "rank": 3, "player": "Centipede", "dps": 6415, "class": "Death Knight" },
+        { "rank": 4, "player": "Txmmy", "dps": 6070, "class": "Mage" },
+        { "rank": 5, "player": "Pyrocheerio", "dps": 5600, "class": "Mage" }
+      ]
+    },
+    {
+      "id": "26-01-05-meekk",
+      "date": "2026-01-05",
+      "logger": "Meekk",
+      "url": "https://uwu-logs.xyz/reports/26-01-05--23-30--Meekk--Icecrown/",
+      "instance": "ICC",
+      "mode": "25H",
+      "totalDamage": 383238761,
+      "bosses": {
+        "Lord Marrowgar": { "time": "1:24.014" },
+        "Lady Deathwhisper": { "time": "3:25.769" },
+        "Gunship": { "time": "2:17.103" },
+        "Deathbringer Saurfang": { "time": "1:56.074" },
+        "Blood Prince Council": { "time": "1:44.821" },
+        "Blood-Queen Lana'thel": { "time": "3:19.883" },
+        "Rotface": { "time": "2:14.369" },
+        "Festergut": { "time": "2:26.358" },
+        "Professor Putricide": { "time": "3:12.820" },
+        "Valithria Dreamwalker": { "time": "3:06.036" },
+        "Sindragosa": { "time": "4:00.367" },
+        "The Lich King": { "time": "9:06.196" }
+      },
+      "topDps": [
+        { "rank": 1, "player": "Meekk", "damage": 60796846, "class": "Warrior" },
+        { "rank": 2, "player": "Snowfang", "damage": 51893239, "class": "Druid" },
+        { "rank": 3, "player": "Nvc", "damage": 50743482, "class": "Mage" },
+        { "rank": 4, "player": "Zetamethod", "damage": 50011741, "class": "Warrior" },
+        { "rank": 5, "player": "Kayssi", "damage": 48055598, "class": "Druid" }
+      ]
+    },
+    {
+      "id": "26-01-03-teatairova",
+      "date": "2026-01-03",
+      "logger": "Teatairova",
+      "url": "https://uwu-logs.xyz/reports/26-01-03--00-14--Teatairova--Icecrown/",
+      "instance": "ICC",
+      "mode": "25H",
+      "bosses": {
+        "Lady Deathwhisper": { "time": "02:02.953" },
+        "Gunship": { "time": "02:07.149" },
+        "Deathbringer Saurfang": { "time": "01:41.515" },
+        "Valithria Dreamwalker": { "time": "03:42.129" },
+        "Sindragosa": { "time": "02:36.760" },
+        "Blood Prince Council": { "time": "01:20.434" },
+        "Blood-Queen Lana'thel": { "time": "03:17.612" },
+        "Rotface": { "time": "02:11.677" },
+        "Festergut": { "time": "02:17.036" },
+        "Professor Putricide": { "time": "02:55.992" },
+        "The Lich King": { "time": "07:20.418" }
+      },
+      "topDps": [
+        { "rank": 1, "player": "Highoctane", "dps": 8919, "class": "Warrior" },
+        { "rank": 2, "player": "Ilovepangu", "dps": 8445, "class": "Hunter" },
+        { "rank": 3, "player": "Metindoi", "dps": 8409, "class": "Mage" },
+        { "rank": 4, "player": "Dragonzfury", "dps": 7768, "class": "Warrior" },
+        { "rank": 5, "player": "Zharcx", "dps": 7554, "class": "Mage" }
+      ]
+    },
+    {
+      "id": "26-01-02-exuberantt",
+      "date": "2026-01-02",
+      "logger": "Exuberantt",
+      "url": "https://uwu-logs.xyz/reports/26-01-02--00-33--Exuberantt--Icecrown/",
+      "instance": "ICC",
+      "mode": "25H",
+      "bosses": {
+        "Lord Marrowgar": { "time": "1:23.270", "wipes": 0 },
+        "Lady Deathwhisper": { "time": "2:07.660", "wipes": 3 },
+        "Gunship": { "time": "2:02.768", "wipes": 0 },
+        "Deathbringer Saurfang": { "time": "1:52.029", "wipes": 1 },
+        "Valithria Dreamwalker": { "time": "2:31.948", "wipes": 0 },
+        "Sindragosa": { "time": "2:44.014", "wipes": 0 },
+        "Blood Prince Council": { "time": "1:30.607", "wipes": 0 },
+        "Blood-Queen Lana'thel": { "time": "3:13.236", "wipes": 0 },
+        "Rotface": { "time": "2:02.121", "wipes": 0 },
+        "Festergut": { "time": "2:18.478", "wipes": 1 },
+        "Professor Putricide": { "time": "3:00.425", "wipes": 2 },
+        "The Lich King": { "time": "7:17.591", "wipes": 2 }
+      },
+      "topDps": [
+        { "rank": 1, "player": "Stinngg", "dps": 8275, "class": "Mage" },
+        { "rank": 2, "player": "Maryloh", "dps": 8012, "class": "Hunter" },
+        { "rank": 3, "player": "Belzixy", "dps": 7800, "class": "Priest" },
+        { "rank": 4, "player": "Exuberantt", "dps": 7768, "class": "Warrior" },
+        { "rank": 5, "player": "Buuss", "dps": 7646, "class": "Death Knight" }
+      ]
+    },
+    {
+      "id": "25-12-31-serkwarrtwo",
+      "date": "2025-12-31",
+      "logger": "Serkwarrtwo",
+      "url": "https://uwu-logs.xyz/reports/25-12-31--00-00--Serkwarrtwo--Icecrown/",
+      "instance": "ICC",
+      "mode": "25H",
+      "bosses": {
+        "Lord Marrowgar": { "time": "01:29.210" },
+        "Lady Deathwhisper": { "time": "02:17.621" },
+        "Gunship": { "time": "02:34.754" },
+        "Deathbringer Saurfang": { "time": "01:55.102" },
+        "Blood Prince Council": { "time": "01:48.180" },
+        "Blood-Queen Lana'thel": { "time": "03:28.129" },
+        "Rotface": { "time": "02:06.848" },
+        "Festergut": { "time": "02:27.397" },
+        "Professor Putricide": { "time": "04:05.407" },
+        "Valithria Dreamwalker": { "time": "03:16.422" },
+        "Sindragosa": { "time": "03:55.527" },
+        "The Lich King": { "time": "08:57.659" }
+      },
+      "topDps": [
+        { "rank": 1, "player": "Rodjak", "damage": 83385410, "class": "Warrior" },
+        { "rank": 2, "player": "Bleksal", "damage": 80202129, "class": "Warlock" },
+        { "rank": 3, "player": "Puro", "damage": 77467154, "class": "Warlock" },
+        { "rank": 4, "player": "Copcleave", "damage": 71317936, "class": "Warrior" },
+        { "rank": 5, "player": "Based", "damage": 63156594, "class": "Priest" }
+      ]
+    },
+    {
+      "id": "25-12-13-serko",
+      "date": "2025-12-13",
+      "logger": "Serko",
+      "url": "https://uwu-logs.xyz/reports/25-12-13--01-45--Serko--Icecrown/",
+      "instance": "ICC",
+      "mode": "25H",
+      "bosses": {
+        "Lord Marrowgar": { "time": "1:27.890" },
+        "Lady Deathwhisper": { "time": "2:14.954" },
+        "Gunship": { "time": "1:59.173" },
+        "Deathbringer Saurfang": { "time": "1:53.523" },
+        "Blood Prince Council": { "time": "1:28.669" },
+        "Blood-Queen Lana'thel": { "time": "3:25.344" },
+        "Rotface": { "time": "2:13.389" },
+        "Festergut": { "time": "2:23.594" },
+        "Professor Putricide": { "time": "3:19.295" },
+        "Valithria Dreamwalker": { "time": "2:45.769" },
+        "Sindragosa": { "time": "4:11.734" },
+        "The Lich King": { "time": "8:58.118" }
+      },
+      "topDps": [
+        { "rank": 1, "player": "Ellenorxo", "damage": 67534977, "dps": 9795, "class": "Rogue" },
+        { "rank": 2, "player": "Maryloh", "damage": 58433021, "dps": 8475, "class": "Hunter" },
+        { "rank": 3, "player": "Unhinged", "damage": 56233812, "dps": 8156, "class": "Warrior" },
+        { "rank": 4, "player": "Velleaa", "damage": 54057016, "dps": 7840, "class": "Druid" },
+        { "rank": 5, "player": "Gresi", "damage": 50193700, "dps": 7280, "class": "Death Knight" }
+      ]
+    },
+    {
+      "id": "25-11-16-serkwarr",
+      "date": "2025-11-16",
+      "logger": "Serkwarr",
+      "url": "https://uwu-logs.xyz/reports/25-11-16--00-39--Serkwarr--Icecrown/",
+      "instance": "ICC",
+      "mode": "25H",
+      "bosses": {
+        "Lord Marrowgar": { "time": "1:19.250" },
+        "Lady Deathwhisper": { "time": "2:19.958" },
+        "Gunship": { "time": "2:03.552" },
+        "Deathbringer Saurfang": { "time": "1:45.076" },
+        "Rotface": { "time": "2:01.042" },
+        "Festergut": { "time": "2:10.141" },
+        "Blood Prince Council": { "time": "1:18.794" },
+        "Blood-Queen Lana'thel": { "time": "3:36.023" },
+        "Professor Putricide": { "time": "3:11.728" },
+        "Valithria Dreamwalker": { "time": "2:39.069" },
+        "Sindragosa": { "time": "2:30.913" },
+        "The Lich King": { "time": "9:05.345" }
+      },
+      "topDps": [
+        { "rank": 1, "player": "Serkwarr", "damage": 60088262, "class": "Warrior" },
+        { "rank": 2, "player": "Shootcigans", "damage": 56835213, "class": "Hunter" },
+        { "rank": 3, "player": "Justonemd", "damage": 55516584, "class": "Hunter" },
+        { "rank": 4, "player": "Orakletjr", "damage": 54814302, "class": "Warrior" },
+        { "rank": 5, "player": "Seeway", "damage": 53022574, "class": "Priest" }
+      ]
+    },
+    {
+      "id": "25-10-10-gladiox",
+      "date": "2025-10-10",
+      "logger": "Gladiox",
+      "url": "https://uwu-logs.xyz/reports/25-10-10--01-23--Gladiox--Icecrown/",
+      "instance": "ICC",
+      "mode": "25H",
+      "bosses": {
+        "Lord Marrowgar": { "time": "1:32.249" },
+        "Lady Deathwhisper": { "time": "2:34.055" },
+        "Gunship": { "time": "2:19.950" },
+        "Deathbringer Saurfang": { "time": "1:57.828" },
+        "Rotface": { "time": "2:17.230" },
+        "Festergut": { "time": "2:38.490" },
+        "Professor Putricide": { "time": "3:48.111" },
+        "Valithria Dreamwalker": { "time": "3:15.498" },
+        "Sindragosa": { "time": "3:55.609" },
+        "Blood Prince Council": { "time": "1:49.640" },
+        "Blood-Queen Lana'thel": { "time": "3:18.922" },
+        "The Lich King": { "time": "9:44.762" }
+      },
+      "topDps": [
+        { "rank": 1, "player": "Dragica", "damage": 71502457, "class": "Rogue" },
+        { "rank": 2, "player": "Mortalzero", "damage": 56706206, "class": "Warrior" },
+        { "rank": 3, "player": "Ellenorxo", "damage": 54800896, "class": "Rogue" },
+        { "rank": 4, "player": "Mezonp", "damage": 50154898, "class": "Priest" },
+        { "rank": 5, "player": "Ghidorah", "damage": 49710644, "class": "Hunter" }
+      ]
+    },
+    {
+      "id": "25-09-10-meekk-rs",
+      "date": "2025-09-10",
+      "logger": "Meekk",
+      "url": "https://uwu-logs.xyz/reports/25-09-10--14-38--Meekk--Icecrown/",
+      "instance": "RS",
+      "mode": "25H",
+      "bosses": {
+        "Halion": { "time": "05:41.204" }
+      },
+      "topDps": [
+        { "rank": 1, "player": "Nemacuknae", "damage": 16285699, "class": "Rogue" },
+        { "rank": 2, "player": "Zynxx", "damage": 16084069, "class": "Druid" },
+        { "rank": 3, "player": "Valfreyja", "damage": 16039240, "class": "Rogue" },
+        { "rank": 4, "player": "Tuanka", "damage": 15862112, "class": "Warrior" },
+        { "rank": 5, "player": "Flamewhizzle", "damage": 14033447, "class": "Mage" }
+      ]
+    },
+    {
+      "id": "25-08-30-ellenorxo",
+      "date": "2025-08-30",
+      "logger": "Ellenorxo",
+      "url": "https://uwu-logs.xyz/reports/25-08-30--10-40--Ellenorxo--Icecrown/",
+      "instance": "ICC",
+      "mode": "25H",
+      "bosses": {
+        "Lord Marrowgar": { "time": "1:25.902" },
+        "Lady Deathwhisper": { "time": "2:17.696" },
+        "Gunship": { "time": "2:11.624" },
+        "Deathbringer Saurfang": { "time": "1:52.151" },
+        "Blood Prince Council": { "time": "1:38.048" },
+        "Blood-Queen Lana'thel": { "time": "3:15.294" },
+        "Rotface": { "time": "2:06.272" },
+        "Festergut": { "time": "2:29.402" },
+        "Professor Putricide": { "time": "3:46.339" },
+        "Valithria Dreamwalker": { "time": "2:13.606" },
+        "Sindragosa": { "time": "2:58.702" },
+        "The Lich King": { "time": "9:31.854" }
+      },
+      "topDps": [
+        { "rank": 1, "player": "Ellenorxo", "damage": 64316183, "dps": 6895, "class": "Rogue" },
+        { "rank": 2, "player": "Dazzxmage", "damage": 61292742, "dps": 6571, "class": "Mage" },
+        { "rank": 3, "player": "Aveni", "damage": 51755731, "dps": 5548, "class": "Warrior" },
+        { "rank": 4, "player": "Macabrelight", "damage": 51403158, "dps": 5511, "class": "Paladin" },
+        { "rank": 5, "player": "Arthemizia", "damage": 51100302, "dps": 5478, "class": "Mage" }
+      ]
+    }
+  ],
+  "allLogUrls": [
+    { "date": "2025-08-30", "url": "https://uwu-logs.xyz/reports/25-08-30--10-40--Ellenorxo--Icecrown/" },
+    { "date": "2025-08-30", "url": "https://uwu-logs.xyz/reports/25-08-30--22-36--Cwelniczka--Icecrown/" },
+    { "date": "2025-08-31", "url": "https://uwu-logs.xyz/reports/25-08-31--02-28--Axamuk--Icecrown/" },
+    { "date": "2025-08-31", "url": "https://uwu-logs.xyz/reports/25-08-31--18-22--Exuberantt--Icecrown/" },
+    { "date": "2025-09-02", "url": "https://uwu-logs.xyz/reports/25-09-02--03-57--Serko--Icecrown/" },
+    { "date": "2025-09-04", "url": "https://uwu-logs.xyz/reports/25-09-04--21-41--Slicee--Icecrown/" },
+    { "date": "2025-09-04", "url": "https://uwu-logs.xyz/reports/25-09-04--20-03--Ellenorqt--Icecrown/" },
+    { "date": "2025-09-06", "url": "https://uwu-logs.xyz/reports/25-09-06--03-10--Pyrogenic--Icecrown/" },
+    { "date": "2025-09-06", "url": "https://uwu-logs.xyz/reports/25-09-06--01-57--Cwelmaker--Icecrown" },
+    { "date": "2025-09-07", "url": "https://uwu-logs.xyz/reports/25-09-07--00-20--Exuberantt--Icecrown/" },
+    { "date": "2025-09-07", "url": "https://uwu-logs.xyz/reports/25-09-07--23-54--Hydrogeddon--Icecrown/" },
+    { "date": "2025-09-08", "url": "https://uwu-logs.xyz/reports/25-09-08--01-57--Stoles--Icecrown/" },
+    { "date": "2025-09-08", "url": "https://uwu-logs.xyz/reports/25-09-08--15-57--Obeythegodx--Icecrown/" },
+    { "date": "2025-09-08", "url": "https://uwu-logs.xyz/reports/25-09-08--14-49--Riperdemo--Icecrown/" }
+  ],
+  "playerStats": {
+    "topDpsAllTime": [
+      { "player": "Ellenorxo", "bestDps": 9795, "class": "Rogue", "boss": "Full Raid", "date": "2025-12-13" },
+      { "player": "Highoctane", "bestDps": 8919, "class": "Warrior", "boss": "Full Raid", "date": "2026-01-03" },
+      { "player": "Ilovepangu", "bestDps": 8445, "class": "Hunter", "boss": "Full Raid", "date": "2026-01-03" },
+      { "player": "Metindoi", "bestDps": 8409, "class": "Mage", "boss": "Full Raid", "date": "2026-01-03" },
+      { "player": "Stinngg", "bestDps": 8275, "class": "Mage", "boss": "Full Raid", "date": "2026-01-02" }
+    ]
+  }
+}

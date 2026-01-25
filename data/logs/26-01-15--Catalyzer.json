@@ -1,0 +1,317 @@
+{
+  "logId": "26-01-15--20-56--Catalyzer--Icecrown",
+  "date": "2026-01-15",
+  "logger": "Catalyzer",
+  "raid": "Icecrown",
+  "mode": "25H",
+  "url": "https://uwu-logs.xyz/reports/26-01-15--20-56--Catalyzer--Icecrown/",
+  "bosses": {
+    "Lord Marrowgar": {
+      "dps": [
+        {"player": "Shamkac", "class": "Shaman", "dps": 20596.6},
+        {"player": "Rilewarr", "class": "Warrior", "dps": 18746.3},
+        {"player": "Belecow", "class": "Druid", "dps": 17811.8},
+        {"player": "Atreff", "class": "Mage", "dps": 17326.0},
+        {"player": "Jackdanielz", "class": "Druid", "dps": 17245.5},
+        {"player": "Sihirbringer", "class": "Priest", "dps": 17242.8},
+        {"player": "Livehack", "class": "Rogue", "dps": 16768.9},
+        {"player": "Trajanflame", "class": "Mage", "dps": 16302.7},
+        {"player": "Sikezhina", "class": "Mage", "dps": 16102.7},
+        {"player": "Povraatnik", "class": "Warrior", "dps": 15666.9},
+        {"player": "Halorakija", "class": "Druid", "dps": 15481.3},
+        {"player": "Extetdk", "class": "Death Knight", "dps": 14914.5},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 14718.3},
+        {"player": "Frolie", "class": "Druid", "dps": 14368.5},
+        {"player": "Malleena", "class": "Warlock", "dps": 13753.8},
+        {"player": "Zenaratnica", "class": "Paladin", "dps": 13366.3},
+        {"player": "Woogie", "class": "Hunter", "dps": 13093.2},
+        {"player": "Pljugetina", "class": "Warrior", "dps": 12704.9},
+        {"player": "Sakeza", "class": "Rogue", "dps": 11634.6},
+        {"player": "Isforsiran", "class": "Priest", "dps": 11199.3}
+      ],
+      "healing": [
+        {"player": "Gelosie", "class": "Priest", "hps": 41335.6},
+        {"player": "Hardgoing", "class": "Priest", "hps": 12551.3},
+        {"player": "Kheron", "class": "Paladin", "hps": 10696.5},
+        {"player": "Antiopaa", "class": "Paladin", "hps": 790.3},
+        {"player": "Vindija", "class": "Death Knight", "hps": 346.9}
+      ]
+    },
+    "Lady Deathwhisper": {
+      "dps": [
+        {"player": "Shamkac", "class": "Shaman", "dps": 18262.5},
+        {"player": "Rilewarr", "class": "Warrior", "dps": 17051.3},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 16982.0},
+        {"player": "Pljugetina", "class": "Warrior", "dps": 15335.8},
+        {"player": "Sihirbringer", "class": "Priest", "dps": 15031.5},
+        {"player": "Atreff", "class": "Mage", "dps": 14441.3},
+        {"player": "Livehack", "class": "Rogue", "dps": 13678.4},
+        {"player": "Trajanflame", "class": "Mage", "dps": 13424.5},
+        {"player": "Jackdanielz", "class": "Druid", "dps": 12922.0},
+        {"player": "Sikezhina", "class": "Mage", "dps": 12839.1},
+        {"player": "Extetdk", "class": "Death Knight", "dps": 12828.2},
+        {"player": "Malleena", "class": "Warlock", "dps": 11553.2},
+        {"player": "Sakeza", "class": "Rogue", "dps": 11462.5},
+        {"player": "Kheron", "class": "Paladin", "dps": 11286.0},
+        {"player": "Zenaratnica", "class": "Paladin", "dps": 11138.4},
+        {"player": "Woogie", "class": "Hunter", "dps": 10530.5},
+        {"player": "Povraatnik", "class": "Warrior", "dps": 10115.4},
+        {"player": "Frolie", "class": "Druid", "dps": 9738.6},
+        {"player": "Isforsiran", "class": "Priest", "dps": 9325.6},
+        {"player": "Belecow", "class": "Druid", "dps": 8517.4},
+        {"player": "Halorakija", "class": "Druid", "dps": 7789.2},
+        {"player": "Antiopaa", "class": "Paladin", "dps": 2737.7},
+        {"player": "Vindija", "class": "Death Knight", "dps": 2461.1}
+      ],
+      "healing": [
+        {"player": "Gelosie", "class": "Priest", "hps": 27191.2},
+        {"player": "Hardgoing", "class": "Priest", "hps": 9632.3}
+      ]
+    },
+    "Deathbringer Saurfang": {
+      "dps": [
+        {"player": "Shamkac", "class": "Shaman", "dps": 24300.1},
+        {"player": "Atreff", "class": "Mage", "dps": 23453.6},
+        {"player": "Trajanflame", "class": "Mage", "dps": 20895.6},
+        {"player": "Rilewarr", "class": "Warrior", "dps": 20668.4},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 20596.2},
+        {"player": "Sikezhina", "class": "Mage", "dps": 19982.2},
+        {"player": "Sakeza", "class": "Rogue", "dps": 19615.6},
+        {"player": "Livehack", "class": "Rogue", "dps": 19463.1},
+        {"player": "Jackdanielz", "class": "Druid", "dps": 19363.8},
+        {"player": "Sihirbringer", "class": "Priest", "dps": 18734.4},
+        {"player": "Extetdk", "class": "Death Knight", "dps": 18596.3},
+        {"player": "Halorakija", "class": "Druid", "dps": 18221.6},
+        {"player": "Woogie", "class": "Hunter", "dps": 17982.5},
+        {"player": "Belecow", "class": "Druid", "dps": 17963.6},
+        {"player": "Frolie", "class": "Druid", "dps": 17794.9},
+        {"player": "Pljugetina", "class": "Warrior", "dps": 17293.7},
+        {"player": "Malleena", "class": "Warlock", "dps": 17122.3},
+        {"player": "Isforsiran", "class": "Priest", "dps": 16788.5},
+        {"player": "Povraatnik", "class": "Warrior", "dps": 15678.4}
+      ],
+      "healing": [
+        {"player": "Gelosie", "class": "Priest", "hps": 50721.5},
+        {"player": "Hardgoing", "class": "Priest", "hps": 12912.3},
+        {"player": "Kheron", "class": "Paladin", "hps": 12180.5},
+        {"player": "Zenaratnica", "class": "Paladin", "hps": 7553.9}
+      ]
+    },
+    "Rotface": {
+      "dps": [
+        {"player": "Rilewarr", "class": "Warrior", "dps": 20364.3},
+        {"player": "Atreff", "class": "Mage", "dps": 19928.8},
+        {"player": "Jackdanielz", "class": "Druid", "dps": 19576.8},
+        {"player": "Trajanflame", "class": "Mage", "dps": 19460.2},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 19329.6},
+        {"player": "Sihirbringer", "class": "Priest", "dps": 19257.9},
+        {"player": "Sikezhina", "class": "Mage", "dps": 19061.0},
+        {"player": "Belecow", "class": "Druid", "dps": 17912.1},
+        {"player": "Livehack", "class": "Rogue", "dps": 17812.0},
+        {"player": "Extetdk", "class": "Death Knight", "dps": 17701.4},
+        {"player": "Halorakija", "class": "Druid", "dps": 17677.7},
+        {"player": "Sakeza", "class": "Rogue", "dps": 17528.4},
+        {"player": "Pljugetina", "class": "Warrior", "dps": 17497.0},
+        {"player": "Povraatnik", "class": "Warrior", "dps": 16621.2},
+        {"player": "Malleena", "class": "Warlock", "dps": 16555.5},
+        {"player": "Isforsiran", "class": "Priest", "dps": 15256.7},
+        {"player": "Zenaratnica", "class": "Paladin", "dps": 15012.9},
+        {"player": "Kheron", "class": "Paladin", "dps": 14821.2},
+        {"player": "Woogie", "class": "Hunter", "dps": 14555.1},
+        {"player": "Frolie", "class": "Druid", "dps": 14306.3}
+      ],
+      "healing": [
+        {"player": "Gelosie", "class": "Priest", "hps": 37062.8},
+        {"player": "Shamkac", "class": "Shaman", "hps": 13070.7},
+        {"player": "Hardgoing", "class": "Priest", "hps": 11860.6},
+        {"player": "Antiopaa", "class": "Paladin", "hps": 3438.0}
+      ]
+    },
+    "Festergut": {
+      "dps": [
+        {"player": "Shamkac", "class": "Shaman", "dps": 21066.4},
+        {"player": "Rilewarr", "class": "Warrior", "dps": 20813.3},
+        {"player": "Atreff", "class": "Mage", "dps": 19513.9},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 18603.0},
+        {"player": "Jackdanielz", "class": "Druid", "dps": 17638.1},
+        {"player": "Pljugetina", "class": "Warrior", "dps": 17244.0},
+        {"player": "Sikezhina", "class": "Mage", "dps": 16803.2},
+        {"player": "Belecow", "class": "Druid", "dps": 16626.9},
+        {"player": "Livehack", "class": "Rogue", "dps": 15947.9},
+        {"player": "Sakeza", "class": "Rogue", "dps": 15780.3},
+        {"player": "Woogie", "class": "Hunter", "dps": 15754.9},
+        {"player": "Trajanflame", "class": "Mage", "dps": 15644.4},
+        {"player": "Frolie", "class": "Druid", "dps": 15523.6},
+        {"player": "Sihirbringer", "class": "Priest", "dps": 15496.3},
+        {"player": "Extetdk", "class": "Death Knight", "dps": 15494.3},
+        {"player": "Kheron", "class": "Paladin", "dps": 14967.9},
+        {"player": "Isforsiran", "class": "Priest", "dps": 14516.4},
+        {"player": "Zenaratnica", "class": "Paladin", "dps": 14047.5},
+        {"player": "Malleena", "class": "Warlock", "dps": 13545.5},
+        {"player": "Halorakija", "class": "Druid", "dps": 12270.2},
+        {"player": "Povraatnik", "class": "Warrior", "dps": 12205.7},
+        {"player": "Vindija", "class": "Death Knight", "dps": 5634.7}
+      ],
+      "healing": [
+        {"player": "Gelosie", "class": "Paladin", "hps": 12572.8},
+        {"player": "Hardgoing", "class": "Priest", "hps": 10846.0},
+        {"player": "Antiopaa", "class": "Paladin", "hps": 391.7}
+      ]
+    },
+    "Professor Putricide": {
+      "dps": [
+        {"player": "Shamkac", "class": "Shaman", "dps": 24070.2},
+        {"player": "Rilewarr", "class": "Warrior", "dps": 16566.9},
+        {"player": "Atreff", "class": "Mage", "dps": 16470.5},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 16084.4},
+        {"player": "Sihirbringer", "class": "Priest", "dps": 14901.7},
+        {"player": "Frolie", "class": "Druid", "dps": 14719.0},
+        {"player": "Trajanflame", "class": "Mage", "dps": 14609.8},
+        {"player": "Jackdanielz", "class": "Druid", "dps": 13972.1},
+        {"player": "Halorakija", "class": "Druid", "dps": 13916.9},
+        {"player": "Extetdk", "class": "Death Knight", "dps": 13590.9},
+        {"player": "Malleena", "class": "Warlock", "dps": 13070.0},
+        {"player": "Belecow", "class": "Druid", "dps": 12619.2},
+        {"player": "Livehack", "class": "Rogue", "dps": 12351.2},
+        {"player": "Sikezhina", "class": "Mage", "dps": 12317.4},
+        {"player": "Pljugetina", "class": "Warrior", "dps": 12261.8},
+        {"player": "Isforsiran", "class": "Priest", "dps": 11808.4},
+        {"player": "Povraatnik", "class": "Warrior", "dps": 11083.2},
+        {"player": "Zenaratnica", "class": "Paladin", "dps": 10892.0},
+        {"player": "Sakeza", "class": "Rogue", "dps": 10749.6},
+        {"player": "Woogie", "class": "Hunter", "dps": 10597.1},
+        {"player": "Kheron", "class": "Paladin", "dps": 10095.2},
+        {"player": "Vindija", "class": "Death Knight", "dps": 2601.9},
+        {"player": "Antiopaa", "class": "Paladin", "dps": 534.7}
+      ],
+      "healing": [
+        {"player": "Gelosie", "class": "Priest", "hps": 10915.9},
+        {"player": "Hardgoing", "class": "Priest", "hps": 10274.0}
+      ]
+    },
+    "Blood Prince Council": {
+      "dps": [
+        {"player": "Atreff", "class": "Mage", "dps": 17646.9},
+        {"player": "Trajanflame", "class": "Mage", "dps": 15304.8},
+        {"player": "Sihirbringer", "class": "Priest", "dps": 15215.6},
+        {"player": "Sikezhina", "class": "Mage", "dps": 15040.3},
+        {"player": "Jackdanielz", "class": "Druid", "dps": 14805.8},
+        {"player": "Rilewarr", "class": "Warrior", "dps": 13903.9},
+        {"player": "Belecow", "class": "Druid", "dps": 13391.4},
+        {"player": "Frolie", "class": "Druid", "dps": 13160.0},
+        {"player": "Isforsiran", "class": "Priest", "dps": 12972.1},
+        {"player": "Halorakija", "class": "Druid", "dps": 12593.9},
+        {"player": "Malleena", "class": "Warlock", "dps": 12336.3},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 12243.6},
+        {"player": "Extetdk", "class": "Death Knight", "dps": 12175.4},
+        {"player": "Povraatnik", "class": "Warrior", "dps": 11340.9},
+        {"player": "Sakeza", "class": "Rogue", "dps": 11301.9},
+        {"player": "Kheron", "class": "Paladin", "dps": 11062.5},
+        {"player": "Zenaratnica", "class": "Paladin", "dps": 10784.2},
+        {"player": "Woogie", "class": "Hunter", "dps": 9602.8},
+        {"player": "Shamkac", "class": "Shaman", "dps": 8929.4},
+        {"player": "Pljugetina", "class": "Warrior", "dps": 8727.8},
+        {"player": "Livehack", "class": "Rogue", "dps": 2862.0}
+      ],
+      "healing": [
+        {"player": "Gelosie", "class": "Priest", "hps": 14326.0},
+        {"player": "Vindija", "class": "Death Knight", "hps": 3474.5},
+        {"player": "Antiopaa", "class": "Paladin", "hps": 1144.2},
+        {"player": "Hardgoing", "class": "Priest", "hps": 232.1}
+      ]
+    },
+    "Blood-Queen Lana'thel": {
+      "dps": [
+        {"player": "Shamkac", "class": "Shaman", "dps": 34302.3},
+        {"player": "Belecow", "class": "Druid", "dps": 30569.2},
+        {"player": "Sihirbringer", "class": "Priest", "dps": 24365.8},
+        {"player": "Halorakija", "class": "Druid", "dps": 21010.3},
+        {"player": "Atreff", "class": "Mage", "dps": 19428.6},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 18662.3},
+        {"player": "Livehack", "class": "Rogue", "dps": 18265.1},
+        {"player": "Sikezhina", "class": "Mage", "dps": 17254.7},
+        {"player": "Jackdanielz", "class": "Druid", "dps": 17004.3},
+        {"player": "Malleena", "class": "Warlock", "dps": 16683.0},
+        {"player": "Rilewarr", "class": "Warrior", "dps": 16400.9},
+        {"player": "Trajanflame", "class": "Mage", "dps": 16394.3},
+        {"player": "Pljugetina", "class": "Warrior", "dps": 16124.1},
+        {"player": "Isforsiran", "class": "Priest", "dps": 15244.5},
+        {"player": "Frolie", "class": "Druid", "dps": 15096.0},
+        {"player": "Extetdk", "class": "Death Knight", "dps": 14600.3},
+        {"player": "Povraatnik", "class": "Warrior", "dps": 14205.3},
+        {"player": "Sakeza", "class": "Rogue", "dps": 13990.4},
+        {"player": "Kheron", "class": "Paladin", "dps": 13942.3},
+        {"player": "Zenaratnica", "class": "Paladin", "dps": 13612.6},
+        {"player": "Woogie", "class": "Hunter", "dps": 13204.6},
+        {"player": "Vindija", "class": "Death Knight", "dps": 3614.3}
+      ],
+      "healing": [
+        {"player": "Gelosie", "class": "Priest", "hps": 50397.8},
+        {"player": "Hardgoing", "class": "Priest", "hps": 17344.4},
+        {"player": "Antiopaa", "class": "Paladin", "hps": 5460.9}
+      ]
+    },
+    "Sindragosa": {
+      "dps": [
+        {"player": "Atreff", "class": "Mage", "dps": 15779.2},
+        {"player": "Rilewarr", "class": "Warrior", "dps": 15625.7},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 14976.3},
+        {"player": "Shamkac", "class": "Shaman", "dps": 13770.5},
+        {"player": "Extetdk", "class": "Death Knight", "dps": 13022.3},
+        {"player": "Trajanflame", "class": "Mage", "dps": 12235.1},
+        {"player": "Sihirbringer", "class": "Priest", "dps": 11522.3},
+        {"player": "Woogie", "class": "Hunter", "dps": 11192.0},
+        {"player": "Frolie", "class": "Druid", "dps": 10696.5},
+        {"player": "Jackdanielz", "class": "Druid", "dps": 10647.4},
+        {"player": "Malleena", "class": "Warlock", "dps": 9483.1},
+        {"player": "Sikezhina", "class": "Mage", "dps": 9296.6},
+        {"player": "Livehack", "class": "Rogue", "dps": 7796.8},
+        {"player": "Pljugetina", "class": "Warrior", "dps": 7631.2},
+        {"player": "Povraatnik", "class": "Warrior", "dps": 7302.0},
+        {"player": "Kheron", "class": "Paladin", "dps": 6555.5},
+        {"player": "Sakeza", "class": "Rogue", "dps": 6485.7},
+        {"player": "Vindija", "class": "Death Knight", "dps": 2368.0}
+      ],
+      "healing": [
+        {"player": "Gelosie", "class": "Paladin", "hps": 29242.6},
+        {"player": "Halorakija", "class": "Druid", "hps": 16691.6},
+        {"player": "Sihirbringer", "class": "Priest", "hps": 10701.9},
+        {"player": "Hardgoing", "class": "Priest", "hps": 8523.6},
+        {"player": "Isforsiran", "class": "Priest", "hps": 6776.3},
+        {"player": "Zenaratnica", "class": "Paladin", "hps": 6645.2},
+        {"player": "Antiopaa", "class": "Paladin", "hps": 4594.9}
+      ]
+    },
+    "The Lich King": {
+      "dps": [
+        {"player": "Halorakija", "class": "Druid", "dps": 23969.8},
+        {"player": "Rilewarr", "class": "Warrior", "dps": 14707.0},
+        {"player": "Atreff", "class": "Mage", "dps": 13480.5},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 13100.4},
+        {"player": "Pljugetina", "class": "Warrior", "dps": 12553.5},
+        {"player": "Sihirbringer", "class": "Priest", "dps": 12324.8},
+        {"player": "Extetdk", "class": "Death Knight", "dps": 12299.4},
+        {"player": "Frolie", "class": "Druid", "dps": 11948.0},
+        {"player": "Trajanflame", "class": "Mage", "dps": 11462.7},
+        {"player": "Belecow", "class": "Druid", "dps": 11116.0},
+        {"player": "Jackdanielz", "class": "Druid", "dps": 11112.7},
+        {"player": "Livehack", "class": "Rogue", "dps": 10860.6},
+        {"player": "Malleena", "class": "Warlock", "dps": 10323.4},
+        {"player": "Sikezhina", "class": "Mage", "dps": 10308.2},
+        {"player": "Povraatnik", "class": "Warrior", "dps": 10278.4},
+        {"player": "Kheron", "class": "Paladin", "dps": 9648.7},
+        {"player": "Woogie", "class": "Hunter", "dps": 9213.2},
+        {"player": "Isforsiran", "class": "Priest", "dps": 8882.7},
+        {"player": "Sakeza", "class": "Rogue", "dps": 8490.9}
+      ],
+      "healing": [
+        {"player": "Hardgoing", "class": "Priest", "hps": 9959.4},
+        {"player": "Gelosie", "class": "Priest", "hps": 8225.6},
+        {"player": "Zenaratnica", "class": "Paladin", "hps": 1616.3},
+        {"player": "Shamkac", "class": "Shaman", "hps": 537.3},
+        {"player": "Antiopaa", "class": "Paladin", "hps": 532.2},
+        {"player": "Vindija", "class": "Death Knight", "hps": 419.1}
+      ]
+    }
+  }
+}

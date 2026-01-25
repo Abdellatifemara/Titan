@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Parsers | T I T A N</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/top-parsers.css">
+    <link rel="icon" type="image/png" href="titan logo png.png">
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="titan logo png.png" alt="Titan Logo" class="nav-logo">
+                <span class="nav-title">TITAN</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="raids.html" class="nav-link">Raids</a></li>
+                <li><a href="guild.html" class="nav-link">Guild</a></li>
+                <li><a href="top-parsers.html" class="nav-link active">Top Parsers</a></li>
+                <li><a href="bis.html" class="nav-link">BiS List</a></li>
+                <li><a href="guides.html" class="nav-link">Guides</a></li>
+                <li><a href="join.html" class="nav-link">Join</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="join.html" class="btn btn-primary">Join Guild</a>
+            </div>
+            <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <div class="parsers-page">
+        <div class="parsers-hero">
+            <h1>TOP PARSERS</h1>
+            <p>All-time best performances from T I T A N guild raids</p>
+            <div class="log-counter">
+                <div class="log-counter-number" id="logCount">--</div>
+                <div class="log-counter-label">
+                    <strong>UwU Logs Analyzed</strong>
+                    <span id="dateRange">Loading...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="padding: 24px 0;">
+            <!-- DPS Section -->
+            <div id="dps-section">
+                <div id="bossContainer" class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading rankings...</p>
+                </div>
+            </div>
+
+            <div class="last-updated" id="lastUpdated"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p>&copy; 2026 T I T A N Guild. Warmane Icecrown.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/top-parsers.js"></script>
+</body>
+</html>

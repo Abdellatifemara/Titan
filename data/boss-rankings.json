@@ -1,0 +1,319 @@
+{
+  "lastUpdated": "2026-01-25",
+  "description": "Best DPS per class per boss - All-time records from T I T A N guild logs",
+  "bosses": {
+    "Deathbringer Saurfang": {
+      "bestOverall": { "player": "Conventin", "dps": 26533, "class": "Mage", "date": "2025-11-24", "log": "Firecopx" },
+      "bestByClass": {
+        "Mage": { "player": "Conventin", "dps": 26533, "date": "2025-11-24", "log": "Firecopx" },
+        "Druid": { "player": "Lep", "dps": 25957, "date": "2025-10-14", "log": "Serksham" },
+        "Shaman": { "player": "Escravidao", "dps": 25274, "date": "2026-01-05", "log": "Meekk" },
+        "Warrior": { "player": "Shortstacks", "dps": 25015, "date": "2025-11-04", "log": "Shortstacks" },
+        "Death Knight": { "player": "Lounge", "dps": 23319, "date": "2025-12-30", "log": "Goonpa" },
+        "Rogue": { "player": "Miczipiczi", "dps": 22535, "date": "2026-01-05", "log": "Meekk" },
+        "Hunter": { "player": "Kavleouras", "dps": 21298, "date": "2025-12-30", "log": "Goonpa" },
+        "Paladin": { "player": "Tankmore", "dps": 20867, "date": "2025-12-26", "log": "Tdibiswarry" },
+        "Priest": { "player": "Ellenor", "dps": 20592, "date": "2025-10-04", "log": "Serkwarrtwo" },
+        "Warlock": { "player": "Boppi", "dps": 20085, "date": "2025-12-30", "log": "Goonpa" }
+      },
+      "topPerformances": [
+        { "player": "Conventin", "dps": 26533, "class": "Mage", "date": "2025-11-24", "log": "Firecopx" },
+        { "player": "Lep", "dps": 25957, "class": "Druid", "date": "2025-10-14", "log": "Serksham" },
+        { "player": "Escravidao", "dps": 25274, "class": "Shaman", "date": "2026-01-05", "log": "Meekk" },
+        { "player": "Maagicall", "dps": 25154, "class": "Mage", "date": "2025-11-24", "log": "Firecopx" },
+        { "player": "Shortstacks", "dps": 25015, "class": "Warrior", "date": "2025-11-04", "log": "Shortstacks" },
+        { "player": "Tdibiswarry", "dps": 24232, "class": "Warrior", "date": "2025-12-26", "log": "Tdibiswarry" },
+        { "player": "Tdibiswarry", "dps": 23524, "class": "Warrior", "date": "2026-01-09", "log": "Txmmy" },
+        { "player": "Qok", "dps": 23447, "class": "Mage", "date": "2025-11-07", "log": "Gladiox" },
+        { "player": "Kirchok", "dps": 23418, "class": "Warrior", "date": "2025-09-02", "log": "Serko" },
+        { "player": "Lounge", "dps": 23319, "class": "Death Knight", "date": "2025-12-30", "log": "Goonpa" },
+        { "player": "Grillpower", "dps": 23297, "class": "Warrior", "date": "2026-01-05", "log": "Healbill" },
+        { "player": "Txmmy", "dps": 22975, "class": "Mage", "date": "2026-01-09", "log": "Txmmy" },
+        { "player": "Goldenmage", "dps": 22650, "class": "Mage", "date": "2025-10-25", "log": "Serkwarrtwo" },
+        { "player": "Turbokokot", "dps": 22617, "class": "Death Knight", "date": "2025-12-24", "log": "Hiroshiima" },
+        { "player": "Dictated", "dps": 22558, "class": "Warrior", "date": "2026-01-09", "log": "Txmmy" },
+        { "player": "Miczipiczi", "dps": 22535, "class": "Rogue", "date": "2026-01-05", "log": "Meekk" },
+        { "player": "Weldyxftw", "dps": 22434, "class": "Mage", "date": "2025-10-06", "log": "Ephemera" },
+        { "player": "Zhelva", "dps": 22432, "class": "Druid", "date": "2025-12-30", "log": "Goonpa" },
+        { "player": "Dictated", "dps": 22345, "class": "Warrior", "date": "2025-12-30", "log": "Goonpa" },
+        { "player": "Chromosphere", "dps": 22274, "class": "Mage", "date": "2025-09-11", "log": "Ellenorxo" },
+        { "player": "Rockzi", "dps": 22250, "class": "Warrior", "date": "2025-10-25", "log": "Serkwarrtwo" },
+        { "player": "Kamcia", "dps": 22138, "class": "Mage", "date": "2025-11-02", "log": "Robotalian" },
+        { "player": "Tdibiswarry", "dps": 22062, "class": "Warrior", "date": "2025-11-07", "log": "Gladiox" },
+        { "player": "Fireaura", "dps": 21741, "class": "Warrior", "date": "2025-10-06", "log": "Ephemera" }
+      ]
+    },
+    "Lord Marrowgar": {
+      "bestOverall": { "player": "Unhinged", "dps": 25498, "class": "Warrior", "date": "2025-12-13", "log": "Serko" },
+      "bestByClass": {
+        "Warrior": { "player": "Unhinged", "dps": 25498, "date": "2025-12-13", "log": "Serko" },
+        "Druid": { "player": "Framezboo", "dps": 25037, "date": "2026-01-17", "log": "Serko" },
+        "Mage": { "player": "Goldenmage", "dps": 24781, "date": "2025-09-17", "log": "Ellenorp" },
+        "Hunter": { "player": "Marytwo", "dps": 23351, "date": "2025-12-28", "log": "Spread" },
+        "Warlock": { "player": "Bleksal", "dps": 23445, "date": "2025-12-31", "log": "Serkwarrtwo" },
+        "Rogue": { "player": "Ellenorxo", "dps": 23156, "date": "2025-12-13", "log": "Serko" },
+        "Paladin": { "player": "Based", "dps": 19458, "date": "2025-12-31", "log": "Serkwarrtwo" },
+        "Priest": { "player": "Jgl", "dps": 18458, "date": "2025-11-07", "log": "Gladiox" },
+        "Death Knight": { "player": "Gcdhacks", "dps": 18479, "date": "2025-11-07", "log": "Gladiox" },
+        "Shaman": { "player": "Fanofpangu", "dps": 17013, "date": "2025-09-11", "log": "Gladiox" }
+      },
+      "topPerformances": [
+        { "player": "Unhinged", "dps": 25498, "class": "Warrior", "date": "2025-12-13", "log": "Serko" },
+        { "player": "Framezboo", "dps": 25037, "class": "Druid", "date": "2026-01-17", "log": "Serko" },
+        { "player": "Goldenmage", "dps": 24781, "class": "Mage", "date": "2025-09-17", "log": "Ellenorp" },
+        { "player": "Meekk", "dps": 24531, "class": "Warrior", "date": "2026-01-05", "log": "Meekk" },
+        { "player": "Stinngg", "dps": 24446, "class": "Mage", "date": "2026-01-02", "log": "Exuberantt" },
+        { "player": "Zetamethod", "dps": 24385, "class": "Warrior", "date": "2026-01-05", "log": "Meekk" },
+        { "player": "Rodjak", "dps": 24096, "class": "Warrior", "date": "2025-12-31", "log": "Serkwarrtwo" },
+        { "player": "Meekk", "dps": 24086, "class": "Warrior", "date": "2025-09-11", "log": "Gladiox" },
+        { "player": "Firelash", "dps": 23675, "class": "Mage", "date": "2025-10-21", "log": "Serkwarr" },
+        { "player": "Zharcqt", "dps": 23555, "class": "Mage", "date": "2025-10-27", "log": "Serkwarr" }
+      ]
+    },
+    "Festergut": {
+      "bestOverall": { "player": "Stinngg", "dps": 23812, "class": "Mage", "date": "2026-01-17", "log": "Serko" },
+      "bestByClass": {
+        "Mage": { "player": "Stinngg", "dps": 23812, "date": "2026-01-17", "log": "Serko" },
+        "Hunter": { "player": "Marytwo", "dps": 23351, "date": "2025-12-28", "log": "Spread" },
+        "Warrior": { "player": "Tdibiswarry", "dps": 23071, "date": "2025-11-07", "log": "Gladiox" },
+        "Rogue": { "player": "Ellenorxo", "dps": 22218, "date": "2026-01-11", "log": "Ellenorxo" },
+        "Druid": { "player": "Framezboo", "dps": 21449, "date": "2026-01-17", "log": "Serko" },
+        "Warlock": { "player": "Pnl", "dps": 20500, "date": "2026-01-17", "log": "Serko" },
+        "Paladin": { "player": "Asshley", "dps": 18778, "date": "2026-01-05", "log": "Meekk" },
+        "Priest": { "player": "Lahbitri", "dps": 18663, "date": "2026-01-05", "log": "Meekk" },
+        "Death Knight": { "player": "Gcdhacks", "dps": 17500, "date": "2025-11-07", "log": "Gladiox" },
+        "Shaman": { "player": "Zorkicqt", "dps": 15000, "date": "2026-01-17", "log": "Serko" }
+      },
+      "topPerformances": [
+        { "player": "Stinngg", "dps": 23812, "class": "Mage", "date": "2026-01-17", "log": "Serko" },
+        { "player": "Zharcqt", "dps": 23370, "class": "Mage", "date": "2025-12-28", "log": "Spread" },
+        { "player": "Marytwo", "dps": 23351, "class": "Hunter", "date": "2025-12-28", "log": "Spread" },
+        { "player": "Kinzzy", "dps": 23129, "class": "Mage", "date": "2026-01-17", "log": "Serko" },
+        { "player": "Tdibiswarry", "dps": 23071, "class": "Warrior", "date": "2025-11-07", "log": "Gladiox" },
+        { "player": "Zharcqt", "dps": 23040, "class": "Mage", "date": "2025-10-27", "log": "Serkwarr" },
+        { "player": "Nymzi", "dps": 22686, "class": "Mage", "date": "2025-12-20", "log": "Meekk" },
+        { "player": "Ellenorxo", "dps": 22218, "class": "Rogue", "date": "2026-01-11", "log": "Ellenorxo" },
+        { "player": "Stinngg", "dps": 22174, "class": "Mage", "date": "2025-10-27", "log": "Serkwarr" },
+        { "player": "Rodjak", "dps": 21575, "class": "Warrior", "date": "2025-12-31", "log": "Serkwarrtwo" }
+      ]
+    },
+    "Rotface": {
+      "bestOverall": { "player": "Dazzxmage", "dps": 26019, "class": "Mage", "date": "2025-08-30", "log": "Ellenorxo" },
+      "bestByClass": {
+        "Mage": { "player": "Dazzxmage", "dps": 26019, "date": "2025-08-30", "log": "Ellenorxo" },
+        "Hunter": { "player": "Baguette", "dps": 22421, "date": "2026-01-11", "log": "Ellenorxo" },
+        "Priest": { "player": "Spread", "dps": 21568, "date": "2026-01-11", "log": "Ellenorxo" },
+        "Rogue": { "player": "Ellenorxo", "dps": 21157, "date": "2026-01-11", "log": "Ellenorxo" },
+        "Warrior": { "player": "Shortstacks", "dps": 21003, "date": "2025-11-04", "log": "Shortstacks" },
+        "Druid": { "player": "Burstclaw", "dps": 20398, "date": "2025-08-30", "log": "Ellenorxo" },
+        "Paladin": { "player": "Macabrelight", "dps": 19792, "date": "2025-08-30", "log": "Ellenorxo" },
+        "Shaman": { "player": "Lounge", "dps": 19207, "date": "2025-10-27", "log": "Serkwarr" },
+        "Death Knight": { "player": "Icytouchftw", "dps": 18067, "date": "2026-01-11", "log": "Ellenorxo" },
+        "Warlock": { "player": "Spread", "dps": 18000, "date": "2026-01-11", "log": "Ellenorxo" }
+      },
+      "topPerformances": [
+        { "player": "Dazzxmage", "dps": 26019, "class": "Mage", "date": "2025-08-30", "log": "Ellenorxo" },
+        { "player": "Stinngg", "dps": 25049, "class": "Mage", "date": "2025-10-27", "log": "Serkwarr" },
+        { "player": "Zharcqt", "dps": 24169, "class": "Mage", "date": "2025-10-27", "log": "Serkwarr" },
+        { "player": "Magics", "dps": 22650, "class": "Mage", "date": "2025-08-30", "log": "Ellenorxo" },
+        { "player": "Baguette", "dps": 22421, "class": "Hunter", "date": "2026-01-11", "log": "Ellenorxo" },
+        { "player": "Bobbinegro", "dps": 22366, "class": "Mage", "date": "2025-12-22", "log": "Serkwarr" },
+        { "player": "Spread", "dps": 21568, "class": "Priest", "date": "2026-01-11", "log": "Ellenorxo" },
+        { "player": "Ellenorxo", "dps": 21157, "class": "Rogue", "date": "2026-01-11", "log": "Ellenorxo" },
+        { "player": "Auroo", "dps": 20754, "class": "Mage", "date": "2025-12-22", "log": "Serkwarr" },
+        { "player": "Diswasherfan", "dps": 20527, "class": "Hunter", "date": "2025-10-27", "log": "Serkwarr" }
+      ]
+    },
+    "Blood-Queen Lana'thel": {
+      "bestOverall": { "player": "Shortstacks", "dps": 40212, "class": "Warrior", "date": "2025-11-04", "log": "Shortstacks" },
+      "bestByClass": {
+        "Warrior": { "player": "Shortstacks", "dps": 40212, "date": "2025-11-04", "log": "Shortstacks" },
+        "Warlock": { "player": "Bleksal", "dps": 38259, "date": "2025-12-31", "log": "Serkwarrtwo" },
+        "Death Knight": { "player": "Icytouchftw", "dps": 29687, "date": "2026-01-11", "log": "Ellenorxo" },
+        "Druid": { "player": "Boomychan", "dps": 29194, "date": "2025-12-22", "log": "Serkwarr" },
+        "Priest": { "player": "Topia", "dps": 29066, "date": "2025-10-09", "log": "Serkclipse" },
+        "Mage": { "player": "Weldyxftw", "dps": 31443, "date": "2025-10-06", "log": "Ephemera" },
+        "Hunter": { "player": "Valjdabjelan", "dps": 22557, "date": "2025-11-07", "log": "Gladiox" },
+        "Rogue": { "player": "Ellenorxo", "dps": 22364, "date": "2026-01-11", "log": "Ellenorxo" },
+        "Paladin": { "player": "Retmon", "dps": 19329, "date": "2025-12-22", "log": "Serkwarr" },
+        "Shaman": { "player": "Mytotemo", "dps": 7777, "date": "2025-11-16", "log": "Serkwarr" }
+      },
+      "topPerformances": [
+        { "player": "Tdibiswarry", "dps": 39678, "class": "Warrior", "date": "2025-11-07", "log": "Gladiox" },
+        { "player": "Bleksal", "dps": 38259, "class": "Warlock", "date": "2025-12-31", "log": "Serkwarrtwo" },
+        { "player": "Ignorepain", "dps": 33936, "class": "Warrior", "date": "2025-10-09", "log": "Serkclipse" },
+        { "player": "Icytouchftw", "dps": 29687, "class": "Death Knight", "date": "2026-01-11", "log": "Ellenorxo" },
+        { "player": "Rodjak", "dps": 29512, "class": "Warrior", "date": "2025-12-31", "log": "Serkwarrtwo" },
+        { "player": "Boomychan", "dps": 29194, "class": "Druid", "date": "2025-12-22", "log": "Serkwarr" },
+        { "player": "Topia", "dps": 29066, "class": "Priest", "date": "2025-10-09", "log": "Serkclipse" },
+        { "player": "Melinnda", "dps": 27211, "class": "Mage", "date": "2026-01-11", "log": "Ellenorxo" },
+        { "player": "Loaf", "dps": 24496, "class": "Druid", "date": "2025-11-07", "log": "Gladiox" },
+        { "player": "Zyzzayn", "dps": 23923, "class": "Mage", "date": "2026-01-11", "log": "Ellenorxo" }
+      ]
+    },
+    "Professor Putricide": {
+      "bestOverall": { "player": "Spread", "dps": 20461, "class": "Hunter", "date": "2026-01-11", "log": "Ellenorxo" },
+      "bestByClass": {
+        "Hunter": { "player": "Spread", "dps": 20461, "date": "2026-01-11", "log": "Ellenorxo" },
+        "Mage": { "player": "Stinngg", "dps": 20205, "date": "2025-10-27", "log": "Serkwarr" },
+        "Rogue": { "player": "Jesieniara", "dps": 19745, "date": "2025-10-27", "log": "Serkwarr" },
+        "Warrior": { "player": "Fawdha", "dps": 18406, "date": "2026-01-11", "log": "Ellenorxo" },
+        "Priest": { "player": "Ephemera", "dps": 17597, "date": "2025-10-06", "log": "Ephemera" },
+        "Death Knight": { "player": "Icytouchftw", "dps": 16868, "date": "2026-01-11", "log": "Ellenorxo" },
+        "Paladin": { "player": "Darkpalaadin", "dps": 16687, "date": "2025-10-27", "log": "Serkwarr" },
+        "Druid": { "player": "Banditpwnz", "dps": 16151, "date": "2025-10-27", "log": "Serkwarr" },
+        "Warlock": { "player": "Llyyth", "dps": 17431, "date": "2025-10-27", "log": "Serkwarr" },
+        "Shaman": { "player": "Unknown", "dps": 12000, "date": "2025-10-27", "log": "Serkwarr" }
+      },
+      "topPerformances": [
+        { "player": "Spread", "dps": 20461, "class": "Hunter", "date": "2026-01-11", "log": "Ellenorxo" },
+        { "player": "Stinngg", "dps": 20205, "class": "Mage", "date": "2025-10-27", "log": "Serkwarr" },
+        { "player": "Jesieniara", "dps": 19745, "class": "Rogue", "date": "2025-10-27", "log": "Serkwarr" },
+        { "player": "Fawdha", "dps": 18406, "class": "Warrior", "date": "2026-01-11", "log": "Ellenorxo" },
+        { "player": "Serkwarr", "dps": 18136, "class": "Warrior", "date": "2025-10-27", "log": "Serkwarr" },
+        { "player": "Callmebaybe", "dps": 17599, "class": "Rogue", "date": "2026-01-11", "log": "Ellenorxo" },
+        { "player": "Llyyth", "dps": 17431, "class": "Priest", "date": "2025-10-27", "log": "Serkwarr" },
+        { "player": "Kallra", "dps": 17223, "class": "Mage", "date": "2026-01-11", "log": "Ellenorxo" },
+        { "player": "Melinnda", "dps": 17004, "class": "Mage", "date": "2026-01-11", "log": "Ellenorxo" },
+        { "player": "Baguette", "dps": 16875, "class": "Hunter", "date": "2026-01-11", "log": "Ellenorxo" }
+      ]
+    },
+    "Sindragosa": {
+      "bestOverall": { "player": "Kinzzy", "dps": 19427, "class": "Mage", "date": "2025-10-29", "log": "Goonpa" },
+      "bestByClass": {
+        "Mage": { "player": "Kinzzy", "dps": 19427, "date": "2025-10-29", "log": "Goonpa" },
+        "Warlock": { "player": "Spread", "dps": 16886, "date": "2026-01-11", "log": "Ellenorxo" },
+        "Druid": { "player": "Framezboo", "dps": 15948, "date": "2026-01-17", "log": "Serko" },
+        "Paladin": { "player": "Macabrelight", "dps": 15615, "date": "2025-08-30", "log": "Ellenorxo" },
+        "Rogue": { "player": "Ellenorxo", "dps": 15479, "date": "2026-01-11", "log": "Ellenorxo" },
+        "Priest": { "player": "Ephemera", "dps": 15254, "date": "2025-10-06", "log": "Ephemera" },
+        "Hunter": { "player": "Darkadia", "dps": 12938, "date": "2025-08-30", "log": "Ellenorxo" },
+        "Death Knight": { "player": "Icytouchftw", "dps": 11064, "date": "2026-01-11", "log": "Ellenorxo" },
+        "Warrior": { "player": "Fawdha", "dps": 10961, "date": "2026-01-11", "log": "Ellenorxo" },
+        "Shaman": { "player": "Unknown", "dps": 10000, "date": "2026-01-17", "log": "Serko" }
+      },
+      "topPerformances": [
+        { "player": "Dazzxmage", "dps": 17100, "class": "Mage", "date": "2025-08-30", "log": "Ellenorxo" },
+        { "player": "Spread", "dps": 16886, "class": "Warlock", "date": "2026-01-11", "log": "Ellenorxo" },
+        { "player": "Magics", "dps": 16470, "class": "Mage", "date": "2025-08-30", "log": "Ellenorxo" },
+        { "player": "Framezboo", "dps": 15948, "class": "Druid", "date": "2026-01-17", "log": "Serko" },
+        { "player": "Macabrelight", "dps": 15615, "class": "Paladin", "date": "2025-08-30", "log": "Ellenorxo" },
+        { "player": "Ellenorxo", "dps": 15479, "class": "Rogue", "date": "2026-01-11", "log": "Ellenorxo" },
+        { "player": "Framezxo", "dps": 15200, "class": "Priest", "date": "2025-08-30", "log": "Ellenorxo" },
+        { "player": "Mareasasin", "dps": 13304, "class": "Rogue", "date": "2025-08-30", "log": "Ellenorxo" },
+        { "player": "Pnl", "dps": 12974, "class": "Warlock", "date": "2025-08-30", "log": "Ellenorxo" },
+        { "player": "Astigmatism", "dps": 12880, "class": "Rogue", "date": "2026-01-17", "log": "Serko" }
+      ]
+    },
+    "The Lich King": {
+      "bestOverall": { "player": "Shortstacks", "dps": 19000, "class": "Warrior", "date": "2025-11-04", "log": "Shortstacks" },
+      "bestByClass": {
+        "Warrior": { "player": "Shortstacks", "dps": 19000, "date": "2025-11-04", "log": "Shortstacks" },
+        "Mage": { "player": "Fritosh", "dps": 16084, "date": "2025-11-07", "log": "Gladiox" },
+        "Hunter": { "player": "Maryloh", "dps": 15850, "date": "2025-12-20", "log": "Meekk" },
+        "Death Knight": { "player": "Turbokokot", "dps": 15639, "date": "2025-12-24", "log": "Hiroshiima" },
+        "Druid": { "player": "Framezboo", "dps": 15459, "date": "2026-01-17", "log": "Serko" },
+        "Warlock": { "player": "Zharcqt", "dps": 15193, "date": "2025-12-28", "log": "Spread" },
+        "Priest": { "player": "Platenbokluk", "dps": 14419, "date": "2025-12-20", "log": "Meekk" },
+        "Paladin": { "player": "Dazzlerpaly", "dps": 14080, "date": "2025-12-20", "log": "Meekk" },
+        "Rogue": { "player": "Combatpax", "dps": 14722, "date": "2025-12-28", "log": "Spread" },
+        "Shaman": { "player": "Xeniapajcin", "dps": 11550, "date": "2025-12-24", "log": "Hiroshiima" }
+      },
+      "topPerformances": [
+        { "player": "Shortstacks", "dps": 19000, "class": "Warrior", "date": "2025-11-04", "log": "Shortstacks" },
+        { "player": "Kinzzy", "dps": 15993, "class": "Mage", "date": "2026-01-17", "log": "Serko" },
+        { "player": "Tdibiswarry", "dps": 15970, "class": "Warrior", "date": "2026-01-09", "log": "Txmmy" },
+        { "player": "Maryloh", "dps": 15850, "class": "Hunter", "date": "2025-12-20", "log": "Meekk" },
+        { "player": "Turbokokot", "dps": 15639, "class": "Death Knight", "date": "2025-12-24", "log": "Hiroshiima" },
+        { "player": "Framezboo", "dps": 15459, "class": "Druid", "date": "2026-01-17", "log": "Serko" },
+        { "player": "Framezqt", "dps": 15372, "class": "Druid", "date": "2025-12-20", "log": "Meekk" },
+        { "player": "Nymzi", "dps": 15329, "class": "Mage", "date": "2025-12-20", "log": "Meekk" },
+        { "player": "Stinngg", "dps": 15099, "class": "Mage", "date": "2026-01-17", "log": "Serko" },
+        { "player": "Dictated", "dps": 14703, "class": "Warrior", "date": "2026-01-09", "log": "Txmmy" }
+      ]
+    },
+    "Lady Deathwhisper": {
+      "bestOverall": { "player": "Framezqt", "dps": 21967, "class": "Druid", "date": "2025-12-20", "log": "Meekk" },
+      "bestByClass": {
+        "Druid": { "player": "Framezqt", "dps": 21967, "date": "2025-12-20", "log": "Meekk" },
+        "Warrior": { "player": "Nayho", "dps": 20915, "date": "2025-12-20", "log": "Meekk" },
+        "Mage": { "player": "Streakie", "dps": 19609, "date": "2025-12-20", "log": "Meekk" },
+        "Paladin": { "player": "Miistorm", "dps": 18847, "date": "2025-12-20", "log": "Meekk" },
+        "Hunter": { "player": "Maryloh", "dps": 18832, "date": "2025-12-20", "log": "Meekk" },
+        "Rogue": { "player": "Ellenorxo", "dps": 18108, "date": "2025-08-30", "log": "Ellenorxo" },
+        "Warlock": { "player": "Llythh", "dps": 16929, "date": "2025-12-20", "log": "Meekk" },
+        "Priest": { "player": "Priestdot", "dps": 15847, "date": "2026-01-17", "log": "Serko" },
+        "Death Knight": { "player": "Realpainx", "dps": 12034, "date": "2025-12-20", "log": "Meekk" },
+        "Shaman": { "player": "Zorkicqt", "dps": 12537, "date": "2026-01-17", "log": "Serko" }
+      },
+      "topPerformances": [
+        { "player": "Framezqt", "dps": 21967, "class": "Druid", "date": "2025-12-20", "log": "Meekk" },
+        { "player": "Nayho", "dps": 20915, "class": "Warrior", "date": "2025-12-20", "log": "Meekk" },
+        { "player": "Streakie", "dps": 19609, "class": "Mage", "date": "2025-12-20", "log": "Meekk" },
+        { "player": "Nymzi", "dps": 18885, "class": "Mage", "date": "2025-12-20", "log": "Meekk" },
+        { "player": "Miistorm", "dps": 18847, "class": "Paladin", "date": "2025-12-20", "log": "Meekk" },
+        { "player": "Maryloh", "dps": 18832, "class": "Hunter", "date": "2025-12-20", "log": "Meekk" },
+        { "player": "Framezboo", "dps": 18492, "class": "Druid", "date": "2026-01-17", "log": "Serko" },
+        { "player": "Ellenorxo", "dps": 18108, "class": "Rogue", "date": "2025-08-30", "log": "Ellenorxo" },
+        { "player": "Llythh", "dps": 16929, "class": "Warlock", "date": "2025-12-20", "log": "Meekk" },
+        { "player": "Fireaura", "dps": 16950, "class": "Warrior", "date": "2026-01-17", "log": "Serko" }
+      ]
+    },
+    "Blood Prince Council": {
+      "bestOverall": { "player": "Kinzzy", "dps": 23955, "class": "Mage", "date": "2026-01-17", "log": "Serko" },
+      "bestByClass": {
+        "Mage": { "player": "Kinzzy", "dps": 23955, "date": "2026-01-17", "log": "Serko" },
+        "Rogue": { "player": "Astigmatism", "dps": 20657, "date": "2026-01-17", "log": "Serko" },
+        "Druid": { "player": "Framezboo", "dps": 19964, "date": "2026-01-17", "log": "Serko" },
+        "Warlock": { "player": "Pnl", "dps": 18855, "date": "2026-01-17", "log": "Serko" },
+        "Priest": { "player": "Serko", "dps": 18798, "date": "2026-01-17", "log": "Serko" },
+        "Paladin": { "player": "Dazzlerpaly", "dps": 18571, "date": "2026-01-17", "log": "Serko" },
+        "Warrior": { "player": "Fireaura", "dps": 17099, "date": "2026-01-17", "log": "Serko" },
+        "Hunter": { "player": "Lickmybowz", "dps": 15216, "date": "2026-01-17", "log": "Serko" },
+        "Death Knight": { "player": "Arkailfdk", "dps": 15832, "date": "2025-12-20", "log": "Meekk" },
+        "Shaman": { "player": "Zorkicqt", "dps": 14316, "date": "2026-01-17", "log": "Serko" }
+      },
+      "topPerformances": [
+        { "player": "Kinzzy", "dps": 23955, "class": "Mage", "date": "2026-01-17", "log": "Serko" },
+        { "player": "Stinngg", "dps": 22416, "class": "Mage", "date": "2026-01-17", "log": "Serko" },
+        { "player": "Nymzi", "dps": 21847, "class": "Mage", "date": "2025-12-20", "log": "Meekk" },
+        { "player": "Astigmatism", "dps": 20657, "class": "Rogue", "date": "2026-01-17", "log": "Serko" },
+        { "player": "Streakie", "dps": 20227, "class": "Mage", "date": "2025-12-20", "log": "Meekk" },
+        { "player": "Framezboo", "dps": 19964, "class": "Druid", "date": "2026-01-17", "log": "Serko" },
+        { "player": "Pnl", "dps": 18855, "class": "Warlock", "date": "2026-01-17", "log": "Serko" },
+        { "player": "Serko", "dps": 18798, "class": "Priest", "date": "2026-01-17", "log": "Serko" },
+        { "player": "Dazzlerpaly", "dps": 18571, "class": "Paladin", "date": "2026-01-17", "log": "Serko" },
+        { "player": "Priestdot", "dps": 18362, "class": "Priest", "date": "2026-01-17", "log": "Serko" }
+      ]
+    },
+    "Halion": {
+      "bestOverall": { "player": "Stixxy", "dps": 14613, "class": "Warrior", "date": "2025-11-05", "log": "Exuberantt" },
+      "bestByClass": {
+        "Warrior": { "player": "Stixxy", "dps": 14613, "date": "2025-11-05", "log": "Exuberantt" },
+        "Mage": { "player": "Llilly", "dps": 12753, "date": "2026-01-18", "log": "Robotalian" },
+        "Druid": { "player": "Philipslayer", "dps": 12421, "date": "2026-01-14", "log": "Serkwarr" },
+        "Hunter": { "player": "Acidhunts", "dps": 10635, "date": "2025-10-09", "log": "Acidhunts" },
+        "Paladin": { "player": "Based", "dps": 11197, "date": "2025-11-05", "log": "Exuberantt" },
+        "Death Knight": { "player": "Naidenovsr", "dps": 10972, "date": "2026-01-18", "log": "Robotalian" },
+        "Priest": { "player": "Betzyd", "dps": 10687, "date": "2026-01-14", "log": "Betzyd" },
+        "Rogue": { "player": "Ripertot", "dps": 10558, "date": "2026-01-14", "log": "Betzyd" },
+        "Warlock": { "player": "Fearology", "dps": 10036, "date": "2026-01-18", "log": "Robotalian" },
+        "Shaman": { "player": "Covidskibidi", "dps": 7977, "date": "2025-11-26", "log": "Shibonator" }
+      },
+      "topPerformances": [
+        { "player": "Stixxy", "dps": 14613, "class": "Warrior", "date": "2025-11-05", "log": "Exuberantt" },
+        { "player": "Exuberantt", "dps": 13218, "class": "Warrior", "date": "2025-11-05", "log": "Exuberantt" },
+        { "player": "Serkwarr", "dps": 13867, "class": "Warrior", "date": "2026-01-14", "log": "Serkwarr" },
+        { "player": "Llilly", "dps": 12753, "class": "Mage", "date": "2026-01-18", "log": "Robotalian" },
+        { "player": "Nautilis", "dps": 12548, "class": "Warrior", "date": "2026-01-14", "log": "Serkwarr" },
+        { "player": "Philipslayer", "dps": 12421, "class": "Druid", "date": "2026-01-14", "log": "Serkwarr" },
+        { "player": "Duuriimaa", "dps": 11888, "class": "Mage", "date": "2025-10-09", "log": "Acidhunts" },
+        { "player": "Based", "dps": 11197, "class": "Paladin", "date": "2025-11-05", "log": "Exuberantt" },
+        { "player": "Naidenovsr", "dps": 10972, "class": "Death Knight", "date": "2026-01-18", "log": "Robotalian" },
+        { "player": "Betzyd", "dps": 10687, "class": "Priest", "date": "2026-01-14", "log": "Betzyd" }
+      ]
+    }
+  },
+  "logsFetched": 75,
+  "totalLogs": 103
+}

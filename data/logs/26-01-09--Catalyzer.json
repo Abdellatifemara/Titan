@@ -1,0 +1,325 @@
+{
+  "logId": "26-01-09--20-58--Catalyzer--Icecrown",
+  "date": "2026-01-09",
+  "logger": "Catalyzer",
+  "raid": "Icecrown",
+  "mode": "25H",
+  "url": "https://uwu-logs.xyz/reports/26-01-09--20-58--Catalyzer--Icecrown/",
+  "bosses": {
+    "Lord Marrowgar": {
+      "dps": [
+        {"player": "Halotequila", "class": "Mage", "dps": 19579.3},
+        {"player": "Sakezo", "class": "Druid", "dps": 17161.1},
+        {"player": "Compadree", "class": "Druid", "dps": 16993.8},
+        {"player": "Sapbringer", "class": "Rogue", "dps": 16956.9},
+        {"player": "Marchamedia", "class": "Warrior", "dps": 16766.5},
+        {"player": "Kiroronde", "class": "Warrior", "dps": 16746.8},
+        {"player": "Carnaged", "class": "Warrior", "dps": 16688.5},
+        {"player": "Famalee", "class": "Mage", "dps": 16187.3},
+        {"player": "Dotrundot", "class": "Warlock", "dps": 15828.8},
+        {"player": "Namica", "class": "Priest", "dps": 15183.3},
+        {"player": "Gingerogue", "class": "Rogue", "dps": 15029.7},
+        {"player": "Shadowatreff", "class": "Priest", "dps": 15000.5},
+        {"player": "Palanator", "class": "Paladin", "dps": 14803.8},
+        {"player": "Verissia", "class": "Priest", "dps": 14325.0},
+        {"player": "Nyyxxy", "class": "Mage", "dps": 13749.2},
+        {"player": "Holyshizt", "class": "Druid", "dps": 13074.3},
+        {"player": "Malleena", "class": "Warlock", "dps": 12601.9},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 11822.9},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 10258.3}
+      ],
+      "healing": [
+        {"player": "Buliwyf", "class": "Paladin", "hps": 28281.1},
+        {"player": "Rillesamy", "class": "Druid", "hps": 13728.2},
+        {"player": "Baladin", "class": "Paladin", "hps": 13423.4},
+        {"player": "Saverasta", "class": "Priest", "hps": 12648.1}
+      ]
+    },
+    "Lady Deathwhisper": {
+      "dps": [
+        {"player": "Carnaged", "class": "Warrior", "dps": 17545.0},
+        {"player": "Halotequila", "class": "Mage", "dps": 16909.9},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 16695.0},
+        {"player": "Marchamedia", "class": "Warrior", "dps": 16264.3},
+        {"player": "Verissia", "class": "Priest", "dps": 14732.3},
+        {"player": "Sapbringer", "class": "Rogue", "dps": 14432.1},
+        {"player": "Shadowatreff", "class": "Priest", "dps": 14256.0},
+        {"player": "Reckles", "class": "Hunter", "dps": 13272.4},
+        {"player": "Holyshizt", "class": "Druid", "dps": 12986.4},
+        {"player": "Famalee", "class": "Mage", "dps": 12110.2},
+        {"player": "Namica", "class": "Paladin", "dps": 12016.9},
+        {"player": "Nyyxxy", "class": "Mage", "dps": 11935.8},
+        {"player": "Palanator", "class": "Paladin", "dps": 11926.9},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 11895.2},
+        {"player": "Malleena", "class": "Warlock", "dps": 11805.4},
+        {"player": "Dotrundot", "class": "Warlock", "dps": 11648.6},
+        {"player": "Sakezo", "class": "Druid", "dps": 11564.4},
+        {"player": "Kiroronde", "class": "Warrior", "dps": 11553.2},
+        {"player": "Compadree", "class": "Druid", "dps": 10205.1},
+        {"player": "Gingerogue", "class": "Rogue", "dps": 10194.2},
+        {"player": "Extetdk", "class": "Death Knight", "dps": 3351.1}
+      ],
+      "healing": [
+        {"player": "Buliwyf", "class": "Paladin", "hps": 37093.7},
+        {"player": "Rillesamy", "class": "Druid", "hps": 13071.7},
+        {"player": "Saverasta", "class": "Priest", "hps": 10192.2},
+        {"player": "Baladin", "class": "Paladin", "hps": 7444.6}
+      ]
+    },
+    "Deathbringer Saurfang": {
+      "dps": [
+        {"player": "Carnaged", "class": "Warrior", "dps": 24318.1},
+        {"player": "Halotequila", "class": "Mage", "dps": 22931.3},
+        {"player": "Reckles", "class": "Hunter", "dps": 22144.2},
+        {"player": "Nyyxxy", "class": "Mage", "dps": 20921.0},
+        {"player": "Kiroronde", "class": "Warrior", "dps": 20630.8},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 20533.1},
+        {"player": "Marchamedia", "class": "Warrior", "dps": 19616.0},
+        {"player": "Compadree", "class": "Druid", "dps": 19353.8},
+        {"player": "Sapbringer", "class": "Rogue", "dps": 19318.6},
+        {"player": "Palanator", "class": "Paladin", "dps": 19087.7},
+        {"player": "Verissia", "class": "Priest", "dps": 18610.0},
+        {"player": "Malleena", "class": "Warlock", "dps": 17765.8},
+        {"player": "Dotrundot", "class": "Death Knight", "dps": 17590.2},
+        {"player": "Sakezo", "class": "Druid", "dps": 17473.1},
+        {"player": "Holyshizt", "class": "Druid", "dps": 17441.5},
+        {"player": "Gingerogue", "class": "Rogue", "dps": 17099.7},
+        {"player": "Shadowatreff", "class": "Priest", "dps": 17079.4},
+        {"player": "Rillesamy", "class": "Shaman", "dps": 16427.1},
+        {"player": "Namica", "class": "Paladin", "dps": 15765.2},
+        {"player": "Famalee", "class": "Mage", "dps": 15299.5},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 15210.4}
+      ],
+      "healing": [
+        {"player": "Buliwyf", "class": "Priest", "hps": 56078.3},
+        {"player": "Baladin", "class": "Paladin", "hps": 23770.2},
+        {"player": "Saverasta", "class": "Priest", "hps": 13447.6}
+      ]
+    },
+    "Rotface": {
+      "dps": [
+        {"player": "Carnaged", "class": "Warrior", "dps": 22255.3},
+        {"player": "Halotequila", "class": "Mage", "dps": 20607.7},
+        {"player": "Reckles", "class": "Hunter", "dps": 20224.7},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 19824.8},
+        {"player": "Dotrundot", "class": "Warlock", "dps": 18673.5},
+        {"player": "Verissia", "class": "Priest", "dps": 18312.5},
+        {"player": "Gingerogue", "class": "Rogue", "dps": 18186.7},
+        {"player": "Kiroronde", "class": "Warrior", "dps": 18181.5},
+        {"player": "Compadree", "class": "Druid", "dps": 17695.8},
+        {"player": "Palanator", "class": "Paladin", "dps": 17562.2},
+        {"player": "Sakezo", "class": "Druid", "dps": 17476.9},
+        {"player": "Marchamedia", "class": "Warrior", "dps": 17403.1},
+        {"player": "Nyyxxy", "class": "Mage", "dps": 17361.0},
+        {"player": "Holyshizt", "class": "Druid", "dps": 17233.1},
+        {"player": "Shadowatreff", "class": "Priest", "dps": 17207.5},
+        {"player": "Sapbringer", "class": "Rogue", "dps": 17119.7},
+        {"player": "Namica", "class": "Paladin", "dps": 15517.6},
+        {"player": "Famalee", "class": "Mage", "dps": 15507.1},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 15373.1},
+        {"player": "Malleena", "class": "Warlock", "dps": 14662.8}
+      ],
+      "healing": [
+        {"player": "Buliwyf", "class": "Priest", "hps": 7072.0},
+        {"player": "Baladin", "class": "Paladin", "hps": 5600.7},
+        {"player": "Rillesamy", "class": "Druid", "hps": 1788.4},
+        {"player": "Extetdk", "class": "Death Knight", "hps": 298.5},
+        {"player": "Saverasta", "class": "Priest", "hps": 217.3}
+      ]
+    },
+    "Festergut": {
+      "dps": [
+        {"player": "Halotequila", "class": "Mage", "dps": 21305.8},
+        {"player": "Carnaged", "class": "Warrior", "dps": 20532.8},
+        {"player": "Reckles", "class": "Hunter", "dps": 18261.6},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 18051.3},
+        {"player": "Kiroronde", "class": "Warrior", "dps": 17953.0},
+        {"player": "Holyshizt", "class": "Druid", "dps": 17479.2},
+        {"player": "Palanator", "class": "Paladin", "dps": 16918.9},
+        {"player": "Sapbringer", "class": "Rogue", "dps": 16732.1},
+        {"player": "Marchamedia", "class": "Warrior", "dps": 16576.9},
+        {"player": "Gingerogue", "class": "Rogue", "dps": 16225.8},
+        {"player": "Verissia", "class": "Priest", "dps": 16178.5},
+        {"player": "Shadowatreff", "class": "Priest", "dps": 15770.8},
+        {"player": "Namica", "class": "Paladin", "dps": 15658.4},
+        {"player": "Famalee", "class": "Mage", "dps": 15533.1},
+        {"player": "Dotrundot", "class": "Warlock", "dps": 15508.8},
+        {"player": "Sakezo", "class": "Druid", "dps": 15193.6},
+        {"player": "Nyyxxy", "class": "Mage", "dps": 14833.7},
+        {"player": "Compadree", "class": "Druid", "dps": 13787.5},
+        {"player": "Malleena", "class": "Warlock", "dps": 13764.7},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 13315.0},
+        {"player": "Extetdk", "class": "Death Knight", "dps": 3934.4}
+      ],
+      "healing": [
+        {"player": "Buliwyf", "class": "Priest", "hps": 11220.5},
+        {"player": "Baladin", "class": "Paladin", "hps": 7046.6},
+        {"player": "Saverasta", "class": "Priest", "hps": 950.2},
+        {"player": "Rillesamy", "class": "Druid", "hps": 829.7}
+      ]
+    },
+    "Professor Putricide": {
+      "dps": [
+        {"player": "Carnaged", "class": "Warrior", "dps": 20548.1},
+        {"player": "Verissia", "class": "Priest", "dps": 17726.9},
+        {"player": "Marchamedia", "class": "Warrior", "dps": 16879.1},
+        {"player": "Compadree", "class": "Druid", "dps": 16749.0},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 16540.9},
+        {"player": "Dotrundot", "class": "Warlock", "dps": 16525.1},
+        {"player": "Kiroronde", "class": "Warrior", "dps": 15659.8},
+        {"player": "Holyshizt", "class": "Druid", "dps": 15612.9},
+        {"player": "Halotequila", "class": "Mage", "dps": 15354.9},
+        {"player": "Nyyxxy", "class": "Mage", "dps": 15106.6},
+        {"player": "Reckles", "class": "Hunter", "dps": 14999.4},
+        {"player": "Shadowatreff", "class": "Priest", "dps": 14643.9},
+        {"player": "Palanator", "class": "Paladin", "dps": 14631.1},
+        {"player": "Sapbringer", "class": "Rogue", "dps": 14391.5},
+        {"player": "Gingerogue", "class": "Rogue", "dps": 14214.0},
+        {"player": "Namica", "class": "Paladin", "dps": 12928.4},
+        {"player": "Malleena", "class": "Warlock", "dps": 12675.1},
+        {"player": "Sakezo", "class": "Druid", "dps": 12654.9},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 12125.2},
+        {"player": "Famalee", "class": "Mage", "dps": 11384.3},
+        {"player": "Extetdk", "class": "Death Knight", "dps": 3907.6}
+      ],
+      "healing": [
+        {"player": "Buliwyf", "class": "Priest", "hps": 43504.5},
+        {"player": "Rillesamy", "class": "Shaman", "hps": 15648.8},
+        {"player": "Saverasta", "class": "Priest", "hps": 13498.3},
+        {"player": "Baladin", "class": "Paladin", "hps": 6716.6}
+      ]
+    },
+    "Blood Prince Council": {
+      "dps": [
+        {"player": "Halotequila", "class": "Mage", "dps": 16854.3},
+        {"player": "Carnaged", "class": "Warrior", "dps": 16166.5},
+        {"player": "Verissia", "class": "Priest", "dps": 15611.3},
+        {"player": "Compadree", "class": "Druid", "dps": 15025.3},
+        {"player": "Reckles", "class": "Hunter", "dps": 14401.0},
+        {"player": "Nyyxxy", "class": "Mage", "dps": 14170.4},
+        {"player": "Marchamedia", "class": "Warrior", "dps": 14041.3},
+        {"player": "Holyshizt", "class": "Druid", "dps": 13582.2},
+        {"player": "Palanator", "class": "Paladin", "dps": 13512.8},
+        {"player": "Shadowatreff", "class": "Priest", "dps": 13036.3},
+        {"player": "Famalee", "class": "Mage", "dps": 12547.6},
+        {"player": "Sapbringer", "class": "Rogue", "dps": 12185.9},
+        {"player": "Gingerogue", "class": "Rogue", "dps": 12145.9},
+        {"player": "Kiroronde", "class": "Warrior", "dps": 12082.8},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 10848.0},
+        {"player": "Namica", "class": "Paladin", "dps": 10716.3},
+        {"player": "Sakezo", "class": "Druid", "dps": 10662.0},
+        {"player": "Dotrundot", "class": "Warlock", "dps": 10572.8},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 10182.2},
+        {"player": "Malleena", "class": "Warlock", "dps": 10163.4}
+      ],
+      "healing": [
+        {"player": "Buliwyf", "class": "Priest", "hps": 11761.0},
+        {"player": "Baladin", "class": "Paladin", "hps": 4866.9},
+        {"player": "Rillesamy", "class": "Druid", "hps": 621.1},
+        {"player": "Saverasta", "class": "Priest", "hps": 188.3}
+      ]
+    },
+    "Blood-Queen Lana'thel": {
+      "dps": [
+        {"player": "Compadree", "class": "Druid", "dps": 32623.0},
+        {"player": "Rillesamy", "class": "Druid", "dps": 23107.9},
+        {"player": "Halotequila", "class": "Mage", "dps": 21986.3},
+        {"player": "Holyshizt", "class": "Druid", "dps": 21623.3},
+        {"player": "Nyyxxy", "class": "Mage", "dps": 18414.2},
+        {"player": "Dotrundot", "class": "Warlock", "dps": 18134.9},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 17802.5},
+        {"player": "Reckles", "class": "Hunter", "dps": 17414.8},
+        {"player": "Carnaged", "class": "Warrior", "dps": 16917.5},
+        {"player": "Verissia", "class": "Priest", "dps": 16878.3},
+        {"player": "Famalee", "class": "Mage", "dps": 16723.7},
+        {"player": "Shadowatreff", "class": "Priest", "dps": 16282.9},
+        {"player": "Malleena", "class": "Warlock", "dps": 15365.4},
+        {"player": "Palanator", "class": "Paladin", "dps": 15353.6},
+        {"player": "Sapbringer", "class": "Rogue", "dps": 15078.7},
+        {"player": "Marchamedia", "class": "Warrior", "dps": 14014.7},
+        {"player": "Kiroronde", "class": "Warrior", "dps": 13847.4},
+        {"player": "Sakezo", "class": "Druid", "dps": 13341.6},
+        {"player": "Gingerogue", "class": "Rogue", "dps": 13025.6},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 12252.3},
+        {"player": "Namica", "class": "Paladin", "dps": 9586.2},
+        {"player": "Extetdk", "class": "Death Knight", "dps": 3458.5}
+      ],
+      "healing": [
+        {"player": "Buliwyf", "class": "Priest", "hps": 20211.6},
+        {"player": "Saverasta", "class": "Priest", "hps": 14072.0},
+        {"player": "Baladin", "class": "Paladin", "hps": 11028.0}
+      ]
+    },
+    "Sindragosa": {
+      "dps": [
+        {"player": "Halotequila", "class": "Mage", "dps": 16796.2},
+        {"player": "Reckles", "class": "Hunter", "dps": 15205.1},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 13988.6},
+        {"player": "Marchamedia", "class": "Warrior", "dps": 12223.4},
+        {"player": "Nyyxxy", "class": "Mage", "dps": 11545.1},
+        {"player": "Compadree", "class": "Druid", "dps": 10562.1},
+        {"player": "Carnaged", "class": "Warrior", "dps": 10509.4},
+        {"player": "Holyshizt", "class": "Druid", "dps": 10082.7},
+        {"player": "Kiroronde", "class": "Warrior", "dps": 9993.0},
+        {"player": "Gingerogue", "class": "Rogue", "dps": 9944.6},
+        {"player": "Palanator", "class": "Paladin", "dps": 9782.7},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 9745.3},
+        {"player": "Malleena", "class": "Warlock", "dps": 9670.8},
+        {"player": "Shadowatreff", "class": "Priest", "dps": 9448.5},
+        {"player": "Verissia", "class": "Priest", "dps": 9023.5},
+        {"player": "Sapbringer", "class": "Rogue", "dps": 8363.8},
+        {"player": "Sakezo", "class": "Druid", "dps": 7230.6},
+        {"player": "Dotrundot", "class": "Warlock", "dps": 7085.4},
+        {"player": "Rillesamy", "class": "Shaman", "dps": 5296.9},
+        {"player": "Famalee", "class": "Mage", "dps": 4069.0},
+        {"player": "Extetdk", "class": "Death Knight", "dps": 3375.4}
+      ],
+      "healing": [
+        {"player": "Buliwyf", "class": "Paladin", "hps": 11562.5},
+        {"player": "Saverasta", "class": "Priest", "hps": 9176.4},
+        {"player": "Namica", "class": "Paladin", "hps": 6982.3},
+        {"player": "Baladin", "class": "Paladin", "hps": 4231.6}
+      ]
+    },
+    "The Lich King": {
+      "dps": [
+        {"player": "Carnaged", "class": "Warrior", "dps": 13440.8},
+        {"player": "Kiroronde", "class": "Warrior", "dps": 12615.8},
+        {"player": "Verissia", "class": "Priest", "dps": 12141.8},
+        {"player": "Reckles", "class": "Hunter", "dps": 11701.9},
+        {"player": "Palanator", "class": "Paladin", "dps": 11589.9},
+        {"player": "Dotrundot", "class": "Warlock", "dps": 11346.7},
+        {"player": "Gingerogue", "class": "Rogue", "dps": 11224.3},
+        {"player": "Compadree", "class": "Druid", "dps": 11115.3},
+        {"player": "Sapbringer", "class": "Rogue", "dps": 10923.8},
+        {"player": "Nyyxxy", "class": "Mage", "dps": 10678.2},
+        {"player": "Marchamedia", "class": "Warrior", "dps": 10442.3},
+        {"player": "Catalyzer", "class": "Hunter", "dps": 10376.0},
+        {"player": "Halotequila", "class": "Mage", "dps": 10305.2},
+        {"player": "Shadowatreff", "class": "Priest", "dps": 10011.8},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 9116.6},
+        {"player": "Holyshizt", "class": "Druid", "dps": 9004.7},
+        {"player": "Namica", "class": "Paladin", "dps": 8267.7},
+        {"player": "Malleena", "class": "Warlock", "dps": 7766.0},
+        {"player": "Famalee", "class": "Mage", "dps": 7505.6},
+        {"player": "Sakezo", "class": "Druid", "dps": 7301.0},
+        {"player": "Rillesamy", "class": "Shaman", "dps": 5700.0},
+        {"player": "Extetdk", "class": "Death Knight", "dps": 2728.7},
+        {"player": "Baladin", "class": "Paladin", "dps": 1134.5},
+        {"player": "Buliwyf", "class": "Priest", "dps": 185.9},
+        {"player": "Saverasta", "class": "Priest", "dps": 71.7}
+      ],
+      "healing": [
+        {"player": "Buliwyf", "class": "Priest", "hps": 32098.1},
+        {"player": "Saverasta", "class": "Priest", "hps": 10340.7},
+        {"player": "Verissia", "class": "Priest", "hps": 10479.9},
+        {"player": "Shadowatreff", "class": "Priest", "hps": 8332.1},
+        {"player": "Namica", "class": "Paladin", "hps": 4575.5},
+        {"player": "Palanator", "class": "Paladin", "hps": 4361.2},
+        {"player": "Extetdk", "class": "Death Knight", "hps": 2111.4},
+        {"player": "Dotrundot", "class": "Warlock", "hps": 2099.1},
+        {"player": "Malleena", "class": "Warlock", "hps": 1857.7}
+      ]
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "logId": "26-01-12--18-58--Bigcat--Icecrown",
+  "date": "2026-01-12",
+  "logger": "Bigcat",
+  "raid": "Icecrown",
+  "mode": "25H",
+  "note": "Sindy and LK only (partial log)",
+  "url": "https://uwu-logs.xyz/reports/26-01-12--18-58--Bigcat--Icecrown/",
+  "bosses": {
+    "Sindragosa": {
+      "dps": [
+        {"player": "Kissme", "class": "Mage", "dps": 13212.5},
+        {"player": "Maczetax", "class": "Rogue", "dps": 13169.3},
+        {"player": "Ellesmeraa", "class": "Paladin", "dps": 12652.9},
+        {"player": "Neonate", "class": "Warrior", "dps": 11630.5},
+        {"player": "Frolie", "class": "Druid", "dps": 10859.9},
+        {"player": "Snipwar", "class": "Warrior", "dps": 10694.9},
+        {"player": "Mecywarr", "class": "Warrior", "dps": 10534.8},
+        {"player": "Uksoon", "class": "Mage", "dps": 10486.7},
+        {"player": "Piova", "class": "Priest", "dps": 10306.8},
+        {"player": "Bigcat", "class": "Druid", "dps": 10239.2},
+        {"player": "Feminismhoax", "class": "Rogue", "dps": 10175.8},
+        {"player": "Shamanforte", "class": "Shaman", "dps": 10047.3},
+        {"player": "Duknukeunh", "class": "Death Knight", "dps": 9856.5},
+        {"player": "Shatzed", "class": "Warlock", "dps": 9554.2},
+        {"player": "Nynox", "class": "Druid", "dps": 8629.2},
+        {"player": "Chibzhunt", "class": "Hunter", "dps": 8571.2},
+        {"player": "Lunarsurge", "class": "Druid", "dps": 8111.5},
+        {"player": "Pertamax", "class": "Warrior", "dps": 7420.9},
+        {"player": "Hsalic", "class": "Hunter", "dps": 6131.3}
+      ],
+      "healing": [
+        {"player": "Rilebaa", "class": "Paladin", "hps": 32465.7},
+        {"player": "Luminaryrx", "class": "Paladin", "hps": 26634.8},
+        {"player": "Mvpri", "class": "Priest", "hps": 7408.2},
+        {"player": "Mbcpriest", "class": "Priest", "hps": 4321.0},
+        {"player": "Teritoria", "class": "Death Knight", "hps": 1316.1},
+        {"player": "Tryxer", "class": "Paladin", "hps": 380.7}
+      ]
+    },
+    "The Lich King": {
+      "dps": [
+        {"player": "Feminismhoax", "class": "Rogue", "dps": 13880.6},
+        {"player": "Snipwar", "class": "Warrior", "dps": 13343.9},
+        {"player": "Mecywarr", "class": "Warrior", "dps": 12909.3},
+        {"player": "Ellesmeraa", "class": "Paladin", "dps": 12746.0},
+        {"player": "Kissme", "class": "Mage", "dps": 12089.3},
+        {"player": "Shatzed", "class": "Warlock", "dps": 12005.3},
+        {"player": "Nynox", "class": "Druid", "dps": 11778.9},
+        {"player": "Bigcat", "class": "Druid", "dps": 11011.4},
+        {"player": "Frolie", "class": "Druid", "dps": 10822.2},
+        {"player": "Uksoon", "class": "Mage", "dps": 10261.4},
+        {"player": "Tryxer", "class": "Paladin", "dps": 10240.9},
+        {"player": "Lunarsurge", "class": "Druid", "dps": 9443.0},
+        {"player": "Maczetax", "class": "Rogue", "dps": 9329.0},
+        {"player": "Duknukeunh", "class": "Death Knight", "dps": 9100.2},
+        {"player": "Mbcpriest", "class": "Priest", "dps": 8723.6},
+        {"player": "Chibzhunt", "class": "Hunter", "dps": 8053.0},
+        {"player": "Piova", "class": "Priest", "dps": 7819.1},
+        {"player": "Hsalic", "class": "Hunter", "dps": 7587.3},
+        {"player": "Neonate", "class": "Warrior", "dps": 7266.1},
+        {"player": "Pertamax", "class": "Warrior", "dps": 7140.6},
+        {"player": "Teritoria", "class": "Death Knight", "dps": 2814.9}
+      ],
+      "healing": [
+        {"player": "Mvpri", "class": "Priest", "hps": 10789.8},
+        {"player": "Luminaryx", "class": "Paladin", "hps": 9459.4},
+        {"player": "Rilebaa", "class": "Paladin", "hps": 948.6},
+        {"player": "Shamanforte", "class": "Shaman", "hps": 541.6}
+      ]
+    }
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "logId": "25-11-27--19-50--Ndmiibogaine--Icecrown",
+  "date": "2025-11-27",
+  "logger": "Ndmiibogaine",
+  "raid": "Icecrown",
+  "mode": "25H",
+  "note": "10/12 - Sindragosa and LK not killed",
+  "url": "https://uwu-logs.xyz/reports/25-11-27--19-50--Ndmiibogaine--Icecrown/",
+  "bosses": {
+    "Lord Marrowgar": {
+      "dps": [
+        { "player": "Vacheronn", "class": "Warrior", "dps": 19748.7 },
+        { "player": "Maphala", "class": "Rogue", "dps": 17728.1 },
+        { "player": "Tiadre", "class": "Mage", "dps": 17419.1 },
+        { "player": "Otherii", "class": "Warlock", "dps": 16987.9 },
+        { "player": "Ndmiibogaine", "class": "Warlock", "dps": 16927.3 },
+        { "player": "Atreffinha", "class": "Shaman", "dps": 16623.5 },
+        { "player": "Bernenko", "class": "Druid", "dps": 14855.4 },
+        { "player": "Moonhack", "class": "Paladin", "dps": 14797.4 },
+        { "player": "Duknuke", "class": "Paladin", "dps": 14674.3 },
+        { "player": "Haloliqueur", "class": "Priest", "dps": 14487.7 },
+        { "player": "Woogie", "class": "Hunter", "dps": 14185.6 },
+        { "player": "Isforsiran", "class": "Priest", "dps": 13829.6 },
+        { "player": "Povraatnik", "class": "Warrior", "dps": 13435.1 },
+        { "player": "Jebeniirogue", "class": "Rogue", "dps": 13108.5 },
+        { "player": "Unholyrasta", "class": "Death Knight", "dps": 12750.9 },
+        { "player": "Holyshiztten", "class": "Warrior", "dps": 12511.2 },
+        { "player": "Drafer", "class": "Hunter", "dps": 11018.2 },
+        { "player": "Jvt", "class": "Druid", "dps": 10876.6 },
+        { "player": "Polarni", "class": "Druid", "dps": 10471.1 },
+        { "player": "Famalee", "class": "Mage", "dps": 9948.7 },
+        { "player": "Yunac", "class": "Druid", "dps": 8682.8 }
+      ],
+      "healing": [
+        { "player": "Yga", "class": "Paladin", "hps": 40331.0 },
+        { "player": "Laytnor", "class": "Paladin", "hps": 14199.5 },
+        { "player": "Alleandra", "class": "Priest", "hps": 9718.7 },
+        { "player": "Vindija", "class": "Death Knight", "hps": 568.7 }
+      ]
+    },
+    "Lady Deathwhisper": {
+      "dps": [
+        { "player": "Ndmiibogaine", "class": "Warlock", "dps": 13094.3 },
+        { "player": "Maphala", "class": "Rogue", "dps": 12585.6 },
+        { "player": "Tiadre", "class": "Mage", "dps": 12144.2 },
+        { "player": "Vacheronn", "class": "Warrior", "dps": 12029.3 },
+        { "player": "Haloliqueur", "class": "Priest", "dps": 10644.2 },
+        { "player": "Isforsiran", "class": "Priest", "dps": 10040.7 },
+        { "player": "Unholyrasta", "class": "Death Knight", "dps": 9593.2 },
+        { "player": "Duknuke", "class": "Paladin", "dps": 9412.8 },
+        { "player": "Jebeniirogue", "class": "Rogue", "dps": 9157.6 },
+        { "player": "Moonhack", "class": "Paladin", "dps": 9135.1 },
+        { "player": "Holyshiztten", "class": "Warrior", "dps": 8845.4 },
+        { "player": "Jvt", "class": "Druid", "dps": 8710.1 },
+        { "player": "Otherii", "class": "Death Knight", "dps": 8630.4 },
+        { "player": "Woogie", "class": "Hunter", "dps": 8311.9 },
+        { "player": "Povraatnik", "class": "Warrior", "dps": 7661.0 },
+        { "player": "Famalee", "class": "Mage", "dps": 7021.4 },
+        { "player": "Atreffinha", "class": "Priest", "dps": 6207.4 },
+        { "player": "Drafer", "class": "Hunter", "dps": 6154.8 },
+        { "player": "Bernenko", "class": "Druid", "dps": 6030.3 },
+        { "player": "Yunac", "class": "Druid", "dps": 5714.3 },
+        { "player": "Polarni", "class": "Druid", "dps": 3959.4 }
+      ],
+      "healing": [
+        { "player": "Yga", "class": "Paladin", "hps": 32690.2 },
+        { "player": "Alleandra", "class": "Priest", "hps": 7227.4 },
+        { "player": "Laytnor", "class": "Paladin", "hps": 6266.4 },
+        { "player": "Vindija", "class": "Death Knight", "hps": 678.3 }
+      ]
+    },
+    "Deathbringer Saurfang": {
+      "dps": [
+        { "player": "Vacheronn", "class": "Warrior", "dps": 20172.1 },
+        { "player": "Otherii", "class": "Warlock", "dps": 19392.8 },
+        { "player": "Tiadre", "class": "Mage", "dps": 18975.6 },
+        { "player": "Moonhack", "class": "Paladin", "dps": 18808.4 },
+        { "player": "Maphala", "class": "Rogue", "dps": 17608.5 },
+        { "player": "Ndmiibogaine", "class": "Warlock", "dps": 17412.6 },
+        { "player": "Povraatnik", "class": "Warrior", "dps": 16836.4 },
+        { "player": "Woogie", "class": "Hunter", "dps": 16032.9 },
+        { "player": "Jvt", "class": "Druid", "dps": 15962.8 },
+        { "player": "Isforsiran", "class": "Priest", "dps": 15529.7 },
+        { "player": "Bernenko", "class": "Druid", "dps": 15178.3 },
+        { "player": "Drafer", "class": "Hunter", "dps": 14438.7 },
+        { "player": "Haloliqueur", "class": "Priest", "dps": 14312.7 },
+        { "player": "Unholyrasta", "class": "Death Knight", "dps": 14213.1 },
+        { "player": "Jebeniirogue", "class": "Rogue", "dps": 13926.4 },
+        { "player": "Duknuke", "class": "Paladin", "dps": 13755.8 },
+        { "player": "Polarni", "class": "Druid", "dps": 13590.1 },
+        { "player": "Holyshiztten", "class": "Warrior", "dps": 12588.8 },
+        { "player": "Famalee", "class": "Mage", "dps": 10147.3 },
+        { "player": "Yunac", "class": "Druid", "dps": 8511.9 }
+      ],
+      "healing": [
+        { "player": "Yga", "class": "Paladin", "hps": 11732.1 },
+        { "player": "Laytnor", "class": "Paladin", "hps": 1878.9 },
+        { "player": "Atreffinha", "class": "Druid", "hps": 463.4 },
+        { "player": "Vindija", "class": "Death Knight", "hps": 169.4 },
+        { "player": "Alleandra", "class": "Priest", "hps": 133.4 }
+      ]
+    },
+    "Rotface": {
+      "dps": [
+        { "player": "Vacheronn", "class": "Warrior", "dps": 20111.8 },
+        { "player": "Otherii", "class": "Warlock", "dps": 19179.6 },
+        { "player": "Tiadre", "class": "Mage", "dps": 17041.2 },
+        { "player": "Moonhack", "class": "Paladin", "dps": 16603.2 },
+        { "player": "Ndmiibogaine", "class": "Warlock", "dps": 16565.4 },
+        { "player": "Maphala", "class": "Rogue", "dps": 16481.2 },
+        { "player": "Woogie", "class": "Hunter", "dps": 15396.7 },
+        { "player": "Povraatnik", "class": "Warrior", "dps": 15338.3 },
+        { "player": "Isforsiran", "class": "Priest", "dps": 15302.4 },
+        { "player": "Haloliqueur", "class": "Priest", "dps": 14957.1 },
+        { "player": "Bernenko", "class": "Druid", "dps": 14479.1 },
+        { "player": "Jvt", "class": "Druid", "dps": 13831.7 },
+        { "player": "Drafer", "class": "Hunter", "dps": 13603.1 },
+        { "player": "Holyshiztten", "class": "Warrior", "dps": 13264.1 },
+        { "player": "Unholyrasta", "class": "Death Knight", "dps": 12453.9 },
+        { "player": "Polarni", "class": "Druid", "dps": 12093.9 },
+        { "player": "Duknuke", "class": "Paladin", "dps": 11320.5 },
+        { "player": "Jebeniirogue", "class": "Rogue", "dps": 11161.5 },
+        { "player": "Famalee", "class": "Mage", "dps": 10650.3 },
+        { "player": "Yunac", "class": "Druid", "dps": 8811.6 },
+        { "player": "Atreffinha", "class": "Priest", "dps": 6115.2 }
+      ],
+      "healing": [
+        { "player": "Yga", "class": "Priest", "hps": 7907.2 },
+        { "player": "Laytnor", "class": "Paladin", "hps": 2966.1 },
+        { "player": "Alleandra", "class": "Priest", "hps": 1464.9 }
+      ]
+    },
+    "Festergut": {
+      "dps": [
+        { "player": "Vacheronn", "class": "Warrior", "dps": 19557.8 },
+        { "player": "Otherii", "class": "Warlock", "dps": 18503.9 },
+        { "player": "Tiadre", "class": "Mage", "dps": 16185.6 },
+        { "player": "Moonhack", "class": "Paladin", "dps": 16039.9 },
+        { "player": "Maphala", "class": "Rogue", "dps": 15783.1 },
+        { "player": "Ndmiibogaine", "class": "Warlock", "dps": 15252.7 },
+        { "player": "Povraatnik", "class": "Warrior", "dps": 14491.4 },
+        { "player": "Jvt", "class": "Druid", "dps": 14028.6 },
+        { "player": "Holyshiztten", "class": "Warrior", "dps": 13794.6 },
+        { "player": "Isforsiran", "class": "Priest", "dps": 13653.2 },
+        { "player": "Haloliqueur", "class": "Priest", "dps": 13379.5 },
+        { "player": "Duknuke", "class": "Paladin", "dps": 13207.6 },
+        { "player": "Drafer", "class": "Hunter", "dps": 13171.8 },
+        { "player": "Unholyrasta", "class": "Death Knight", "dps": 13076.1 },
+        { "player": "Bernenko", "class": "Druid", "dps": 12732.9 },
+        { "player": "Woogie", "class": "Hunter", "dps": 12658.0 },
+        { "player": "Jebeniirogue", "class": "Rogue", "dps": 12132.5 },
+        { "player": "Polarni", "class": "Druid", "dps": 9780.5 },
+        { "player": "Famalee", "class": "Mage", "dps": 9464.3 },
+        { "player": "Yunac", "class": "Druid", "dps": 8331.6 }
+      ],
+      "healing": [
+        { "player": "Yga", "class": "Priest", "hps": 14172.0 },
+        { "player": "Laytnor", "class": "Paladin", "hps": 4416.4 },
+        { "player": "Vindija", "class": "Death Knight", "hps": 1564.1 },
+        { "player": "Atreffinha", "class": "Shaman", "hps": 1044.9 },
+        { "player": "Alleandra", "class": "Priest", "hps": 781.6 }
+      ]
+    },
+    "Professor Putricide": {
+      "dps": [
+        { "player": "Atreffinha", "class": "Shaman", "dps": 18274.8 },
+        { "player": "Otherii", "class": "Warlock", "dps": 16462.9 },
+        { "player": "Ndmiibogaine", "class": "Warlock", "dps": 13294.9 },
+        { "player": "Vacheronn", "class": "Warrior", "dps": 13053.2 },
+        { "player": "Tiadre", "class": "Mage", "dps": 12938.5 },
+        { "player": "Maphala", "class": "Rogue", "dps": 11916.8 },
+        { "player": "Moonhack", "class": "Paladin", "dps": 11464.9 },
+        { "player": "Isforsiran", "class": "Priest", "dps": 10513.0 },
+        { "player": "Drafer", "class": "Hunter", "dps": 10412.0 },
+        { "player": "Haloliqueur", "class": "Priest", "dps": 10294.6 },
+        { "player": "Unholyrasta", "class": "Death Knight", "dps": 9526.0 },
+        { "player": "Povraatnik", "class": "Warrior", "dps": 9378.2 },
+        { "player": "Woogie", "class": "Hunter", "dps": 8558.1 },
+        { "player": "Polarni", "class": "Druid", "dps": 8445.3 },
+        { "player": "Jebeniirogue", "class": "Rogue", "dps": 8423.9 },
+        { "player": "Duknuke", "class": "Paladin", "dps": 8333.7 },
+        { "player": "Jvt", "class": "Druid", "dps": 8062.8 },
+        { "player": "Bernenko", "class": "Druid", "dps": 7998.7 },
+        { "player": "Holyshiztten", "class": "Warrior", "dps": 6717.9 },
+        { "player": "Yunac", "class": "Druid", "dps": 5593.7 },
+        { "player": "Famalee", "class": "Mage", "dps": 4985.7 }
+      ],
+      "healing": [
+        { "player": "Yga", "class": "Paladin", "hps": 42476.5 },
+        { "player": "Alleandra", "class": "Priest", "hps": 9731.6 },
+        { "player": "Vindija", "class": "Death Knight", "hps": 4564.3 },
+        { "player": "Laytnor", "class": "Paladin", "hps": 1087.2 }
+      ]
+    },
+    "Blood Prince Council": {
+      "dps": [
+        { "player": "Ndmiibogaine", "class": "Warlock", "dps": 14022.8 },
+        { "player": "Tiadre", "class": "Mage", "dps": 14002.9 },
+        { "player": "Otherii", "class": "Warlock", "dps": 13556.2 },
+        { "player": "Isforsiran", "class": "Priest", "dps": 11212.9 },
+        { "player": "Bernenko", "class": "Druid", "dps": 11044.4 },
+        { "player": "Haloliqueur", "class": "Priest", "dps": 10935.1 },
+        { "player": "Moonhack", "class": "Paladin", "dps": 10708.7 },
+        { "player": "Vacheronn", "class": "Warrior", "dps": 10092.2 },
+        { "player": "Maphala", "class": "Rogue", "dps": 9597.7 },
+        { "player": "Povraatnik", "class": "Warrior", "dps": 9389.7 },
+        { "player": "Unholyrasta", "class": "Death Knight", "dps": 8680.8 },
+        { "player": "Duknuke", "class": "Paladin", "dps": 8379.7 },
+        { "player": "Holyshiztten", "class": "Warrior", "dps": 7993.5 },
+        { "player": "Alleandra", "class": "Priest", "dps": 7940.0 },
+        { "player": "Jebeniirogue", "class": "Rogue", "dps": 7878.5 },
+        { "player": "Atreffinha", "class": "Shaman", "dps": 7172.4 },
+        { "player": "Famalee", "class": "Mage", "dps": 7095.8 },
+        { "player": "Polarni", "class": "Druid", "dps": 6233.4 },
+        { "player": "Drafer", "class": "Hunter", "dps": 6162.7 },
+        { "player": "Jvt", "class": "Druid", "dps": 6160.4 },
+        { "player": "Yunac", "class": "Druid", "dps": 5197.7 }
+      ],
+      "healing": [
+        { "player": "Yga", "class": "Priest", "hps": 11100.5 },
+        { "player": "Laytnor", "class": "Paladin", "hps": 2488.5 },
+        { "player": "Vindija", "class": "Death Knight", "hps": 1598.4 },
+        { "player": "Woogie", "class": "Hunter", "hps": 5.6 }
+      ]
+    },
+    "Blood-Queen Lanathel": {
+      "dps": [
+        { "player": "Ndmiibogaine", "class": "Warlock", "dps": 29503.8 },
+        { "player": "Atreffinha", "class": "Shaman", "dps": 25540.0 },
+        { "player": "Haloliqueur", "class": "Priest", "dps": 21776.4 },
+        { "player": "Isforsiran", "class": "Priest", "dps": 18736.4 },
+        { "player": "Otherii", "class": "Death Knight", "dps": 17994.9 },
+        { "player": "Tiadre", "class": "Mage", "dps": 17795.0 },
+        { "player": "Bernenko", "class": "Druid", "dps": 17066.5 },
+        { "player": "Vacheronn", "class": "Warrior", "dps": 16906.9 },
+        { "player": "Woogie", "class": "Hunter", "dps": 15904.6 },
+        { "player": "Polarni", "class": "Druid", "dps": 15815.7 },
+        { "player": "Unholyrasta", "class": "Death Knight", "dps": 14602.0 },
+        { "player": "Maphala", "class": "Rogue", "dps": 14498.1 },
+        { "player": "Povraatnik", "class": "Warrior", "dps": 14307.6 },
+        { "player": "Moonhack", "class": "Paladin", "dps": 14290.3 },
+        { "player": "Drafer", "class": "Hunter", "dps": 14260.0 },
+        { "player": "Jvt", "class": "Druid", "dps": 14044.2 },
+        { "player": "Famalee", "class": "Mage", "dps": 11673.5 },
+        { "player": "Jebeniirogue", "class": "Rogue", "dps": 11208.1 },
+        { "player": "Duknuke", "class": "Paladin", "dps": 9755.0 },
+        { "player": "Yunac", "class": "Druid", "dps": 9560.8 },
+        { "player": "Holyshiztten", "class": "Warrior", "dps": 4825.6 }
+      ],
+      "healing": [
+        { "player": "Yga", "class": "Priest", "hps": 49869.9 },
+        { "player": "Laytnor", "class": "Paladin", "hps": 15734.1 },
+        { "player": "Alleandra", "class": "Priest", "hps": 14377.7 },
+        { "player": "Vindija", "class": "Death Knight", "hps": 1801.7 }
+      ]
+    }
+  }
+}

@@ -1,0 +1,318 @@
+{
+  "logId": "26-01-10--17-31--Absorbs--Icecrown",
+  "date": "2026-01-10",
+  "logger": "Absorbs",
+  "raid": "Icecrown",
+  "mode": "25H",
+  "note": "16:30 ST LOD",
+  "url": "https://uwu-logs.xyz/reports/26-01-10--17-31--Absorbs--Icecrown/",
+  "bosses": {
+    "Lord Marrowgar": {
+      "dps": [
+        {"player": "Oldmb", "class": "Warrior", "dps": 21881.8},
+        {"player": "Extetdruid", "class": "Druid", "dps": 21367.2},
+        {"player": "Schweeps", "class": "Warrior", "dps": 21097.4},
+        {"player": "Latya", "class": "Mage", "dps": 19608.1},
+        {"player": "Ndmiisha", "class": "Mage", "dps": 19335.8},
+        {"player": "Karolinee", "class": "Priest", "dps": 18827.7},
+        {"player": "Waawaashadow", "class": "Priest", "dps": 18368.1},
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 17963.8},
+        {"player": "Siyin", "class": "Death Knight", "dps": 17655.4},
+        {"player": "Pherenike", "class": "Paladin", "dps": 17628.9},
+        {"player": "Halorakija", "class": "Druid", "dps": 17559.7},
+        {"player": "Strangewind", "class": "Hunter", "dps": 17523.3},
+        {"player": "Kaczoor", "class": "Druid", "dps": 17397.9},
+        {"player": "Jedenzdrugim", "class": "Warlock", "dps": 17173.7},
+        {"player": "Bezumen", "class": "Rogue", "dps": 16907.1},
+        {"player": "Rastachepsi", "class": "Druid", "dps": 16403.7},
+        {"player": "Krealis", "class": "Rogue", "dps": 15840.7},
+        {"player": "Snipshot", "class": "Hunter", "dps": 15091.6},
+        {"player": "Famale", "class": "Paladin", "dps": 15088.5},
+        {"player": "Tryxerwar", "class": "Warrior", "dps": 14882.7},
+        {"player": "Koca", "class": "Shaman", "dps": 8352.6},
+        {"player": "Kredoring", "class": "Death Knight", "dps": 4770.5}
+      ],
+      "healing": [
+        {"player": "Holybreach", "class": "Priest", "hps": 41484.5},
+        {"player": "Absorbs", "class": "Priest", "hps": 9788.0},
+        {"player": "Lasttoon", "class": "Paladin", "hps": 9518.2}
+      ]
+    },
+    "Lady Deathwhisper": {
+      "dps": [
+        {"player": "Oldmb", "class": "Warrior", "dps": 18864.3},
+        {"player": "Ndmiisha", "class": "Mage", "dps": 16418.6},
+        {"player": "Karolinee", "class": "Priest", "dps": 16384.4},
+        {"player": "Latya", "class": "Mage", "dps": 15771.2},
+        {"player": "Extetdruid", "class": "Druid", "dps": 15690.0},
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 15535.4},
+        {"player": "Schweeps", "class": "Warrior", "dps": 15465.1},
+        {"player": "Tryxerwar", "class": "Warrior", "dps": 14603.5},
+        {"player": "Jedenzdrugim", "class": "Warlock", "dps": 14352.3},
+        {"player": "Krealis", "class": "Rogue", "dps": 13806.9},
+        {"player": "Rastachepsi", "class": "Druid", "dps": 13698.3},
+        {"player": "Kaczoor", "class": "Druid", "dps": 13378.9},
+        {"player": "Waawaashadow", "class": "Priest", "dps": 13213.3},
+        {"player": "Snipshot", "class": "Hunter", "dps": 12188.8},
+        {"player": "Pherenike", "class": "Paladin", "dps": 11979.0},
+        {"player": "Strangewind", "class": "Hunter", "dps": 11693.3},
+        {"player": "Bezumen", "class": "Rogue", "dps": 11645.6},
+        {"player": "Famale", "class": "Paladin", "dps": 11464.4},
+        {"player": "Siyin", "class": "Death Knight", "dps": 11421.2},
+        {"player": "Halorakija", "class": "Druid", "dps": 11312.8},
+        {"player": "Kredoring", "class": "Death Knight", "dps": 3885.2},
+        {"player": "Lasttoon", "class": "Paladin", "dps": 1512.4}
+      ],
+      "healing": [
+        {"player": "Holybreach", "class": "Paladin", "hps": 26525.6},
+        {"player": "Koca", "class": "Shaman", "hps": 14015.0},
+        {"player": "Absorbs", "class": "Priest", "hps": 9373.0}
+      ]
+    },
+    "Deathbringer Saurfang": {
+      "dps": [
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 22046.9},
+        {"player": "Schweeps", "class": "Warrior", "dps": 21761.5},
+        {"player": "Latya", "class": "Mage", "dps": 21437.5},
+        {"player": "Karolinee", "class": "Priest", "dps": 20364.9},
+        {"player": "Ndmiisha", "class": "Mage", "dps": 20220.2},
+        {"player": "Oldmb", "class": "Warrior", "dps": 20087.6},
+        {"player": "Waawaashadow", "class": "Priest", "dps": 19470.0},
+        {"player": "Kaczoor", "class": "Druid", "dps": 19453.3},
+        {"player": "Jedenzdrugim", "class": "Warlock", "dps": 18690.3},
+        {"player": "Strangewind", "class": "Hunter", "dps": 18575.8},
+        {"player": "Halorakija", "class": "Druid", "dps": 18438.2},
+        {"player": "Rastachepsi", "class": "Druid", "dps": 18322.3},
+        {"player": "Krealis", "class": "Rogue", "dps": 17838.8},
+        {"player": "Tryxerwar", "class": "Warrior", "dps": 17613.6},
+        {"player": "Extetdruid", "class": "Druid", "dps": 17576.0},
+        {"player": "Bezumen", "class": "Rogue", "dps": 17046.6},
+        {"player": "Famale", "class": "Paladin", "dps": 16978.7},
+        {"player": "Siyin", "class": "Death Knight", "dps": 16536.5},
+        {"player": "Pherenike", "class": "Paladin", "dps": 14921.1},
+        {"player": "Snipshot", "class": "Hunter", "dps": 10876.9},
+        {"player": "Kredoring", "class": "Death Knight", "dps": 5429.6}
+      ],
+      "healing": [
+        {"player": "Holybreach", "class": "Paladin", "hps": 49376.0},
+        {"player": "Absorbs", "class": "Priest", "hps": 14622.1},
+        {"player": "Lasttoon", "class": "Paladin", "hps": 8904.9}
+      ]
+    },
+    "Rotface": {
+      "dps": [
+        {"player": "Latya", "class": "Mage", "dps": 19441.6},
+        {"player": "Ndmiisha", "class": "Mage", "dps": 19433.2},
+        {"player": "Waawaashadow", "class": "Warlock", "dps": 18291.6},
+        {"player": "Oldmb", "class": "Warrior", "dps": 17849.5},
+        {"player": "Strangewind", "class": "Hunter", "dps": 17295.9},
+        {"player": "Karolinee", "class": "Warlock", "dps": 16843.5},
+        {"player": "Rastachepsi", "class": "Druid", "dps": 16599.3},
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 16254.4},
+        {"player": "Kaczoor", "class": "Druid", "dps": 16167.9},
+        {"player": "Famale", "class": "Paladin", "dps": 15714.3},
+        {"player": "Jedenzdrugim", "class": "Warlock", "dps": 15609.7},
+        {"player": "Pherenike", "class": "Paladin", "dps": 15265.8},
+        {"player": "Schweeps", "class": "Warrior", "dps": 14963.0},
+        {"player": "Bezumen", "class": "Rogue", "dps": 14795.6},
+        {"player": "Siyin", "class": "Death Knight", "dps": 14583.9},
+        {"player": "Krealis", "class": "Rogue", "dps": 14174.5},
+        {"player": "Halorakija", "class": "Druid", "dps": 13879.2},
+        {"player": "Extetdruid", "class": "Druid", "dps": 13439.9},
+        {"player": "Snipshot", "class": "Hunter", "dps": 12854.9},
+        {"player": "Tryxerwar", "class": "Warrior", "dps": 10787.2},
+        {"player": "Kredoring", "class": "Death Knight", "dps": 5234.0}
+      ],
+      "healing": [
+        {"player": "Holybreach", "class": "Paladin", "hps": 5939.2},
+        {"player": "Absorbs", "class": "Priest", "hps": 1043.3},
+        {"player": "Koca", "class": "Druid", "hps": 505.7},
+        {"player": "Lasttoon", "class": "Paladin", "hps": 217.0}
+      ]
+    },
+    "Festergut": {
+      "dps": [
+        {"player": "Oldmb", "class": "Warrior", "dps": 18950.9},
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 18745.7},
+        {"player": "Waawaashadow", "class": "Priest", "dps": 18314.5},
+        {"player": "Latya", "class": "Mage", "dps": 18014.5},
+        {"player": "Extetdruid", "class": "Druid", "dps": 18010.2},
+        {"player": "Ndmiisha", "class": "Mage", "dps": 17906.7},
+        {"player": "Kaczoor", "class": "Druid", "dps": 17195.5},
+        {"player": "Schweeps", "class": "Warrior", "dps": 16738.7},
+        {"player": "Karolinee", "class": "Priest", "dps": 16529.3},
+        {"player": "Halorakija", "class": "Druid", "dps": 16474.5},
+        {"player": "Snipshot", "class": "Hunter", "dps": 16349.4},
+        {"player": "Krealis", "class": "Rogue", "dps": 15747.9},
+        {"player": "Pherenike", "class": "Paladin", "dps": 15703.9},
+        {"player": "Strangewind", "class": "Hunter", "dps": 15610.2},
+        {"player": "Jedenzdrugim", "class": "Warlock", "dps": 15308.9},
+        {"player": "Siyin", "class": "Death Knight", "dps": 14843.9},
+        {"player": "Tryxerwar", "class": "Warrior", "dps": 14746.1},
+        {"player": "Rastachepsi", "class": "Druid", "dps": 14577.6},
+        {"player": "Famale", "class": "Paladin", "dps": 14317.5},
+        {"player": "Bezumen", "class": "Rogue", "dps": 12403.3},
+        {"player": "Koca", "class": "Shaman", "dps": 7807.0},
+        {"player": "Kredoring", "class": "Death Knight", "dps": 5050.0}
+      ],
+      "healing": [
+        {"player": "Absorbs", "class": "Priest", "hps": 11701.3},
+        {"player": "Holybreach", "class": "Priest", "hps": 11501.5},
+        {"player": "Lasttoon", "class": "Paladin", "hps": 1050.8}
+      ]
+    },
+    "Professor Putricide": {
+      "dps": [
+        {"player": "Koca", "class": "Shaman", "dps": 23158.5},
+        {"player": "Ndmiisha", "class": "Mage", "dps": 18146.8},
+        {"player": "Karolinee", "class": "Priest", "dps": 17920.4},
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 16832.3},
+        {"player": "Waawaashadow", "class": "Priest", "dps": 16483.1},
+        {"player": "Latya", "class": "Mage", "dps": 16154.3},
+        {"player": "Jedenzdrugim", "class": "Warlock", "dps": 14935.2},
+        {"player": "Schweeps", "class": "Warrior", "dps": 14825.3},
+        {"player": "Oldmb", "class": "Warrior", "dps": 14674.8},
+        {"player": "Pherenike", "class": "Paladin", "dps": 14263.1},
+        {"player": "Snipshot", "class": "Hunter", "dps": 14199.0},
+        {"player": "Kaczoor", "class": "Druid", "dps": 13199.8},
+        {"player": "Strangewind", "class": "Hunter", "dps": 13079.7},
+        {"player": "Krealis", "class": "Rogue", "dps": 12812.8},
+        {"player": "Extetdruid", "class": "Druid", "dps": 12676.7},
+        {"player": "Rastachepsi", "class": "Druid", "dps": 12668.7},
+        {"player": "Siyin", "class": "Death Knight", "dps": 12186.2},
+        {"player": "Bezumen", "class": "Rogue", "dps": 11712.0},
+        {"player": "Tryxerwar", "class": "Warrior", "dps": 10437.1},
+        {"player": "Halorakija", "class": "Druid", "dps": 9403.7},
+        {"player": "Famale", "class": "Paladin", "dps": 8970.1},
+        {"player": "Kredoring-A", "class": "Rogue", "dps": 3336.0}
+      ],
+      "healing": [
+        {"player": "Holybreach", "class": "Priest", "hps": 29056.0},
+        {"player": "Absorbs", "class": "Priest", "hps": 14078.5},
+        {"player": "Lasttoon", "class": "Paladin", "hps": 5889.0}
+      ]
+    },
+    "Blood Prince Council": {
+      "dps": [
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 12866.0},
+        {"player": "Rastachepsi", "class": "Druid", "dps": 12284.9},
+        {"player": "Oldmb", "class": "Warrior", "dps": 11843.3},
+        {"player": "Jedenzdrugim", "class": "Warlock", "dps": 11289.9},
+        {"player": "Waawaashadow", "class": "Priest", "dps": 10841.3},
+        {"player": "Ndmiisha", "class": "Mage", "dps": 10640.8},
+        {"player": "Bezumen", "class": "Rogue", "dps": 9813.6},
+        {"player": "Karolinee", "class": "Priest", "dps": 9788.0},
+        {"player": "Latya", "class": "Mage", "dps": 9647.8},
+        {"player": "Kaczoor", "class": "Druid", "dps": 9605.1},
+        {"player": "Siyin", "class": "Death Knight", "dps": 9032.1},
+        {"player": "Extetdruid", "class": "Druid", "dps": 8433.6},
+        {"player": "Schweeps", "class": "Warrior", "dps": 8188.0},
+        {"player": "Snipshot", "class": "Hunter", "dps": 6551.8},
+        {"player": "Strangewind", "class": "Hunter", "dps": 4985.9},
+        {"player": "Tryxerwar", "class": "Warrior", "dps": 4588.4}
+      ],
+      "healing": [
+        {"player": "Absorbs", "class": "Priest", "hps": 9016.8},
+        {"player": "Holybreach", "class": "Priest", "hps": 6922.8},
+        {"player": "Famale", "class": "Paladin", "hps": 1469.9},
+        {"player": "Pherenike", "class": "Paladin", "hps": 775.2}
+      ]
+    },
+    "Blood-Queen Lana'thel": {
+      "dps": [
+        {"player": "Koca", "class": "Shaman", "dps": 29472.5},
+        {"player": "Rastachepsi", "class": "Druid", "dps": 22510.2},
+        {"player": "Latya", "class": "Mage", "dps": 20907.4},
+        {"player": "Ndmiisha", "class": "Mage", "dps": 18208.1},
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 18041.9},
+        {"player": "Pherenike", "class": "Paladin", "dps": 17199.8},
+        {"player": "Waawaashadow", "class": "Priest", "dps": 17120.1},
+        {"player": "Oldmb", "class": "Warrior", "dps": 16901.7},
+        {"player": "Karolinee", "class": "Priest", "dps": 16278.4},
+        {"player": "Extetdruid", "class": "Druid", "dps": 16127.3},
+        {"player": "Jedenzdrugim", "class": "Warlock", "dps": 16045.2},
+        {"player": "Halorakija", "class": "Druid", "dps": 15274.8},
+        {"player": "Schweeps", "class": "Warrior", "dps": 14768.9},
+        {"player": "Strangewind", "class": "Hunter", "dps": 14308.3},
+        {"player": "Kaczoor", "class": "Druid", "dps": 14086.4},
+        {"player": "Siyin", "class": "Death Knight", "dps": 13894.0},
+        {"player": "Bezumen", "class": "Rogue", "dps": 13482.3},
+        {"player": "Krealis", "class": "Rogue", "dps": 13464.5},
+        {"player": "Tryxerwar", "class": "Warrior", "dps": 12652.2},
+        {"player": "Dxftw", "class": "Hunter", "dps": 6483.9}
+      ],
+      "healing": [
+        {"player": "Holybreach", "class": "Paladin", "hps": 14646.5},
+        {"player": "Absorbs", "class": "Priest", "hps": 14038.2},
+        {"player": "Famale", "class": "Paladin", "hps": 3735.3},
+        {"player": "Lasttoon", "class": "Paladin", "hps": 3476.1},
+        {"player": "Kredoring", "class": "Death Knight", "hps": 1149.3},
+        {"player": "Snipshot", "class": "Hunter", "hps": 59.8}
+      ]
+    },
+    "Sindragosa": {
+      "dps": [
+        {"player": "Zalrah", "class": "Shaman", "dps": 15030.9},
+        {"player": "Ndmiisha", "class": "Mage", "dps": 15347.3},
+        {"player": "Karolinee", "class": "Priest", "dps": 14554.4},
+        {"player": "Dxftw", "class": "Hunter", "dps": 14436.2},
+        {"player": "Strangewind", "class": "Hunter", "dps": 13830.7},
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 12957.9},
+        {"player": "Kaczoor", "class": "Druid", "dps": 12242.4},
+        {"player": "Schweeps", "class": "Warrior", "dps": 11733.8},
+        {"player": "Krealis", "class": "Rogue", "dps": 11653.9},
+        {"player": "Oldmb", "class": "Warrior", "dps": 10756.0},
+        {"player": "Extetdruid", "class": "Druid", "dps": 10594.3},
+        {"player": "Siyin", "class": "Death Knight", "dps": 10195.5},
+        {"player": "Latya", "class": "Mage", "dps": 10118.0},
+        {"player": "Rastachepsi", "class": "Druid", "dps": 9604.8},
+        {"player": "Jedenzdrugim", "class": "Warlock", "dps": 9290.7},
+        {"player": "Pherenike", "class": "Paladin", "dps": 9156.3},
+        {"player": "Tryxerwar", "class": "Warrior", "dps": 8919.9},
+        {"player": "Bezumen", "class": "Rogue", "dps": 8752.6},
+        {"player": "Famale", "class": "Paladin", "dps": 8052.9},
+        {"player": "Halorakija", "class": "Druid", "dps": 5573.1},
+        {"player": "Kredoring", "class": "Death Knight", "dps": 3683.5}
+      ],
+      "healing": [
+        {"player": "Holybreach", "class": "Priest", "hps": 9975.5},
+        {"player": "Absorbs", "class": "Priest", "hps": 8529.8},
+        {"player": "Waawaashadow", "class": "Priest", "hps": 2928.8},
+        {"player": "Lasttoon", "class": "Paladin", "hps": 2167.6},
+        {"player": "Halorakija", "class": "Druid", "hps": 1379.8},
+        {"player": "Zalrah", "class": "Shaman", "hps": 1192.2}
+      ]
+    },
+    "The Lich King": {
+      "dps": [
+        {"player": "Ndmiisha", "class": "Mage", "dps": 14298.1},
+        {"player": "Schweeps", "class": "Warrior", "dps": 14089.1},
+        {"player": "Latya", "class": "Mage", "dps": 14053.7},
+        {"player": "Karolinee", "class": "Priest", "dps": 13636.1},
+        {"player": "Oldmb", "class": "Warrior", "dps": 13462.9},
+        {"player": "Kaczoor", "class": "Druid", "dps": 13303.1},
+        {"player": "Extetdruid", "class": "Druid", "dps": 13275.2},
+        {"player": "Pherenike", "class": "Paladin", "dps": 12680.6},
+        {"player": "Rastachepsi", "class": "Druid", "dps": 12628.7},
+        {"player": "Jedenzdrugim", "class": "Warlock", "dps": 12150.8},
+        {"player": "Waawaashadow", "class": "Priest", "dps": 12080.7},
+        {"player": "Dxftw", "class": "Hunter", "dps": 12015.1},
+        {"player": "Ninellisfake", "class": "Warrior", "dps": 12005.7},
+        {"player": "Krealis", "class": "Rogue", "dps": 11059.3},
+        {"player": "Halorakija", "class": "Druid", "dps": 10773.9},
+        {"player": "Strangewind", "class": "Hunter", "dps": 10471.1},
+        {"player": "Tryxerwar", "class": "Warrior", "dps": 10451.6},
+        {"player": "Famale", "class": "Paladin", "dps": 10218.8},
+        {"player": "Siyin", "class": "Death Knight", "dps": 10046.5},
+        {"player": "Bezumen", "class": "Rogue", "dps": 9262.0}
+      ],
+      "healing": [
+        {"player": "Absorbs", "class": "Priest", "hps": 10957.2},
+        {"player": "Zalrah", "class": "Druid", "hps": 9971.7},
+        {"player": "Holybreach", "class": "Priest", "hps": 7141.3},
+        {"player": "Lasttoon", "class": "Paladin", "hps": 928.9},
+        {"player": "Kredoring", "class": "Death Knight", "hps": 521.4}
+      ]
+    }
+  }
+}

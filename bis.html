@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiS Gear Lists | TITAN Guild</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="titan logo png.png">
+    <script>const whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: true};</script>
+    <script src="https://wow.zamimg.com/widgets/power.js"></script>
+    <style>
+        .bis-page { padding-top: 70px; min-height: 100vh; }
+
+        .class-tabs {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .class-tab {
+            padding: 8px 14px;
+            background: var(--bg-card);
+            border: 2px solid var(--border-subtle);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .class-tab img { width: 18px; height: 18px; border-radius: 3px; }
+        .class-tab:hover { border-color: var(--horde-red); }
+        .class-tab.active { background: var(--horde-red); border-color: var(--horde-red); color: white !important; }
+
+        /* Tab button class colors */
+        .class-tab[data-class="fury"], .class-tab[data-class="tanks"] { color: #C79C6E; }
+        .class-tab[data-class="combat"] { color: #FFF569; }
+        .class-tab[data-class="feral"], .class-tab[data-class="balance"], .class-tab[data-class="resto-druid"] { color: #FF7D0A; }
+        .class-tab[data-class="frost-dk"], .class-tab[data-class="unholy-dk"] { color: #C41F3B; }
+        .class-tab[data-class="mm-hunter"] { color: #ABD473; }
+        .class-tab[data-class="arcane-mage"], .class-tab[data-class="fire-mage"] { color: #69CCF0; }
+        .class-tab[data-class="ret"], .class-tab[data-class="holy-paladin"] { color: #F58CBA; }
+        .class-tab[data-class="shadow-priest"], .class-tab[data-class="disc-priest"] { color: #FFFFFF; }
+        .class-tab[data-class="ele-shaman"], .class-tab[data-class="enh-shaman"], .class-tab[data-class="resto-shaman"] { color: #0070DE; }
+        .class-tab[data-class="affliction"], .class-tab[data-class="destro"] { color: #9482C9; }
+
+        .spec-section { display: none; }
+        .spec-section.active { display: block; }
+
+        .spec-header {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        .spec-header h2 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        /* Class colors for headers */
+        #fury .spec-header h2, #tanks .spec-header h2 { color: #C79C6E !important; }
+        #combat .spec-header h2 { color: #FFF569 !important; }
+        #feral .spec-header h2, #balance .spec-header h2, #resto-druid .spec-header h2 { color: #FF7D0A !important; }
+        #frost-dk .spec-header h2, #unholy-dk .spec-header h2 { color: #C41F3B !important; }
+        #mm-hunter .spec-header h2 { color: #ABD473 !important; }
+        #arcane-mage .spec-header h2, #fire-mage .spec-header h2 { color: #69CCF0 !important; }
+        #ret .spec-header h2, #holy-paladin .spec-header h2 { color: #F58CBA !important; }
+        #shadow-priest .spec-header h2, #disc-priest .spec-header h2 { color: #FFFFFF !important; }
+        #ele-shaman .spec-header h2, #enh-shaman .spec-header h2, #resto-shaman .spec-header h2 { color: #0070DE !important; }
+        #affliction .spec-header h2, #destro .spec-header h2 { color: #9482C9 !important; }
+        .spec-header img { width: 32px; height: 32px; border-radius: 6px; }
+        .spec-header p { color: var(--text-muted); font-size: 0.85rem; }
+        .spec-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        .spec-link {
+            padding: 6px 12px;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        .spec-link:hover { background: var(--horde-red); color: white; }
+
+        .bis-table {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+        .bis-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .bis-table th {
+            padding: 12px 16px;
+            text-align: left;
+            background: var(--bg-tertiary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+        .bis-table td {
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+        }
+        .bis-table tr:last-child td { border-bottom: none; }
+        .bis-table tr:hover { background: var(--bg-tertiary); }
+        .slot-cell { color: var(--text-muted); width: 100px; font-size: 0.8rem; }
+        .item-cell a { color: #a335ee; text-decoration: none; }
+        .item-cell a:hover { text-decoration: underline; }
+        .source-cell { color: var(--text-muted); font-size: 0.8rem; }
+
+        .stat-priorities {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+        }
+        .stat-priorities h4 {
+            color: var(--horde-red-light);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        .stat-priorities p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .uwu-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--horde-red), #8b0000);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+        .uwu-link:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(196, 31, 59, 0.4); }
+
+        @media (max-width: 768px) {
+            .bis-table td:nth-child(3) { display: none; }
+            .bis-table th:nth-child(3) { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="titan logo png.png" alt="Titan Logo" class="nav-logo">
+                <span class="nav-title">TITAN</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="raids.html" class="nav-link">Raids</a></li>
+                <li><a href="guild.html" class="nav-link">Guild</a></li>
+                <li><a href="top-parsers.html" class="nav-link">Top Parsers</a></li>
+                <li><a href="bis.html" class="nav-link active">BiS List</a></li>
+                <li><a href="guides.html" class="nav-link">Guides</a></li>
+                <li><a href="join.html" class="nav-link">Join</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="join.html" class="btn btn-primary">Join Guild</a>
+            </div>
+            <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <div class="bis-page">
+        <div class="page-header">
+            <div class="container">
+                <h1>Best in Slot Gear</h1>
+                <p>ICC 25 HC + Ruby Sanctum 25 HC BiS Lists</p>
+            </div>
+        </div>
+
+        <div class="container" style="padding: 24px 0;">
+            <!-- Class Tabs -->
+            <div class="class-tabs">
+                <button class="class-tab active" data-class="fury"><img src="icons/warrior.png" alt="">Fury Warrior</button>
+                <button class="class-tab" data-class="combat"><img src="icons/rogue.png" alt="">Combat Rogue</button>
+                <button class="class-tab" data-class="feral"><img src="icons/druid.png" alt="">Feral Druid</button>
+                <button class="class-tab" data-class="balance"><img src="icons/druid.png" alt="">Balance Druid</button>
+                <button class="class-tab" data-class="frost-dk"><img src="icons/deathknight.png" alt="">Frost DK</button>
+                <button class="class-tab" data-class="unholy-dk"><img src="icons/deathknight.png" alt="">Unholy DK</button>
+                <button class="class-tab" data-class="mm-hunter"><img src="icons/hunter.png" alt="">MM Hunter</button>
+                <button class="class-tab" data-class="arcane-mage"><img src="icons/mage.png" alt="">Arcane Mage</button>
+                <button class="class-tab" data-class="fire-mage"><img src="icons/mage.png" alt="">Fire Mage</button>
+                <button class="class-tab" data-class="ret"><img src="icons/paladin.png" alt="">Ret Paladin</button>
+                <button class="class-tab" data-class="shadow-priest"><img src="icons/priest.png" alt="">Shadow Priest</button>
+                <button class="class-tab" data-class="ele-shaman"><img src="icons/shaman.png" alt="">Ele Shaman</button>
+                <button class="class-tab" data-class="enh-shaman"><img src="icons/shaman.png" alt="">Enh Shaman</button>
+                <button class="class-tab" data-class="affliction"><img src="icons/warlock.png" alt="">Affliction Lock</button>
+                <button class="class-tab" data-class="destro"><img src="icons/warlock.png" alt="">Destro Lock</button>
+                <button class="class-tab" data-class="holy-paladin"><img src="icons/paladin.png" alt="">Holy Paladin</button>
+                <button class="class-tab" data-class="resto-druid"><img src="icons/druid.png" alt="">Resto Druid</button>
+                <button class="class-tab" data-class="resto-shaman"><img src="icons/shaman.png" alt="">Resto Shaman</button>
+                <button class="class-tab" data-class="disc-priest"><img src="icons/priest.png" alt="">Disc Priest</button>
+                <button class="class-tab" data-class="tanks"><img src="icons/warrior.png" alt="">Tanks</button>
+            </div>
+
+            <!-- FURY WARRIOR -->
+            <div class="spec-section active" id="fury">
+                <div class="spec-header">
+                    <h2 style="color: #C79C6E;"><img src="icons/warrior.png" alt="">Fury Warrior BiS</h2>
+                    <p>SS-Tier DPS. Stack Armor Penetration to cap (1400), then Strength.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=1&spec=2" target="_blank" class="spec-link">UwU Logs Top Fury</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=211093" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Hit (8%) > Expertise (26) > Armor Pen (1400 cap) > Strength > Crit > Haste</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51227" data-wowhead="item=51227&domain=wotlk">Sanctified Ymirjar Lord's Helmet</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54581" data-wowhead="item=54581&domain=wotlk">Penumbra Pendant</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51229" data-wowhead="item=51229&domain=wotlk">Sanctified Ymirjar Lord's Shoulderplates</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51937" data-wowhead="item=51937&domain=wotlk">Vereesa's Dexterity</a></td><td class="source-cell">Tribute Chest ToGC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51225" data-wowhead="item=51225&domain=wotlk">Sanctified Ymirjar Lord's Battleplate</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50670" data-wowhead="item=50670&domain=wotlk">Toskk's Maximized Wristguards</a></td><td class="source-cell">Saurfang 25 HC</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50675" data-wowhead="item=50675&domain=wotlk">Aldriana's Gloves of Secrecy</a></td><td class="source-cell">Rotface 25 HC</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50620" data-wowhead="item=50620&domain=wotlk">Coldwraith Links</a></td><td class="source-cell">Valithria 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51228" data-wowhead="item=51228&domain=wotlk">Sanctified Ymirjar Lord's Legplates</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54577" data-wowhead="item=54577&domain=wotlk">Apocalypse's Advance</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50618" data-wowhead="item=50618&domain=wotlk">Frostbrood Sapphire Ring</a></td><td class="source-cell">Valithria 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50402" data-wowhead="item=50402&domain=wotlk">Ashen Band of Endless Vengeance</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54590" data-wowhead="item=54590&domain=wotlk">Sharpened Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50363" data-wowhead="item=50363&domain=wotlk">Deathbringer's Will</a></td><td class="source-cell">Saurfang 25 HC</td></tr>
+                        <tr><td class="slot-cell">Main Hand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=49623" data-wowhead="item=49623&domain=wotlk">Shadowmourne</a></td><td class="source-cell">Legendary Quest</td></tr>
+                        <tr><td class="slot-cell">Off Hand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50730" data-wowhead="item=50730&domain=wotlk">Glorenzelg, High-Blade of the Silver Hand</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ranged</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50733" data-wowhead="item=50733&domain=wotlk">Fal'inrush, Defender of Quel'thalas</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- COMBAT ROGUE -->
+            <div class="spec-section" id="combat">
+                <div class="spec-header">
+                    <h2 style="color: #FFF569;"><img src="icons/rogue.png" alt="">Combat Rogue BiS</h2>
+                    <p>S-Tier DPS. Stack Armor Penetration to cap (1400), then Agility.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=4&spec=2" target="_blank" class="spec-link">UwU Logs Top Combat</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=79315" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Hit (Poison 315, Special 8%) > Expertise (26) > Armor Pen (1400 cap) > Agility > Crit > Haste</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51187" data-wowhead="item=51187&domain=wotlk">Sanctified Shadowblade Helmet</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50647" data-wowhead="item=50647&domain=wotlk">Sindragosa's Cruel Claw</a></td><td class="source-cell">Sindragosa 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51189" data-wowhead="item=51189&domain=wotlk">Sanctified Shadowblade Pauldrons</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50653" data-wowhead="item=50653&domain=wotlk">Shadowvault Slayer's Cloak</a></td><td class="source-cell">Gunship 25 HC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51185" data-wowhead="item=51185&domain=wotlk">Sanctified Shadowblade Breastplate</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50670" data-wowhead="item=50670&domain=wotlk">Toskk's Maximized Wristguards</a></td><td class="source-cell">Saurfang 25 HC</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50675" data-wowhead="item=50675&domain=wotlk">Aldriana's Gloves of Secrecy</a></td><td class="source-cell">Rotface 25 HC</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50707" data-wowhead="item=50707&domain=wotlk">Astrylian's Sutured Cinch</a></td><td class="source-cell">Putricide 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51188" data-wowhead="item=51188&domain=wotlk">Sanctified Shadowblade Legplates</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50611" data-wowhead="item=50611&domain=wotlk">Frostbitten Fur Boots</a></td><td class="source-cell">Marrowgar 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54572" data-wowhead="item=54572&domain=wotlk">Signet of Twilight</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50402" data-wowhead="item=50402&domain=wotlk">Ashen Band of Endless Vengeance</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54590" data-wowhead="item=54590&domain=wotlk">Sharpened Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50363" data-wowhead="item=50363&domain=wotlk">Deathbringer's Will</a></td><td class="source-cell">Saurfang 25 HC</td></tr>
+                        <tr><td class="slot-cell">Main Hand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50737" data-wowhead="item=50737&domain=wotlk">Havoc's Call, Blade of Lordaeron Kings</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Off Hand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50655" data-wowhead="item=50655&domain=wotlk">Scourgeborne Waraxe</a></td><td class="source-cell">Gunship 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ranged</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50733" data-wowhead="item=50733&domain=wotlk">Fal'inrush, Defender of Quel'thalas</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- FERAL DRUID -->
+            <div class="spec-section" id="feral">
+                <div class="spec-header">
+                    <h2 style="color: #FF7D0A;"><img src="icons/druid.png" alt="">Feral Druid (Cat) BiS</h2>
+                    <p>S-Tier DPS. Stack Armor Penetration to cap, then Agility. Aim for 10%+ Haste.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=11&spec=2" target="_blank" class="spec-link">UwU Logs Top Feral</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=431156" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Hit (8%) > Expertise (26) > Armor Pen (1400 cap) > Agility > Haste (10%+) > Crit</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51143" data-wowhead="item=51143&domain=wotlk">Sanctified Lasherweave Headguard</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50647" data-wowhead="item=50647&domain=wotlk">Sindragosa's Cruel Claw</a></td><td class="source-cell">Sindragosa 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51145" data-wowhead="item=51145&domain=wotlk">Sanctified Lasherweave Shoulderpads</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50653" data-wowhead="item=50653&domain=wotlk">Shadowvault Slayer's Cloak</a></td><td class="source-cell">Gunship 25 HC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51141" data-wowhead="item=51141&domain=wotlk">Sanctified Lasherweave Raiment</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54580" data-wowhead="item=54580&domain=wotlk">Umbrage Armbands</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50675" data-wowhead="item=50675&domain=wotlk">Aldriana's Gloves of Secrecy</a></td><td class="source-cell">Rotface 25 HC</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50707" data-wowhead="item=50707&domain=wotlk">Astrylian's Sutured Cinch</a></td><td class="source-cell">Putricide 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51144" data-wowhead="item=51144&domain=wotlk">Sanctified Lasherweave Legguards</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50611" data-wowhead="item=50611&domain=wotlk">Frostbitten Fur Boots</a></td><td class="source-cell">Marrowgar 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54572" data-wowhead="item=54572&domain=wotlk">Signet of Twilight</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50402" data-wowhead="item=50402&domain=wotlk">Ashen Band of Endless Vengeance</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54590" data-wowhead="item=54590&domain=wotlk">Sharpened Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50363" data-wowhead="item=50363&domain=wotlk">Deathbringer's Will</a></td><td class="source-cell">Saurfang 25 HC</td></tr>
+                        <tr><td class="slot-cell">Weapon</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50735" data-wowhead="item=50735&domain=wotlk">Oathbinder, Charge of the Ranger-General</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Relic</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50456" data-wowhead="item=50456&domain=wotlk">Idol of the Crying Moon</a></td><td class="source-cell">Emblems of Frost</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- FROST DK -->
+            <div class="spec-section" id="frost-dk">
+                <div class="spec-header">
+                    <h2 style="color: #C41F3B;"><img src="icons/deathknight.png" alt="">Frost Death Knight BiS</h2>
+                    <p>A-Tier DPS. Dual Wield build. Stack Armor Penetration to cap, then Strength.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=6&spec=2" target="_blank" class="spec-link">UwU Logs Top Frost</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=349828" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Hit (8%) > Expertise (26) > Armor Pen (1200+) > Strength > Crit > Haste</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51127" data-wowhead="item=51127&domain=wotlk">Sanctified Scourgelord Helmet</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50728" data-wowhead="item=50728&domain=wotlk">Lana'thel's Chain of Flagellation</a></td><td class="source-cell">Blood Queen 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51129" data-wowhead="item=51129&domain=wotlk">Sanctified Scourgelord Shoulderplates</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51941" data-wowhead="item=51941&domain=wotlk">Varian's Furor</a></td><td class="source-cell">Tribute Chest ToGC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51125" data-wowhead="item=51125&domain=wotlk">Sanctified Scourgelord Battleplate</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50670" data-wowhead="item=50670&domain=wotlk">Toskk's Maximized Wristguards</a></td><td class="source-cell">Saurfang 25 HC</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50675" data-wowhead="item=50675&domain=wotlk">Aldriana's Gloves of Secrecy</a></td><td class="source-cell">Rotface 25 HC</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50620" data-wowhead="item=50620&domain=wotlk">Coldwraith Links</a></td><td class="source-cell">Valithria 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51128" data-wowhead="item=51128&domain=wotlk">Sanctified Scourgelord Legplates</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54577" data-wowhead="item=54577&domain=wotlk">Apocalypse's Advance</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50692" data-wowhead="item=50692&domain=wotlk">Might of Blight</a></td><td class="source-cell">Festergut 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50398" data-wowhead="item=50398&domain=wotlk">Ashen Band of Endless Might</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54590" data-wowhead="item=54590&domain=wotlk">Sharpened Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50363" data-wowhead="item=50363&domain=wotlk">Deathbringer's Will</a></td><td class="source-cell">Saurfang 25 HC</td></tr>
+                        <tr><td class="slot-cell">Main Hand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50737" data-wowhead="item=50737&domain=wotlk">Havoc's Call, Blade of Lordaeron Kings</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Off Hand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50737" data-wowhead="item=50737&domain=wotlk">Havoc's Call, Blade of Lordaeron Kings</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Sigil</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50459" data-wowhead="item=50459&domain=wotlk">Sigil of Awareness</a></td><td class="source-cell">Emblems of Frost</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- UNHOLY DK -->
+            <div class="spec-section" id="unholy-dk">
+                <div class="spec-header">
+                    <h2 style="color: #C41F3B;"><img src="icons/deathknight.png" alt="">Unholy Death Knight BiS</h2>
+                    <p>A-Tier DPS. Uses T9.5 HC 4pc. Stack Strength and Crit.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=6&spec=3" target="_blank" class="spec-link">UwU Logs Top Unholy</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=272521" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Hit (8%) > Strength > Haste > Armor Pen > Crit > Expertise</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=48499" data-wowhead="item=48499&domain=wotlk">Thassarian's Helmet of Triumph</a></td><td class="source-cell">T9.5 HC (ToGC)</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54581" data-wowhead="item=54581&domain=wotlk">Penumbra Pendant</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=48501" data-wowhead="item=48501&domain=wotlk">Thassarian's Shoulderplates of Triumph</a></td><td class="source-cell">T9.5 HC (ToGC)</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50677" data-wowhead="item=50677&domain=wotlk">Winding Sheet</a></td><td class="source-cell">Rotface 25 HC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=48497" data-wowhead="item=48497&domain=wotlk">Thassarian's Battleplate of Triumph</a></td><td class="source-cell">T9.5 HC (ToGC)</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=47414" data-wowhead="item=47414&domain=wotlk">Taiga Bindings</a></td><td class="source-cell">Icehowl ToGC 25</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=48498" data-wowhead="item=48498&domain=wotlk">Thassarian's Gauntlets of Triumph</a></td><td class="source-cell">T9.5 HC (ToGC)</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50620" data-wowhead="item=50620&domain=wotlk">Coldwraith Links</a></td><td class="source-cell">Valithria 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50623" data-wowhead="item=50623&domain=wotlk">Leggings of Dying Candles</a></td><td class="source-cell">Valithria 25 HC</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54577" data-wowhead="item=54577&domain=wotlk">Apocalypse's Advance</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50692" data-wowhead="item=50692&domain=wotlk">Might of Blight</a></td><td class="source-cell">Festergut 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50398" data-wowhead="item=50398&domain=wotlk">Ashen Band of Endless Might</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54590" data-wowhead="item=54590&domain=wotlk">Sharpened Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50363" data-wowhead="item=50363&domain=wotlk">Deathbringer's Will</a></td><td class="source-cell">Saurfang 25 HC</td></tr>
+                        <tr><td class="slot-cell">Weapon</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=49623" data-wowhead="item=49623&domain=wotlk">Shadowmourne</a> or <a href="https://www.wowhead.com/wotlk/item=50730" data-wowhead="item=50730&domain=wotlk">Glorenzelg</a></td><td class="source-cell">Legendary / LK 25 HC</td></tr>
+                        <tr><td class="slot-cell">Sigil</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=47672" data-wowhead="item=47672&domain=wotlk">Sigil of Virulence</a></td><td class="source-cell">Emblems of Triumph</td></tr>
+                    </table>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 8px;">Note: Unholy uses T9.5 HC 4pc for the 2pc bonus. T10 is not BiS for Unholy.</p>
+            </div>
+
+            <!-- MM HUNTER -->
+            <div class="spec-section" id="mm-hunter">
+                <div class="spec-header">
+                    <h2 style="color: #ABD473;"><img src="icons/hunter.png" alt="">Marksmanship Hunter BiS</h2>
+                    <p>S-Tier DPS. Stack Armor Penetration to cap (1400), then Agility.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=3&spec=2" target="_blank" class="spec-link">UwU Logs Top MM</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=327458" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Hit (8%) > Armor Pen (1400 cap) > Agility > Crit > Haste</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51153" data-wowhead="item=51153&domain=wotlk">Sanctified Ahn'Kahar Blood Hunter's Headpiece</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50647" data-wowhead="item=50647&domain=wotlk">Sindragosa's Cruel Claw</a></td><td class="source-cell">Sindragosa 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51155" data-wowhead="item=51155&domain=wotlk">Sanctified Ahn'Kahar Blood Hunter's Spaulders</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51937" data-wowhead="item=51937&domain=wotlk">Sylvanas' Cunning</a></td><td class="source-cell">Tribute Chest ToGC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51151" data-wowhead="item=51151&domain=wotlk">Sanctified Ahn'Kahar Blood Hunter's Tunic</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50659" data-wowhead="item=50659&domain=wotlk">Scourge Hunter's Vambraces</a></td><td class="source-cell">Gunship 25 HC</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51154" data-wowhead="item=51154&domain=wotlk">Sanctified Ahn'Kahar Blood Hunter's Handguards</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50688" data-wowhead="item=50688&domain=wotlk">Nerub'ar Stalker's Cord</a></td><td class="source-cell">Festergut 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50645" data-wowhead="item=50645&domain=wotlk">Leggings of Northern Lights</a></td><td class="source-cell">Deathwhisper 25 HC</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54578" data-wowhead="item=54578&domain=wotlk">Returning Footfalls</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54572" data-wowhead="item=54572&domain=wotlk">Signet of Twilight</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50402" data-wowhead="item=50402&domain=wotlk">Ashen Band of Endless Vengeance</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54590" data-wowhead="item=54590&domain=wotlk">Sharpened Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50363" data-wowhead="item=50363&domain=wotlk">Deathbringer's Will</a></td><td class="source-cell">Saurfang 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ranged</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50733" data-wowhead="item=50733&domain=wotlk">Fal'inrush, Defender of Quel'thalas</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Melee</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50735" data-wowhead="item=50735&domain=wotlk">Oathbinder, Charge of the Ranger-General</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- RET PALADIN -->
+            <div class="spec-section" id="ret">
+                <div class="spec-header">
+                    <h2 style="color: #F58CBA;"><img src="icons/paladin.png" alt="">Retribution Paladin BiS</h2>
+                    <p>A-Tier DPS. Uses 4pc T10 (not gloves). Can use leather/mail for more DPS stats.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=2&spec=3" target="_blank" class="spec-link">UwU Logs Top Ret</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=388275" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Hit (8%) > Expertise (26) > Strength > Haste > Crit > Armor Pen</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51167" data-wowhead="item=51167&domain=wotlk">Sanctified Lightsworn Helmet</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54581" data-wowhead="item=54581&domain=wotlk">Penumbra Pendant</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51169" data-wowhead="item=51169&domain=wotlk">Sanctified Lightsworn Shoulderplates</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50677" data-wowhead="item=50677&domain=wotlk">Winding Sheet</a></td><td class="source-cell">Rotface 25 HC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51165" data-wowhead="item=51165&domain=wotlk">Sanctified Lightsworn Battleplate</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54580" data-wowhead="item=54580&domain=wotlk">Umbrage Armbands</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50675" data-wowhead="item=50675&domain=wotlk">Aldriana's Gloves of Secrecy</a></td><td class="source-cell">Rotface 25 HC</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50707" data-wowhead="item=50707&domain=wotlk">Astrylian's Sutured Cinch</a></td><td class="source-cell">Putricide 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51168" data-wowhead="item=51168&domain=wotlk">Sanctified Lightsworn Legplates</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54577" data-wowhead="item=54577&domain=wotlk">Apocalypse's Advance</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54572" data-wowhead="item=54572&domain=wotlk">Signet of Twilight</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50398" data-wowhead="item=50398&domain=wotlk">Ashen Band of Endless Might</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54590" data-wowhead="item=54590&domain=wotlk">Sharpened Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50351" data-wowhead="item=50351&domain=wotlk">Tiny Abomination in a Jar</a></td><td class="source-cell">Putricide 25 HC</td></tr>
+                        <tr><td class="slot-cell">Weapon</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=49623" data-wowhead="item=49623&domain=wotlk">Shadowmourne</a> or <a href="https://www.wowhead.com/wotlk/item=50735" data-wowhead="item=50735&domain=wotlk">Oathbinder</a></td><td class="source-cell">Legendary / LK 25 HC</td></tr>
+                        <tr><td class="slot-cell">Libram</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=42852" data-wowhead="item=42852&domain=wotlk">Libram of Valiance</a></td><td class="source-cell">Emblems of Triumph</td></tr>
+                    </table>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 8px;">Note: Ret doesn't use T10 gloves. Aldriana's Gloves of Secrecy are BiS.</p>
+            </div>
+
+            <!-- ARCANE MAGE -->
+            <div class="spec-section" id="arcane-mage">
+                <div class="spec-header">
+                    <h2 style="color: #69CCF0;"><img src="icons/mage.png" alt="">Arcane Mage BiS</h2>
+                    <p>S-Tier DPS. Stack Spellpower and Haste. Mana management is key.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=8&spec=1" target="_blank" class="spec-link">UwU Logs Top Arcane</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=318673" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Hit (17%) > Spellpower > Haste > Crit > Intellect</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51281" data-wowhead="item=51281&domain=wotlk">Sanctified Bloodmage Hood</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50724" data-wowhead="item=50724&domain=wotlk">Blood Queen's Crimson Choker</a></td><td class="source-cell">Blood Queen 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51284" data-wowhead="item=51284&domain=wotlk">Sanctified Bloodmage Shoulderpads</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54583" data-wowhead="item=54583&domain=wotlk">Cloak of Burning Dusk</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51282" data-wowhead="item=51282&domain=wotlk">Sanctified Bloodmage Robe</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54582" data-wowhead="item=54582&domain=wotlk">Phaseshifter's Bracers</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51280" data-wowhead="item=51280&domain=wotlk">Sanctified Bloodmage Gloves</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50613" data-wowhead="item=50613&domain=wotlk">Crushing Coldwraith Belt</a></td><td class="source-cell">Marrowgar 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51283" data-wowhead="item=51283&domain=wotlk">Sanctified Bloodmage Leggings</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54579" data-wowhead="item=54579&domain=wotlk">Foreshadow Steps</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50664" data-wowhead="item=50664&domain=wotlk">Ring of Rapid Ascent</a></td><td class="source-cell">Gunship 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50398" data-wowhead="item=50398&domain=wotlk">Ashen Band of Endless Destruction</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54588" data-wowhead="item=54588&domain=wotlk">Charred Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50365" data-wowhead="item=50365&domain=wotlk">Phylactery of the Nameless Lich</a></td><td class="source-cell">Sindragosa 25 HC</td></tr>
+                        <tr><td class="slot-cell">Weapon</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50731" data-wowhead="item=50731&domain=wotlk">Lightborn Spire</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Off Hand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50719" data-wowhead="item=50719&domain=wotlk">Sundial of Eternal Dusk</a></td><td class="source-cell">BPC 25 HC</td></tr>
+                        <tr><td class="slot-cell">Wand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50732" data-wowhead="item=50732&domain=wotlk">Quel'Delar, Lens of the Mind</a></td><td class="source-cell">Quel'Delar Quest</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- FIRE MAGE -->
+            <div class="spec-section" id="fire-mage">
+                <div class="spec-header">
+                    <h2 style="color: #69CCF0;"><img src="icons/mage.png" alt="">Fire Mage BiS</h2>
+                    <p>A-Tier DPS. Stack Spellpower, Haste and Crit for Hot Streak procs.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=8&spec=2" target="_blank" class="spec-link">UwU Logs Top Fire</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=318673" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Hit (17%) > Spellpower > Haste > Crit > Intellect</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51281" data-wowhead="item=51281&domain=wotlk">Sanctified Bloodmage Hood</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50724" data-wowhead="item=50724&domain=wotlk">Blood Queen's Crimson Choker</a></td><td class="source-cell">Blood Queen 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51284" data-wowhead="item=51284&domain=wotlk">Sanctified Bloodmage Shoulderpads</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54583" data-wowhead="item=54583&domain=wotlk">Cloak of Burning Dusk</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51282" data-wowhead="item=51282&domain=wotlk">Sanctified Bloodmage Robe</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54582" data-wowhead="item=54582&domain=wotlk">Phaseshifter's Bracers</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51280" data-wowhead="item=51280&domain=wotlk">Sanctified Bloodmage Gloves</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50613" data-wowhead="item=50613&domain=wotlk">Crushing Coldwraith Belt</a></td><td class="source-cell">Marrowgar 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51283" data-wowhead="item=51283&domain=wotlk">Sanctified Bloodmage Leggings</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54579" data-wowhead="item=54579&domain=wotlk">Foreshadow Steps</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50664" data-wowhead="item=50664&domain=wotlk">Ring of Rapid Ascent</a></td><td class="source-cell">Gunship 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50398" data-wowhead="item=50398&domain=wotlk">Ashen Band of Endless Destruction</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54588" data-wowhead="item=54588&domain=wotlk">Charred Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50365" data-wowhead="item=50365&domain=wotlk">Phylactery of the Nameless Lich</a></td><td class="source-cell">Sindragosa 25 HC</td></tr>
+                        <tr><td class="slot-cell">Weapon</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50731" data-wowhead="item=50731&domain=wotlk">Lightborn Spire</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Off Hand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50719" data-wowhead="item=50719&domain=wotlk">Sundial of Eternal Dusk</a></td><td class="source-cell">BPC 25 HC</td></tr>
+                        <tr><td class="slot-cell">Wand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50732" data-wowhead="item=50732&domain=wotlk">Quel'Delar, Lens of the Mind</a></td><td class="source-cell">Quel'Delar Quest</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SHADOW PRIEST -->
+            <div class="spec-section" id="shadow-priest">
+                <div class="spec-header">
+                    <h2 style="color: #FFFFFF;"><img src="icons/priest.png" alt="">Shadow Priest BiS</h2>
+                    <p>A-Tier DPS. DoT-based caster. Provides Replenishment and Misery.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=5&spec=3" target="_blank" class="spec-link">UwU Logs Top Shadow</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=301700" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Hit (17%) > Spellpower > Haste > Crit > Spirit</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51182" data-wowhead="item=51182&domain=wotlk">Sanctified Crimson Acolyte Cowl</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50724" data-wowhead="item=50724&domain=wotlk">Blood Queen's Crimson Choker</a></td><td class="source-cell">Blood Queen 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51184" data-wowhead="item=51184&domain=wotlk">Sanctified Crimson Acolyte Mantle</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54583" data-wowhead="item=54583&domain=wotlk">Cloak of Burning Dusk</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51180" data-wowhead="item=51180&domain=wotlk">Sanctified Crimson Acolyte Robe</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54582" data-wowhead="item=54582&domain=wotlk">Phaseshifter's Bracers</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51181" data-wowhead="item=51181&domain=wotlk">Sanctified Crimson Acolyte Gloves</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50613" data-wowhead="item=50613&domain=wotlk">Crushing Coldwraith Belt</a></td><td class="source-cell">Marrowgar 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51183" data-wowhead="item=51183&domain=wotlk">Sanctified Crimson Acolyte Pants</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54579" data-wowhead="item=54579&domain=wotlk">Foreshadow Steps</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50664" data-wowhead="item=50664&domain=wotlk">Ring of Rapid Ascent</a></td><td class="source-cell">Gunship 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50398" data-wowhead="item=50398&domain=wotlk">Ashen Band of Endless Destruction</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54588" data-wowhead="item=54588&domain=wotlk">Charred Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50365" data-wowhead="item=50365&domain=wotlk">Phylactery of the Nameless Lich</a></td><td class="source-cell">Sindragosa 25 HC</td></tr>
+                        <tr><td class="slot-cell">Weapon</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50731" data-wowhead="item=50731&domain=wotlk">Lightborn Spire</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Off Hand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50719" data-wowhead="item=50719&domain=wotlk">Sundial of Eternal Dusk</a></td><td class="source-cell">BPC 25 HC</td></tr>
+                        <tr><td class="slot-cell">Wand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50732" data-wowhead="item=50732&domain=wotlk">Quel'Delar, Lens of the Mind</a></td><td class="source-cell">Quel'Delar Quest</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- BALANCE DRUID -->
+            <div class="spec-section" id="balance">
+                <div class="spec-header">
+                    <h2 style="color: #FF7D0A;"><img src="icons/druid.png" alt="">Balance Druid BiS</h2>
+                    <p>A-Tier DPS. DoT-based caster. Eclipse management is key.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=11&spec=3" target="_blank" class="spec-link">UwU Logs Top Balance</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=306700" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Hit (17%) > Spellpower > Haste > Crit > Spirit</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51148" data-wowhead="item=51148&domain=wotlk">Sanctified Lasherweave Cover</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50724" data-wowhead="item=50724&domain=wotlk">Blood Queen's Crimson Choker</a></td><td class="source-cell">Blood Queen 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51150" data-wowhead="item=51150&domain=wotlk">Sanctified Lasherweave Mantle</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54583" data-wowhead="item=54583&domain=wotlk">Cloak of Burning Dusk</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51146" data-wowhead="item=51146&domain=wotlk">Sanctified Lasherweave Vestment</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54582" data-wowhead="item=54582&domain=wotlk">Phaseshifter's Bracers</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51147" data-wowhead="item=51147&domain=wotlk">Sanctified Lasherweave Gloves</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50613" data-wowhead="item=50613&domain=wotlk">Crushing Coldwraith Belt</a></td><td class="source-cell">Marrowgar 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51149" data-wowhead="item=51149&domain=wotlk">Sanctified Lasherweave Trousers</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54579" data-wowhead="item=54579&domain=wotlk">Foreshadow Steps</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50664" data-wowhead="item=50664&domain=wotlk">Ring of Rapid Ascent</a></td><td class="source-cell">Gunship 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50398" data-wowhead="item=50398&domain=wotlk">Ashen Band of Endless Destruction</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54588" data-wowhead="item=54588&domain=wotlk">Charred Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50365" data-wowhead="item=50365&domain=wotlk">Phylactery of the Nameless Lich</a></td><td class="source-cell">Sindragosa 25 HC</td></tr>
+                        <tr><td class="slot-cell">Weapon</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50731" data-wowhead="item=50731&domain=wotlk">Lightborn Spire</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Off Hand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50719" data-wowhead="item=50719&domain=wotlk">Sundial of Eternal Dusk</a></td><td class="source-cell">BPC 25 HC</td></tr>
+                        <tr><td class="slot-cell">Idol</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50456" data-wowhead="item=50456&domain=wotlk">Idol of the Lunar Eclipse</a></td><td class="source-cell">Emblems of Frost</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ELEMENTAL SHAMAN -->
+            <div class="spec-section" id="ele-shaman">
+                <div class="spec-header">
+                    <h2 style="color: #0070DE;"><img src="icons/shaman.png" alt="">Elemental Shaman BiS</h2>
+                    <p>A-Tier DPS. Burst caster with Lava Burst procs. Provides Totem of Wrath.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=7&spec=3" target="_blank" class="spec-link">UwU Logs Top Ele</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=332835" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Hit (17%) > Spellpower > Haste > Crit</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51210" data-wowhead="item=51210&domain=wotlk">Sanctified Frost Witch's Helm</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50724" data-wowhead="item=50724&domain=wotlk">Blood Queen's Crimson Choker</a></td><td class="source-cell">Blood Queen 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51212" data-wowhead="item=51212&domain=wotlk">Sanctified Frost Witch's Shoulderpads</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54583" data-wowhead="item=54583&domain=wotlk">Cloak of Burning Dusk</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51208" data-wowhead="item=51208&domain=wotlk">Sanctified Frost Witch's Hauberk</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54582" data-wowhead="item=54582&domain=wotlk">Phaseshifter's Bracers</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51209" data-wowhead="item=51209&domain=wotlk">Sanctified Frost Witch's Gloves</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50613" data-wowhead="item=50613&domain=wotlk">Crushing Coldwraith Belt</a></td><td class="source-cell">Marrowgar 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51211" data-wowhead="item=51211&domain=wotlk">Sanctified Frost Witch's Kilt</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54579" data-wowhead="item=54579&domain=wotlk">Foreshadow Steps</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50664" data-wowhead="item=50664&domain=wotlk">Ring of Rapid Ascent</a></td><td class="source-cell">Gunship 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50398" data-wowhead="item=50398&domain=wotlk">Ashen Band of Endless Destruction</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54588" data-wowhead="item=54588&domain=wotlk">Charred Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50365" data-wowhead="item=50365&domain=wotlk">Phylactery of the Nameless Lich</a></td><td class="source-cell">Sindragosa 25 HC</td></tr>
+                        <tr><td class="slot-cell">Weapon</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50731" data-wowhead="item=50731&domain=wotlk">Lightborn Spire</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shield</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50616" data-wowhead="item=50616&domain=wotlk">Lost Pavise of the Blue Flight</a></td><td class="source-cell">Sindragosa 25 HC</td></tr>
+                        <tr><td class="slot-cell">Totem</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50458" data-wowhead="item=50458&domain=wotlk">Bizuri's Totem of Shattered Ice</a></td><td class="source-cell">Emblems of Frost</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ENHANCEMENT SHAMAN -->
+            <div class="spec-section" id="enh-shaman">
+                <div class="spec-header">
+                    <h2 style="color: #0070DE;"><img src="icons/shaman.png" alt="">Enhancement Shaman BiS</h2>
+                    <p>A-Tier DPS. Dual-wield melee. Provides Windfury Totem.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=7&spec=2" target="_blank" class="spec-link">UwU Logs Top Enh</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=283080" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Hit (17% spell / 8% melee) > Expertise (26) > AP > Haste > Crit > Armor Pen</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51205" data-wowhead="item=51205&domain=wotlk">Sanctified Frost Witch's Faceguard</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54581" data-wowhead="item=54581&domain=wotlk">Penumbra Pendant</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51207" data-wowhead="item=51207&domain=wotlk">Sanctified Frost Witch's Shoulderguards</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50653" data-wowhead="item=50653&domain=wotlk">Shadowvault Slayer's Cloak</a></td><td class="source-cell">Gunship 25 HC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51203" data-wowhead="item=51203&domain=wotlk">Sanctified Frost Witch's Chestguard</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54580" data-wowhead="item=54580&domain=wotlk">Umbrage Armbands</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51204" data-wowhead="item=51204&domain=wotlk">Sanctified Frost Witch's Grips</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50707" data-wowhead="item=50707&domain=wotlk">Astrylian's Sutured Cinch</a></td><td class="source-cell">Putricide 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51206" data-wowhead="item=51206&domain=wotlk">Sanctified Frost Witch's War-Kilt</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54578" data-wowhead="item=54578&domain=wotlk">Returning Footfalls</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54572" data-wowhead="item=54572&domain=wotlk">Signet of Twilight</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50402" data-wowhead="item=50402&domain=wotlk">Ashen Band of Endless Vengeance</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54590" data-wowhead="item=54590&domain=wotlk">Sharpened Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50363" data-wowhead="item=50363&domain=wotlk">Deathbringer's Will</a></td><td class="source-cell">Saurfang 25 HC</td></tr>
+                        <tr><td class="slot-cell">Main Hand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50737" data-wowhead="item=50737&domain=wotlk">Havoc's Call, Blade of Lordaeron Kings</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Off Hand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50737" data-wowhead="item=50737&domain=wotlk">Havoc's Call, Blade of Lordaeron Kings</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Totem</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=47668" data-wowhead="item=47668&domain=wotlk">Totem of Quaking Earth</a></td><td class="source-cell">Emblems of Triumph</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- AFFLICTION WARLOCK -->
+            <div class="spec-section" id="affliction">
+                <div class="spec-header">
+                    <h2 style="color: #9482C9;"><img src="icons/warlock.png" alt="">Affliction Warlock BiS</h2>
+                    <p>S-Tier DPS. DoT-based. Stack Spellpower and Haste.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=9&spec=1" target="_blank" class="spec-link">UwU Logs Top Affli</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=319475" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Hit (17%) > Spellpower > Haste > Crit > Spirit</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51232" data-wowhead="item=51232&domain=wotlk">Sanctified Dark Coven Hood</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50724" data-wowhead="item=50724&domain=wotlk">Blood Queen's Crimson Choker</a></td><td class="source-cell">Blood Queen 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51234" data-wowhead="item=51234&domain=wotlk">Sanctified Dark Coven Shoulderpads</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54583" data-wowhead="item=54583&domain=wotlk">Cloak of Burning Dusk</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51230" data-wowhead="item=51230&domain=wotlk">Sanctified Dark Coven Robe</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54582" data-wowhead="item=54582&domain=wotlk">Phaseshifter's Bracers</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51231" data-wowhead="item=51231&domain=wotlk">Sanctified Dark Coven Gloves</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50613" data-wowhead="item=50613&domain=wotlk">Crushing Coldwraith Belt</a></td><td class="source-cell">Marrowgar 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51233" data-wowhead="item=51233&domain=wotlk">Sanctified Dark Coven Leggings</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54579" data-wowhead="item=54579&domain=wotlk">Foreshadow Steps</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50664" data-wowhead="item=50664&domain=wotlk">Ring of Rapid Ascent</a></td><td class="source-cell">Gunship 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50398" data-wowhead="item=50398&domain=wotlk">Ashen Band of Endless Destruction</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54588" data-wowhead="item=54588&domain=wotlk">Charred Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50365" data-wowhead="item=50365&domain=wotlk">Phylactery of the Nameless Lich</a></td><td class="source-cell">Sindragosa 25 HC</td></tr>
+                        <tr><td class="slot-cell">Weapon</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50731" data-wowhead="item=50731&domain=wotlk">Lightborn Spire</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Off Hand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50719" data-wowhead="item=50719&domain=wotlk">Sundial of Eternal Dusk</a></td><td class="source-cell">BPC 25 HC</td></tr>
+                        <tr><td class="slot-cell">Wand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50732" data-wowhead="item=50732&domain=wotlk">Quel'Delar, Lens of the Mind</a></td><td class="source-cell">Quel'Delar Quest</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- DESTRUCTION WARLOCK -->
+            <div class="spec-section" id="destro">
+                <div class="spec-header">
+                    <h2 style="color: #9482C9;"><img src="icons/warlock.png" alt="">Destruction Warlock BiS</h2>
+                    <p>A-Tier DPS. Burst caster. Conflagrate and Chaos Bolt.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=9&spec=3" target="_blank" class="spec-link">UwU Logs Top Destro</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=319475" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Hit (17%) > Spellpower > Haste > Crit</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51232" data-wowhead="item=51232&domain=wotlk">Sanctified Dark Coven Hood</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50724" data-wowhead="item=50724&domain=wotlk">Blood Queen's Crimson Choker</a></td><td class="source-cell">Blood Queen 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51234" data-wowhead="item=51234&domain=wotlk">Sanctified Dark Coven Shoulderpads</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54583" data-wowhead="item=54583&domain=wotlk">Cloak of Burning Dusk</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51230" data-wowhead="item=51230&domain=wotlk">Sanctified Dark Coven Robe</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54582" data-wowhead="item=54582&domain=wotlk">Phaseshifter's Bracers</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51231" data-wowhead="item=51231&domain=wotlk">Sanctified Dark Coven Gloves</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50613" data-wowhead="item=50613&domain=wotlk">Crushing Coldwraith Belt</a></td><td class="source-cell">Marrowgar 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51233" data-wowhead="item=51233&domain=wotlk">Sanctified Dark Coven Leggings</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54579" data-wowhead="item=54579&domain=wotlk">Foreshadow Steps</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50664" data-wowhead="item=50664&domain=wotlk">Ring of Rapid Ascent</a></td><td class="source-cell">Gunship 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50398" data-wowhead="item=50398&domain=wotlk">Ashen Band of Endless Destruction</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54588" data-wowhead="item=54588&domain=wotlk">Charred Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50365" data-wowhead="item=50365&domain=wotlk">Phylactery of the Nameless Lich</a></td><td class="source-cell">Sindragosa 25 HC</td></tr>
+                        <tr><td class="slot-cell">Weapon</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50731" data-wowhead="item=50731&domain=wotlk">Lightborn Spire</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Off Hand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50719" data-wowhead="item=50719&domain=wotlk">Sundial of Eternal Dusk</a></td><td class="source-cell">BPC 25 HC</td></tr>
+                        <tr><td class="slot-cell">Wand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50732" data-wowhead="item=50732&domain=wotlk">Quel'Delar, Lens of the Mind</a></td><td class="source-cell">Quel'Delar Quest</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- HOLY PALADIN -->
+            <div class="spec-section" id="holy-paladin">
+                <div class="spec-header">
+                    <h2 style="color: #F58CBA;"><img src="icons/paladin.png" alt="">Holy Paladin BiS</h2>
+                    <p>S-Tier Healer. Stack Intellect and Haste. Aim for 676 Haste soft cap.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=2&spec=1" target="_blank" class="spec-link">UwU Logs Top Holy</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=301135" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Intellect > Haste (676 soft cap) > Crit > Spellpower > MP5</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51162" data-wowhead="item=51162&domain=wotlk">Sanctified Lightsworn Headpiece</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50724" data-wowhead="item=50724&domain=wotlk">Blood Queen's Crimson Choker</a></td><td class="source-cell">Blood Queen 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51164" data-wowhead="item=51164&domain=wotlk">Sanctified Lightsworn Spaulders</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54583" data-wowhead="item=54583&domain=wotlk">Cloak of Burning Dusk</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51160" data-wowhead="item=51160&domain=wotlk">Sanctified Lightsworn Tunic</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54584" data-wowhead="item=54584&domain=wotlk">Bracers of Fiery Night</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51161" data-wowhead="item=51161&domain=wotlk">Sanctified Lightsworn Gloves</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50702" data-wowhead="item=50702&domain=wotlk">Crushing Coldwraith Belt</a></td><td class="source-cell">Putricide 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51163" data-wowhead="item=51163&domain=wotlk">Sanctified Lightsworn Greaves</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54579" data-wowhead="item=54579&domain=wotlk">Foreshadow Steps</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54573" data-wowhead="item=54573&domain=wotlk">Ring of Phased Regeneration</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50400" data-wowhead="item=50400&domain=wotlk">Ashen Band of Endless Wisdom</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54588" data-wowhead="item=54588&domain=wotlk">Glowing Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50726" data-wowhead="item=50726&domain=wotlk">Althor's Abacus</a></td><td class="source-cell">Gunship 25 HC</td></tr>
+                        <tr><td class="slot-cell">Weapon</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50731" data-wowhead="item=50731&domain=wotlk">Lightborn Spire</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shield</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50729" data-wowhead="item=50729&domain=wotlk">Icecrown Glacial Wall</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Libram</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50455" data-wowhead="item=50455&domain=wotlk">Libram of Renewal</a></td><td class="source-cell">Emblems of Frost</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- RESTO DRUID -->
+            <div class="spec-section" id="resto-druid">
+                <div class="spec-header">
+                    <h2 style="color: #FF7D0A;"><img src="icons/druid.png" alt="">Restoration Druid BiS</h2>
+                    <p>S-Tier Healer. Stack Spellpower and Haste. HoT-focused healing.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=11&spec=1" target="_blank" class="spec-link">UwU Logs Top Resto</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=305610" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Spellpower > Haste (856 soft cap) > Crit > Spirit > Intellect</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51138" data-wowhead="item=51138&domain=wotlk">Sanctified Lasherweave Helmet</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50724" data-wowhead="item=50724&domain=wotlk">Blood Queen's Crimson Choker</a></td><td class="source-cell">Blood Queen 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51140" data-wowhead="item=51140&domain=wotlk">Sanctified Lasherweave Pauldrons</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54583" data-wowhead="item=54583&domain=wotlk">Cloak of Burning Dusk</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51136" data-wowhead="item=51136&domain=wotlk">Sanctified Lasherweave Robes</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54584" data-wowhead="item=54584&domain=wotlk">Bracers of Fiery Night</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51137" data-wowhead="item=51137&domain=wotlk">Sanctified Lasherweave Gauntlets</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50705" data-wowhead="item=50705&domain=wotlk">Professor's Bloodied Smock</a></td><td class="source-cell">Putricide 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51139" data-wowhead="item=51139&domain=wotlk">Sanctified Lasherweave Legplates</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54579" data-wowhead="item=54579&domain=wotlk">Foreshadow Steps</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54573" data-wowhead="item=54573&domain=wotlk">Ring of Phased Regeneration</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50400" data-wowhead="item=50400&domain=wotlk">Ashen Band of Endless Wisdom</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54588" data-wowhead="item=54588&domain=wotlk">Glowing Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50726" data-wowhead="item=50726&domain=wotlk">Althor's Abacus</a></td><td class="source-cell">Gunship 25 HC</td></tr>
+                        <tr><td class="slot-cell">Weapon</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50731" data-wowhead="item=50731&domain=wotlk">Lightborn Spire</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Off Hand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50719" data-wowhead="item=50719&domain=wotlk">Sundial of Eternal Dusk</a></td><td class="source-cell">BPC 25 HC</td></tr>
+                        <tr><td class="slot-cell">Idol</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50457" data-wowhead="item=50457&domain=wotlk">Idol of the Black Willow</a></td><td class="source-cell">Emblems of Frost</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- RESTO SHAMAN -->
+            <div class="spec-section" id="resto-shaman">
+                <div class="spec-header">
+                    <h2 style="color: #0070DE;"><img src="icons/shaman.png" alt="">Restoration Shaman BiS</h2>
+                    <p>A-Tier Healer. Stack Haste and Spellpower. Chain Heal machine.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=7&spec=1" target="_blank" class="spec-link">UwU Logs Top Resto</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=371461" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Haste (856+ for 1s GCD) > Spellpower > Crit > MP5 > Intellect</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51200" data-wowhead="item=51200&domain=wotlk">Sanctified Frost Witch's Helm</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50724" data-wowhead="item=50724&domain=wotlk">Blood Queen's Crimson Choker</a></td><td class="source-cell">Blood Queen 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51202" data-wowhead="item=51202&domain=wotlk">Sanctified Frost Witch's Spaulders</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54583" data-wowhead="item=54583&domain=wotlk">Cloak of Burning Dusk</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51198" data-wowhead="item=51198&domain=wotlk">Sanctified Frost Witch's Tunic</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54584" data-wowhead="item=54584&domain=wotlk">Bracers of Fiery Night</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51199" data-wowhead="item=51199&domain=wotlk">Sanctified Frost Witch's Handguards</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50613" data-wowhead="item=50613&domain=wotlk">Waistband of Despair</a></td><td class="source-cell">Marrowgar 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51201" data-wowhead="item=51201&domain=wotlk">Sanctified Frost Witch's Legguards</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54579" data-wowhead="item=54579&domain=wotlk">Foreshadow Steps</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54573" data-wowhead="item=54573&domain=wotlk">Ring of Phased Regeneration</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50400" data-wowhead="item=50400&domain=wotlk">Ashen Band of Endless Wisdom</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54588" data-wowhead="item=54588&domain=wotlk">Glowing Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50726" data-wowhead="item=50726&domain=wotlk">Althor's Abacus</a></td><td class="source-cell">Gunship 25 HC</td></tr>
+                        <tr><td class="slot-cell">Weapon</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50734" data-wowhead="item=50734&domain=wotlk">Royal Scepter of Terenas II</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shield</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50616" data-wowhead="item=50616&domain=wotlk">Lost Pavise of the Blue Flight</a></td><td class="source-cell">Sindragosa 25 HC</td></tr>
+                        <tr><td class="slot-cell">Totem</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50458" data-wowhead="item=50458&domain=wotlk">Bizuri's Totem of Shattered Ice</a></td><td class="source-cell">Emblems of Frost</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- DISC PRIEST -->
+            <div class="spec-section" id="disc-priest">
+                <div class="spec-header">
+                    <h2 style="color: #FFFFFF;"><img src="icons/priest.png" alt="">Discipline Priest BiS</h2>
+                    <p>S-Tier Healer. Stack Spellpower and Haste. Shields prevent damage.</p>
+                    <div class="spec-links">
+                        <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1&cls=5&spec=1" target="_blank" class="spec-link">UwU Logs Top Disc</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=307680" target="_blank" class="spec-link">Warmane Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority</h4>
+                    <p>Spellpower > Haste (until comfortable) > Crit > Intellect > Spirit</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51177" data-wowhead="item=51177&domain=wotlk">Sanctified Crimson Acolyte Hood</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50724" data-wowhead="item=50724&domain=wotlk">Blood Queen's Crimson Choker</a></td><td class="source-cell">Blood Queen 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shoulders</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51179" data-wowhead="item=51179&domain=wotlk">Sanctified Crimson Acolyte Shoulderpads</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54583" data-wowhead="item=54583&domain=wotlk">Cloak of Burning Dusk</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Chest</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51175" data-wowhead="item=51175&domain=wotlk">Sanctified Crimson Acolyte Raiments</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54584" data-wowhead="item=54584&domain=wotlk">Bracers of Fiery Night</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Hands</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51176" data-wowhead="item=51176&domain=wotlk">Sanctified Crimson Acolyte Handwraps</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50705" data-wowhead="item=50705&domain=wotlk">Professor's Bloodied Smock</a></td><td class="source-cell">Putricide 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=51178" data-wowhead="item=51178&domain=wotlk">Sanctified Crimson Acolyte Leggings</a></td><td class="source-cell">T10 Token</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54579" data-wowhead="item=54579&domain=wotlk">Foreshadow Steps</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54573" data-wowhead="item=54573&domain=wotlk">Ring of Phased Regeneration</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50400" data-wowhead="item=50400&domain=wotlk">Ashen Band of Endless Wisdom</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54588" data-wowhead="item=54588&domain=wotlk">Glowing Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50726" data-wowhead="item=50726&domain=wotlk">Althor's Abacus</a></td><td class="source-cell">Gunship 25 HC</td></tr>
+                        <tr><td class="slot-cell">Weapon</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50731" data-wowhead="item=50731&domain=wotlk">Lightborn Spire</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                        <tr><td class="slot-cell">Off Hand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50719" data-wowhead="item=50719&domain=wotlk">Sundial of Eternal Dusk</a></td><td class="source-cell">BPC 25 HC</td></tr>
+                        <tr><td class="slot-cell">Wand</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50732" data-wowhead="item=50732&domain=wotlk">Quel'Delar, Lens of the Mind</a></td><td class="source-cell">Quel'Delar Quest</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- TANKS -->
+            <div class="spec-section" id="tanks">
+                <div class="spec-header">
+                    <h2 style="color: #C79C6E;"><img src="icons/warrior.png" alt="">Tank BiS Items</h2>
+                    <p>Key tank items from ICC 25 HC. There is no single BiS list for tanks - gear varies by encounter.</p>
+                    <div class="spec-links">
+                        <a href="https://forum.warmane.com/showthread.php?t=228550" target="_blank" class="spec-link">Prot Warrior Guide</a>
+                        <a href="https://forum.warmane.com/showthread.php?t=349830" target="_blank" class="spec-link">Blood DK Guide</a>
+                    </div>
+                </div>
+                <div class="stat-priorities">
+                    <h4>Stat Priority (General)</h4>
+                    <p>Stamina > Armor > Defense (540 cap) > Dodge/Parry > Expertise/Hit</p>
+                </div>
+                <div class="bis-table">
+                    <table>
+                        <tr><th>Slot</th><th>Item</th><th>Source</th></tr>
+                        <tr><td class="slot-cell">Head</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50640" data-wowhead="item=50640&domain=wotlk">Broken Ram Skull Helm</a></td><td class="source-cell">Deathwhisper 25 HC</td></tr>
+                        <tr><td class="slot-cell">Neck</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50682" data-wowhead="item=50682&domain=wotlk">Bile-Encrusted Medallion</a></td><td class="source-cell">Rotface 25 HC</td></tr>
+                        <tr><td class="slot-cell">Back</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50718" data-wowhead="item=50718&domain=wotlk">Royal Crimson Cloak</a></td><td class="source-cell">BPC 25 HC</td></tr>
+                        <tr><td class="slot-cell">Wrists</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50659" data-wowhead="item=50659&domain=wotlk">Gargoyle Spit Bracers</a></td><td class="source-cell">Gunship 25 HC</td></tr>
+                        <tr><td class="slot-cell">Waist</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50691" data-wowhead="item=50691&domain=wotlk">Belt of Broken Bones</a></td><td class="source-cell">Festergut 25 HC</td></tr>
+                        <tr><td class="slot-cell">Legs</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50623" data-wowhead="item=50623&domain=wotlk">Leggings of Dying Candles</a></td><td class="source-cell">Valithria 25 HC</td></tr>
+                        <tr><td class="slot-cell">Feet</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50625" data-wowhead="item=50625&domain=wotlk">Treads of Impending Resurrection</a></td><td class="source-cell">Valithria 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50622" data-wowhead="item=50622&domain=wotlk">Devium's Eternally Cold Ring</a></td><td class="source-cell">Valithria 25 HC</td></tr>
+                        <tr><td class="slot-cell">Ring 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50404" data-wowhead="item=50404&domain=wotlk">Ashen Band of Endless Courage</a></td><td class="source-cell">Ashen Verdict Rep</td></tr>
+                        <tr><td class="slot-cell">Trinket 1</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=54571" data-wowhead="item=54571&domain=wotlk">Petrified Twilight Scale</a></td><td class="source-cell">Halion 25 HC</td></tr>
+                        <tr><td class="slot-cell">Trinket 2</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50364" data-wowhead="item=50364&domain=wotlk">Sindragosa's Flawless Fang</a></td><td class="source-cell">Sindragosa 25 HC</td></tr>
+                        <tr><td class="slot-cell">Shield</td><td class="item-cell"><a href="https://www.wowhead.com/wotlk/item=50729" data-wowhead="item=50729&domain=wotlk">Icecrown Glacial Wall</a></td><td class="source-cell">Lich King 25 HC</td></tr>
+                    </table>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 8px;">Note: Tanks should collect multiple sets. Stamina is king in ICC with the raid buff.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 32px; padding: 20px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border-subtle);">
+                <p style="color: var(--text-secondary); margin-bottom: 12px;">Check what top players actually wear on UwU Logs</p>
+                <a href="https://uwu-logs.xyz/top?server=Icecrown&raid=Icecrown+Citadel&boss=All+Bosses&size=25&mode=1&best=1" target="_blank" class="uwu-link">View Top Parses on UwU Logs</a>
+            </div>
+
+            <p style="text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-top: 24px;">
+                BiS lists sourced from <a href="https://forum.warmane.com" target="_blank" style="color: var(--horde-red-light);">Warmane Forums</a>.
+                Last updated: January 2026
+            </p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p>&copy; 2026 T I T A N Guild. Warmane Icecrown.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Class tabs
+        document.querySelectorAll('.class-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.class-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.spec-section').forEach(s => s.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.class).classList.add('active');
+
+                // Refresh Wowhead tooltips
+                if (typeof $WowheadPower !== 'undefined') {
+                    $WowheadPower.refreshLinks();
+                }
+            });
+        });
+
+        // Mobile nav toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        window.addEventListener('scroll', () => {
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Refresh Wowhead tooltips on load
+        if (typeof $WowheadPower !== 'undefined') {
+            $WowheadPower.refreshLinks();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOXUS Guild Stats - ICC 25 HC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-hover: #1a1a25;
+            --border: #2a2a3a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #606070;
+            --accent: #8b5cf6;
+            --accent-glow: rgba(139, 92, 246, 0.3);
+            --gold: #ffd700;
+            --silver: #c0c0c0;
+            --bronze: #cd7f32;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(180deg, rgba(139, 92, 246, 0.1) 0%, transparent 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .stats-summary {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-box .value {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-box .label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Content */
+        .main {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        /* Boss Cards */
+        .boss-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .boss-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .boss-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+
+        .boss-header {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(139, 92, 246, 0.05));
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .boss-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .boss-best {
+            text-align: right;
+        }
+
+        .boss-best .player {
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .boss-best .dps {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .boss-body {
+            padding: 16px 20px;
+        }
+
+        .class-records {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .class-record {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 10px;
+            background: var(--bg-hover);
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .class-record .class-name {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .class-record .player-name {
+            color: var(--text-secondary);
+        }
+
+        .class-record .dps-value {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Class Colors */
+        .class-warrior { color: #C79C6E; }
+        .class-paladin { color: #F58CBA; }
+        .class-hunter { color: #ABD473; }
+        .class-rogue { color: #FFF569; }
+        .class-priest { color: #FFFFFF; }
+        .class-dk { color: #C41F3B; }
+        .class-shaman { color: #0070DE; }
+        .class-mage { color: #69CCF0; }
+        .class-warlock { color: #9482C9; }
+        .class-druid { color: #FF7D0A; }
+
+        /* Top Performers Table */
+        .top-performers {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .top-performers table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .top-performers th {
+            background: var(--bg-hover);
+            padding: 14px 16px;
+            text-align: left;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .top-performers td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .top-performers tr:last-child td {
+            border-bottom: none;
+        }
+
+        .top-performers tr:hover {
+            background: var(--bg-hover);
+        }
+
+        .rank {
+            width: 50px;
+            font-weight: 700;
+            font-family: 'Cinzel', serif;
+        }
+
+        .rank-1 { color: var(--gold); }
+        .rank-2 { color: var(--silver); }
+        .rank-3 { color: var(--bronze); }
+
+        .player-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dps-cell {
+            font-weight: 600;
+            font-family: 'Cinzel', serif;
+            color: var(--accent);
+        }
+
+        .boss-cell {
+            color: var(--text-secondary);
+        }
+
+        .date-cell {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .boss-grid {
+                grid-template-columns: 1fr;
+            }
+            .class-records {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .stats-summary {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>NOXUS</h1>
+        <p>ICC 25 Heroic & Ruby Sanctum 25 Heroic - All-Time Best Records</p>
+        <div class="stats-summary">
+            <div class="stat-box">
+                <div class="value">75</div>
+                <div class="label">Logs Analyzed</div>
+            </div>
+            <div class="stat-box">
+                <div class="value">11</div>
+                <div class="label">Bosses Tracked</div>
+            </div>
+            <div class="stat-box">
+                <div class="value">40,212</div>
+                <div class="label">Highest DPS</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- Best Per Boss -->
+            <h2 class="section-title">All-Time Best Per Boss</h2>
+            <div class="top-performers">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Boss</th>
+                            <th>Player</th>
+                            <th>Class</th>
+                            <th>DPS</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="boss-cell">Blood-Queen Lana'thel</td>
+                            <td><span class="class-warrior">Shortstacks</span></td>
+                            <td>Warrior</td>
+                            <td class="dps-cell">40,212</td>
+                            <td class="date-cell">Nov 4, 2025</td>
+                        </tr>
+                        <tr>
+                            <td class="boss-cell">Deathbringer Saurfang</td>
+                            <td><span class="class-mage">Conventin</span></td>
+                            <td>Mage</td>
+                            <td class="dps-cell">26,533</td>
+                            <td class="date-cell">Nov 24, 2025</td>
+                        </tr>
+                        <tr>
+                            <td class="boss-cell">Rotface</td>
+                            <td><span class="class-mage">Dazzxmage</span></td>
+                            <td>Mage</td>
+                            <td class="dps-cell">26,019</td>
+                            <td class="date-cell">Aug 30, 2025</td>
+                        </tr>
+                        <tr>
+                            <td class="boss-cell">Lord Marrowgar</td>
+                            <td><span class="class-warrior">Unhinged</span></td>
+                            <td>Warrior</td>
+                            <td class="dps-cell">25,498</td>
+                            <td class="date-cell">Dec 13, 2025</td>
+                        </tr>
+                        <tr>
+                            <td class="boss-cell">Blood Prince Council</td>
+                            <td><span class="class-mage">Kinzzy</span></td>
+                            <td>Mage</td>
+                            <td class="dps-cell">23,955</td>
+                            <td class="date-cell">Jan 17, 2026</td>
+                        </tr>
+                        <tr>
+                            <td class="boss-cell">Festergut</td>
+                            <td><span class="class-mage">Stinngg</span></td>
+                            <td>Mage</td>
+                            <td class="dps-cell">23,812</td>
+                            <td class="date-cell">Jan 17, 2026</td>
+                        </tr>
+                        <tr>
+                            <td class="boss-cell">Lady Deathwhisper</td>
+                            <td><span class="class-druid">Framezqt</span></td>
+                            <td>Druid</td>
+                            <td class="dps-cell">21,967</td>
+                            <td class="date-cell">Dec 20, 2025</td>
+                        </tr>
+                        <tr>
+                            <td class="boss-cell">Professor Putricide</td>
+                            <td><span class="class-hunter">Spread</span></td>
+                            <td>Hunter</td>
+                            <td class="dps-cell">20,461</td>
+                            <td class="date-cell">Jan 11, 2026</td>
+                        </tr>
+                        <tr>
+                            <td class="boss-cell">Sindragosa</td>
+                            <td><span class="class-mage">Kinzzy</span></td>
+                            <td>Mage</td>
+                            <td class="dps-cell">19,427</td>
+                            <td class="date-cell">Oct 29, 2025</td>
+                        </tr>
+                        <tr>
+                            <td class="boss-cell">The Lich King</td>
+                            <td><span class="class-warrior">Shortstacks</span></td>
+                            <td>Warrior</td>
+                            <td class="dps-cell">19,000</td>
+                            <td class="date-cell">Nov 4, 2025</td>
+                        </tr>
+                        <tr>
+                            <td class="boss-cell">Halion (RS)</td>
+                            <td><span class="class-warrior">Stixxy</span></td>
+                            <td>Warrior</td>
+                            <td class="dps-cell">14,613</td>
+                            <td class="date-cell">Nov 5, 2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p style="text-align: center; color: var(--text-muted); margin: 20px 0; font-size: 0.85rem;">
+                * Data from 75 logs analyzed. Some class records may be incomplete or include tank specs.
+            </p>
+
+            <!-- Boss Records -->
+            <h2 class="section-title">Best DPS Per Boss (By Class)</h2>
+            <div class="boss-grid">
+                <!-- Lord Marrowgar -->
+                <div class="boss-card">
+                    <div class="boss-header">
+                        <span class="boss-name">Lord Marrowgar</span>
+                        <div class="boss-best">
+                            <div class="player">Unhinged</div>
+                            <div class="dps">25,498 DPS</div>
+                        </div>
+                    </div>
+                    <div class="boss-body">
+                        <div class="class-records">
+                            <div class="class-record"><span class="class-name"><span class="class-warrior">Unhinged</span> <small>War</small></span><span class="dps-value">25,498</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-druid">Framezboo</span> <small>Dru</small></span><span class="dps-value">25,037</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-mage">Goldenmage</span> <small>Mag</small></span><span class="dps-value">24,781</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-warlock">Bleksal</span> <small>Lock</small></span><span class="dps-value">23,445</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-hunter">Marytwo</span> <small>Hunt</small></span><span class="dps-value">23,351</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-rogue">Ellenorxo</span> <small>Rog</small></span><span class="dps-value">23,156</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-paladin">Based</span> <small>Pal</small></span><span class="dps-value">19,458</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-dk">Gcdhacks</span> <small>DK</small></span><span class="dps-value">18,479</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-priest">Jgl</span> <small>Pri</small></span><span class="dps-value">18,458</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-shaman">Fanofpangu</span> <small>Sha</small></span><span class="dps-value">17,013</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lady Deathwhisper -->
+                <div class="boss-card">
+                    <div class="boss-header">
+                        <span class="boss-name">Lady Deathwhisper</span>
+                        <div class="boss-best">
+                            <div class="player">Framezqt</div>
+                            <div class="dps">21,967 DPS</div>
+                        </div>
+                    </div>
+                    <div class="boss-body">
+                        <div class="class-records">
+                            <div class="class-record"><span class="class-name"><span class="class-druid">Framezqt</span> <small>Dru</small></span><span class="dps-value">21,967</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-warrior">Nayho</span> <small>War</small></span><span class="dps-value">20,915</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-mage">Streakie</span> <small>Mag</small></span><span class="dps-value">19,609</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-paladin">Miistorm</span> <small>Pal</small></span><span class="dps-value">18,847</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-hunter">Maryloh</span> <small>Hunt</small></span><span class="dps-value">18,832</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-rogue">Ellenorxo</span> <small>Rog</small></span><span class="dps-value">18,108</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-warlock">Llythh</span> <small>Lock</small></span><span class="dps-value">16,929</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-priest">Priestdot</span> <small>Pri</small></span><span class="dps-value">15,847</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-shaman">Zorkicqt</span> <small>Sha</small></span><span class="dps-value">12,537</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-dk">Miraxus</span> <small>DK</small></span><span class="dps-value">6,968</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deathbringer Saurfang -->
+                <div class="boss-card">
+                    <div class="boss-header">
+                        <span class="boss-name">Deathbringer Saurfang</span>
+                        <div class="boss-best">
+                            <div class="player">Conventin</div>
+                            <div class="dps">26,533 DPS</div>
+                        </div>
+                    </div>
+                    <div class="boss-body">
+                        <div class="class-records">
+                            <div class="class-record"><span class="class-name"><span class="class-mage">Conventin</span> <small>Mag</small></span><span class="dps-value">26,533</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-druid">Lep</span> <small>Dru</small></span><span class="dps-value">25,957</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-shaman">Escravidao</span> <small>Sha</small></span><span class="dps-value">25,274</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-warrior">Shortstacks</span> <small>War</small></span><span class="dps-value">25,015</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-dk">Lounge</span> <small>DK</small></span><span class="dps-value">23,319</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-rogue">Miczipiczi</span> <small>Rog</small></span><span class="dps-value">22,535</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-hunter">Kavleouras</span> <small>Hunt</small></span><span class="dps-value">21,298</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-paladin">Tankmore</span> <small>Pal</small></span><span class="dps-value">20,867</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-priest">Ellenor</span> <small>Pri</small></span><span class="dps-value">20,592</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-warlock">Boppi</span> <small>Lock</small></span><span class="dps-value">20,085</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Festergut -->
+                <div class="boss-card">
+                    <div class="boss-header">
+                        <span class="boss-name">Festergut</span>
+                        <div class="boss-best">
+                            <div class="player">Stinngg</div>
+                            <div class="dps">23,812 DPS</div>
+                        </div>
+                    </div>
+                    <div class="boss-body">
+                        <div class="class-records">
+                            <div class="class-record"><span class="class-name"><span class="class-mage">Stinngg</span> <small>Mag</small></span><span class="dps-value">23,812</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-hunter">Marytwo</span> <small>Hunt</small></span><span class="dps-value">23,351</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-warrior">Tdibiswarry</span> <small>War</small></span><span class="dps-value">23,071</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-rogue">Ellenorxo</span> <small>Rog</small></span><span class="dps-value">22,218</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-druid">Framezboo</span> <small>Dru</small></span><span class="dps-value">21,449</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-warlock">Pnl</span> <small>Lock</small></span><span class="dps-value">20,500</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-paladin">Asshley</span> <small>Pal</small></span><span class="dps-value">18,778</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-priest">Lahbitri</span> <small>Pri</small></span><span class="dps-value">18,663</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-dk">Gcdhacks</span> <small>DK</small></span><span class="dps-value">17,500</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-shaman">Zorkicqt</span> <small>Sha</small></span><span class="dps-value">15,000</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rotface -->
+                <div class="boss-card">
+                    <div class="boss-header">
+                        <span class="boss-name">Rotface</span>
+                        <div class="boss-best">
+                            <div class="player">Dazzxmage</div>
+                            <div class="dps">26,019 DPS</div>
+                        </div>
+                    </div>
+                    <div class="boss-body">
+                        <div class="class-records">
+                            <div class="class-record"><span class="class-name"><span class="class-mage">Dazzxmage</span> <small>Mag</small></span><span class="dps-value">26,019</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-hunter">Baguette</span> <small>Hunt</small></span><span class="dps-value">22,421</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-priest">Spread</span> <small>Pri</small></span><span class="dps-value">21,568</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-rogue">Ellenorxo</span> <small>Rog</small></span><span class="dps-value">21,157</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-warrior">Shortstacks</span> <small>War</small></span><span class="dps-value">21,003</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-druid">Burstclaw</span> <small>Dru</small></span><span class="dps-value">20,398</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-paladin">Macabrelight</span> <small>Pal</small></span><span class="dps-value">19,792</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-shaman">Lounge</span> <small>Sha</small></span><span class="dps-value">19,207</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-dk">Icytouchftw</span> <small>DK</small></span><span class="dps-value">18,067</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-warlock">Spread</span> <small>Lock</small></span><span class="dps-value">18,000</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blood Prince Council -->
+                <div class="boss-card">
+                    <div class="boss-header">
+                        <span class="boss-name">Blood Prince Council</span>
+                        <div class="boss-best">
+                            <div class="player">Kinzzy</div>
+                            <div class="dps">23,955 DPS</div>
+                        </div>
+                    </div>
+                    <div class="boss-body">
+                        <div class="class-records">
+                            <div class="class-record"><span class="class-name"><span class="class-mage">Kinzzy</span> <small>Mag</small></span><span class="dps-value">23,955</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-rogue">Astigmatism</span> <small>Rog</small></span><span class="dps-value">20,657</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-druid">Framezboo</span> <small>Dru</small></span><span class="dps-value">19,964</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-warlock">Pnl</span> <small>Lock</small></span><span class="dps-value">18,855</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-priest">Serko</span> <small>Pri</small></span><span class="dps-value">18,798</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-paladin">Dazzlerpaly</span> <small>Pal</small></span><span class="dps-value">18,571</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-warrior">Fireaura</span> <small>War</small></span><span class="dps-value">17,099</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-dk">Arkailfdk</span> <small>DK</small></span><span class="dps-value">15,832</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-hunter">Lickmybowz</span> <small>Hunt</small></span><span class="dps-value">15,216</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-shaman">Zorkicqt</span> <small>Sha</small></span><span class="dps-value">14,316</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blood-Queen Lana'thel -->
+                <div class="boss-card">
+                    <div class="boss-header">
+                        <span class="boss-name">Blood-Queen Lana'thel</span>
+                        <div class="boss-best">
+                            <div class="player">Shortstacks</div>
+                            <div class="dps">40,212 DPS</div>
+                        </div>
+                    </div>
+                    <div class="boss-body">
+                        <div class="class-records">
+                            <div class="class-record"><span class="class-name"><span class="class-warrior">Shortstacks</span> <small>War</small></span><span class="dps-value">40,212</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-warlock">Bleksal</span> <small>Lock</small></span><span class="dps-value">38,259</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-mage">Weldyxftw</span> <small>Mag</small></span><span class="dps-value">31,443</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-dk">Icytouchftw</span> <small>DK</small></span><span class="dps-value">29,687</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-druid">Boomychan</span> <small>Dru</small></span><span class="dps-value">29,194</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-priest">Topia</span> <small>Pri</small></span><span class="dps-value">29,066</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-hunter">Valjdabjelan</span> <small>Hunt</small></span><span class="dps-value">22,557</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-rogue">Ellenorxo</span> <small>Rog</small></span><span class="dps-value">22,364</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-paladin">Retmon</span> <small>Pal</small></span><span class="dps-value">19,329</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-shaman">Mytotemo</span> <small>Sha</small></span><span class="dps-value">7,777</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professor Putricide -->
+                <div class="boss-card">
+                    <div class="boss-header">
+                        <span class="boss-name">Professor Putricide</span>
+                        <div class="boss-best">
+                            <div class="player">Spread</div>
+                            <div class="dps">20,461 DPS</div>
+                        </div>
+                    </div>
+                    <div class="boss-body">
+                        <div class="class-records">
+                            <div class="class-record"><span class="class-name"><span class="class-hunter">Spread</span> <small>Hunt</small></span><span class="dps-value">20,461</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-mage">Stinngg</span> <small>Mag</small></span><span class="dps-value">20,205</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-rogue">Jesieniara</span> <small>Rog</small></span><span class="dps-value">19,745</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-warrior">Fawdha</span> <small>War</small></span><span class="dps-value">18,406</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-priest">Ephemera</span> <small>Pri</small></span><span class="dps-value">17,597</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-dk">Icytouchftw</span> <small>DK</small></span><span class="dps-value">16,868</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-paladin">Darkpalaadin</span> <small>Pal</small></span><span class="dps-value">16,687</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-druid">Banditpwnz</span> <small>Dru</small></span><span class="dps-value">16,151</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-warlock">Spread</span> <small>Lock</small></span><span class="dps-value">15,000</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-shaman">Unknown</span> <small>Sha</small></span><span class="dps-value">12,000</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sindragosa -->
+                <div class="boss-card">
+                    <div class="boss-header">
+                        <span class="boss-name">Sindragosa</span>
+                        <div class="boss-best">
+                            <div class="player">Kinzzy</div>
+                            <div class="dps">19,427 DPS</div>
+                        </div>
+                    </div>
+                    <div class="boss-body">
+                        <div class="class-records">
+                            <div class="class-record"><span class="class-name"><span class="class-mage">Kinzzy</span> <small>Mag</small></span><span class="dps-value">19,427</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-warlock">Spread</span> <small>Lock</small></span><span class="dps-value">16,886</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-druid">Framezboo</span> <small>Dru</small></span><span class="dps-value">15,948</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-paladin">Macabrelight</span> <small>Pal</small></span><span class="dps-value">15,615</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-rogue">Ellenorxo</span> <small>Rog</small></span><span class="dps-value">15,479</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-priest">Ephemera</span> <small>Pri</small></span><span class="dps-value">15,254</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-hunter">Darkadia</span> <small>Hunt</small></span><span class="dps-value">12,938</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-dk">Icytouchftw</span> <small>DK</small></span><span class="dps-value">11,064</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-warrior">Fawdha</span> <small>War</small></span><span class="dps-value">10,961</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-shaman">Unknown</span> <small>Sha</small></span><span class="dps-value">10,000</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Lich King -->
+                <div class="boss-card">
+                    <div class="boss-header">
+                        <span class="boss-name">The Lich King</span>
+                        <div class="boss-best">
+                            <div class="player">Shortstacks</div>
+                            <div class="dps">19,000 DPS</div>
+                        </div>
+                    </div>
+                    <div class="boss-body">
+                        <div class="class-records">
+                            <div class="class-record"><span class="class-name"><span class="class-warrior">Shortstacks</span> <small>War</small></span><span class="dps-value">19,000</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-mage">Kinzzy</span> <small>Mag</small></span><span class="dps-value">15,993</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-hunter">Maryloh</span> <small>Hunt</small></span><span class="dps-value">15,850</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-dk">Turbokokot</span> <small>DK</small></span><span class="dps-value">15,639</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-druid">Framezboo</span> <small>Dru</small></span><span class="dps-value">15,459</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-priest">Platenbokluk</span> <small>Pri</small></span><span class="dps-value">14,419</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-warlock">Pnl</span> <small>Lock</small></span><span class="dps-value">14,340</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-paladin">Dazzlerpaly</span> <small>Pal</small></span><span class="dps-value">14,080</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-rogue">Hellwig</span> <small>Rog</small></span><span class="dps-value">13,454</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-shaman">Xeniapajcin</span> <small>Sha</small></span><span class="dps-value">11,550</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Halion -->
+                <div class="boss-card">
+                    <div class="boss-header">
+                        <span class="boss-name">Halion (Ruby Sanctum)</span>
+                        <div class="boss-best">
+                            <div class="player">Stixxy</div>
+                            <div class="dps">14,613 DPS</div>
+                        </div>
+                    </div>
+                    <div class="boss-body">
+                        <div class="class-records">
+                            <div class="class-record"><span class="class-name"><span class="class-warrior">Stixxy</span> <small>War</small></span><span class="dps-value">14,613</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-mage">Llilly</span> <small>Mag</small></span><span class="dps-value">12,753</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-druid">Philipslayer</span> <small>Dru</small></span><span class="dps-value">12,421</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-paladin">Based</span> <small>Pal</small></span><span class="dps-value">11,197</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-dk">Naidenovsr</span> <small>DK</small></span><span class="dps-value">10,972</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-priest">Betzyd</span> <small>Pri</small></span><span class="dps-value">10,687</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-hunter">Acidhunts</span> <small>Hunt</small></span><span class="dps-value">10,635</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-rogue">Ripertot</span> <small>Rog</small></span><span class="dps-value">10,558</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-warlock">Fearology</span> <small>Lock</small></span><span class="dps-value">10,036</span></div>
+                            <div class="class-record"><span class="class-name"><span class="class-shaman">Covidskibidi</span> <small>Sha</small></span><span class="dps-value">7,977</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Data compiled from 75 raid logs | Aug 2025 - Jan 2026</p>
+        <p>Warmane Icecrown | <a href="https://uwu-logs.xyz">UwU Logs</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,413 @@
+/* =====================================================
+   RAID CALENDAR STYLES
+   ===================================================== */
+
+.calendar-wrapper {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-lg) var(--space-xl);
+    background: linear-gradient(135deg, rgba(196, 31, 59, 0.1), transparent);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.calendar-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: var(--horde-red-light);
+}
+
+.calendar-nav {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.calendar-nav:hover {
+    background: var(--horde-red);
+    border-color: var(--horde-red);
+    color: white;
+}
+
+.calendar-grid {
+    padding: var(--space-md);
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: var(--space-md);
+}
+
+.calendar-weekdays span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.calendar-day {
+    min-height: 100px;
+    padding: var(--space-sm);
+    background: var(--bg-primary);
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.calendar-day:hover:not(.empty) {
+    border-color: var(--border-medium);
+    background: var(--bg-tertiary);
+}
+
+.calendar-day.empty {
+    background: transparent;
+}
+
+.calendar-day.today {
+    border-color: var(--horde-red);
+    background: rgba(196, 31, 59, 0.05);
+}
+
+.calendar-day.today .day-number {
+    background: var(--horde-red);
+    color: white;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-day.past {
+    opacity: 0.6;
+}
+
+.calendar-day.has-raids {
+    background: var(--bg-tertiary);
+}
+
+.day-number {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.day-raids {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Raid Chip */
+.raid-chip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 8px;
+    background: rgba(var(--raid-color), 0.2);
+    border-left: 3px solid var(--raid-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: 0.75rem;
+}
+
+.raid-chip:hover {
+    background: rgba(var(--raid-color), 0.3);
+    transform: translateX(2px);
+}
+
+.raid-chip.upcoming {
+    border-left-color: var(--raid-color, var(--status-tentative));
+}
+
+.raid-chip.completed {
+    border-left-color: var(--status-confirmed);
+    opacity: 0.8;
+}
+
+.raid-chip-text {
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.raid-chip-time {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.more-raids {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 2px;
+}
+
+/* Legend */
+.calendar-legend {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xl);
+    padding: var(--space-md);
+    border-top: 1px solid var(--border-subtle);
+    background: var(--bg-primary);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.legend-dot.upcoming {
+    background: var(--status-tentative);
+}
+
+.legend-dot.completed {
+    background: var(--status-confirmed);
+}
+
+/* Raid Detail Panel */
+.raid-detail-panel {
+    position: fixed;
+    top: 0;
+    right: -450px;
+    width: 450px;
+    max-width: 100%;
+    height: 100vh;
+    background: var(--bg-secondary);
+    border-left: 1px solid var(--border-medium);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+    z-index: 1500;
+    transition: right var(--transition-base);
+    overflow-y: auto;
+}
+
+.raid-detail-panel.active {
+    right: 0;
+}
+
+.detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-lg);
+    background: linear-gradient(135deg, rgba(var(--raid-color), 0.2), transparent);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.detail-status {
+    padding: var(--space-xs) var(--space-md);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: var(--radius-full);
+}
+
+.detail-status.upcoming {
+    background: rgba(234, 179, 8, 0.2);
+    color: var(--status-tentative);
+    border: 1px solid var(--status-tentative);
+}
+
+.detail-status.completed {
+    background: rgba(34, 197, 94, 0.2);
+    color: var(--status-confirmed);
+    border: 1px solid var(--status-confirmed);
+}
+
+.detail-close {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border: none;
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.detail-close:hover {
+    background: var(--fire-red);
+    color: white;
+}
+
+.detail-body {
+    padding: var(--space-xl);
+}
+
+.detail-title {
+    font-size: 1.8rem;
+    color: var(--horde-red-light);
+    margin-bottom: var(--space-md);
+}
+
+.detail-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+}
+
+.detail-meta span {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.detail-meta svg {
+    opacity: 0.7;
+}
+
+.detail-notes {
+    padding: var(--space-md);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-xl);
+    line-height: 1.6;
+}
+
+/* Roster Mini */
+.detail-roster {
+    margin-bottom: var(--space-xl);
+}
+
+.detail-roster h4 {
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+}
+
+.roster-mini {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.roster-mini-group {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.roster-mini-group .role-label {
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-right: var(--space-xs);
+}
+
+.roster-mini-group.tanks .role-label { color: var(--role-tank); }
+.roster-mini-group.healers .role-label { color: var(--role-healer); }
+.roster-mini-group.dps .role-label { color: var(--role-dps); }
+
+/* Actions */
+.detail-actions {
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--border-subtle);
+}
+
+.detail-actions .btn {
+    width: 100%;
+}
+
+.detail-no-signup {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .calendar-day {
+        min-height: 80px;
+        padding: 4px;
+    }
+
+    .day-number {
+        font-size: 0.8rem;
+    }
+
+    .raid-chip {
+        padding: 2px 4px;
+        font-size: 0.65rem;
+    }
+
+    .raid-chip-time {
+        display: none;
+    }
+
+    .calendar-weekdays span {
+        font-size: 0.7rem;
+    }
+
+    .raid-detail-panel {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-day {
+        min-height: 60px;
+    }
+
+    .raid-chip-text {
+        max-width: 40px;
+    }
+
+    .calendar-header {
+        padding: var(--space-md);
+    }
+
+    .calendar-title {
+        font-size: 1.2rem;
+    }
+}

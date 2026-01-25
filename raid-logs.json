@@ -1,0 +1,33 @@
+{
+  "guild": "TITAN",
+  "source": "#uwulogs Discord channel",
+  "raids": ["Icecrown", "Ruby Sanctum"],
+  "note": "2024 logs no longer available on uwu-logs.xyz (expired)",
+  "logs": [
+    { "date": "2025-09-20", "logger": "Ysl", "raid": "Icecrown", "url": "https://uwu-logs.xyz/reports/25-09-20--20-49--Ysl--Icecrown/" },
+    { "date": "2025-10-11", "logger": "Duleferal", "raid": "Icecrown", "url": "https://uwu-logs.xyz/reports/25-10-11--21-14--Duleferal--Icecrown/" },
+    { "date": "2025-10-18", "logger": "Duleferal", "raid": "Icecrown", "url": "https://uwu-logs.xyz/reports/25-10-18--21-09--Duleferal--Icecrown/" },
+    { "date": "2025-10-18", "logger": "Catalyzer", "raid": "Icecrown", "postedBy": "Ndm", "url": "https://uwu-logs.xyz/reports/25-10-18--20-45--Catalyzer--Icecrown/" },
+    { "date": "2025-11-01", "logger": "Duleedk", "raid": "Icecrown", "url": "https://uwu-logs.xyz/reports/25-11-01--21-07--Duleedk--Icecrown/" },
+    { "date": "2025-11-27", "logger": "Ndmiibogaine", "raid": "Icecrown", "note": "10/12", "url": "https://uwu-logs.xyz/reports/25-11-27--19-50--Ndmiibogaine--Icecrown/" },
+    { "date": "2025-12-06", "logger": "Ndmiiqt", "raid": "Icecrown", "note": "12/12 1st LOD", "url": "https://uwu-logs.xyz/reports/25-12-06--20-52--Ndmiiqt--Icecrown/" },
+    { "date": "2025-12-13", "logger": "Ndmiibex", "raid": "Icecrown", "url": "https://uwu-logs.xyz/reports/25-12-13--20-49--Ndmiibex--Icecrown/" },
+    { "date": "2025-12-27", "logger": "Crispy", "raid": "Icecrown", "note": "LOD", "url": "https://uwu-logs.xyz/reports/25-12-27--20-51--Crispy--Icecrown/" },
+    { "date": "2026-01-01", "logger": "Ndmiibogaine", "raid": "Icecrown", "url": "https://uwu-logs.xyz/reports/26-01-01--23-38--Ndmiibogaine--Icecrown/" },
+    { "date": "2026-01-05", "logger": "Caelestis", "raid": "Icecrown", "postedBy": "Macmiller", "url": "https://uwu-logs.xyz/reports/26-01-05--17-34--Caelestis--Icecrown/" },
+    { "date": "2026-01-06", "logger": "Senrysuta", "raid": "Icecrown", "url": "https://uwu-logs.xyz/reports/26-01-06--17-37--Senrysuta--Icecrown/" },
+    { "date": "2026-01-07", "logger": "Senrysuta", "raid": "Icecrown", "note": "RS 6th run inside", "url": "https://uwu-logs.xyz/reports/26-01-07--20-37--Senrysuta--Icecrown/" },
+    { "date": "2026-01-09", "logger": "Catalyzer", "raid": "Icecrown", "postedBy": "Ndm", "url": "https://uwu-logs.xyz/reports/26-01-09--20-58--Catalyzer--Icecrown/" },
+    { "date": "2026-01-10", "logger": "Absorbs", "raid": "Icecrown", "note": "16:30 ST LOD", "url": "https://uwu-logs.xyz/reports/26-01-10--17-31--Absorbs--Icecrown/" },
+    { "date": "2026-01-10", "logger": "Senrysuta", "raid": "Icecrown", "note": "19:45 ST LOD", "url": "https://uwu-logs.xyz/reports/26-01-10--20-54--Senrysuta--Icecrown/" },
+    { "date": "2026-01-12", "logger": "Bigcat", "raid": "Icecrown", "note": "Sindy and LK only", "url": "https://uwu-logs.xyz/reports/26-01-12--18-58--Bigcat--Icecrown/" },
+    { "date": "2026-01-15", "logger": "Catalyzer", "raid": "Icecrown", "postedBy": "Ndm", "url": "https://uwu-logs.xyz/reports/26-01-15--20-56--Catalyzer--Icecrown/" },
+    { "date": "2026-01-16", "logger": "Thedrink", "raid": "Icecrown", "note": "DOUBLE LOD", "url": "https://uwu-logs.xyz/reports/26-01-16--20-48--Thedrink--Icecrown/" },
+    { "date": "2026-01-17", "logger": "Absorbs", "raid": "Icecrown", "note": "19:45 ST LOD - BIS healers", "url": "https://uwu-logs.xyz/reports/26-01-17--21-06--Absorbs--Icecrown/" },
+    { "date": "2026-01-17", "logger": "Shotzy", "raid": "Icecrown", "note": "1st LOD", "url": "https://uwu-logs.xyz/reports/26-01-17--18-42--Shotzy--Icecrown/" },
+    { "date": "2026-01-20", "logger": "Shatzed", "raid": "Icecrown", "url": "https://uwu-logs.xyz/reports/26-01-20--18-51--Shatzed--Icecrown/" },
+    { "date": "2026-01-24", "logger": "Kannibalka", "raid": "Icecrown", "url": "https://uwu-logs.xyz/reports/26-01-24--17-40--Kannibalka--Icecrown/" }
+  ],
+  "totalLogs": 23,
+  "dateRange": { "from": "2025-09-20", "to": "2026-01-24" }
+}

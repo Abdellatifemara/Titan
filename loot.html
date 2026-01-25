@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loot History | TITAN Guild</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="titan logo png.png">
+    <script src="https://wow.zamimg.com/js/tooltips.js"></script>
+    <style>
+        .loot-page { padding-top: 70px; min-height: 100vh; }
+
+        .loot-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .loot-stat {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+        }
+        .loot-stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--horde-red-light);
+            font-family: 'Cinzel', serif;
+        }
+        .loot-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Filters */
+        .loot-filters {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .loot-filter {
+            padding: 8px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+        .loot-filter:hover { background: var(--bg-tertiary); }
+        .loot-filter.active { background: var(--horde-red); border-color: var(--horde-red); color: white; }
+        .loot-search {
+            flex: 1;
+            min-width: 200px;
+            padding: 8px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+        }
+        .loot-search:focus { outline: none; border-color: var(--horde-red); }
+
+        /* Loot Table */
+        .loot-table-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .loot-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .loot-table th {
+            padding: 14px 16px;
+            text-align: left;
+            background: var(--bg-tertiary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .loot-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+        }
+        .loot-table tr:last-child td { border-bottom: none; }
+        .loot-table tr:hover { background: var(--bg-tertiary); }
+
+        .item-cell {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .item-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 4px;
+            border: 2px solid #a335ee;
+        }
+        .item-name { color: #a335ee; font-weight: 500; }
+        .item-name.legendary { color: #ff8000; }
+        .item-name.epic { color: #a335ee; }
+
+        .player-cell {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .player-icon {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            min-height: 20px;
+            border-radius: 4px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .raid-badge {
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .raid-badge.icc { background: rgba(168, 85, 247, 0.2); color: #a855f7; }
+        .raid-badge.rs { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+        .raid-badge.togc { background: rgba(234, 179, 8, 0.2); color: #eab308; }
+
+        /* Empty state */
+        .loot-empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+        .loot-empty svg {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        /* Class colors */
+        .class-dk { color: #C41F3B; }
+        .class-paladin { color: #F58CBA; }
+        .class-warrior { color: #C79C6E; }
+        .class-rogue { color: #FFF569; }
+        .class-druid { color: #FF7D0A; }
+        .class-hunter { color: #ABD473; }
+        .class-mage { color: #69CCF0; }
+        .class-warlock { color: #9482C9; }
+        .class-priest { color: #FFFFFF; }
+        .class-shaman { color: #0070DE; }
+
+        @media (max-width: 768px) {
+            .loot-table th:nth-child(4),
+            .loot-table td:nth-child(4) { display: none; }
+            .loot-filters { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="titan logo png.png" alt="Titan Logo" class="nav-logo">
+                <span class="nav-title">TITAN</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="raids.html" class="nav-link">Raids</a></li>
+                <li><a href="guild.html" class="nav-link">Guild</a></li>
+                <li><a href="top-parsers.html" class="nav-link">Top Parsers</a></li>
+                <li><a href="bis.html" class="nav-link">BiS List</a></li>
+                <li><a href="guides.html" class="nav-link">Guides</a></li>
+                <li><a href="join.html" class="nav-link">Join</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="join.html" class="btn btn-primary">Join Guild</a>
+            </div>
+            <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <div class="loot-page">
+        <div class="page-header">
+            <div class="container">
+                <h1>Loot History</h1>
+                <p>Track who got what from our raids</p>
+            </div>
+        </div>
+
+        <div class="container" style="padding: 24px 0;">
+            <!-- Stats -->
+            <div class="loot-stats">
+                <div class="loot-stat">
+                    <div class="loot-stat-value" id="totalItems">0</div>
+                    <div class="loot-stat-label">Items Distributed</div>
+                </div>
+                <div class="loot-stat">
+                    <div class="loot-stat-value" id="totalRaids">0</div>
+                    <div class="loot-stat-label">Raids Logged</div>
+                </div>
+                <div class="loot-stat">
+                    <div class="loot-stat-value" id="uniquePlayers">0</div>
+                    <div class="loot-stat-label">Players</div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="loot-filters">
+                <input type="text" class="loot-search" id="lootSearch" placeholder="Search items or players...">
+                <button class="loot-filter active" data-raid="all">All Raids</button>
+                <button class="loot-filter" data-raid="icc">ICC</button>
+                <button class="loot-filter" data-raid="rs">RS</button>
+                <button class="loot-filter" data-raid="togc">ToGC</button>
+            </div>
+
+            <!-- Loot Table -->
+            <div class="loot-table-container">
+                <table class="loot-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Player</th>
+                            <th>Raid</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lootTableBody">
+                        <!-- Loot entries will be inserted here -->
+                    </tbody>
+                </table>
+                <div class="loot-empty" id="lootEmpty" style="display: none;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                        <line x1="12" y1="22.08" x2="12" y2="12"/>
+                    </svg>
+                    <p>No loot entries yet</p>
+                    <p style="font-size: 0.85rem; margin-top: 8px;">Loot will be logged by Waawaa after raids</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-top: 16px;">
+                Loot is tracked manually by officers. Contact Waawaa for corrections.
+            </p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p>&copy; 2026 T I T A N Guild. Warmane Icecrown.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Default sample data
+        const defaultLoot = [
+            { item: 'Shadowmourne', itemId: 49623, player: 'Schwepsy', class: 'warrior', raid: 'icc', date: '2026-01-20', quality: 'legendary' },
+            { item: 'Bryntroll, the Bone Arbiter', itemId: 50709, player: 'Novosadista', class: 'dk', raid: 'icc', date: '2026-01-24', quality: 'epic' },
+            { item: 'Oathbinder, Charge of the Ranger-General', itemId: 50735, player: 'Shatzie', class: 'hunter', raid: 'icc', date: '2026-01-24', quality: 'epic' },
+            { item: 'Royal Scepter of Terenas II', itemId: 50734, player: 'Waawaa', class: 'paladin', raid: 'icc', date: '2026-01-23', quality: 'epic' },
+            { item: 'Halion, Staff of Forgotten Love', itemId: 54571, player: 'Andrija', class: 'mage', raid: 'rs', date: '2026-01-22', quality: 'epic' },
+            { item: 'Apocalypse\'s Advance', itemId: 54577, player: 'Cylax', class: 'rogue', raid: 'rs', date: '2026-01-22', quality: 'epic' },
+            { item: 'Bloodsurge, Kel\'Thuzad\'s Blade of Agony', itemId: 50736, player: 'TryXer', class: 'paladin', raid: 'icc', date: '2026-01-21', quality: 'epic' },
+            { item: 'Invincible\'s Reins', itemId: 50818, player: 'Waawaa', class: 'paladin', raid: 'icc', date: '2026-01-15', quality: 'legendary' },
+        ];
+
+        // Get loot data from localStorage or use default
+        function getLootData() {
+            const stored = localStorage.getItem('titanLoot');
+            if (stored) {
+                const adminLoot = JSON.parse(stored);
+                // Merge admin-added loot with default sample data
+                return [...adminLoot, ...defaultLoot];
+            }
+            return defaultLoot;
+        }
+
+        const lootData = getLootData();
+
+        let currentFilter = 'all';
+        let searchTerm = '';
+
+        function renderLoot() {
+            const tbody = document.getElementById('lootTableBody');
+            const emptyState = document.getElementById('lootEmpty');
+
+            let filtered = lootData;
+
+            // Filter by raid
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(l => l.raid === currentFilter);
+            }
+
+            // Filter by search
+            if (searchTerm) {
+                const search = searchTerm.toLowerCase();
+                filtered = filtered.filter(l =>
+                    l.item.toLowerCase().includes(search) ||
+                    l.player.toLowerCase().includes(search)
+                );
+            }
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = '';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            tbody.innerHTML = filtered.map(loot => `
+                <tr>
+                    <td>
+                        <div class="item-cell">
+                            <a href="https://www.wowhead.com/wotlk/item=${loot.itemId}" target="_blank" class="item-name ${loot.quality}">${loot.item}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="player-cell">
+                            <span class="class-${loot.class}">${loot.player}</span>
+                        </div>
+                    </td>
+                    <td><span class="raid-badge ${loot.raid}">${loot.raid.toUpperCase()}</span></td>
+                    <td style="color: var(--text-muted);">${formatDate(loot.date)}</td>
+                </tr>
+            `).join('');
+
+            // Refresh Wowhead tooltips
+            if (typeof $WowheadPower !== 'undefined') {
+                $WowheadPower.refreshLinks();
+            }
+        }
+
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        }
+
+        function updateStats() {
+            document.getElementById('totalItems').textContent = lootData.length;
+            document.getElementById('totalRaids').textContent = [...new Set(lootData.map(l => l.date))].length;
+            document.getElementById('uniquePlayers').textContent = [...new Set(lootData.map(l => l.player))].length;
+        }
+
+        // Event listeners
+        document.getElementById('lootSearch').addEventListener('input', (e) => {
+            searchTerm = e.target.value;
+            renderLoot();
+        });
+
+        document.querySelectorAll('.loot-filter').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.loot-filter').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.raid;
+                renderLoot();
+            });
+        });
+
+        // Mobile nav toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        window.addEventListener('scroll', () => {
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Init
+        updateStats();
+        renderLoot();
+    </script>
+</body>
+</html>

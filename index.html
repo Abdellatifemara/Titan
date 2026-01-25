@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TITAN Guild | WotLK Warmane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="titan logo png.png">
+    <style>
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr !important; text-align: center; }
+            .hero-grid > div:last-child { order: -1; }
+            .hero-grid img { width: 200px !important; height: 200px !important; }
+            .hero-stats-row { justify-content: center !important; }
+            .hero-cta { justify-content: center !important; }
+            .guild-leader-grid { grid-template-columns: 1fr !important; text-align: center; }
+            .guild-leader-grid > div:first-child { margin: 0 auto; }
+            .guild-leader-socials { justify-content: center !important; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="titan logo png.png" alt="Titan Logo" class="nav-logo">
+                <span class="nav-title">TITAN</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="raids.html" class="nav-link">Raids</a></li>
+                <li><a href="guild.html" class="nav-link">Guild</a></li>
+                <li><a href="top-parsers.html" class="nav-link">Top Parsers</a></li>
+                <li><a href="bis.html" class="nav-link">BiS List</a></li>
+                <li><a href="guides.html" class="nav-link">Guides</a></li>
+                <li><a href="join.html" class="nav-link">Join</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="join.html" class="btn btn-primary">Join Guild</a>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 100vh; display: flex; align-items: center; background: linear-gradient(135deg, #0a0608 0%, #1a0a0e 50%, #0a0608 100%); position: relative; overflow: hidden;">
+        <!-- Red glow effects -->
+        <div style="position: absolute; top: -20%; left: -10%; width: 60%; height: 60%; background: radial-gradient(circle, rgba(196,31,59,0.15) 0%, transparent 70%); pointer-events: none;"></div>
+        <div style="position: absolute; bottom: -20%; right: -10%; width: 50%; height: 50%; background: radial-gradient(circle, rgba(196,31,59,0.1) 0%, transparent 70%); pointer-events: none;"></div>
+
+        <div class="container" style="position: relative; z-index: 1;">
+            <div class="hero-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center; min-height: 80vh;">
+                <!-- Left side - Content -->
+                <div>
+                    <div style="display: inline-flex; align-items: center; gap: var(--space-sm); padding: 8px 16px; background: rgba(196,31,59,0.15); border: 1px solid rgba(196,31,59,0.3); border-radius: var(--radius-full); margin-bottom: var(--space-xl);">
+                        <span style="width: 8px; height: 8px; background: var(--horde-red-light); border-radius: 50%; animation: pulse 2s infinite;"></span>
+                        <span style="font-size: 0.85rem; color: var(--horde-red-light); font-weight: 600;">Horde • Icecrown • Warmane</span>
+                    </div>
+
+                    <h1 style="font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 900; line-height: 0.95; margin-bottom: var(--space-lg); background: linear-gradient(135deg, #fff 0%, var(--horde-red-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">TITAN</h1>
+
+                    <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: var(--space-2xl); max-width: 500px; line-height: 1.6;">
+                        WotLK raiding guild led by <strong style="color: var(--horde-red-light);">Waawaa</strong>. For the Horde.
+                    </p>
+
+                    <!-- Stats row -->
+                    <div class="hero-stats-row" style="display: flex; gap: var(--space-xl); margin-bottom: var(--space-2xl);">
+                        <div>
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--horde-red-light); font-family: 'Cinzel', serif;">5-6</div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">RS HC / Week</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--horde-red-light); font-family: 'Cinzel', serif;">5+</div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">LoD / Week</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--horde-red-light); font-family: 'Cinzel', serif;">200+</div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Raiders</div>
+                        </div>
+                    </div>
+
+                    <!-- CTA buttons -->
+                    <div class="hero-cta" style="display: flex; gap: var(--space-md);">
+                        <a href="raids.html" class="btn btn-primary btn-lg">Join Raid</a>
+                        <a href="join.html" class="btn btn-secondary btn-lg">Join Now</a>
+                    </div>
+                </div>
+
+                <!-- Right side - Logo -->
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <div style="position: relative;">
+                        <!-- Glow behind logo -->
+                        <div style="position: absolute; inset: -30px; background: radial-gradient(circle, rgba(196,31,59,0.4) 0%, transparent 70%); filter: blur(30px); z-index: 0;"></div>
+                        <img src="titan logo png.png" alt="T I T A N" style="width: 350px; height: 350px; object-fit: contain; position: relative; z-index: 1; filter: drop-shadow(0 0 40px rgba(196,31,59,0.5));">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guild Leader Section -->
+    <section style="padding: var(--space-3xl) 0; background: var(--bg-secondary);">
+        <div class="container">
+            <div class="guild-leader-grid" style="display: grid; grid-template-columns: auto 1fr; gap: var(--space-3xl); align-items: center; max-width: 900px; margin: 0 auto;">
+                <div style="position: relative;">
+                    <div style="width: 180px; height: 180px; border-radius: var(--radius-xl); border: 3px solid var(--horde-red-light); background: var(--bg-tertiary); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 60px rgba(196, 31, 59, 0.3); overflow: hidden;">
+                        <img src="wawa logo.png" alt="Waawaa" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); padding: 6px 16px; background: linear-gradient(135deg, var(--horde-red-light), var(--horde-red-dark)); border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--bg-primary); white-space: nowrap;">
+                        Guild Master
+                    </div>
+                </div>
+                <div>
+                    <h2 style="font-size: 2rem; margin-bottom: var(--space-sm); color: var(--horde-red-light);">Waawaa</h2>
+                    <p style="font-size: 1rem; color: var(--text-secondary); margin-bottom: var(--space-md); font-style: italic;">"Life is short, live it!"</p>
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-lg);">
+                        Leading Titan since 2017. Organizing raids and building community on Warmane Icecrown. Catch the streams for raid nights and guild events.
+                    </p>
+                    <div class="guild-leader-socials" style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
+                        <a href="https://www.youtube.com/@waawaa0716" target="_blank" class="btn btn-secondary" style="gap: var(--space-sm);">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                            YouTube
+                        </a>
+                        <a href="https://www.twitch.tv/waawaa" target="_blank" class="btn btn-secondary" style="gap: var(--space-sm);">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/>
+                            </svg>
+                            Twitch
+                        </a>
+                        <a href="https://discord.gg/nYYsxhmA" target="_blank" class="btn btn-secondary" style="gap: var(--space-sm);">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
+                            </svg>
+                            Discord
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Raids Preview -->
+    <section style="padding: var(--space-3xl) 0;">
+        <div class="container">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-2xl);">
+                <div>
+                    <h2 style="background: linear-gradient(135deg, var(--horde-red-light), var(--text-primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Recent Raids</h2>
+                    <p style="color: var(--text-muted); margin-top: var(--space-sm);">Check out our latest raid runs</p>
+                </div>
+                <a href="raids.html" class="btn btn-secondary">View All Raids</a>
+            </div>
+
+            <!-- Recent Raids Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-lg);">
+                <!-- Raid 1 - Jan 24 -->
+                <div class="raid-card">
+                    <div class="raid-card-header">
+                        <div class="raid-card-title">
+                            <h3>ICC 25 LoD</h3>
+                            <span class="raid-difficulty heroic">Heroic</span>
+                        </div>
+                        <div class="raid-meta">
+                            <span class="raid-meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                Jan 24, 2026
+                            </span>
+                        </div>
+                    </div>
+                    <div class="raid-card-body" style="padding: var(--space-md);">
+                        <div style="display: flex; gap: var(--space-lg); flex-wrap: wrap;">
+                            <div style="font-size: 0.85rem;">
+                                <span style="color: var(--text-muted);">Tanks:</span>
+                                <span style="color: #4fc3f7;">Verbalabuse, Chambers</span>
+                            </div>
+                            <div style="font-size: 0.85rem;">
+                                <span style="color: var(--text-muted);">Healers:</span>
+                                <span style="color: #66bb6a;">Waawaa, Rasta, Paadron</span>
+                            </div>
+                        </div>
+                        <div style="margin-top: var(--space-sm); font-size: 0.85rem; color: var(--text-muted);">
+                            25 players including Schwepsy, TryXer, Cylax, Rileba...
+                        </div>
+                    </div>
+                    <div class="raid-card-footer">
+                        <a href="raids.html" class="btn btn-secondary btn-sm">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Raid 2 - Jan 23 -->
+                <div class="raid-card">
+                    <div class="raid-card-header">
+                        <div class="raid-card-title">
+                            <h3>ICC 25 LoD</h3>
+                            <span class="raid-difficulty heroic">Heroic</span>
+                        </div>
+                        <div class="raid-meta">
+                            <span class="raid-meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                Jan 23, 2026
+                            </span>
+                        </div>
+                    </div>
+                    <div class="raid-card-body" style="padding: var(--space-md);">
+                        <div style="display: flex; gap: var(--space-lg); flex-wrap: wrap;">
+                            <div style="font-size: 0.85rem;">
+                                <span style="color: var(--text-muted);">Tanks:</span>
+                                <span style="color: #4fc3f7;">Capivara, Waawaa</span>
+                            </div>
+                            <div style="font-size: 0.85rem;">
+                                <span style="color: var(--text-muted);">Healers:</span>
+                                <span style="color: #66bb6a;">Sensei, Djubretarka, rf</span>
+                            </div>
+                        </div>
+                        <div style="margin-top: var(--space-sm); font-size: 0.85rem; color: var(--text-muted);">
+                            25 players including Disciplineop, Chibz, Latya...
+                        </div>
+                    </div>
+                    <div class="raid-card-footer">
+                        <a href="raids.html" class="btn btn-secondary btn-sm">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Join CTA Card -->
+                <div class="raid-card" style="background: linear-gradient(135deg, rgba(196,31,59,0.1), var(--bg-card)); border-color: var(--horde-red);">
+                    <div class="raid-card-body" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-height: 200px; padding: var(--space-xl);">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--horde-red-light)" stroke-width="2" style="margin-bottom: var(--space-md);">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        <h3 style="color: var(--horde-red-light); margin-bottom: var(--space-sm);">Join Our Raids</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: var(--space-md);">Sign up via Raid Helper in Discord</p>
+                        <a href="https://discord.gg/nYYsxhmA" target="_blank" class="btn btn-primary">Join Discord</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section style="padding: var(--space-3xl) 0; background: var(--bg-secondary);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: var(--space-3xl);">
+                <h2 style="background: linear-gradient(135deg, var(--horde-red-light), var(--text-primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Why Titan?</h2>
+                <p style="color: var(--text-muted); margin-top: var(--space-sm);">What makes our guild different</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-xl);">
+                <div class="card" style="padding: var(--space-xl); text-align: center;">
+                    <div style="width: 60px; height: 60px; margin: 0 auto var(--space-lg); background: rgba(196, 31, 59, 0.1); border: 1px solid var(--horde-red-light); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--horde-red-light)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                    </div>
+                    <h4 style="color: var(--horde-red-light); margin-bottom: var(--space-sm);">Scheduled Raids</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Weekly ICC, ToGC, and RS runs with organized signups. Always know when we're raiding.</p>
+                </div>
+                <div class="card" style="padding: var(--space-xl); text-align: center;">
+                    <div style="width: 60px; height: 60px; margin: 0 auto var(--space-lg); background: rgba(196, 31, 59, 0.1); border: 1px solid var(--horde-red-light); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--horde-red-light)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h4 style="color: var(--horde-red-light); margin-bottom: var(--space-sm);">Active Community</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">50+ active members. Discord community with helpful players ready to group up.</p>
+                </div>
+                <div class="card" style="padding: var(--space-xl); text-align: center;">
+                    <div style="width: 60px; height: 60px; margin: 0 auto var(--space-lg); background: rgba(196, 31, 59, 0.1); border: 1px solid var(--horde-red-light); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--horde-red-light)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <h4 style="color: var(--horde-red-light); margin-bottom: var(--space-sm);">Experienced Players</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Veterans who know every boss. Smooth runs, no wipes, get your loot.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-brand">
+                        <img src="titan logo png.png" alt="Titan Logo" class="nav-logo">
+                        <span class="nav-title">TITAN</span>
+                    </a>
+                    <p style="margin-top: var(--space-lg);">WotLK raiding guild on Warmane Icecrown. Led by Waawaa.</p>
+                    <div class="footer-social" style="margin-top: var(--space-lg);">
+                        <a href="https://www.youtube.com/@waawaa0716" target="_blank" class="social-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                        <a href="https://www.twitch.tv/waawaa" target="_blank" class="social-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/></svg>
+                        </a>
+                        <a href="https://discord.gg/nYYsxhmA" target="_blank" class="social-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="raids.html">Raids</a></li>
+                        <li><a href="guild.html">Guild Roster</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Raids</h4>
+                    <ul>
+                        <li><a href="raids.html">ICC 25</a></li>
+                        <li><a href="raids.html">ToGC 25</a></li>
+                        <li><a href="raids.html">RS 25</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://discord.gg/nYYsxhmA" target="_blank">Discord</a></li>
+                        <li><a href="https://www.youtube.com/@waawaa0716" target="_blank">YouTube</a></li>
+                        <li><a href="https://www.twitch.tv/waawaa" target="_blank">Twitch</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Titan Guild. Warmane WotLK.</p>
+                <p style="color: var(--text-muted);">Led by <span style="color: var(--horde-red-light);">Waawaa</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            if (!container) return;
+            for (let i = 0; i < 40; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = (Math.random() * 5 + 8) + 's';
+                const size = Math.random() * 3 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                const colors = ['#c41f3b', '#e63950', '#ff6b35'];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                container.appendChild(particle);
+            }
+        }
+
+        // Nav scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile nav toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        document.addEventListener('DOMContentLoaded', createParticles);
+    </script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+.parsers-page { padding-top: 70px; min-height: 100vh; }
+
+/* Hero Section */
+.parsers-hero {
+    padding: 60px 0;
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    border-bottom: 1px solid var(--border-subtle);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.parsers-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(196, 31, 59, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+.parsers-hero h1 {
+    font-size: 3rem;
+    color: var(--horde-red-light);
+    margin-bottom: 12px;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+}
+.parsers-hero p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 24px;
+}
+
+/* Log Counter */
+.log-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 32px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    margin-top: 8px;
+}
+.log-counter-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--horde-red-light);
+    font-family: 'Cinzel', serif;
+}
+.log-counter-label {
+    text-align: left;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+.log-counter-label strong {
+    display: block;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+/* Boss Card */
+.boss-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+}
+.boss-card:hover {
+    border-color: rgba(196, 31, 59, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.boss-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    background: var(--bg-tertiary);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.boss-card-header:hover { background: var(--bg-secondary); }
+
+.boss-card-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.boss-card-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.boss-card-badge {
+    padding: 4px 10px;
+    background: rgba(196, 31, 59, 0.2);
+    border-radius: 6px;
+    font-size: 0.7rem;
+    color: var(--horde-red-light);
+    font-weight: 600;
+}
+
+/* Champion Display */
+.champion-display {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.champion-crown {
+    font-size: 1.5rem;
+}
+.champion-info {
+    text-align: left;
+}
+.champion-dps {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fbbf24;
+}
+.champion-name {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+.champion-name .player {
+    font-weight: 500;
+}
+
+/* Expand Icon */
+.expand-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--text-muted);
+    transition: transform 0.3s;
+}
+.boss-card.expanded .expand-icon {
+    transform: rotate(180deg);
+}
+
+/* Boss Content */
+.boss-card-content {
+    display: none;
+    padding: 24px;
+    border-top: 1px solid var(--border-subtle);
+}
+.boss-card.expanded .boss-card-content {
+    display: block;
+}
+
+/* Class Grid */
+.class-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+}
+.class-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    transition: all 0.2s;
+}
+.class-card:hover {
+    transform: scale(1.03);
+    border-color: rgba(196, 31, 59, 0.3);
+}
+.class-card-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+}
+.class-card-info {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.class-card-class {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+.class-card-player {
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: right;
+}
+.class-card-value {
+    font-weight: 700;
+    font-size: 1rem;
+}
+.class-card-value.dps { color: #22c55e; }
+.class-card-value.hps { color: #3b82f6; }
+
+/* Top Performers Table */
+.top-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background-color: var(--bg-tertiary);
+}
+.top-table th, .top-table td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-subtle);
+}
+.top-table th {
+    background-color: var(--bg-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--horde-red-light);
+    font-weight: 700;
+    font-family: 'Cinzel', serif;
+}
+.top-table td { 
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+.top-table tr:hover td { 
+    background: rgba(196, 31, 59, 0.1);
+    color: var(--text-primary);
+}
+.top-table tr:last-child td {
+    border-bottom: none;
+}
+
+.rank-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+}
+.rank-badge.rank-1::before {
+    content: '👑';
+    margin-right: 6px;
+    font-size: 1rem;
+    display: inline-block;
+}
+.rank-1 { 
+    background: linear-gradient(135deg, #ffc800, #ffae00); 
+    color: #1a0e10; 
+    box-shadow: 0 0 15px rgba(255, 190, 0, 0.4);
+}
+.rank-2 { background: linear-gradient(135deg, #c0c0c0, #a8a8a8); color: #1a0e10; }
+.rank-3 { background: linear-gradient(135deg, #d28c4e, #b87333); color: #1a0e10; }
+.rank-other { background: var(--bg-card); color: var(--text-muted); }
+
+.table-dps { color: var(--status-confirmed); font-weight: 700; }
+.table-hps { color: var(--role-tank); font-weight: 700; }
+.table-date { color: var(--text-muted); font-size: 0.85rem; }
+
+/* Class Colors */
+.class-deathknight { color: #C41F3B; }
+.class-druid { color: #FF7D0A; }
+.class-hunter { color: #ABD473; }
+.class-mage { color: #69CCF0; }
+.class-paladin { color: #F58CBA; }
+.class-priest { color: #FFFFFF; }
+.class-rogue { color: #FFF569; }
+.class-shaman { color: #0070DE; }
+.class-warlock { color: #9482C9; }
+.class-warrior { color: #C79C6E; }
+
+/* Deathbringer Special */
+.deathbringer-special {
+    border: 1px solid var(--border-subtle);
+    position: relative;
+}
+.deathbringer-special .boss-card-header {
+    background: rgba(196, 31, 59, 0.05);
+}
+
+/* Top All Time Section */
+.top-alltime-section {
+    margin-bottom: 32px;
+}
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--horde-red-light);
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.top-alltime-table .boss-name-cell {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.alltime-crown {
+    margin-right: 6px;
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    padding: 60px;
+    color: var(--text-muted);
+}
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border-subtle);
+    border-top-color: var(--horde-red);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 16px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Footer info */
+.last-updated {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.top-table td:nth-child(2) {
+    text-align: right !important;
+}
+
+@media (max-width: 768px) {
+    .parsers-hero h1 { font-size: 2rem; }
+    .log-counter { flex-direction: column; text-align: center; gap: 8px; }
+    .log-counter-label { text-align: center; }
+    .champion-display { flex-direction: column; gap: 8px; }
+    .champion-info { text-align: center; }
+    .class-grid { grid-template-columns: 1fr; }
+    .top-table { font-size: 0.8rem; }
+    .top-table th, .top-table td { padding: 8px; }
+}

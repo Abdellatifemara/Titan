@@ -1,0 +1,328 @@
+{
+  "logId": "26-01-10--20-54--Senrysuta--Icecrown",
+  "date": "2026-01-10",
+  "logger": "Senrysuta",
+  "raid": "Icecrown",
+  "mode": "25H",
+  "note": "19:45 ST LOD",
+  "url": "https://uwu-logs.xyz/reports/26-01-10--20-54--Senrysuta--Icecrown/",
+  "bosses": {
+    "Lord Marrowgar": {
+      "dps": [
+        {"player": "Extetmage", "class": "Mage", "dps": 20091.9},
+        {"player": "Senrysuta", "class": "Druid", "dps": 19268.7},
+        {"player": "Gangreene", "class": "Warrior", "dps": 18889.5},
+        {"player": "Selkoo", "class": "Rogue", "dps": 18512.6},
+        {"player": "Mancek", "class": "Rogue", "dps": 18510.7},
+        {"player": "Seerhona", "class": "Shaman", "dps": 17788.2},
+        {"player": "Ndmiibex", "class": "Druid", "dps": 17648.5},
+        {"player": "Mekambe", "class": "Warrior", "dps": 17568.1},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 16636.4},
+        {"player": "Ohitburns", "class": "Mage", "dps": 16096.8},
+        {"player": "Evilpower", "class": "Warrior", "dps": 15399.4},
+        {"player": "Kilshot", "class": "Hunter", "dps": 15345.8},
+        {"player": "Nordydruid", "class": "Druid", "dps": 13780.6},
+        {"player": "Jebenimage", "class": "Mage", "dps": 13654.4},
+        {"player": "Shhadowko", "class": "Priest", "dps": 13586.4},
+        {"player": "Bernenko", "class": "Druid", "dps": 13523.8},
+        {"player": "Blolz", "class": "Priest", "dps": 11578.6},
+        {"player": "Zazbaz", "class": "Hunter", "dps": 9268.3},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 8409.7},
+        {"player": "Sigurito", "class": "Death Knight", "dps": 3324.0},
+        {"player": "Antiopaa", "class": "Paladin", "dps": 2573.3},
+        {"player": "Emanyela", "class": "Priest", "dps": 340.5}
+      ],
+      "healing": [
+        {"player": "Holymastery", "class": "Paladin", "hps": 41280.0},
+        {"player": "Avaya", "class": "Paladin", "hps": 18724.1},
+        {"player": "Emanyela", "class": "Priest", "hps": 9982.9},
+        {"player": "Blolz", "class": "Priest", "hps": 9396.4},
+        {"player": "Kaczorr", "class": "Paladin", "hps": 965.2}
+      ]
+    },
+    "Lady Deathwhisper": {
+      "dps": [
+        {"player": "Extetmage", "class": "Mage", "dps": 20160.1},
+        {"player": "Kilshot", "class": "Hunter", "dps": 17644.0},
+        {"player": "Mekambe", "class": "Warrior", "dps": 16669.6},
+        {"player": "Gangreene", "class": "Warrior", "dps": 15745.4},
+        {"player": "Ndmiibex", "class": "Druid", "dps": 14652.2},
+        {"player": "Jebenimage", "class": "Mage", "dps": 14440.9},
+        {"player": "Evilpower", "class": "Warrior", "dps": 13949.7},
+        {"player": "Senrysuta", "class": "Druid", "dps": 13865.2},
+        {"player": "Selkoo", "class": "Rogue", "dps": 13832.6},
+        {"player": "Mancek", "class": "Rogue", "dps": 13077.8},
+        {"player": "Shhadowko", "class": "Priest", "dps": 12518.0},
+        {"player": "Zazbaz", "class": "Hunter", "dps": 12235.0},
+        {"player": "Avaya", "class": "Paladin", "dps": 11118.9},
+        {"player": "Bernenko", "class": "Druid", "dps": 10990.8},
+        {"player": "Nordydruid", "class": "Druid", "dps": 10947.8},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 10529.5},
+        {"player": "Blolz", "class": "Priest", "dps": 9404.3},
+        {"player": "Ohitburns", "class": "Mage", "dps": 9189.4},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 9090.9}
+      ],
+      "healing": [
+        {"player": "Holymastery", "class": "Paladin", "hps": 40128.6},
+        {"player": "Seerhona", "class": "Shaman", "hps": 16114.0},
+        {"player": "Emanyela", "class": "Priest", "hps": 10046.3},
+        {"player": "Blolz", "class": "Priest", "hps": 7360.0},
+        {"player": "Antiopaa", "class": "Paladin", "hps": 424.9},
+        {"player": "Kaczorr", "class": "Paladin", "hps": 392.0}
+      ]
+    },
+    "Deathbringer Saurfang": {
+      "dps": [
+        {"player": "Extetmage", "class": "Mage", "dps": 25954.5},
+        {"player": "Kilshot", "class": "Hunter", "dps": 22850.8},
+        {"player": "Ohitburns", "class": "Mage", "dps": 22218.5},
+        {"player": "Evilpower", "class": "Warrior", "dps": 21018.1},
+        {"player": "Selkoo", "class": "Rogue", "dps": 20964.0},
+        {"player": "Senrysuta", "class": "Druid", "dps": 20799.1},
+        {"player": "Seerhona", "class": "Shaman", "dps": 20742.2},
+        {"player": "Mancek", "class": "Rogue", "dps": 20081.3},
+        {"player": "Gangreene", "class": "Warrior", "dps": 19967.4},
+        {"player": "Ndmiibex", "class": "Druid", "dps": 18704.1},
+        {"player": "Mekambe", "class": "Warrior", "dps": 18576.2},
+        {"player": "Jebenimage", "class": "Mage", "dps": 18448.6},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 18380.7},
+        {"player": "Kaczorr", "class": "Paladin", "dps": 17472.2},
+        {"player": "Shhadowko", "class": "Priest", "dps": 17410.9},
+        {"player": "Nordydruid", "class": "Druid", "dps": 17296.8},
+        {"player": "Avaya", "class": "Paladin", "dps": 16617.1},
+        {"player": "Zazbaz", "class": "Hunter", "dps": 16546.5},
+        {"player": "Bernenko", "class": "Druid", "dps": 15706.7},
+        {"player": "Blolz", "class": "Priest", "dps": 15538.2},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 11586.8},
+        {"player": "Antiopaa", "class": "Paladin", "dps": 5154.2},
+        {"player": "Sigurito", "class": "Death Knight", "dps": 3386.7},
+        {"player": "Emanyela", "class": "Priest", "dps": 305.1},
+        {"player": "Holymastery", "class": "Paladin", "dps": 118.7}
+      ],
+      "healing": [
+        {"player": "Holymastery", "class": "Paladin", "hps": 41771.9},
+        {"player": "Avaya", "class": "Paladin", "hps": 20953.9},
+        {"player": "Shhadowko", "class": "Priest", "hps": 17561.3},
+        {"player": "Blolz", "class": "Priest", "hps": 13486.6},
+        {"player": "Emanyela", "class": "Priest", "hps": 11144.6}
+      ]
+    },
+    "Rotface": {
+      "dps": [
+        {"player": "Extetmage", "class": "Mage", "dps": 24390.7},
+        {"player": "Kilshot", "class": "Hunter", "dps": 20859.1},
+        {"player": "Senrysuta", "class": "Druid", "dps": 20836.4},
+        {"player": "Gangreene", "class": "Warrior", "dps": 20563.6},
+        {"player": "Evilpower", "class": "Warrior", "dps": 19679.9},
+        {"player": "Mancek", "class": "Rogue", "dps": 19372.2},
+        {"player": "Selkoo", "class": "Rogue", "dps": 19093.2},
+        {"player": "Ohitburns", "class": "Mage", "dps": 19065.1},
+        {"player": "Ndmiibex", "class": "Druid", "dps": 19063.5},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 18629.2},
+        {"player": "Mekambe", "class": "Warrior", "dps": 17719.9},
+        {"player": "Kaczorr", "class": "Paladin", "dps": 17686.7},
+        {"player": "Seerhona", "class": "Shaman", "dps": 17529.7},
+        {"player": "Shhadowko", "class": "Priest", "dps": 16834.5},
+        {"player": "Avaya", "class": "Paladin", "dps": 16219.0},
+        {"player": "Zazbaz", "class": "Hunter", "dps": 15511.0},
+        {"player": "Blolz", "class": "Priest", "dps": 14632.3},
+        {"player": "Bernenko", "class": "Druid", "dps": 11411.6},
+        {"player": "Jebenimage", "class": "Mage", "dps": 11336.3},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 9460.8},
+        {"player": "Nordydruid", "class": "Druid", "dps": 8610.5},
+        {"player": "Antiopaa", "class": "Paladin", "dps": 6723.5}
+      ],
+      "healing": [
+        {"player": "Holymastery", "class": "Paladin", "hps": 33627.0},
+        {"player": "Avaya", "class": "Paladin", "hps": 20236.0},
+        {"player": "Blolz", "class": "Priest", "hps": 11936.0},
+        {"player": "Emanyela", "class": "Priest", "hps": 11492.5}
+      ]
+    },
+    "Festergut": {
+      "dps": [
+        {"player": "Extetmage", "class": "Mage", "dps": 21937.3},
+        {"player": "Jebenimage", "class": "Mage", "dps": 20105.5},
+        {"player": "Ohitburns", "class": "Mage", "dps": 19285.8},
+        {"player": "Senrysuta", "class": "Druid", "dps": 19219.5},
+        {"player": "Mekambe", "class": "Warrior", "dps": 18787.1},
+        {"player": "Kilshot", "class": "Hunter", "dps": 18290.6},
+        {"player": "Evilpower", "class": "Warrior", "dps": 18066.4},
+        {"player": "Gangreene", "class": "Warrior", "dps": 17714.9},
+        {"player": "Ndmiibex", "class": "Druid", "dps": 17708.0},
+        {"player": "Mancek", "class": "Rogue", "dps": 17066.5},
+        {"player": "Selkoo", "class": "Rogue", "dps": 16768.8},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 16419.7},
+        {"player": "Shhadowko", "class": "Priest", "dps": 16115.0},
+        {"player": "Kaczorr", "class": "Paladin", "dps": 15876.2},
+        {"player": "Avaya", "class": "Paladin", "dps": 15606.3},
+        {"player": "Bernenko", "class": "Druid", "dps": 15156.7},
+        {"player": "Zazbaz", "class": "Hunter", "dps": 14924.7},
+        {"player": "Nordydruid", "class": "Druid", "dps": 14388.1},
+        {"player": "Blolz", "class": "Priest", "dps": 14089.3},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 9614.8},
+        {"player": "Sigurito", "class": "Death Knight", "dps": 5481.3},
+        {"player": "Antiopaa", "class": "Paladin", "dps": 390.9}
+      ],
+      "healing": [
+        {"player": "Holymastery", "class": "Paladin", "hps": 43803.7},
+        {"player": "Seerhona", "class": "Shaman", "hps": 21301.8},
+        {"player": "Emanyela", "class": "Priest", "hps": 13006.6}
+      ]
+    },
+    "Professor Putricide": {
+      "dps": [
+        {"player": "Mekambe", "class": "Warrior", "dps": 18543.9},
+        {"player": "Ohitburns", "class": "Mage", "dps": 17878.9},
+        {"player": "Senrysuta", "class": "Druid", "dps": 17118.5},
+        {"player": "Jebenimage", "class": "Mage", "dps": 16323.4},
+        {"player": "Ndmiibex", "class": "Druid", "dps": 16288.6},
+        {"player": "Mancek", "class": "Rogue", "dps": 15473.2},
+        {"player": "Shhadowko", "class": "Priest", "dps": 14729.4},
+        {"player": "Selkoo", "class": "Rogue", "dps": 14595.2},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 13955.9},
+        {"player": "Extetmage", "class": "Mage", "dps": 13911.3},
+        {"player": "Kilshot", "class": "Hunter", "dps": 13757.0},
+        {"player": "Blolz", "class": "Priest", "dps": 13343.2},
+        {"player": "Zazbaz", "class": "Hunter", "dps": 13192.2},
+        {"player": "Gangreene", "class": "Warrior", "dps": 13147.6},
+        {"player": "Kaczorr", "class": "Paladin", "dps": 12814.0},
+        {"player": "Nordydruid", "class": "Druid", "dps": 12731.0},
+        {"player": "Avaya", "class": "Paladin", "dps": 12515.1},
+        {"player": "Evilpower", "class": "Warrior", "dps": 12407.8},
+        {"player": "Bernenko", "class": "Druid", "dps": 11519.5},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 8155.4},
+        {"player": "Antiopaa-A", "class": "Rogue", "dps": 3392.8},
+        {"player": "Sigurito", "class": "Death Knight", "dps": 2097.5}
+      ],
+      "healing": [
+        {"player": "Holymastery", "class": "Priest", "hps": 40760.7},
+        {"player": "Seerhona", "class": "Shaman", "hps": 21905.1},
+        {"player": "Emanyela", "class": "Priest", "hps": 13364.1}
+      ]
+    },
+    "Blood Prince Council": {
+      "dps": [
+        {"player": "Extetmage", "class": "Mage", "dps": 20794.5},
+        {"player": "Mekambe", "class": "Warrior", "dps": 18405.2},
+        {"player": "Jebenimage", "class": "Mage", "dps": 16767.2},
+        {"player": "Ndmiibex", "class": "Druid", "dps": 16144.1},
+        {"player": "Ohitburns", "class": "Mage", "dps": 15634.7},
+        {"player": "Senrysuta", "class": "Druid", "dps": 15489.7},
+        {"player": "Shhadowko", "class": "Priest", "dps": 15323.0},
+        {"player": "Bernenko", "class": "Druid", "dps": 14204.3},
+        {"player": "Mancek", "class": "Rogue", "dps": 13905.4},
+        {"player": "Gangreene", "class": "Warrior", "dps": 13635.2},
+        {"player": "Selkoo", "class": "Rogue", "dps": 13224.7},
+        {"player": "Kilshot", "class": "Hunter", "dps": 12535.8},
+        {"player": "Blolz", "class": "Priest", "dps": 12351.4},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 12051.4},
+        {"player": "Nordydruid", "class": "Druid", "dps": 11914.6},
+        {"player": "Evilpower", "class": "Warrior", "dps": 11205.8},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 9030.9},
+        {"player": "Zazbaz", "class": "Hunter", "dps": 8685.5},
+        {"player": "Seerhona", "class": "Shaman", "dps": 7016.1}
+      ],
+      "healing": [
+        {"player": "Holymastery", "class": "Priest", "hps": 9761.5},
+        {"player": "Emanyela", "class": "Priest", "hps": 8145.3},
+        {"player": "Avaya", "class": "Paladin", "hps": 1989.4},
+        {"player": "Kaczorr", "class": "Paladin", "hps": 451.6},
+        {"player": "Nyyxxylock", "class": "Warlock", "hps": 53.3}
+      ]
+    },
+    "Blood-Queen Lana'thel": {
+      "dps": [
+        {"player": "Mekambe", "class": "Warrior", "dps": 36476.1},
+        {"player": "Shhadowko", "class": "Priest", "dps": 25049.9},
+        {"player": "Gangreene", "class": "Warrior", "dps": 22115.3},
+        {"player": "Extetmage", "class": "Mage", "dps": 20041.2},
+        {"player": "Nordydruid", "class": "Druid", "dps": 19984.5},
+        {"player": "Kilshot", "class": "Hunter", "dps": 19183.3},
+        {"player": "Ohitburns", "class": "Mage", "dps": 17683.8},
+        {"player": "Jebenimage", "class": "Mage", "dps": 17604.3},
+        {"player": "Senrysuta", "class": "Druid", "dps": 17387.9},
+        {"player": "Selkoo", "class": "Rogue", "dps": 16663.2},
+        {"player": "Evilpower", "class": "Warrior", "dps": 16238.0},
+        {"player": "Zazbaz", "class": "Hunter", "dps": 16236.8},
+        {"player": "Ndmiibex", "class": "Druid", "dps": 15937.9},
+        {"player": "Mancek", "class": "Rogue", "dps": 15637.2},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 15620.9},
+        {"player": "Avaya", "class": "Paladin", "dps": 15130.1},
+        {"player": "Bernenko", "class": "Druid", "dps": 15008.5},
+        {"player": "Kaczorr", "class": "Paladin", "dps": 14893.7},
+        {"player": "Blolz", "class": "Priest", "dps": 14803.8},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 11711.1},
+        {"player": "Sigurito", "class": "Death Knight", "dps": 3776.2},
+        {"player": "Antiopaa", "class": "Paladin", "dps": 2876.9}
+      ],
+      "healing": [
+        {"player": "Holymastery", "class": "Paladin", "hps": 50605.8},
+        {"player": "Seerhona", "class": "Druid", "hps": 32900.1},
+        {"player": "Emanyela", "class": "Priest", "hps": 15886.0}
+      ]
+    },
+    "Sindragosa": {
+      "dps": [
+        {"player": "Mekambe", "class": "Warrior", "dps": 16577.3},
+        {"player": "Extetmage", "class": "Mage", "dps": 16215.2},
+        {"player": "Ohitburns", "class": "Mage", "dps": 14676.1},
+        {"player": "Kilshot", "class": "Hunter", "dps": 14601.1},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 13140.6},
+        {"player": "Senrysuta", "class": "Druid", "dps": 12516.1},
+        {"player": "Selkoo", "class": "Rogue", "dps": 11536.6},
+        {"player": "Mancek", "class": "Rogue", "dps": 10312.9},
+        {"player": "Kaczorr", "class": "Paladin", "dps": 10185.5},
+        {"player": "Ndmiibex", "class": "Druid", "dps": 10143.8},
+        {"player": "Blolz", "class": "Priest", "dps": 9238.3},
+        {"player": "Evilpower", "class": "Warrior", "dps": 8452.0},
+        {"player": "Antiopaa", "class": "Paladin", "dps": 8380.0},
+        {"player": "Zazbaz", "class": "Hunter", "dps": 8054.6},
+        {"player": "Jebenimage", "class": "Mage", "dps": 8018.7},
+        {"player": "Shhadowko", "class": "Priest", "dps": 7621.0},
+        {"player": "Avaya", "class": "Paladin", "dps": 7400.8},
+        {"player": "Gangreene", "class": "Warrior", "dps": 7367.3},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 5211.2},
+        {"player": "Sigurito", "class": "Death Knight", "dps": 3259.7}
+      ],
+      "healing": [
+        {"player": "Seerhona", "class": "Shaman", "hps": 11409.6},
+        {"player": "Holymastery", "class": "Paladin", "hps": 9018.5},
+        {"player": "Nordydruid", "class": "Druid", "hps": 4851.2},
+        {"player": "Bernenko", "class": "Druid", "hps": 4177.6},
+        {"player": "Emanyela", "class": "Priest", "hps": 956.5}
+      ]
+    },
+    "The Lich King": {
+      "dps": [
+        {"player": "Mekambe", "class": "Warrior", "dps": 15578.7},
+        {"player": "Extetmage", "class": "Mage", "dps": 14760.1},
+        {"player": "Senrysuta", "class": "Druid", "dps": 14295.6},
+        {"player": "Kilshot", "class": "Hunter", "dps": 12468.3},
+        {"player": "Selkoo", "class": "Rogue", "dps": 12421.4},
+        {"player": "Halodeath", "class": "Death Knight", "dps": 12133.5},
+        {"player": "Ohitburns", "class": "Mage", "dps": 12131.1},
+        {"player": "Gangreene", "class": "Warrior", "dps": 11991.8},
+        {"player": "Avaya", "class": "Priest", "dps": 10861.7},
+        {"player": "Jebenimage", "class": "Mage", "dps": 10358.5},
+        {"player": "Kaczorr", "class": "Priest", "dps": 10278.4},
+        {"player": "Nordydruid", "class": "Druid", "dps": 10268.4},
+        {"player": "Bernenko", "class": "Druid", "dps": 9857.8},
+        {"player": "Blolz", "class": "Priest", "dps": 9846.2},
+        {"player": "Ndmiibex", "class": "Druid", "dps": 9402.0},
+        {"player": "Shhadowko", "class": "Priest", "dps": 9116.8},
+        {"player": "Evilpower", "class": "Warrior", "dps": 8319.1},
+        {"player": "Mancek", "class": "Rogue", "dps": 8144.0},
+        {"player": "Zazbaz", "class": "Hunter", "dps": 7359.3},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 6742.6},
+        {"player": "Sigurito", "class": "Death Knight", "dps": 2631.6},
+        {"player": "Antiopaa", "class": "Paladin", "dps": 1381.4}
+      ],
+      "healing": [
+        {"player": "Seerhona", "class": "Shaman", "hps": 18377.0},
+        {"player": "Emanyela", "class": "Priest", "hps": 9838.8},
+        {"player": "Holymastery", "class": "Priest", "hps": 9724.4}
+      ]
+    }
+  }
+}

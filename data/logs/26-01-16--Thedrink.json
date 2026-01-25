@@ -1,0 +1,330 @@
+{
+  "logId": "26-01-16--20-48--Thedrink--Icecrown",
+  "date": "2026-01-16",
+  "logger": "Thedrink",
+  "raid": "Icecrown",
+  "mode": "25H",
+  "note": "DOUBLE LOD",
+  "url": "https://uwu-logs.xyz/reports/26-01-16--20-48--Thedrink--Icecrown/",
+  "bosses": {
+    "Lord Marrowgar": {
+      "dps": [
+        {"player": "Oldmb", "class": "Warrior", "dps": 23245.6},
+        {"player": "Snipwar", "class": "Warrior", "dps": 21370.4},
+        {"player": "Reckles", "class": "Hunter", "dps": 19514.8},
+        {"player": "Extethunt", "class": "Hunter", "dps": 18150.2},
+        {"player": "Headstriker", "class": "Rogue", "dps": 18084.4},
+        {"player": "Croman", "class": "Warrior", "dps": 17585.3},
+        {"player": "Varosan", "class": "Mage", "dps": 17225.7},
+        {"player": "Halovodka", "class": "Druid", "dps": 16819.0},
+        {"player": "Mancek", "class": "Rogue", "dps": 16765.9},
+        {"player": "Verissia", "class": "Priest", "dps": 16709.6},
+        {"player": "Yurit", "class": "Mage", "dps": 16243.5},
+        {"player": "Unavaiilable", "class": "Druid", "dps": 15861.2},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 15552.3},
+        {"player": "Famalee", "class": "Mage", "dps": 15156.7},
+        {"player": "Sakezz", "class": "Paladin", "dps": 14834.3},
+        {"player": "Shhadowko", "class": "Priest", "dps": 14581.8},
+        {"player": "Roy", "class": "Paladin", "dps": 14220.0},
+        {"player": "Qtmaceta", "class": "Druid", "dps": 12727.3},
+        {"player": "Emanyela", "class": "Priest", "dps": 12649.9},
+        {"player": "Britkasablja", "class": "Druid", "dps": 11515.2},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 10706.0},
+        {"player": "Plaguebound", "class": "Death Knight", "dps": 3761.1},
+        {"player": "Thedrink", "class": "Shaman", "dps": 135.9},
+        {"player": "Namica", "class": "Priest", "dps": 102.5}
+      ],
+      "healing": [
+        {"player": "Namica", "class": "Priest", "hps": 31446.3},
+        {"player": "Favoritoo", "class": "Paladin", "hps": 20406.6},
+        {"player": "Thedrink", "class": "Shaman", "hps": 19155.6}
+      ]
+    },
+    "Lady Deathwhisper": {
+      "dps": [
+        {"player": "Extethunt", "class": "Hunter", "dps": 18019.6},
+        {"player": "Oldmb", "class": "Warrior", "dps": 17148.3},
+        {"player": "Reckles", "class": "Hunter", "dps": 15874.7},
+        {"player": "Verissia", "class": "Priest", "dps": 15300.1},
+        {"player": "Famalee", "class": "Mage", "dps": 12660.4},
+        {"player": "Varosan", "class": "Mage", "dps": 12147.0},
+        {"player": "Croman", "class": "Warrior", "dps": 12128.7},
+        {"player": "Qtmaceta", "class": "Druid", "dps": 11623.1},
+        {"player": "Halovodka", "class": "Druid", "dps": 11608.6},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 10573.5},
+        {"player": "Snipwar", "class": "Warrior", "dps": 10555.2},
+        {"player": "Shhadowko", "class": "Priest", "dps": 10190.4},
+        {"player": "Yurit", "class": "Mage", "dps": 9898.1},
+        {"player": "Unavaiilable", "class": "Druid", "dps": 9837.4},
+        {"player": "Mancek", "class": "Rogue", "dps": 9831.1},
+        {"player": "Roy", "class": "Paladin", "dps": 8945.4},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 7817.0},
+        {"player": "Headstriker", "class": "Rogue", "dps": 7763.3},
+        {"player": "Sakezz", "class": "Paladin", "dps": 5567.3},
+        {"player": "Britkasablja", "class": "Druid", "dps": 5080.1},
+        {"player": "Thedrink", "class": "Shaman", "dps": 3138.1},
+        {"player": "Favoritoo", "class": "Paladin", "dps": 2704.5},
+        {"player": "Plaguebound", "class": "Death Knight", "dps": 2587.1}
+      ],
+      "healing": [
+        {"player": "Namica", "class": "Priest", "hps": 7086.6},
+        {"player": "Emanyela", "class": "Priest", "hps": 6803.4},
+        {"player": "Favoritoo", "class": "Paladin", "hps": 2192.1}
+      ]
+    },
+    "Deathbringer Saurfang": {
+      "dps": [
+        {"player": "Oldmb", "class": "Warrior", "dps": 22940.4},
+        {"player": "Reckles", "class": "Hunter", "dps": 22189.3},
+        {"player": "Varosan", "class": "Mage", "dps": 19651.4},
+        {"player": "Mancek", "class": "Rogue", "dps": 19459.0},
+        {"player": "Yurit", "class": "Mage", "dps": 19349.0},
+        {"player": "Famalee", "class": "Mage", "dps": 19178.2},
+        {"player": "Halovodka", "class": "Druid", "dps": 18284.4},
+        {"player": "Shhadowko", "class": "Priest", "dps": 17171.3},
+        {"player": "Verissia", "class": "Priest", "dps": 17035.6},
+        {"player": "Croman", "class": "Warrior", "dps": 16820.6},
+        {"player": "Snipwar", "class": "Warrior", "dps": 16220.8},
+        {"player": "Extethunt", "class": "Hunter", "dps": 15712.2},
+        {"player": "Unavaiilable", "class": "Druid", "dps": 15703.2},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 15283.4},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 13300.1},
+        {"player": "Headstriker", "class": "Rogue", "dps": 12554.6},
+        {"player": "Britkasablja", "class": "Druid", "dps": 11460.4}
+      ],
+      "healing": [
+        {"player": "Namica", "class": "Priest", "hps": 52610.3},
+        {"player": "Favoritoo", "class": "Paladin", "hps": 12558.0},
+        {"player": "Emanyela", "class": "Priest", "hps": 11167.3},
+        {"player": "Roy", "class": "Paladin", "hps": 8261.1},
+        {"player": "Sakezz", "class": "Paladin", "hps": 769.4}
+      ]
+    },
+    "Rotface": {
+      "dps": [
+        {"player": "Oldmb", "class": "Warrior", "dps": 21451.2},
+        {"player": "Reckles", "class": "Hunter", "dps": 20908.2},
+        {"player": "Extethunt", "class": "Hunter", "dps": 19044.3},
+        {"player": "Snipwar", "class": "Warrior", "dps": 18716.0},
+        {"player": "Mancek", "class": "Rogue", "dps": 18667.1},
+        {"player": "Croman", "class": "Warrior", "dps": 18635.0},
+        {"player": "Headstriker", "class": "Rogue", "dps": 17402.4},
+        {"player": "Halovodka", "class": "Druid", "dps": 17113.4},
+        {"player": "Verissia", "class": "Priest", "dps": 16841.7},
+        {"player": "Yurit", "class": "Mage", "dps": 16798.2},
+        {"player": "Shhadowko", "class": "Priest", "dps": 16506.0},
+        {"player": "Famalee", "class": "Mage", "dps": 15834.2},
+        {"player": "Sakezz", "class": "Paladin", "dps": 15477.5},
+        {"player": "Unavaiilable", "class": "Druid", "dps": 15444.1},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 14914.2},
+        {"player": "Roy", "class": "Paladin", "dps": 12371.6},
+        {"player": "Varosan", "class": "Mage", "dps": 11914.5},
+        {"player": "Qtmaceta", "class": "Druid", "dps": 11830.6},
+        {"player": "Britkasablja", "class": "Druid", "dps": 11393.7},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 9190.4},
+        {"player": "Favoritoo", "class": "Paladin", "dps": 5194.6},
+        {"player": "Plaguebound", "class": "Death Knight", "dps": 781.2},
+        {"player": "Emanyela", "class": "Priest", "dps": 283.2},
+        {"player": "Namica", "class": "Priest", "dps": 276.7},
+        {"player": "Thedrink", "class": "Druid", "dps": 177.4}
+      ],
+      "healing": [
+        {"player": "Emanyela", "class": "Priest", "hps": 9373.1},
+        {"player": "Namica", "class": "Priest", "hps": 7312.9},
+        {"player": "Thedrink", "class": "Druid", "hps": 6804.0},
+        {"player": "Verissia", "class": "Priest", "hps": 2541.5},
+        {"player": "Roy", "class": "Paladin", "hps": 1971.2}
+      ]
+    },
+    "Festergut": {
+      "dps": [
+        {"player": "Oldmb", "class": "Warrior", "dps": 21502.1},
+        {"player": "Varosan", "class": "Mage", "dps": 20838.5},
+        {"player": "Reckles", "class": "Hunter", "dps": 19732.6},
+        {"player": "Snipwar", "class": "Warrior", "dps": 18619.5},
+        {"player": "Extethunt", "class": "Hunter", "dps": 18029.2},
+        {"player": "Croman", "class": "Warrior", "dps": 17730.5},
+        {"player": "Headstriker", "class": "Rogue", "dps": 16899.7},
+        {"player": "Shhadowko", "class": "Priest", "dps": 16488.2},
+        {"player": "Famalee", "class": "Mage", "dps": 16256.8},
+        {"player": "Verissia", "class": "Priest", "dps": 16019.8},
+        {"player": "Halovodka", "class": "Druid", "dps": 15532.0},
+        {"player": "Yurit", "class": "Mage", "dps": 15453.9},
+        {"player": "Mancek", "class": "Rogue", "dps": 15405.1},
+        {"player": "Sakezz", "class": "Paladin", "dps": 14954.3},
+        {"player": "Unavaiilable", "class": "Druid", "dps": 14371.3},
+        {"player": "Roy", "class": "Paladin", "dps": 13466.6},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 13141.4},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 12507.2},
+        {"player": "Qtmaceta", "class": "Druid", "dps": 12317.5},
+        {"player": "Britkasablja", "class": "Druid", "dps": 10205.4},
+        {"player": "Plaguebound", "class": "Death Knight", "dps": 5135.1}
+      ],
+      "healing": [
+        {"player": "Namica", "class": "Priest", "hps": 34021.3},
+        {"player": "Britkasablja", "class": "Druid", "hps": 21306.7},
+        {"player": "Thedrink", "class": "Shaman", "hps": 17110.6},
+        {"player": "Emanyela", "class": "Priest", "hps": 13698.2},
+        {"player": "Favoritoo", "class": "Paladin", "hps": 7323.1}
+      ]
+    },
+    "Professor Putricide": {
+      "dps": [
+        {"player": "Verissia", "class": "Priest", "dps": 16292.7},
+        {"player": "Shhadowko", "class": "Priest", "dps": 15982.1},
+        {"player": "Varosan", "class": "Mage", "dps": 15493.3},
+        {"player": "Oldmb", "class": "Warrior", "dps": 14971.2},
+        {"player": "Extethunt", "class": "Hunter", "dps": 14627.0},
+        {"player": "Headstriker", "class": "Rogue", "dps": 14250.5},
+        {"player": "Mancek", "class": "Rogue", "dps": 13489.7},
+        {"player": "Yurit", "class": "Mage", "dps": 13329.8},
+        {"player": "Croman", "class": "Warrior", "dps": 13309.3},
+        {"player": "Snipwar", "class": "Warrior", "dps": 13237.0},
+        {"player": "Qtmaceta", "class": "Druid", "dps": 13192.1},
+        {"player": "Reckles", "class": "Hunter", "dps": 12734.9},
+        {"player": "Halovodka", "class": "Druid", "dps": 12509.5},
+        {"player": "Unavaiilable", "class": "Druid", "dps": 11742.5},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 10860.4},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 10048.8},
+        {"player": "Roy", "class": "Paladin", "dps": 9778.2},
+        {"player": "Sakezz", "class": "Paladin", "dps": 9474.1},
+        {"player": "Famalee", "class": "Mage", "dps": 9036.8},
+        {"player": "Favoritoo", "class": "Paladin", "dps": 4244.0},
+        {"player": "Plaguebound", "class": "Death Knight", "dps": 620.9}
+      ],
+      "healing": [
+        {"player": "Namica", "class": "Priest", "hps": 36950.8},
+        {"player": "Britkasablja", "class": "Druid", "hps": 21306.7},
+        {"player": "Thedrink", "class": "Shaman", "hps": 17467.8},
+        {"player": "Emanyela", "class": "Priest", "hps": 13310.9}
+      ]
+    },
+    "Blood Prince Council": {
+      "dps": [
+        {"player": "Varosan", "class": "Mage", "dps": 17431.4},
+        {"player": "Reckles", "class": "Hunter", "dps": 15302.1},
+        {"player": "Verissia", "class": "Priest", "dps": 14748.9},
+        {"player": "Famalee", "class": "Mage", "dps": 14100.4},
+        {"player": "Croman", "class": "Warrior", "dps": 14036.4},
+        {"player": "Halovodka", "class": "Druid", "dps": 13343.5},
+        {"player": "Qtmaceta", "class": "Druid", "dps": 12784.3},
+        {"player": "Shhadowko", "class": "Priest", "dps": 12393.8},
+        {"player": "Snipwar", "class": "Warrior", "dps": 12039.0},
+        {"player": "Headstriker", "class": "Rogue", "dps": 11864.7},
+        {"player": "Unavaiilable", "class": "Druid", "dps": 11576.0},
+        {"player": "Yurit", "class": "Mage", "dps": 11476.8},
+        {"player": "Oldmb", "class": "Warrior", "dps": 11191.7},
+        {"player": "Mancek", "class": "Rogue", "dps": 11153.0},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 10571.7},
+        {"player": "Extethunt", "class": "Hunter", "dps": 9315.1}
+      ],
+      "healing": [
+        {"player": "Namica", "class": "Priest", "hps": 37415.1},
+        {"player": "Britkasablja", "class": "Druid", "hps": 22748.7},
+        {"player": "Thedrink", "class": "Shaman", "hps": 16436.2},
+        {"player": "Emanyela", "class": "Priest", "hps": 11843.1},
+        {"player": "Roy", "class": "Paladin", "hps": 10192.7},
+        {"player": "Favoritoo", "class": "Paladin", "hps": 6595.6},
+        {"player": "Plaguebound", "class": "Death Knight", "hps": 3862.7}
+      ]
+    },
+    "Blood-Queen Lana'thel": {
+      "dps": [
+        {"player": "Reckles", "class": "Hunter", "dps": 37319.9},
+        {"player": "Varosan", "class": "Mage", "dps": 27594.8},
+        {"player": "Shhadowko", "class": "Priest", "dps": 22056.8},
+        {"player": "Halovodka", "class": "Druid", "dps": 20915.2},
+        {"player": "Oldmb", "class": "Warrior", "dps": 17810.1},
+        {"player": "Verissia", "class": "Priest", "dps": 17382.6},
+        {"player": "Famalee", "class": "Mage", "dps": 16244.0},
+        {"player": "Croman", "class": "Warrior", "dps": 15745.9},
+        {"player": "Headstriker", "class": "Rogue", "dps": 15227.0},
+        {"player": "Qtmaceta", "class": "Druid", "dps": 15051.1},
+        {"player": "Unavaiilable", "class": "Druid", "dps": 14892.8},
+        {"player": "Mancek", "class": "Rogue", "dps": 14624.3},
+        {"player": "Yurit", "class": "Mage", "dps": 14466.4},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 13449.9},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 11492.0},
+        {"player": "Snipwar", "class": "Warrior", "dps": 11424.6},
+        {"player": "Extethunt", "class": "Hunter", "dps": 11094.3},
+        {"player": "Britkasablja", "class": "Druid", "dps": 5959.8}
+      ],
+      "healing": [
+        {"player": "Namica", "class": "Priest", "hps": 46998.6},
+        {"player": "Thedrink", "class": "Shaman", "hps": 28715.3},
+        {"player": "Emanyela", "class": "Priest", "hps": 15076.9},
+        {"player": "Roy", "class": "Paladin", "hps": 9910.9},
+        {"player": "Favoritoo", "class": "Paladin", "hps": 7402.2},
+        {"player": "Sakezz", "class": "Paladin", "hps": 1073.2},
+        {"player": "Plaguebound", "class": "Death Knight", "hps": 910.5}
+      ]
+    },
+    "Sindragosa": {
+      "dps": [
+        {"player": "Reckles", "class": "Hunter", "dps": 14832.7},
+        {"player": "Verissia", "class": "Priest", "dps": 13226.3},
+        {"player": "Oldmb", "class": "Warrior", "dps": 12607.0},
+        {"player": "Snipwar", "class": "Warrior", "dps": 12504.2},
+        {"player": "Varosan", "class": "Mage", "dps": 11862.0},
+        {"player": "Unavaiilable", "class": "Druid", "dps": 11742.5},
+        {"player": "Extethunt", "class": "Hunter", "dps": 11664.7},
+        {"player": "Halovodka", "class": "Druid", "dps": 11556.0},
+        {"player": "Mancek", "class": "Rogue", "dps": 11480.5},
+        {"player": "Qtmaceta", "class": "Druid", "dps": 11347.7},
+        {"player": "Headstriker", "class": "Rogue", "dps": 11338.8},
+        {"player": "Croman", "class": "Warrior", "dps": 11049.2},
+        {"player": "Famalee", "class": "Mage", "dps": 10246.3},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 10179.8},
+        {"player": "Shhadowko", "class": "Priest", "dps": 9660.1},
+        {"player": "Yurit", "class": "Mage", "dps": 9407.1},
+        {"player": "Roy", "class": "Paladin", "dps": 8623.9},
+        {"player": "Thedrink", "class": "Druid", "dps": 7488.9},
+        {"player": "Sakezz", "class": "Paladin", "dps": 6258.3},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 6174.8},
+        {"player": "Plaguebound", "class": "Death Knight", "dps": 2661.9}
+      ],
+      "healing": [
+        {"player": "Namica", "class": "Priest", "hps": 10252.1},
+        {"player": "Favoritoo", "class": "Priest", "hps": 6901.4},
+        {"player": "Emanyela", "class": "Priest", "hps": 5406.5},
+        {"player": "Britkasablja", "class": "Druid", "hps": 1522.8},
+        {"player": "Thedrink", "class": "Druid", "hps": 1293.3}
+      ]
+    },
+    "The Lich King": {
+      "dps": [
+        {"player": "Oldmb", "class": "Warrior", "dps": 13915.5},
+        {"player": "Extethunt", "class": "Hunter", "dps": 13594.9},
+        {"player": "Croman", "class": "Warrior", "dps": 12563.5},
+        {"player": "Varosan", "class": "Mage", "dps": 12157.0},
+        {"player": "Qtmaceta", "class": "Druid", "dps": 11588.7},
+        {"player": "Headstriker", "class": "Rogue", "dps": 11244.8},
+        {"player": "Halovodka", "class": "Druid", "dps": 11062.5},
+        {"player": "Shhadowko", "class": "Priest", "dps": 11022.9},
+        {"player": "Mancek", "class": "Rogue", "dps": 10121.8},
+        {"player": "Yurit", "class": "Mage", "dps": 9963.9},
+        {"player": "Roy", "class": "Paladin", "dps": 9095.2},
+        {"player": "Trajanoffwar", "class": "Warrior", "dps": 9038.7},
+        {"player": "Famalee", "class": "Mage", "dps": 8815.2},
+        {"player": "Icyfck", "class": "Death Knight", "dps": 8528.6},
+        {"player": "Sakezz", "class": "Paladin", "dps": 8465.6},
+        {"player": "Nyyxxylock", "class": "Warlock", "dps": 7742.9},
+        {"player": "Reckles", "class": "Hunter", "dps": 7599.6},
+        {"player": "Krimimaus", "class": "Mage", "dps": 5817.0},
+        {"player": "Verissia", "class": "Priest", "dps": 4722.7},
+        {"player": "Shadowhymn", "class": "Priest", "dps": 4020.2},
+        {"player": "Speedcliick", "class": "Hunter", "dps": 3857.0},
+        {"player": "Snipwar", "class": "Warrior", "dps": 3071.3},
+        {"player": "Unavaiilable", "class": "Druid", "dps": 2891.6},
+        {"player": "Plaguebound", "class": "Death Knight", "dps": 2456.5}
+      ],
+      "healing": [
+        {"player": "Emanyela", "class": "Priest", "hps": 9704.4},
+        {"player": "Namica", "class": "Paladin", "hps": 8208.8},
+        {"player": "Thedrink", "class": "Druid", "hps": 6471.5},
+        {"player": "Britkasablja", "class": "Druid", "hps": 4711.5},
+        {"player": "Favoritoo", "class": "Paladin", "hps": 1035.3}
+      ]
+    }
+  }
+}

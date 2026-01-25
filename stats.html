@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPS Rankings | T I T A N</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="titan logo png.png">
+    <style>
+        .stats-page { padding-top: 70px; min-height: 100vh; }
+
+        .stats-header {
+            padding: 40px 0;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-bottom: 1px solid var(--border-subtle);
+            text-align: center;
+        }
+        .stats-header h1 {
+            font-size: 2.5rem;
+            color: var(--horde-red-light);
+            margin-bottom: 8px;
+        }
+        .stats-header p { color: var(--text-muted); }
+
+        .stats-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 24px 0;
+            flex-wrap: wrap;
+        }
+        .stats-tab {
+            padding: 10px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .stats-tab:hover { background: var(--bg-tertiary); }
+        .stats-tab.active { background: var(--horde-red); border-color: var(--horde-red); color: white; }
+
+        .boss-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+        .boss-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border-subtle);
+            cursor: pointer;
+        }
+        .boss-header:hover { background: var(--bg-secondary); }
+        .boss-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .boss-best {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .boss-best-dps {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #22c55e;
+        }
+        .boss-best-player {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .boss-content {
+            padding: 24px;
+            display: none;
+        }
+        .boss-content.active { display: block; }
+
+        .class-rankings {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .class-rank-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+        }
+        .class-rank-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+        }
+        .class-rank-info { flex: 1; }
+        .class-rank-class { font-size: 0.85rem; color: var(--text-muted); }
+        .class-rank-player { font-weight: 600; }
+        .class-rank-dps {
+            font-weight: 700;
+            color: #22c55e;
+            font-size: 1.1rem;
+        }
+
+        .top-performances {
+            margin-top: 16px;
+        }
+        .top-performances h4 {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+        .perf-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .perf-table th, .perf-table td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .perf-table th {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+        .perf-table td { font-size: 0.9rem; }
+        .perf-rank {
+            color: var(--text-muted);
+            font-weight: 600;
+            width: 40px;
+        }
+        .perf-rank.gold { color: #fbbf24; }
+        .perf-rank.silver { color: #94a3b8; }
+        .perf-rank.bronze { color: #cd7f32; }
+        .perf-dps { color: #22c55e; font-weight: 600; }
+
+        /* Class colors */
+        .class-deathknight { color: #C41F3B; }
+        .class-druid { color: #FF7D0A; }
+        .class-hunter { color: #ABD473; }
+        .class-mage { color: #69CCF0; }
+        .class-paladin { color: #F58CBA; }
+        .class-priest { color: #FFFFFF; }
+        .class-rogue { color: #FFF569; }
+        .class-shaman { color: #0070DE; }
+        .class-warlock { color: #9482C9; }
+        .class-warrior { color: #C79C6E; }
+
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: var(--text-muted);
+        }
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border-subtle);
+            border-top-color: var(--horde-red);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .last-updated {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 24px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="titan logo png.png" alt="Titan Logo" class="nav-logo">
+                <span class="nav-title">TITAN</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="raids.html" class="nav-link">Raids</a></li>
+                <li><a href="guild.html" class="nav-link">Guild</a></li>
+                <li><a href="stats.html" class="nav-link nav-active">Stats</a></li>
+                <li><a href="bis.html" class="nav-link">BiS List</a></li>
+                <li><a href="guides.html" class="nav-link">Guides</a></li>
+                <li><a href="join.html" class="nav-link">Join</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="join.html" class="btn btn-primary">Join Guild</a>
+            </div>
+            <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <div class="stats-page">
+        <div class="stats-header">
+            <h1>DPS Rankings</h1>
+            <p>All-time best performances from T I T A N guild raids</p>
+        </div>
+
+        <div class="container" style="padding: 24px 0;">
+            <div class="stats-tabs">
+                <button class="stats-tab active" onclick="showSection('icc')">ICC 25H</button>
+                <button class="stats-tab" onclick="showSection('halion')">Halion 25H</button>
+                <button class="stats-tab" onclick="showSection('healers')">Top Healers</button>
+            </div>
+
+            <!-- ICC Section -->
+            <div id="icc-section">
+                <div id="bossRankings" class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading boss rankings...</p>
+                </div>
+            </div>
+
+            <!-- Halion Section -->
+            <div id="halion-section" style="display: none;">
+                <div class="boss-section">
+                    <div class="boss-header" onclick="toggleBoss(this)">
+                        <div class="boss-name">Halion (Outside)</div>
+                        <div class="boss-best">
+                            <div class="boss-best-dps" id="halion-outside-dps">--</div>
+                            <div class="boss-best-player" id="halion-outside-player">Loading...</div>
+                        </div>
+                    </div>
+                    <div class="boss-content">
+                        <p style="color: var(--text-muted);">Halion outside phase rankings coming soon...</p>
+                    </div>
+                </div>
+                <div class="boss-section">
+                    <div class="boss-header" onclick="toggleBoss(this)">
+                        <div class="boss-name">Halion (Inside)</div>
+                        <div class="boss-best">
+                            <div class="boss-best-dps" id="halion-inside-dps">--</div>
+                            <div class="boss-best-player" id="halion-inside-player">Loading...</div>
+                        </div>
+                    </div>
+                    <div class="boss-content">
+                        <p style="color: var(--text-muted);">Halion inside phase rankings coming soon...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Healers Section -->
+            <div id="healers-section" style="display: none;">
+                <div class="boss-section">
+                    <div class="boss-header">
+                        <div class="boss-name">Top Healers</div>
+                    </div>
+                    <div class="boss-content active">
+                        <p style="color: var(--text-muted);">Healer rankings coming soon...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="last-updated" id="lastUpdated"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p>&copy; 2026 T I T A N Guild. Warmane Icecrown.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const classData = {
+            'Death Knight': { color: '#C41F3B', icon: 'icons/deathknight.png', css: 'class-deathknight' },
+            'Druid': { color: '#FF7D0A', icon: 'icons/druid.png', css: 'class-druid' },
+            'Hunter': { color: '#ABD473', icon: 'icons/hunter.png', css: 'class-hunter' },
+            'Mage': { color: '#69CCF0', icon: 'icons/mage.png', css: 'class-mage' },
+            'Paladin': { color: '#F58CBA', icon: 'icons/paladin.png', css: 'class-paladin' },
+            'Priest': { color: '#FFFFFF', icon: 'icons/priest.png', css: 'class-priest' },
+            'Rogue': { color: '#FFF569', icon: 'icons/rogue.png', css: 'class-rogue' },
+            'Shaman': { color: '#0070DE', icon: 'icons/shaman.png', css: 'class-shaman' },
+            'Warlock': { color: '#9482C9', icon: 'icons/warlock.png', css: 'class-warlock' },
+            'Warrior': { color: '#C79C6E', icon: 'icons/warrior.png', css: 'class-warrior' }
+        };
+
+        // ICC Boss order
+        const bossOrder = [
+            'Lord Marrowgar',
+            'Lady Deathwhisper',
+            'Deathbringer Saurfang',
+            'Festergut',
+            'Rotface',
+            'Professor Putricide',
+            'Blood Prince Council',
+            'Blood-Queen Lana\'thel',
+            'Sindragosa',
+            'The Lich King'
+        ];
+
+        let bossRankings = null;
+
+        async function loadRankings() {
+            try {
+                const response = await fetch('data/boss-rankings.json');
+                bossRankings = await response.json();
+                renderBossRankings();
+                document.getElementById('lastUpdated').textContent =
+                    `Last updated: ${bossRankings.lastUpdated || 'Unknown'} | Logs analyzed: ${bossRankings.logsFetched || 0} of ${bossRankings.totalLogs || 0}`;
+            } catch (error) {
+                document.getElementById('bossRankings').innerHTML = `
+                    <div class="loading">
+                        <p style="color: var(--horde-red);">Error loading rankings: ${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        function renderBossRankings() {
+            const container = document.getElementById('bossRankings');
+            if (!bossRankings || !bossRankings.bosses) {
+                container.innerHTML = '<p style="color: var(--text-muted);">No rankings data available.</p>';
+                return;
+            }
+
+            let html = '';
+
+            bossOrder.forEach(bossName => {
+                const boss = bossRankings.bosses[bossName];
+                if (!boss) return;
+
+                const best = boss.bestOverall || { player: 'Unknown', dps: 0, class: 'Unknown' };
+                const bestClass = classData[best.class] || { css: '', icon: '', color: '#666' };
+
+                html += `
+                    <div class="boss-section">
+                        <div class="boss-header" onclick="toggleBoss(this)">
+                            <div class="boss-name">
+                                <span>${bossName}</span>
+                            </div>
+                            <div class="boss-best">
+                                <div class="boss-best-dps">${best.dps.toLocaleString()}</div>
+                                <div class="boss-best-player">
+                                    <span class="${bestClass.css}">${best.player}</span>
+                                    <span style="color: var(--text-muted);"> (${best.class})</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="boss-content">
+                            <h4 style="color: var(--text-secondary); margin-bottom: 16px;">Best by Class</h4>
+                            <div class="class-rankings">
+                                ${renderClassRankings(boss.bestByClass)}
+                            </div>
+                            ${renderTopPerformances(boss.topPerformances)}
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function renderClassRankings(bestByClass) {
+            if (!bestByClass) return '<p style="color: var(--text-muted);">No class data available.</p>';
+
+            // Sort classes by DPS descending
+            const sorted = Object.entries(bestByClass).sort((a, b) => b[1].dps - a[1].dps);
+
+            return sorted.map(([className, data]) => {
+                const cls = classData[className] || { icon: '', css: '', color: '#666' };
+                return `
+                    <div class="class-rank-card">
+                        <img src="${cls.icon}" alt="${className}" class="class-rank-icon">
+                        <div class="class-rank-info">
+                            <div class="class-rank-class" style="color: ${cls.color};">${className}</div>
+                            <div class="class-rank-player">${data.player}</div>
+                        </div>
+                        <div class="class-rank-dps">${data.dps.toLocaleString()}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderTopPerformances(topPerfs) {
+            if (!topPerfs || topPerfs.length === 0) return '';
+
+            let html = `
+                <div class="top-performances">
+                    <h4>Top 10 All-Time</h4>
+                    <table class="perf-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Player</th>
+                                <th>Class</th>
+                                <th>DPS</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+
+            topPerfs.slice(0, 10).forEach((perf, idx) => {
+                const cls = classData[perf.class] || { css: '', color: '#666' };
+                const rankClass = idx === 0 ? 'gold' : idx === 1 ? 'silver' : idx === 2 ? 'bronze' : '';
+
+                html += `
+                    <tr>
+                        <td class="perf-rank ${rankClass}">${idx + 1}</td>
+                        <td class="${cls.css}">${perf.player}</td>
+                        <td style="color: ${cls.color};">${perf.class}</td>
+                        <td class="perf-dps">${perf.dps.toLocaleString()}</td>
+                        <td style="color: var(--text-muted);">${perf.date || '-'}</td>
+                    </tr>
+                `;
+            });
+
+            html += '</tbody></table></div>';
+            return html;
+        }
+
+        function toggleBoss(header) {
+            const content = header.nextElementSibling;
+            content.classList.toggle('active');
+        }
+
+        function showSection(section) {
+            document.querySelectorAll('.stats-tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+
+            document.getElementById('icc-section').style.display = section === 'icc' ? 'block' : 'none';
+            document.getElementById('halion-section').style.display = section === 'halion' ? 'block' : 'none';
+            document.getElementById('healers-section').style.display = section === 'healers' ? 'block' : 'none';
+        }
+
+        // Mobile nav toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        window.addEventListener('scroll', () => {
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Load rankings on page load
+        loadRankings();
+    </script>
+</body>
+</html>

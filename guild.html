@@ -1,0 +1,831 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guild Roster | T I T A N</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="titan logo png.png">
+    <style>
+        .guild-page { padding-top: 70px; min-height: 100vh; }
+
+        .guild-header {
+            padding: 40px 0;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .guild-header-content {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .guild-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 16px;
+            border: 3px solid var(--horde-red);
+            box-shadow: 0 0 30px rgba(196, 31, 59, 0.4);
+        }
+        .guild-header-info h1 {
+            font-size: 2.5rem;
+            color: var(--horde-red-light);
+            margin-bottom: 8px;
+        }
+        .guild-meta {
+            display: flex;
+            gap: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .guild-meta span { display: flex; align-items: center; gap: 6px; }
+        .horde-badge {
+            padding: 4px 12px;
+            background: var(--horde-red);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        /* Search & Filters */
+        .roster-controls {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .search-box {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+        .search-box:focus { outline: none; border-color: var(--horde-red); }
+        .filter-btn {
+            padding: 10px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+        .filter-btn:hover { background: var(--bg-tertiary); }
+        .filter-btn.active { background: var(--horde-red); border-color: var(--horde-red); color: white; }
+
+        /* Class filter buttons */
+        .class-filters {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        .class-btn {
+            padding: 6px 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .class-btn:hover { border-color: var(--horde-red); }
+        .class-btn.active { border-width: 2px; }
+
+        /* Rank filter buttons */
+        .rank-filters {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        .rank-filter-btn {
+            padding: 6px 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+        }
+        .rank-filter-btn:hover { border-color: var(--horde-red); }
+        .rank-filter-btn.active { background: var(--horde-red); border-color: var(--horde-red); color: white; }
+        .rank-filter-btn.rank-gm.active { background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000; }
+        .rank-filter-btn.rank-officer.active { background: #a855f7; color: white; }
+        .rank-filter-btn.rank-core.active { background: #22c55e; color: #000; }
+        .rank-filter-btn.rank-trial.active { background: #38bdf8; color: #000; }
+        .rank-filter-btn.rank-alt.active { background: #a3a3a3; color: #000; }
+        .rank-filter-btn.rank-inactive.active { background: #6b7280; color: white; }
+
+        /* Member Grid */
+        .roster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 12px;
+        }
+        .member-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .member-card:hover {
+            border-color: var(--horde-red);
+            transform: translateY(-2px);
+        }
+        .member-dps {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .member-dps .dps-value {
+            color: #22c55e;
+            font-weight: 600;
+        }
+        .member-dps .dps-na {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+        .member-icon {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            min-height: 36px;
+            border-radius: 6px;
+            flex-shrink: 0;
+            object-fit: cover;
+            border: 2px solid var(--border-subtle);
+            background: var(--bg-tertiary);
+        }
+        .member-info { flex: 1; min-width: 0; }
+        .member-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .member-details {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .member-level {
+            padding: 2px 6px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .member-links {
+            display: flex;
+            gap: 6px;
+        }
+        .member-link {
+            padding: 4px 8px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+        .member-link:hover { background: var(--horde-red); color: white; }
+
+        /* Class colors - text color with subtle matching background */
+        .class-deathknight { color: #C41F3B; }
+        .class-druid { color: #FF7D0A; }
+        .class-hunter { color: #ABD473; }
+        .class-mage { color: #69CCF0; }
+        .class-paladin { color: #F58CBA; }
+        .class-priest { color: #FFFFFF; }
+        .class-rogue { color: #FFF569; }
+        .class-shaman { color: #0070DE; }
+        .class-warlock { color: #9482C9; }
+        .class-warrior { color: #C79C6E; }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: var(--text-muted);
+        }
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border-subtle);
+            border-top-color: var(--horde-red);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Stats bar */
+        .stats-bar {
+            display: flex;
+            gap: 24px;
+            padding: 16px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .stat-item { text-align: center; }
+        .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--horde-red-light); }
+        .stat-label { font-size: 0.75rem; color: var(--text-muted); }
+
+        /* Composition section */
+        .composition-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .composition-section h3 {
+            color: var(--horde-red-light);
+            font-size: 1rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .class-bar-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .class-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .class-bar-label {
+            width: 100px;
+            font-size: 0.8rem;
+            text-align: right;
+        }
+        .class-bar-track {
+            flex: 1;
+            height: 20px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .class-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #000;
+            min-width: 30px;
+        }
+        .toggle-composition {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            cursor: pointer;
+            margin-left: auto;
+        }
+        .toggle-composition:hover { color: var(--horde-red-light); }
+        .composition-content { display: none; }
+        .composition-content.show { display: block; }
+
+        /* Rank badge */
+        .rank-badge {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .rank-leader { background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000; }
+        .rank-officer { background: rgba(168, 85, 247, 0.2); color: #a855f7; }
+        .rank-core { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+
+        @media (max-width: 768px) {
+            .guild-header-content { flex-direction: column; text-align: center; }
+            .guild-meta { justify-content: center; }
+            .roster-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="titan logo png.png" alt="Titan Logo" class="nav-logo">
+                <span class="nav-title">TITAN</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="raids.html" class="nav-link">Raids</a></li>
+                <li><a href="guild.html" class="nav-link active">Guild</a></li>
+                <li><a href="top-parsers.html" class="nav-link">Top Parsers</a></li>
+                <li><a href="bis.html" class="nav-link">BiS List</a></li>
+                <li><a href="guides.html" class="nav-link">Guides</a></li>
+                <li><a href="join.html" class="nav-link">Join</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="join.html" class="btn btn-primary">Join Guild</a>
+            </div>
+            <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <div class="guild-page">
+        <div class="guild-header">
+            <div class="container">
+                <div class="guild-header-content">
+                    <img src="titan logo png.png" alt="T I T A N" class="guild-logo">
+                    <div class="guild-header-info">
+                        <h1>T I T A N</h1>
+                        <div class="guild-meta">
+                            <span class="horde-badge">HORDE</span>
+                            <span>Icecrown</span>
+                            <span id="memberCount">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="padding: 24px 0;">
+            <!-- Stats -->
+            <div class="stats-bar" id="statsBar">
+                <div class="stat-item">
+                    <div class="stat-value" id="totalMembers">-</div>
+                    <div class="stat-label">Total Members</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="level80Count">-</div>
+                    <div class="stat-label">Level 80</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="classCount">-</div>
+                    <div class="stat-label">Classes</div>
+                </div>
+            </div>
+
+            <!-- Class Composition -->
+            <div class="composition-section">
+                <h3>
+                    <span>Class Distribution (Level 80)</span>
+                    <button class="toggle-composition" onclick="toggleComposition()">Show/Hide</button>
+                </h3>
+                <div class="composition-content" id="compositionContent">
+                    <div class="class-bar-container" id="classDistribution">
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">Loading...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search & Filters -->
+            <div class="roster-controls">
+                <input type="text" class="search-box" id="searchBox" placeholder="Search by name...">
+                <button class="filter-btn active" data-level="all">All Levels</button>
+                <button class="filter-btn" data-level="80">Level 80 Only</button>
+            </div>
+
+            <!-- Rank Filters -->
+            <div class="rank-filters" id="rankFilters">
+                <button class="rank-filter-btn active" data-rank="all">All Ranks</button>
+                <button class="rank-filter-btn rank-gm" data-rank="gm">GM</button>
+                <button class="rank-filter-btn rank-officer" data-rank="officer">Officers</button>
+                <button class="rank-filter-btn rank-core" data-rank="core">Core Raiders</button>
+                <button class="rank-filter-btn" data-rank="raider">Raiders</button>
+                <button class="rank-filter-btn" data-rank="member">Members</button>
+                <button class="rank-filter-btn rank-trial" data-rank="trial">Trials</button>
+                <button class="rank-filter-btn rank-alt" data-rank="alt">Alts</button>
+                <button class="rank-filter-btn rank-inactive" data-rank="inactive">Inactive</button>
+            </div>
+
+            <!-- Class Filters -->
+            <div class="class-filters" id="classFilters">
+                <button class="class-btn active" data-class="all">All Classes</button>
+            </div>
+
+            <!-- Member Grid -->
+            <div id="rosterGrid">
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading guild members from Warmane...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p>&copy; 2026 T I T A N Guild. Warmane Icecrown.</p>
+                <p style="margin-top: 8px;"><a href="https://armory.warmane.com/guild/T+I+T+A+N/Icecrown/summary" target="_blank" style="color: var(--text-muted);">View on Warmane Armory</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load member data from external file (831 level 80 members) -->
+    <script src="guild-data.js"></script>
+    <script src="js/guild-dps.js"></script>
+    <script src="js/uwu-scraper.js"></script>
+    <script src="js/guild-dps.js"></script>
+
+    <script>
+        // Class data with local icons
+        const classData = {
+            'Death Knight': { color: '#C41F3B', icon: 'icons/deathknight.png', css: 'class-deathknight' },
+            'Druid': { color: '#FF7D0A', icon: 'icons/druid.png', css: 'class-druid' },
+            'Hunter': { color: '#ABD473', icon: 'icons/hunter.png', css: 'class-hunter' },
+            'Mage': { color: '#69CCF0', icon: 'icons/mage.png', css: 'class-mage' },
+            'Paladin': { color: '#F58CBA', icon: 'icons/paladin.png', css: 'class-paladin' },
+            'Priest': { color: '#FFFFFF', icon: 'icons/priest.png', css: 'class-priest' },
+            'Rogue': { color: '#FFF569', icon: 'icons/rogue.png', css: 'class-rogue' },
+            'Shaman': { color: '#0070DE', icon: 'icons/shaman.png', css: 'class-shaman' },
+            'Warlock': { color: '#9482C9', icon: 'icons/warlock.png', css: 'class-warlock' },
+            'Warrior': { color: '#C79C6E', icon: 'icons/warrior.png', css: 'class-warrior' }
+        };
+
+        // UwU-logs spec mapping
+        // 1 = Healer/Resto, 2 = Secondary DPS (Fire Mage, Balance, etc), 3 = Primary DPS
+        const uwuSpecMap = {
+            'Death Knight': 3, // DPS (Unholy/Frost) or 2 for Blood tank
+            'Druid': 3,        // Feral/Balance DPS, 1 for Resto, 2 for Bear
+            'Hunter': 3,       // Always DPS
+            'Mage': 2,         // Fire Mage = spec 2
+            'Paladin': 3,      // Ret DPS, 1 for Holy, 2 for Prot
+            'Priest': 3,       // Shadow DPS, 1 for Holy/Disc
+            'Rogue': 3,        // Always DPS
+            'Shaman': 3,       // Ele/Enh DPS, 1 for Resto
+            'Warlock': 3,      // Always DPS
+            'Warrior': 3       // Fury/Arms DPS, 2 for Prot
+        };
+
+        // Top parsers data (Deathbringer DPS lookup for all players)
+        let guildRanksData = {};
+        let playerBests = {};
+
+        async function loadGuildRanks() {
+            try {
+                const response = await fetch('data/guild-ranks.json');
+                guildRanksData = await response.json();
+            } catch (error) {
+                console.warn('Could not load guild ranks data:', error);
+                guildRanksData = {};
+            }
+        }
+
+        async function loadPlayerBests() {
+            const ranksToFetch = ['Guild Master', 'Officer', 'Core Raider', 'Raider'];
+            const membersToFetch = allMembers.filter(m => ranksToFetch.includes(getPlayerRank(m.name)));
+
+            for (const member of membersToFetch) {
+                const url = `https://uwu-logs.xyz/character?name=${encodeURIComponent(member.name)}&server=Icecrown&spec=3`;
+                const html = await fetchUwuHtml(url);
+                if (html) {
+                    const dps = parseDbDpsFromUwu(html);
+                    if (dps) {
+                        playerBests[member.name] = { dps: dps, boss: 'Deathbringer Saurfang' };
+                    }
+                }
+                // Add a delay to avoid rate limiting
+                await new Promise(resolve => setTimeout(resolve, 500));
+            }
+        }
+
+        function getPlayerRank(playerName) {
+            return guildRanksData[playerName] || 'Unknown';
+        }
+
+        function getPlayerDPS(playerName) {
+            return playerBests[playerName];
+        }
+
+        let allMembers = [];
+        let currentFilter = { level: 'all', class: 'all', rank: 'all', search: '' };
+        let displayCount = 50; // Initial number of members to display
+        const LOAD_MORE_COUNT = 50; // How many more to load each time
+
+        // Static members loaded from guild-data.js (831 level 80 members)
+
+        // Fetch guild members
+        async function fetchGuildMembers() {
+            try {
+                // Try API first (works when hosted, not locally due to CORS)
+                const response = await fetch('https://armory.warmane.com/api/guild/T+I+T+A+N/Icecrown/members');
+                const data = await response.json();
+
+                if (data && Array.isArray(data)) {
+                    allMembers = data.sort((a, b) => {
+                        if (b.level !== a.level) return b.level - a.level;
+                        return a.name.localeCompare(b.name);
+                    });
+
+                    updateStats();
+                    buildClassFilters();
+                    renderMembers();
+                } else {
+                    throw new Error('Invalid API response');
+                }
+            } catch (error) {
+                console.warn('API failed, using static data:', error.message);
+                // Use static fallback data
+                allMembers = staticMembers.sort((a, b) => {
+                    if (b.level !== a.level) return b.level - a.level;
+                    return a.name.localeCompare(b.name);
+                });
+
+                updateStats();
+                buildClassFilters();
+                renderMembers();
+
+                // Show notice that we're using cached data
+                document.getElementById('memberCount').innerHTML = `${allMembers.length} Raiders <span style="font-size: 0.7rem; color: var(--text-muted);">(cached)</span>`;
+            }
+        }
+
+        function showError(msg) {
+            document.getElementById('rosterGrid').innerHTML = `
+                <div class="loading">
+                    <p style="color: var(--horde-red);">${msg}</p>
+                    <p style="margin-top: 12px;"><a href="https://armory.warmane.com/guild/T+I+T+A+N/Icecrown/roster" target="_blank" class="btn btn-secondary">View on Armory</a></p>
+                </div>
+            `;
+        }
+
+        function updateStats() {
+            const total = allMembers.length;
+            const level80 = allMembers.filter(m => m.level === 80).length;
+            const classes = new Set(allMembers.map(m => m.class)).size;
+
+            document.getElementById('totalMembers').textContent = total;
+            document.getElementById('level80Count').textContent = level80;
+            document.getElementById('classCount').textContent = classes;
+            document.getElementById('memberCount').textContent = `${total} Members`;
+
+            // Update class distribution
+            renderClassDistribution();
+        }
+
+        function renderClassDistribution() {
+            const level80Members = allMembers.filter(m => m.level === 80);
+            const classCounts = {};
+
+            level80Members.forEach(m => {
+                classCounts[m.class] = (classCounts[m.class] || 0) + 1;
+            });
+
+            // Sort by count descending
+            const sorted = Object.entries(classCounts).sort((a, b) => b[1] - a[1]);
+            const maxCount = sorted[0] ? sorted[0][1] : 1;
+
+            const container = document.getElementById('classDistribution');
+            container.innerHTML = sorted.map(([cls, count]) => {
+                const data = classData[cls] || { color: '#666', icon: '' };
+                const percentage = Math.round((count / maxCount) * 100);
+                return `
+                    <div class="class-bar-row">
+                        <div class="class-bar-label" style="color: ${data.color};"><img src="${data.icon}" alt="${cls}" style="width: 16px; height: 16px; border-radius: 3px; vertical-align: middle; margin-right: 4px;">${cls}</div>
+                        <div class="class-bar-track">
+                            <div class="class-bar-fill" style="width: ${percentage}%; background: ${data.color};">${count}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function toggleComposition() {
+            const content = document.getElementById('compositionContent');
+            content.classList.toggle('show');
+        }
+
+        function buildClassFilters() {
+            const classes = [...new Set(allMembers.map(m => m.class))].sort();
+            const container = document.getElementById('classFilters');
+
+            classes.forEach(cls => {
+                const btn = document.createElement('button');
+                btn.className = 'class-btn';
+                btn.dataset.class = cls;
+                const clsData = classData[cls] || { color: '#666', icon: '' };
+                btn.style.borderColor = clsData.color;
+                btn.style.color = clsData.color;
+                btn.innerHTML = `<img src="${clsData.icon}" alt="${cls}" style="width: 14px; height: 14px; border-radius: 2px;">${cls}`;
+                btn.onclick = () => filterByClass(cls);
+                container.appendChild(btn);
+            });
+        }
+
+        function filterByClass(cls) {
+            currentFilter.class = cls;
+            displayCount = 50;
+            document.querySelectorAll('.class-btn').forEach(b => {
+                const isActive = b.dataset.class === cls;
+                b.classList.toggle('active', isActive);
+                const clsColor = classData[b.dataset.class]?.color || '#666';
+                if (isActive && cls !== 'all') {
+                    b.style.background = clsColor;
+                    b.style.color = '#000';
+                } else {
+                    b.style.background = '';
+                    b.style.color = cls === 'all' && b.dataset.class === 'all' ? 'white' : clsColor;
+                }
+            });
+            // Handle "All Classes" button
+            const allBtn = document.querySelector('[data-class="all"]');
+            if (cls === 'all') {
+                allBtn.style.background = 'var(--horde-red)';
+                allBtn.style.color = 'white';
+            } else {
+                allBtn.style.background = '';
+                allBtn.style.color = 'var(--text-secondary)';
+            }
+            renderMembers();
+        }
+
+        function filterByRank(rank) {
+            currentFilter.rank = rank;
+            displayCount = 50;
+            document.querySelectorAll('.rank-filter-btn').forEach(b => {
+                b.classList.toggle('active', b.dataset.rank === rank);
+            });
+            renderMembers();
+        }
+
+        function renderMembers() {
+            let filtered = allMembers;
+
+            // Filter by level
+            if (currentFilter.level === '80') {
+                filtered = filtered.filter(m => m.level === 80);
+            }
+
+            // Filter by class
+            if (currentFilter.class !== 'all') {
+                filtered = filtered.filter(m => m.class === currentFilter.class);
+            }
+
+            // Filter by rank (using guild-ranks.json data)
+            if (currentFilter.rank !== 'all') {
+                filtered = filtered.filter(m => {
+                    const rank = getPlayerRank(m.name);
+                    if (currentFilter.rank === 'gm') return rank === 'Guild Master';
+                    if (currentFilter.rank === 'officer') return rank === 'Officer';
+                    if (currentFilter.rank === 'core') return rank === 'Core Raider';
+                    if (currentFilter.rank === 'raider') return rank === 'Raider';
+                    if (currentFilter.rank === 'member') return rank === 'Member';
+                    if (currentFilter.rank === 'trial') return rank === 'Trial';
+                    if (currentFilter.rank === 'alt') return rank === 'Alt';
+                    if (currentFilter.rank === 'inactive') return rank === 'Inactive';
+                    return true;
+                });
+            }
+
+            // Filter by search
+            if (currentFilter.search) {
+                const search = currentFilter.search.toLowerCase();
+                filtered = filtered.filter(m => m.name.toLowerCase().includes(search));
+            }
+
+            const grid = document.getElementById('rosterGrid');
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div class="loading"><p>No members found</p></div>';
+                return;
+            }
+
+            // Slice to show only displayCount members
+            const displayed = filtered.slice(0, displayCount);
+            const remaining = filtered.length - displayCount;
+
+            grid.innerHTML = '<div class="roster-grid">' + displayed.map(member => {
+                const cls = classData[member.class] || { color: '#666', icon: '?', bg: 'bg-warrior', css: 'class-warrior' };
+                const spec = uwuSpecMap[member.class] || 3;
+                const rank = getPlayerRank(member.name);
+                const bestDps = getPlayerDPS(member.name);
+
+                // Rank badge logic
+                let rankBadge = '';
+                if (rank === 'Guild Master') rankBadge = '<span class="rank-badge rank-leader">GM</span>';
+                else if (rank === 'Officer') rankBadge = '<span class="rank-badge rank-officer">Officer</span>';
+                else if (rank === 'Core Raider') rankBadge = '<span class="rank-badge rank-core">Core</span>';
+
+                // DPS data
+                const dpsHtml = `
+                    <div class="member-dps">
+                        <span>DB</span>
+                        ${bestDps && bestDps.dps ? `<span class="dps-value" title="${bestDps.boss}">${(bestDps.dps / 1000).toFixed(1)}k</span>` : '<span class="dps-na">N/A</span>'}
+                    </div>
+                `;
+
+                // Only show UwU link for level 80 players (UwU only tracks level 80 raids)
+                const uwuLink = member.level === 80
+                    ? `<a href="https://uwu-logs.xyz/character?name=${encodeURIComponent(member.name)}&server=Icecrown&spec=${spec}" target="_blank" class="member-link" title="UwU Logs">UWU</a>`
+                    : '';
+
+                return `
+                    <div class="member-card">
+                        <img src="${cls.icon}" alt="${member.class}" class="member-icon" style="border-color: ${cls.color};">
+                        <div class="member-info">
+                            <div class="member-name ${cls.css}">${member.name}</div>
+                            <div class="member-details">
+                                <span class="member-level">${member.level}</span>
+                                <span>${member.class}</span>
+                                ${rankBadge}
+                            </div>
+                            ${dpsHtml}
+                        </div>
+                        <div class="member-links">
+                            <a href="https://armory.warmane.com/character/${encodeURIComponent(member.name)}/Icecrown/summary" target="_blank" class="member-link" title="Armory">ARM</a>
+                            ${uwuLink}
+                        </div>
+                    </div>
+                `;
+            }).join('') + '</div>' +
+            (remaining > 0 ? `
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="btn btn-secondary" onclick="showMore()" style="padding: 12px 32px;">
+                        Show More (${remaining} remaining)
+                    </button>
+                </div>
+            ` : `
+                <div style="text-align: center; margin-top: 20px; color: var(--text-muted); font-size: 0.85rem;">
+                    Showing all ${filtered.length} members
+                </div>
+            `);
+        }
+
+        function showMore() {
+            displayCount += LOAD_MORE_COUNT;
+            renderMembers();
+        }
+
+        // Event listeners
+        document.getElementById('searchBox').addEventListener('input', (e) => {
+            currentFilter.search = e.target.value;
+            displayCount = 50; // Reset to initial count on filter change
+            renderMembers();
+        });
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter.level = btn.dataset.level;
+                displayCount = 50; // Reset to initial count on filter change
+                renderMembers();
+            });
+        });
+
+        document.querySelector('[data-class="all"]').addEventListener('click', () => {
+            displayCount = 50;
+            filterByClass('all');
+        });
+
+        // Rank filter event listeners
+        document.querySelectorAll('.rank-filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterByRank(btn.dataset.rank);
+            });
+        });
+
+        // Mobile nav toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Nav scroll
+        window.addEventListener('scroll', () => {
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Load all data and then members
+        loadGuildRanks().then(() => {
+            fetchGuildMembers();
+        });
+    </script>
+</body>
+</html>

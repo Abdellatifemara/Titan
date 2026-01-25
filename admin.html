@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | TITAN Guild</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="titan logo png.png">
+    <style>
+        .admin-page { padding-top: 70px; min-height: 100vh; }
+
+        /* Login Screen */
+        .login-screen {
+            min-height: calc(100vh - 70px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 40px;
+            width: 100%;
+            max-width: 360px;
+            text-align: center;
+        }
+        .login-box img { width: 80px; margin-bottom: 20px; }
+        .login-box h2 { color: var(--horde-red-light); margin-bottom: 8px; font-size: 1.5rem; }
+        .login-box p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
+        .login-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .login-input:focus { outline: none; border-color: var(--horde-red); }
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--horde-red);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .login-btn:hover { background: var(--horde-red-dark); }
+        .login-error { color: #ef5350; font-size: 0.85rem; margin-top: 12px; display: none; }
+
+        /* Admin Panel */
+        .admin-panel { display: none; padding: 24px; }
+        .admin-panel.active { display: block; }
+
+        .admin-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .admin-tab {
+            padding: 10px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .admin-tab:hover { background: var(--bg-tertiary); }
+        .admin-tab.active { background: var(--horde-red); border-color: var(--horde-red); color: white; }
+
+        .admin-section { display: none; }
+        .admin-section.active { display: block; }
+
+        .admin-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        .admin-card h3 {
+            color: var(--horde-red-light);
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+
+        /* Raid List */
+        .raid-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+        .raid-item-info h4 { color: var(--text-primary); font-size: 1rem; }
+        .raid-item-info p { color: var(--text-muted); font-size: 0.85rem; }
+        .raid-item-actions { display: flex; gap: 8px; }
+        .raid-item-actions button {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-upload { background: var(--horde-red); color: white; }
+        .btn-upload:hover { background: var(--horde-red-dark); }
+
+        /* Form */
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 8px; }
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 12px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+        .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--horde-red); }
+        .form-textarea { min-height: 120px; font-family: monospace; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+        /* Log Upload */
+        .log-upload-box {
+            border: 2px dashed var(--border-subtle);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .log-upload-box:hover { border-color: var(--horde-red); }
+        .log-upload-box svg { width: 48px; height: 48px; color: var(--text-muted); margin-bottom: 12px; }
+        .log-upload-box h4 { color: var(--text-primary); margin-bottom: 4px; }
+        .log-upload-box p { color: var(--text-muted); font-size: 0.85rem; }
+
+        .log-link-input {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .log-link-input input { flex: 1; }
+
+        .success-msg {
+            padding: 16px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid #22c55e;
+            border-radius: 8px;
+            color: #22c55e;
+            text-align: center;
+            margin-top: 16px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="titan logo png.png" alt="Titan Logo" class="nav-logo">
+                <span class="nav-title">TITAN</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="raids.html" class="nav-link">Raids</a></li>
+                <li><a href="guild.html" class="nav-link">Guild</a></li>
+                <li><a href="top-parsers.html" class="nav-link">Top Parsers</a></li>
+                <li><a href="bis.html" class="nav-link">BiS List</a></li>
+                <li><a href="guides.html" class="nav-link">Guides</a></li>
+                <li><a href="join.html" class="nav-link">Join</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="join.html" class="btn btn-primary">Join Guild</a>
+            </div>
+            <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <div class="admin-page">
+        <!-- Login Screen -->
+        <div class="login-screen" id="loginScreen">
+            <div class="login-box">
+                <img src="titan logo png.png" alt="TITAN">
+                <h2>Admin Panel</h2>
+                <p>Enter password to continue</p>
+                <input type="password" class="login-input" id="passwordInput" placeholder="Password" onkeypress="if(event.key==='Enter')login()">
+                <button class="login-btn" onclick="login()">Login</button>
+                <div class="login-error" id="loginError">Wrong password</div>
+            </div>
+        </div>
+
+        <!-- Admin Panel -->
+        <div class="admin-panel container" id="adminPanel">
+            <div class="admin-tabs">
+                <button class="admin-tab active" onclick="showTab('raids')">Raids</button>
+                <button class="admin-tab" onclick="showTab('add-raid')">Add New Raid</button>
+                <button class="admin-tab" onclick="showTab('upload-logs')">Upload UwU Logs</button>
+                <button class="admin-tab" onclick="showTab('roster')">Manage Roster</button>
+                <button class="admin-tab" onclick="showTab('loot')">Add Loot</button>
+            </div>
+
+            <!-- Raids Tab -->
+            <div class="admin-section active" id="raids-tab">
+                <div class="admin-card">
+                    <h3>Manage Raids</h3>
+
+                    <div class="raid-item">
+                        <div class="raid-item-info">
+                            <h4>ICC 25 LoD - Jan 24, 2026</h4>
+                            <p>25 players | Heroic | Waawaa healing</p>
+                        </div>
+                        <div class="raid-item-actions">
+                            <button class="btn-upload" onclick="showLogUpload('20260124')">Upload Log</button>
+                        </div>
+                    </div>
+
+                    <div class="raid-item">
+                        <div class="raid-item-info">
+                            <h4>ICC 25 LoD - Jan 23, 2026</h4>
+                            <p>25 players | Heroic | Waawaa tanking</p>
+                        </div>
+                        <div class="raid-item-actions">
+                            <button class="btn-upload" onclick="showLogUpload('20260123')">Upload Log</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Raid Tab -->
+            <div class="admin-section" id="add-raid-tab">
+                <div class="admin-card">
+                    <h3>Add New Raid</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Raid Type</label>
+                            <select class="form-select" id="newRaidType">
+                                <option value="icc25">ICC 25 LoD</option>
+                                <option value="rs25">RS 25</option>
+                                <option value="togc25">ToGC 25</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Difficulty</label>
+                            <select class="form-select" id="newRaidDiff">
+                                <option value="heroic">Heroic</option>
+                                <option value="normal">Normal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Date</label>
+                            <input type="date" class="form-input" id="newRaidDate">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Time (ST)</label>
+                            <input type="time" class="form-input" id="newRaidTime" value="20:30">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Paste Roster from Raid Helper</label>
+                        <textarea class="form-textarea" id="newRaidRoster" placeholder="-Tanks-
+:DK: Death Knight Tank - @PlayerName
+:Protection: Prot Paladin - @PlayerName
+
+-Meele Dps-
+..."></textarea>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="addRaid()">Add Raid</button>
+                    <div class="success-msg" id="addRaidSuccess">Raid added successfully! Edit raids.html to display it.</div>
+                </div>
+            </div>
+
+            <!-- Upload Logs Tab -->
+            <div class="admin-section" id="upload-logs-tab">
+                <div class="admin-card">
+                    <h3>Add UwU Log Link for DPS Rankings</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;">
+                        Paste UwU-logs.xyz links to add to the boss rankings database. The system will automatically
+                        fetch and update best DPS records if new bests are found.
+                    </p>
+
+                    <div class="form-group">
+                        <label class="form-label">UwU-logs.xyz Link</label>
+                        <div class="log-link-input">
+                            <input type="url" class="form-input" id="uwuLogLink" placeholder="https://uwu-logs.xyz/reports/26-01-25--20-30--Waawaa--Icecrown/">
+                            <button class="btn btn-primary" onclick="addLogLink()">Add Log</button>
+                        </div>
+                        <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 8px;">
+                            Format: https://uwu-logs.xyz/reports/YY-MM-DD--HH-MM--CharacterName--Icecrown/
+                        </p>
+                    </div>
+
+                    <div class="success-msg" id="logAddSuccess">Log added to queue! Run the fetch script to update rankings.</div>
+
+                    <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border-subtle);">
+                        <h4 style="color: var(--text-secondary); margin-bottom: 16px;">Queued Log Links</h4>
+                        <div id="queuedLogs" style="font-size: 0.85rem; color: var(--text-muted); max-height: 200px; overflow-y: auto;">
+                            No logs queued.
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border-subtle);">
+                        <h4 style="color: var(--text-secondary); margin-bottom: 16px;">Bulk Add Logs</h4>
+                        <div class="form-group">
+                            <label class="form-label">Paste Multiple UwU Log Links (one per line)</label>
+                            <textarea class="form-textarea" id="bulkLogLinks" placeholder="https://uwu-logs.xyz/reports/26-01-25--20-30--Waawaa--Icecrown/
+https://uwu-logs.xyz/reports/26-01-24--21-00--Waawaa--Icecrown/
+..."></textarea>
+                        </div>
+                        <button class="btn btn-secondary" onclick="addBulkLogs()">Add All Logs</button>
+                    </div>
+
+                    <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border-subtle);">
+                        <h4 style="color: var(--text-secondary); margin-bottom: 12px;">Current Rankings Status</h4>
+                        <div id="rankingsStatus" style="font-size: 0.85rem; color: var(--text-muted);">
+                            Loading...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Roster Management Tab -->
+            <div class="admin-section" id="roster-tab">
+                <div class="admin-card">
+                    <h3>Manage Guild Roster</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;">
+                        Update the guild roster by pasting data from Warmane Armory or manually adding members.
+                    </p>
+
+                    <div class="form-group">
+                        <label class="form-label">Paste Roster Data (JSON format from guild-data.js)</label>
+                        <textarea class="form-textarea" id="rosterPasteData" style="min-height: 200px; font-family: monospace; font-size: 0.8rem;" placeholder="Paste the staticMembers array content here...
+Example:
+{ name: 'Waawaa', class: 'Priest', level: 80, rank: 0 },
+{ name: 'Waawaasap', class: 'Shaman', level: 80, rank: 1 },
+..."></textarea>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="updateRoster()">Update Roster</button>
+                    <div class="success-msg" id="rosterUpdateSuccess">Roster data updated! Copy the output below to guild-data.js</div>
+
+                    <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-subtle);">
+                        <h4 style="color: var(--text-secondary); margin-bottom: 16px;">Current Roster Stats</h4>
+                        <div id="rosterStats" style="font-size: 0.85rem; color: var(--text-muted);">
+                            Loading...
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 24px;">
+                        <h4 style="color: var(--text-secondary); margin-bottom: 12px;">Quick Add Member</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Character Name</label>
+                                <input type="text" class="form-input" id="newMemberName" placeholder="e.g., Waawaa">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Class</label>
+                                <select class="form-select" id="newMemberClass">
+                                    <option value="Death Knight">Death Knight</option>
+                                    <option value="Druid">Druid</option>
+                                    <option value="Hunter">Hunter</option>
+                                    <option value="Mage">Mage</option>
+                                    <option value="Paladin">Paladin</option>
+                                    <option value="Priest">Priest</option>
+                                    <option value="Rogue">Rogue</option>
+                                    <option value="Shaman">Shaman</option>
+                                    <option value="Warlock">Warlock</option>
+                                    <option value="Warrior">Warrior</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Level</label>
+                                <input type="number" class="form-input" id="newMemberLevel" value="80" min="1" max="80">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Rank (0=GM, 1=Officer, 4=Member)</label>
+                                <input type="number" class="form-input" id="newMemberRank" value="4" min="0" max="9">
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary" onclick="addMember()">Add Member</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Loot Tab -->
+            <div class="admin-section" id="loot-tab">
+                <div class="admin-card">
+                    <h3>Add Loot Entry</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;">Add items distributed during raids. Data is stored in browser localStorage.</p>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Item Name</label>
+                            <input type="text" class="form-input" id="lootItemName" placeholder="e.g., Bryntroll, the Bone Arbiter">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Wowhead Item ID</label>
+                            <input type="number" class="form-input" id="lootItemId" placeholder="e.g., 50709">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Player Name</label>
+                            <input type="text" class="form-input" id="lootPlayer" placeholder="e.g., Waawaa">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Player Class</label>
+                            <select class="form-select" id="lootClass">
+                                <option value="dk">Death Knight</option>
+                                <option value="druid">Druid</option>
+                                <option value="hunter">Hunter</option>
+                                <option value="mage">Mage</option>
+                                <option value="paladin">Paladin</option>
+                                <option value="priest">Priest</option>
+                                <option value="rogue">Rogue</option>
+                                <option value="shaman">Shaman</option>
+                                <option value="warlock">Warlock</option>
+                                <option value="warrior">Warrior</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Raid</label>
+                            <select class="form-select" id="lootRaid">
+                                <option value="icc">ICC 25 HC</option>
+                                <option value="rs">RS 25 HC</option>
+                                <option value="togc">ToGC 25</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Date</label>
+                            <input type="date" class="form-input" id="lootDate">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Item Quality</label>
+                        <select class="form-select" id="lootQuality">
+                            <option value="epic">Epic (Purple)</option>
+                            <option value="legendary">Legendary (Orange)</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="addLoot()">Add Loot Entry</button>
+                    <div class="success-msg" id="lootAddSuccess">Loot entry added! View it on the Loot History page.</div>
+
+                    <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-subtle);">
+                        <h4 style="color: var(--text-secondary); margin-bottom: 12px;">Recent Entries</h4>
+                        <div id="recentLoot" style="font-size: 0.85rem; color: var(--text-muted);">
+                            Loading...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p>&copy; 2026 T I T A N Guild. Warmane Icecrown.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple password check (change this password!)
+        const ADMIN_PASSWORD = 'titan2026';
+
+        function login() {
+            const pwd = document.getElementById('passwordInput').value;
+            if (pwd === ADMIN_PASSWORD) {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('adminPanel').classList.add('active');
+                localStorage.setItem('titanAdmin', 'true');
+            } else {
+                document.getElementById('loginError').style.display = 'block';
+            }
+        }
+
+        // Check if already logged in
+        if (localStorage.getItem('titanAdmin') === 'true') {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('adminPanel').classList.add('active');
+        }
+
+        function showTab(tabId) {
+            document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+
+            event.target.classList.add('active');
+            document.getElementById(tabId + '-tab').classList.add('active');
+        }
+
+        function showLogUpload(raidId) {
+            showTab('upload-logs');
+            document.getElementById('logRaidSelect').value = raidId;
+            document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.admin-tab')[2].classList.add('active');
+        }
+
+        async function addRaid() {
+            const date = document.getElementById('newRaidDate').value;
+            const raidType = document.getElementById('newRaidType').value;
+            const difficulty = document.getElementById('newRaidDiff').value;
+            const roster = document.getElementById('newRaidRoster').value;
+
+            if (!date) {
+                alert('Please select a date');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/raids', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Admin-Password': ADMIN_PASSWORD
+                    },
+                    body: JSON.stringify({
+                        date: date,
+                        raidName: raidType === 'icc25' ? 'ICC 25 HC' : raidType === 'rs25' ? 'RS 25 HC' : 'ToGC 25',
+                        bossKills: 12,
+                        compositionText: roster,
+                        notes: difficulty
+                    })
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    document.getElementById('addRaidSuccess').style.display = 'block';
+                    document.getElementById('newRaidRoster').value = '';
+                    setTimeout(() => {
+                        document.getElementById('addRaidSuccess').style.display = 'none';
+                    }, 5000);
+                    loadRaids();
+                } else {
+                    alert('Error: ' + result.error);
+                }
+            } catch (error) {
+                alert('Error adding raid: ' + error.message);
+            }
+        }
+
+        async function loadRaids() {
+            try {
+                const response = await fetch('/api/raids');
+                const data = await response.json();
+                // Update raids display
+            } catch (error) {
+                console.error('Error loading raids:', error);
+            }
+        }
+
+        // Log Link Management
+        function getLogQueue() {
+            const stored = localStorage.getItem('titanLogQueue');
+            return stored ? JSON.parse(stored) : [];
+        }
+
+        function saveLogQueue(queue) {
+            localStorage.setItem('titanLogQueue', JSON.stringify(queue));
+        }
+
+        async function addLogLink() {
+            const link = document.getElementById('uwuLogLink').value.trim();
+
+            if (!link || !link.includes('uwu-logs.xyz')) {
+                alert('Please enter a valid UwU-logs.xyz link');
+                return;
+            }
+
+            // Show loading state
+            const btn = event.target;
+            btn.disabled = true;
+            btn.textContent = 'Parsing...';
+
+            try {
+                const response = await fetch('/api/parse-uwu', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Admin-Password': ADMIN_PASSWORD
+                    },
+                    body: JSON.stringify({ logUrl: link })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    document.getElementById('uwuLogLink').value = '';
+                    document.getElementById('logAddSuccess').textContent =
+                        `Log parsed! ${result.updates.length} new records found.`;
+                    document.getElementById('logAddSuccess').style.display = 'block';
+
+                    // Show updates
+                    if (result.updates.length > 0) {
+                        let updateText = 'New records:\\n';
+                        result.updates.slice(0, 5).forEach(u => {
+                            updateText += `${u.boss}: ${u.new.player} (${u.new.class}) - ${u.new.dps} DPS\\n`;
+                        });
+                        if (result.updates.length > 5) {
+                            updateText += `...and ${result.updates.length - 5} more`;
+                        }
+                        alert(updateText);
+                    }
+
+                    setTimeout(() => {
+                        document.getElementById('logAddSuccess').style.display = 'none';
+                    }, 5000);
+
+                    loadRankingsStatus();
+                } else {
+                    alert('Error: ' + result.error);
+                }
+            } catch (error) {
+                // Fallback to queue mode if server not running
+                const queue = getLogQueue();
+                if (!queue.includes(link)) {
+                    queue.push(link);
+                    saveLogQueue(queue);
+                    document.getElementById('uwuLogLink').value = '';
+                    document.getElementById('logAddSuccess').textContent =
+                        'Server not running. Log added to queue for later processing.';
+                    document.getElementById('logAddSuccess').style.display = 'block';
+                    displayQueuedLogs();
+                } else {
+                    alert('This log is already in the queue!');
+                }
+            }
+
+            btn.disabled = false;
+            btn.textContent = 'Add Log';
+        }
+
+        function addBulkLogs() {
+            const text = document.getElementById('bulkLogLinks').value.trim();
+            if (!text) {
+                alert('Please paste some log links');
+                return;
+            }
+
+            const links = text.split('\n').map(l => l.trim()).filter(l => l.includes('uwu-logs.xyz'));
+            if (links.length === 0) {
+                alert('No valid UwU-logs.xyz links found');
+                return;
+            }
+
+            const queue = getLogQueue();
+            let added = 0;
+
+            links.forEach(link => {
+                if (!queue.includes(link)) {
+                    queue.push(link);
+                    added++;
+                }
+            });
+
+            saveLogQueue(queue);
+            document.getElementById('bulkLogLinks').value = '';
+            alert(`Added ${added} new logs to queue (${links.length - added} duplicates skipped)`);
+            displayQueuedLogs();
+        }
+
+        function displayQueuedLogs() {
+            const queue = getLogQueue();
+            const container = document.getElementById('queuedLogs');
+
+            if (queue.length === 0) {
+                container.innerHTML = 'No logs queued.';
+                return;
+            }
+
+            container.innerHTML = queue.map((link, idx) => {
+                const logId = link.split('/reports/')[1]?.replace(/\/$/, '') || 'Unknown';
+                return `<div style="padding: 6px 0; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between;">
+                    <span>${idx + 1}. ${logId}</span>
+                    <button onclick="removeLog(${idx})" style="background: none; border: none; color: var(--horde-red); cursor: pointer; font-size: 0.8rem;">Remove</button>
+                </div>`;
+            }).join('');
+        }
+
+        function removeLog(idx) {
+            const queue = getLogQueue();
+            queue.splice(idx, 1);
+            saveLogQueue(queue);
+            displayQueuedLogs();
+        }
+
+        async function loadRankingsStatus() {
+            try {
+                const response = await fetch('data/top-parsers.json');
+                const data = await response.json();
+                const bossCount = Object.keys(data.dps || {}).length;
+                document.getElementById('rankingsStatus').innerHTML = `
+                    <p>Total logs analyzed: ${data.totalLogs || 0}</p>
+                    <p>Date range: ${data.dateRange?.from || 'N/A'} to ${data.dateRange?.to || 'N/A'}</p>
+                    <p>Last updated: ${data.generated ? new Date(data.generated).toLocaleDateString() : 'Unknown'}</p>
+                    <p>Bosses tracked: ${bossCount}</p>
+                `;
+            } catch (error) {
+                document.getElementById('rankingsStatus').innerHTML = `<p style="color: var(--horde-red);">Error loading status: ${error.message}</p>`;
+            }
+        }
+
+        // Roster Management
+        function updateRoster() {
+            const data = document.getElementById('rosterPasteData').value.trim();
+            if (!data) {
+                alert('Please paste roster data');
+                return;
+            }
+
+            document.getElementById('rosterUpdateSuccess').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('rosterUpdateSuccess').style.display = 'none';
+            }, 5000);
+        }
+
+        function addMember() {
+            const name = document.getElementById('newMemberName').value.trim();
+            const cls = document.getElementById('newMemberClass').value;
+            const level = parseInt(document.getElementById('newMemberLevel').value);
+            const rank = parseInt(document.getElementById('newMemberRank').value);
+
+            if (!name) {
+                alert('Please enter a character name');
+                return;
+            }
+
+            const memberStr = `{ name: '${name}', class: '${cls}', level: ${level}, rank: ${rank} }`;
+            alert(`Add this to guild-data.js:\n\n${memberStr}`);
+
+            document.getElementById('newMemberName').value = '';
+        }
+
+        // Loot Management
+        function getLootData() {
+            const stored = localStorage.getItem('titanLoot');
+            return stored ? JSON.parse(stored) : [];
+        }
+
+        function saveLootData(data) {
+            localStorage.setItem('titanLoot', JSON.stringify(data));
+        }
+
+        function addLoot() {
+            const item = document.getElementById('lootItemName').value.trim();
+            const itemId = document.getElementById('lootItemId').value.trim();
+            const player = document.getElementById('lootPlayer').value.trim();
+            const playerClass = document.getElementById('lootClass').value;
+            const raid = document.getElementById('lootRaid').value;
+            const date = document.getElementById('lootDate').value;
+            const quality = document.getElementById('lootQuality').value;
+
+            if (!item || !player || !date) {
+                alert('Please fill in Item Name, Player, and Date');
+                return;
+            }
+
+            const lootData = getLootData();
+            lootData.unshift({
+                item: item,
+                itemId: itemId ? parseInt(itemId) : 0,
+                player: player,
+                class: playerClass,
+                raid: raid,
+                date: date,
+                quality: quality
+            });
+            saveLootData(lootData);
+
+            // Clear form
+            document.getElementById('lootItemName').value = '';
+            document.getElementById('lootItemId').value = '';
+            document.getElementById('lootPlayer').value = '';
+
+            // Show success
+            document.getElementById('lootAddSuccess').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('lootAddSuccess').style.display = 'none';
+            }, 5000);
+
+            // Refresh recent entries
+            displayRecentLoot();
+        }
+
+        function displayRecentLoot() {
+            const lootData = getLootData();
+            const container = document.getElementById('recentLoot');
+
+            if (lootData.length === 0) {
+                container.innerHTML = 'No loot entries yet.';
+                return;
+            }
+
+            const recent = lootData.slice(0, 5);
+            container.innerHTML = recent.map(l =>
+                `<div style="padding: 8px 0; border-bottom: 1px solid var(--border-subtle);">
+                    <strong>${l.item}</strong> → ${l.player} (${l.raid.toUpperCase()}) - ${l.date}
+                </div>`
+            ).join('');
+        }
+
+        // Initialize on page load
+        if (document.getElementById('recentLoot')) {
+            displayRecentLoot();
+        }
+        if (document.getElementById('queuedLogs')) {
+            displayQueuedLogs();
+        }
+        if (document.getElementById('rankingsStatus')) {
+            loadRankingsStatus();
+        }
+
+        // Mobile nav toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        window.addEventListener('scroll', () => {
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+</body>
+</html>
