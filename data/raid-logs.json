@@ -1,6 +1,52 @@
 {
   "raids": [
     {
+      "id": "1737907200000",
+      "date": "2026-01-26",
+      "raidName": "ICC 25 HC LOD 6.2 + GS",
+      "startTime": "17:00 ST",
+      "bossKills": 12,
+      "logUrl": "https://uwu-logs.xyz/reports/26-01-26--17-41--Caelestis--Icecrown/",
+      "composition": {
+        "tanks": [
+          { "name": "Chagra", "class": "Death Knight", "spec": "Blood" },
+          { "name": "Waawaa", "class": "Paladin", "spec": "Protection" }
+        ],
+        "melee": [
+          { "name": "Halo", "class": "Death Knight", "spec": "Unholy" },
+          { "name": "CEIFADOR", "class": "Warrior", "spec": "Fury" },
+          { "name": "CannabisZL", "class": "Warrior", "spec": "Fury" },
+          { "name": "Verdinho", "class": "Warrior", "spec": "Fury" },
+          { "name": "Neonate", "class": "Warrior", "spec": "Fury" },
+          { "name": "Croma", "class": "Death Knight", "spec": "Frost" },
+          { "name": "TryXer", "class": "Paladin", "spec": "Retribution" },
+          { "name": "Yea", "class": "Paladin", "spec": "Retribution" },
+          { "name": "IcyThunder", "class": "Rogue", "spec": "Combat" },
+          { "name": "Arius", "class": "Rogue", "spec": "Combat" },
+          { "name": "Capivara", "class": "Druid", "spec": "Feral" }
+        ],
+        "ranged": [
+          { "name": "Chibz", "class": "Druid", "spec": "Balance" },
+          { "name": "Sensei", "class": "Druid", "spec": "Balance" },
+          { "name": "Oldmb", "class": "Druid", "spec": "Balance" },
+          { "name": "Ndm", "class": "Hunter", "spec": "Marksmanship" },
+          { "name": "Snip", "class": "Hunter", "spec": "Marksmanship" },
+          { "name": "Icecoldop", "class": "Mage", "spec": "Fire" },
+          { "name": "rf", "class": "Mage", "spec": "Fire" },
+          { "name": "Paadron", "class": "Warlock", "spec": "Demonology" },
+          { "name": "Mbc", "class": "Priest", "spec": "Shadow" },
+          { "name": "ATreff", "class": "Priest", "spec": "Shadow" }
+        ],
+        "healers": [
+          { "name": "Harpia", "class": "Paladin", "spec": "Holy" },
+          { "name": "Bartu", "class": "Priest", "spec": "Discipline" },
+          { "name": "Goldhope", "class": "Shaman", "spec": "Restoration" }
+        ]
+      },
+      "notes": "Bring your flasks",
+      "createdAt": "2026-01-26T17:00:00.000Z"
+    },
+    {
       "id": "1737820800000",
       "date": "2026-01-25",
       "raidName": "ICC 25 HC LOD 6.2 + GS",
