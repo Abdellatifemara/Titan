@@ -565,12 +565,17 @@
             <!-- Guides/Addons Tab -->
             <div class="admin-section" id="guides-tab">
                 <div class="admin-card">
-                    <h3>Manage Guides, Addons & WeakAuras</h3>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                        <h3 style="margin-bottom: 0;">Manage Addons & WeakAuras</h3>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn btn-primary" onclick="loadGuides()">Refresh</button>
+                            <button class="btn btn-secondary" onclick="seedGuides()" style="background: #8b5cf6;">Sync Default Data</button>
+                        </div>
+                    </div>
 
                     <div class="filter-buttons" style="margin-bottom: 20px;">
                         <button class="filter-btn active" onclick="switchGuideType('addons', this)">Addons</button>
                         <button class="filter-btn" onclick="switchGuideType('weakauras', this)">WeakAuras</button>
-                        <button class="filter-btn" onclick="switchGuideType('guides', this)">Guides</button>
                     </div>
 
                     <div style="padding: 20px; background: var(--bg-tertiary); border-radius: 8px; margin-bottom: 20px;">
@@ -578,17 +583,12 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label class="form-label">Name</label>
-                                <input type="text" class="form-input" id="newGuideName" placeholder="e.g., DBM, WeakAuras">
+                                <input type="text" class="form-input" id="newGuideName" placeholder="e.g., Fury Warrior, DBM-Warmane">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Category</label>
                                 <select class="form-select" id="newGuideCategory">
-                                    <option value="Essential">Essential</option>
-                                    <option value="Raiding">Raiding</option>
-                                    <option value="UI">UI</option>
-                                    <option value="Class">Class Specific</option>
-                                    <option value="Utility">Utility</option>
-                                    <option value="Optional">Optional</option>
+                                    <!-- Options set dynamically based on type -->
                                 </select>
                             </div>
                         </div>
@@ -597,18 +597,19 @@
                             <input type="text" class="form-input" id="newGuideDesc" placeholder="Brief description...">
                         </div>
                         <div class="form-group">
-                            <label class="form-label">URL (optional)</label>
-                            <input type="url" class="form-input" id="newGuideUrl" placeholder="https://...">
+                            <label class="form-label">URL (Wago.io link or GitHub)</label>
+                            <input type="url" class="form-input" id="newGuideUrl" placeholder="https://wago.io/... or https://github.com/...">
+                        </div>
+                        <div class="form-group" id="importStringGroup">
+                            <label class="form-label">WeakAura Import String (paste the long string here)</label>
+                            <textarea class="form-textarea" id="newGuideContent" placeholder="!WA:2!... (paste the full WeakAura import string)" style="min-height: 100px; font-family: monospace; font-size: 0.8rem;"></textarea>
+                            <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 4px;">If provided, users can copy directly from the website without visiting Wago</p>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Content/Import String (optional)</label>
-                            <textarea class="form-textarea" id="newGuideContent" placeholder="For WeakAuras, paste the import string here..."></textarea>
+                            <label class="form-label">Priority (higher = shown first, e.g., 100 for important)</label>
+                            <input type="number" class="form-input" id="newGuidePriority" value="50" min="0" max="100">
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Priority (higher = shown first)</label>
-                            <input type="number" class="form-input" id="newGuidePriority" value="0" min="0" max="100">
-                        </div>
-                        <button class="btn btn-primary" onclick="addGuide()">Add</button>
+                        <button class="btn btn-primary" onclick="addGuide()">Add <span id="addGuideTypeLabel">Addon</span></button>
                         <div class="success-msg" id="addGuideSuccess">Added successfully!</div>
                         <div class="error-msg" id="addGuideError"></div>
                     </div>
@@ -1462,16 +1463,63 @@
         let currentGuideType = 'addons';
         let allGuides = [];
 
+        const addonCategories = ['Required', 'Recommended', 'Collection', 'Utility'];
+        const waCategories = ['DPS', 'Healer', 'Tank', 'ICC Boss', 'Utility', 'Raid Leader'];
+
         function switchGuideType(type, btn) {
             currentGuideType = type;
             document.querySelectorAll('#guides-tab .filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            const labels = { addons: 'Addon', weakauras: 'WeakAura', guides: 'Guide' };
+            const labels = { addons: 'Addon', weakauras: 'WeakAura' };
             document.getElementById('guideTypeLabel').textContent = labels[type] || 'Item';
+            document.getElementById('addGuideTypeLabel').textContent = labels[type] || 'Item';
+
+            // Update category dropdown
+            const categorySelect = document.getElementById('newGuideCategory');
+            const categories = type === 'weakauras' ? waCategories : addonCategories;
+            categorySelect.innerHTML = categories.map(c => `<option value="${c}">${c}</option>`).join('');
+
+            // Show/hide import string field
+            const importGroup = document.getElementById('importStringGroup');
+            if (importGroup) {
+                importGroup.style.display = type === 'weakauras' ? 'block' : 'none';
+            }
 
             loadGuides();
         }
+
+        async function seedGuides() {
+            if (!confirm('This will reset addons and weakauras to default data. Continue?')) return;
+
+            try {
+                const response = await fetch('/api/seed-guides', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Admin-Password': ADMIN_PASSWORD
+                    }
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    alert(`Synced! ${result.addons} addons and ${result.weakauras} weakauras loaded.`);
+                    loadGuides();
+                } else {
+                    alert('Error: ' + result.error);
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+
+        // Initialize categories on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const categorySelect = document.getElementById('newGuideCategory');
+            if (categorySelect) {
+                categorySelect.innerHTML = addonCategories.map(c => `<option value="${c}">${c}</option>`).join('');
+            }
+        });
 
         async function loadGuides() {
             const container = document.getElementById('guidesList');
@@ -1492,23 +1540,52 @@
             const container = document.getElementById('guidesList');
 
             if (items.length === 0) {
-                container.innerHTML = '<div class="empty-state"><p>No items found. Add your first one!</p></div>';
+                container.innerHTML = '<div class="empty-state"><p>No items found. Click "Sync Default Data" to load initial data, or add your own!</p></div>';
                 return;
             }
 
-            container.innerHTML = items.map(item => `
-                <div class="raid-item">
-                    <div class="raid-item-info">
-                        <h4>${item.name}</h4>
-                        <p>${item.category} ${item.description ? `| ${item.description}` : ''} ${item.url ? '| Has URL' : ''}</p>
-                    </div>
-                    <div class="raid-item-actions">
-                        ${item.url ? `<a href="${item.url}" target="_blank" class="btn-parse" style="text-decoration: none;">Open</a>` : ''}
-                        <button class="btn-edit" onclick="editGuide('${item.id}')">Edit</button>
-                        <button class="btn-delete" onclick="deleteGuide('${item.id}')">Remove</button>
-                    </div>
-                </div>
-            `).join('');
+            // Group by category
+            const groups = {};
+            items.forEach(item => {
+                const cat = item.category || 'General';
+                if (!groups[cat]) groups[cat] = [];
+                groups[cat].push(item);
+            });
+
+            let html = `<p style="color: var(--text-muted); margin-bottom: 16px;">Total: ${items.length} items</p>`;
+
+            Object.keys(groups).sort().forEach(category => {
+                html += `<h4 style="color: var(--horde-red-light); margin: 16px 0 8px 0; font-size: 0.9rem;">${category} (${groups[category].length})</h4>`;
+                groups[category].forEach((item, idx) => {
+                    const hasContent = item.content && item.content.length > 10;
+                    const actualIndex = items.findIndex(i => i.id === item.id);
+                    html += `
+                        <div class="raid-item">
+                            <div class="raid-item-info">
+                                <h4>${item.name} ${hasContent ? '<span style="color: #22c55e; font-size: 0.7rem; background: rgba(34,197,94,0.2); padding: 2px 6px; border-radius: 4px;">HAS IMPORT</span>' : ''}</h4>
+                                <p>${item.description || ''} ${item.url ? '| Has URL' : ''}</p>
+                            </div>
+                            <div class="raid-item-actions">
+                                ${item.url ? `<a href="${item.url}" target="_blank" class="btn-parse" style="text-decoration: none;">Open</a>` : ''}
+                                <button class="btn-edit" onclick="editGuideByIndex(${actualIndex})">Edit</button>
+                                <button class="btn-delete" onclick="deleteGuideByIndex(${actualIndex})">Remove</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            });
+
+            container.innerHTML = html;
+        }
+
+        function editGuideByIndex(index) {
+            const item = allGuides[index];
+            if (item) editGuide(item.id);
+        }
+
+        function deleteGuideByIndex(index) {
+            const item = allGuides[index];
+            if (item) deleteGuide(item.id);
         }
 
         async function addGuide() {

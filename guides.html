@@ -208,87 +208,8 @@
 
             <!-- ADDONS SECTION -->
             <div class="guide-section active" id="addons">
-                <h3 class="section-title">Required for Raids</h3>
-                <div class="addon-list">
-                    <div class="addon-item required">
-                        <div class="addon-item-info">
-                            <h4>DBM-Warmane <span class="addon-tag">REQUIRED</span></h4>
-                            <p>Boss timers & alerts optimized for Warmane. By Zidras - the most maintained version for private servers.</p>
-                        </div>
-                        <a href="https://github.com/Zidras/DBM-Warmane" target="_blank" class="btn btn-primary">GitHub</a>
-                    </div>
-                    <div class="addon-item required">
-                        <div class="addon-item-info">
-                            <h4>WeakAuras WotLK <span class="addon-tag">REQUIRED</span></h4>
-                            <p>Custom alerts, buff tracking, cooldown displays. Backported for 3.3.5 by Bunny67.</p>
-                        </div>
-                        <a href="https://github.com/Bunny67/WeakAuras-WotLK" target="_blank" class="btn btn-primary">GitHub</a>
-                    </div>
-                </div>
-
-                <h3 class="section-title">Recommended Addons</h3>
-                <div class="addon-list">
-                    <div class="addon-item">
-                        <div class="addon-item-info">
-                            <h4>Details! Damage Meter</h4>
-                            <p>Advanced combat analysis - DPS, healing, deaths, interrupts. Better than Recount.</p>
-                        </div>
-                        <a href="https://github.com/Tersjansen/Details-WotLK-3.3.5a" target="_blank" class="btn btn-secondary">GitHub</a>
-                    </div>
-                    <div class="addon-item">
-                        <div class="addon-item-info">
-                            <h4>Omen Threat Meter</h4>
-                            <p>Real-time threat tracking. Essential for tanks and DPS to manage aggro.</p>
-                        </div>
-                        <a href="https://github.com/NoM0Re/WoW-3.3.5a-Addons/tree/main/Omen" target="_blank" class="btn btn-secondary">GitHub</a>
-                    </div>
-                    <div class="addon-item">
-                        <div class="addon-item-info">
-                            <h4>GTFO</h4>
-                            <p>Loud alert when standing in fire/void zones. Simple but saves lives.</p>
-                        </div>
-                        <a href="https://github.com/NoM0Re/WoW-3.3.5a-Addons/tree/main/GTFO" target="_blank" class="btn btn-secondary">GitHub</a>
-                    </div>
-                    <div class="addon-item">
-                        <div class="addon-item-info">
-                            <h4>Decursive</h4>
-                            <p>One-click dispelling for healers. Shows raid frames with dispellable debuffs.</p>
-                        </div>
-                        <a href="https://github.com/NoM0Re/WoW-3.3.5a-Addons/tree/main/Decursive" target="_blank" class="btn btn-secondary">GitHub</a>
-                    </div>
-                    <div class="addon-item">
-                        <div class="addon-item-info">
-                            <h4>AtlasLoot Enhanced</h4>
-                            <p>In-game loot browser for all dungeons/raids. Plan your BiS gear.</p>
-                        </div>
-                        <a href="https://github.com/NoM0Re/WoW-3.3.5a-Addons/tree/main/AtlasLoot" target="_blank" class="btn btn-secondary">GitHub</a>
-                    </div>
-                    <div class="addon-item">
-                        <div class="addon-item-info">
-                            <h4>Quartz</h4>
-                            <p>Casting bar replacement with latency display. Better cast timing.</p>
-                        </div>
-                        <a href="https://github.com/NoM0Re/WoW-3.3.5a-Addons/tree/main/Quartz" target="_blank" class="btn btn-secondary">GitHub</a>
-                    </div>
-                </div>
-
-                <h3 class="section-title">UI Packs & Collections</h3>
-                <div class="addon-list">
-                    <div class="addon-item">
-                        <div class="addon-item-info">
-                            <h4>Complete 3.3.5 Addon Collection</h4>
-                            <p>NoM0Re's GitHub - 500+ working addons for WotLK. Most reliable source.</p>
-                        </div>
-                        <a href="https://github.com/NoM0Re/WoW-3.3.5a-Addons" target="_blank" class="btn btn-secondary">GitHub</a>
-                    </div>
-                    <div class="addon-item">
-                        <div class="addon-item-info">
-                            <h4>ElvUI WotLK</h4>
-                            <p>Complete UI replacement. Clean, modern look with built-in raid frames.</p>
-                        </div>
-                        <a href="https://github.com/ElvUI-WotLK/ElvUI" target="_blank" class="btn btn-secondary">GitHub</a>
-                    </div>
-                </div>
+                <div id="addons-loading" style="text-align: center; padding: 40px; color: var(--text-muted);">Loading addons...</div>
+                <div id="addons-content"></div>
 
                 <h3 class="section-title">Download Sites</h3>
                 <div class="addon-list">
@@ -333,82 +254,13 @@
             <div class="guide-section" id="weakauras">
                 <h3 class="section-title">How to Import WeakAuras</h3>
                 <div class="install-box">
-                    <p><strong>1.</strong> Install WeakAuras addon (link above)</p>
-                    <p><strong>2.</strong> Click a link below to open wago.io</p>
-                    <p><strong>3.</strong> Click "Copy WeakAura Import String" on wago.io</p>
-                    <p><strong>4.</strong> In-game type <code style="display: inline; margin: 0;">/wa</code> → Import → Paste</p>
+                    <p><strong>1.</strong> Install WeakAuras addon (link in Addons tab)</p>
+                    <p><strong>2.</strong> Click "Wago" to open wago.io OR click "Copy" to copy import string directly</p>
+                    <p><strong>3.</strong> In-game type <code style="display: inline; margin: 0;">/wa</code> → Import → Paste</p>
                 </div>
 
-                <h3 class="section-title">DPS WeakAuras</h3>
-                <div class="wa-grid">
-                    <div class="wa-item"><span class="wa-name">Fury Warrior</span><a href="https://wago.io/B8vu1dbWs" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Combat Rogue</span><a href="https://wago.io/Y_5G9r2BW" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Assassination Rogue</span><a href="https://wago.io/8s4Gq4SFh" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Retribution Paladin</span><a href="https://wago.io/KTLaxIexq" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Feral Druid</span><a href="https://wago.io/ooV04rqhr" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Balance Druid</span><a href="https://wago.io/zk8HoTVUO" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Frost DK</span><a href="https://wago.io/vZ6gs9AbY" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Unholy DK</span><a href="https://wago.io/TLuemnuHk" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">MM Hunter</span><a href="https://wago.io/ZMUpgFthJ" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Survival Hunter</span><a href="https://wago.io/v3rbkAFQT" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Fire Mage</span><a href="https://wago.io/XoTCW-6Xu" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Arcane Mage</span><a href="https://wago.io/ztT6Y9iiR" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Shadow Priest</span><a href="https://wago.io/FpGvSvCHs" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Elemental Shaman</span><a href="https://wago.io/hHlPFqUkN" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Enhancement Shaman</span><a href="https://wago.io/ICX5AgEe-" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Affliction Warlock</span><a href="https://wago.io/33IiwDQBa" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Demonology Warlock</span><a href="https://wago.io/qmCwAwwq4" target="_blank" class="wa-link">Open</a></div>
-                </div>
-
-                <h3 class="section-title">Healer WeakAuras</h3>
-                <div class="wa-grid">
-                    <div class="wa-item"><span class="wa-name">Holy Paladin</span><a href="https://wago.io/oseX5OcMM" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Restoration Shaman</span><a href="https://wago.io/RE167IifA" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Restoration Druid</span><a href="https://wago.io/t3-D2Mz-b" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Holy Priest</span><a href="https://wago.io/eBFEumA9g" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Discipline Priest</span><a href="https://wago.io/sDOpoBE2x" target="_blank" class="wa-link">Open</a></div>
-                </div>
-
-                <h3 class="section-title">Tank WeakAuras</h3>
-                <div class="wa-grid">
-                    <div class="wa-item"><span class="wa-name">Blood DK</span><a href="https://wago.io/K4uULEVMm" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Protection Paladin</span><a href="https://wago.io/yutPnI6XZ" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Protection Warrior</span><a href="https://wago.io/s6dh6x9lg" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Feral Bear</span><a href="https://wago.io/HfLKWSqVs" target="_blank" class="wa-link">Open</a></div>
-                </div>
-
-                <h3 class="section-title">ICC Boss Mechanics</h3>
-                <div class="wa-grid">
-                    <div class="wa-item"><span class="wa-name">Lord Marrowgar</span><a href="https://wago.io/dQbfvrPZB" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Lady Deathwhisper</span><a href="https://wago.io/hCmpAg_4c" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Professor Putricide</span><a href="https://wago.io/i_gNzIyXV" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Blood Prince Council</span><a href="https://wago.io/HfeFMeWZp" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Sindragosa</span><a href="https://wago.io/FHcSSJrPq" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Lich King</span><a href="https://wago.io/Qu55hX34Y" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">ICC Core Library</span><a href="https://wago.io/4Ed4K2AbB" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">ICC Assistance Pack</span><a href="https://wago.io/q9-VKiMvh" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Infest Counter</span><a href="https://wago.io/ZEswMWPxg" target="_blank" class="wa-link">Open</a></div>
-                </div>
-
-                <h3 class="section-title">Utility WeakAuras</h3>
-                <div class="wa-grid">
-                    <div class="wa-item"><span class="wa-name">Combat Text</span><a href="https://wago.io/dKkmIbovp" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Item ICDs & Procs</span><a href="https://wago.io/V1ibZh8G9" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Damage Reduction Suite</span><a href="https://wago.io/vVdzG1c3y" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Power Infusion Assistant</span><a href="https://wago.io/86orn5eUe" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Raid Buffs Reminder</span><a href="https://wago.io/21mE5Z33B" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Boss Swing Timer</span><a href="https://wago.io/oHVnqP5rj" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Simple Stats</span><a href="https://wago.io/IgOXJw9DS" target="_blank" class="wa-link">Open</a></div>
-                </div>
-
-                <h3 class="section-title">Raid Leader WeakAuras</h3>
-                <div class="wa-grid">
-                    <div class="wa-item"><span class="wa-name">Raid Cooldowns (Dep)</span><a href="https://wago.io/hInmmxY9k" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Raid Cooldowns (Main)</span><a href="https://wago.io/TPMuElKHh" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Raid Target Markers</span><a href="https://wago.io/MVNfKD7TF" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Master Loot WA</span><a href="https://wago.io/DqzZxB0io" target="_blank" class="wa-link">Open</a></div>
-                    <div class="wa-item"><span class="wa-name">Healer Mana Assistant</span><a href="https://wago.io/PJhr9f7bo" target="_blank" class="wa-link">Open</a></div>
-                </div>
+                <div id="weakauras-loading" style="text-align: center; padding: 40px; color: var(--text-muted);">Loading WeakAuras...</div>
+                <div id="weakauras-content"></div>
             </div>
 
             <!-- CONSUMABLES SECTION -->
@@ -501,6 +353,142 @@
         window.addEventListener('scroll', () => {
             document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
         });
+
+        // Load Addons from API
+        async function loadAddons() {
+            try {
+                const response = await fetch('/api/guides?type=addons');
+                const data = await response.json();
+                const addons = data.items || [];
+
+                document.getElementById('addons-loading').style.display = 'none';
+
+                if (addons.length === 0) {
+                    document.getElementById('addons-content').innerHTML = '<p style="color: var(--text-muted);">No addons found.</p>';
+                    return;
+                }
+
+                // Group by category
+                const groups = {};
+                addons.forEach(addon => {
+                    const cat = addon.category || 'General';
+                    if (!groups[cat]) groups[cat] = [];
+                    groups[cat].push(addon);
+                });
+
+                // Define category order
+                const categoryOrder = ['Required', 'Recommended', 'Collection', 'General'];
+                const sortedCategories = Object.keys(groups).sort((a, b) => {
+                    const aIdx = categoryOrder.indexOf(a);
+                    const bIdx = categoryOrder.indexOf(b);
+                    return (aIdx === -1 ? 999 : aIdx) - (bIdx === -1 ? 999 : bIdx);
+                });
+
+                let html = '';
+                sortedCategories.forEach(category => {
+                    const isRequired = category === 'Required';
+                    html += `<h3 class="section-title">${category} Addons</h3>`;
+                    html += '<div class="addon-list">';
+                    groups[category].forEach(addon => {
+                        html += `
+                            <div class="addon-item ${isRequired ? 'required' : ''}">
+                                <div class="addon-item-info">
+                                    <h4>${addon.name} ${isRequired ? '<span class="addon-tag">REQUIRED</span>' : ''}</h4>
+                                    <p>${addon.description || ''}</p>
+                                </div>
+                                ${addon.url ? `<a href="${addon.url}" target="_blank" class="btn ${isRequired ? 'btn-primary' : 'btn-secondary'}">Download</a>` : ''}
+                            </div>
+                        `;
+                    });
+                    html += '</div>';
+                });
+
+                document.getElementById('addons-content').innerHTML = html;
+            } catch (error) {
+                document.getElementById('addons-loading').innerHTML = '<p style="color: #ef4444;">Failed to load addons</p>';
+            }
+        }
+
+        // Load WeakAuras from API
+        async function loadWeakAuras() {
+            try {
+                const response = await fetch('/api/guides?type=weakauras');
+                const data = await response.json();
+                const weakauras = data.items || [];
+
+                document.getElementById('weakauras-loading').style.display = 'none';
+
+                if (weakauras.length === 0) {
+                    document.getElementById('weakauras-content').innerHTML = '<p style="color: var(--text-muted);">No WeakAuras found.</p>';
+                    return;
+                }
+
+                // Group by category
+                const groups = {};
+                weakauras.forEach(wa => {
+                    const cat = wa.category || 'General';
+                    if (!groups[cat]) groups[cat] = [];
+                    groups[cat].push(wa);
+                });
+
+                // Define category order
+                const categoryOrder = ['DPS', 'Healer', 'Tank', 'ICC Boss', 'Utility', 'Raid Leader', 'General'];
+                const sortedCategories = Object.keys(groups).sort((a, b) => {
+                    const aIdx = categoryOrder.indexOf(a);
+                    const bIdx = categoryOrder.indexOf(b);
+                    return (aIdx === -1 ? 999 : aIdx) - (bIdx === -1 ? 999 : bIdx);
+                });
+
+                let html = '';
+                sortedCategories.forEach(category => {
+                    html += `<h3 class="section-title">${category} WeakAuras</h3>`;
+                    html += '<div class="wa-grid">';
+                    groups[category].forEach(wa => {
+                        const hasContent = wa.content && wa.content.length > 10;
+                        html += `
+                            <div class="wa-item">
+                                <span class="wa-name">${wa.name}</span>
+                                <div style="display: flex; gap: 4px;">
+                                    ${hasContent ? `<button class="wa-link" style="background: #22c55e;" onclick="copyWA('${wa.id}')">Copy</button>` : ''}
+                                    ${wa.url ? `<a href="${wa.url}" target="_blank" class="wa-link">Wago</a>` : ''}
+                                </div>
+                            </div>
+                        `;
+                    });
+                    html += '</div>';
+                });
+
+                document.getElementById('weakauras-content').innerHTML = html;
+
+                // Store WA data for copy function
+                window.waData = weakauras;
+            } catch (error) {
+                document.getElementById('weakauras-loading').innerHTML = '<p style="color: #ef4444;">Failed to load WeakAuras</p>';
+            }
+        }
+
+        // Copy WeakAura import string
+        function copyWA(waId) {
+            const wa = window.waData?.find(w => w.id === waId);
+            if (wa && wa.content) {
+                navigator.clipboard.writeText(wa.content).then(() => {
+                    alert('WeakAura import string copied! Paste it in-game with /wa → Import');
+                }).catch(() => {
+                    // Fallback for older browsers
+                    const textarea = document.createElement('textarea');
+                    textarea.value = wa.content;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    alert('WeakAura import string copied!');
+                });
+            }
+        }
+
+        // Load data on page load
+        loadAddons();
+        loadWeakAuras();
     </script>
 </body>
 </html>
