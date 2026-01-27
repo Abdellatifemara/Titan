@@ -11,191 +11,106 @@
     <link rel="icon" type="image/png" href="titan logo png.png">
     <style>
         .raids-page { padding-top: 70px; min-height: 100vh; }
+        .raid-history { display: flex; flex-direction: column; gap: 16px; }
 
-        .raid-history { display: flex; flex-direction: column; gap: 24px; }
-
-        .raid-entry {
+        .raid-card {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .raid-entry-header {
+            padding: 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 16px 20px;
-            background: linear-gradient(135deg, rgba(196, 31, 59, 0.1), transparent);
-            border-bottom: 1px solid var(--border-subtle);
-            cursor: pointer;
+            gap: 16px;
+            transition: all 0.2s;
         }
-        .raid-entry-header:hover { background: linear-gradient(135deg, rgba(196, 31, 59, 0.15), transparent); }
+        .raid-card:hover { border-color: var(--horde-red); }
 
-        .raid-entry-title {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .raid-entry-title h3 {
-            font-size: 1.2rem;
+        .raid-info h3 {
             color: var(--horde-red-light);
+            font-size: 1.1rem;
+            margin-bottom: 6px;
         }
+        .raid-meta {
+            display: flex;
+            gap: 16px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+        }
+        .raid-meta span { display: flex; align-items: center; gap: 6px; }
+
         .raid-badge {
+            display: inline-block;
             padding: 3px 10px;
             border-radius: 4px;
             font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
+            margin-left: 8px;
         }
+        .raid-badge.completed { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
         .raid-badge.heroic { background: rgba(168, 85, 247, 0.2); color: #a855f7; }
 
-        .raid-entry-meta {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-        .raid-entry-meta span { display: flex; align-items: center; gap: 6px; }
-        .raid-entry-meta svg { width: 14px; height: 14px; }
-
-        .raid-entry-toggle {
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-tertiary);
-            border-radius: 6px;
-            color: var(--text-muted);
-            transition: transform 0.2s;
-        }
-        .raid-entry.expanded .raid-entry-toggle { transform: rotate(180deg); }
-
-        .raid-entry-body {
-            display: none;
-            padding: 20px;
-        }
-        .raid-entry.expanded .raid-entry-body { display: block; }
-
-        /* Roster Grid */
-        .roster-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-        }
-        @media (max-width: 900px) { .roster-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 600px) {
-            .raid-entry-header { flex-direction: column; align-items: flex-start; gap: 12px; }
-            .raid-entry-meta { flex-wrap: wrap; gap: 10px; }
-            .discord-cta { flex-direction: column; text-align: center; }
-        }
-        @media (max-width: 500px) { .roster-grid { grid-template-columns: 1fr; } }
-
-        .roster-column {
-            background: var(--bg-tertiary);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .roster-column-header {
-            padding: 10px 12px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .roster-column-header svg { width: 14px; height: 14px; }
-        .roster-column-header.tanks { background: rgba(79, 195, 247, 0.15); color: #4fc3f7; }
-        .roster-column-header.melee { background: rgba(239, 83, 80, 0.15); color: #ef5350; }
-        .roster-column-header.ranged { background: rgba(239, 83, 80, 0.15); color: #ef5350; }
-        .roster-column-header.healers { background: rgba(102, 187, 106, 0.15); color: #66bb6a; }
-
-        .roster-column-body { padding: 10px 12px; }
-        .roster-player {
-            font-size: 0.85rem;
-            padding: 4px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .roster-player .spec { font-size: 0.75rem; opacity: 0.7; }
-        .roster-player-icon {
-            width: 20px;
-            height: 20px;
-            min-width: 20px;
-            min-height: 20px;
-            border-radius: 4px;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
-        /* Class colors - text color with subtle matching background */
-        .class-dk { color: #C41F3B; background: rgba(196, 31, 59, 0.15); padding: 2px 6px; border-radius: 4px; }
-        .class-paladin { color: #F58CBA; background: rgba(245, 140, 186, 0.15); padding: 2px 6px; border-radius: 4px; }
-        .class-warrior { color: #C79C6E; background: rgba(199, 156, 110, 0.15); padding: 2px 6px; border-radius: 4px; }
-        .class-rogue { color: #FFF569; background: rgba(255, 245, 105, 0.15); padding: 2px 6px; border-radius: 4px; }
-        .class-druid { color: #FF7D0A; background: rgba(255, 125, 10, 0.15); padding: 2px 6px; border-radius: 4px; }
-        .class-hunter { color: #ABD473; background: rgba(171, 212, 115, 0.15); padding: 2px 6px; border-radius: 4px; }
-        .class-mage { color: #69CCF0; background: rgba(105, 204, 240, 0.15); padding: 2px 6px; border-radius: 4px; }
-        .class-warlock { color: #9482C9; background: rgba(148, 130, 201, 0.15); padding: 2px 6px; border-radius: 4px; }
-        .class-priest { color: #FFFFFF; background: rgba(255, 255, 255, 0.1); padding: 2px 6px; border-radius: 4px; }
-        .class-shaman { color: #0070DE; background: rgba(0, 112, 222, 0.15); padding: 2px 6px; border-radius: 4px; }
-
-        /* UwU Log Section */
-        .uwu-log-section {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-subtle);
-        }
-        .uwu-log-section h4 {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .uwu-log-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+        .raid-actions { display: flex; gap: 8px; flex-shrink: 0; }
+        .raid-link {
             padding: 8px 16px;
-            background: rgba(196, 31, 59, 0.1);
-            border: 1px solid var(--horde-red);
+            background: var(--horde-red);
+            color: white;
             border-radius: 6px;
-            color: var(--horde-red-light);
             font-size: 0.85rem;
-            transition: all 0.2s;
+            font-weight: 600;
+            text-decoration: none;
         }
-        .uwu-log-link:hover { background: var(--horde-red); color: white; }
-
-        .uwu-placeholder {
-            padding: 16px;
+        .raid-link:hover { background: var(--horde-red-dark); }
+        .raid-link.secondary {
             background: var(--bg-tertiary);
-            border-radius: 8px;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
+            color: var(--text-secondary);
         }
+        .raid-link.secondary:hover { background: var(--bg-card); color: var(--text-primary); }
 
-        /* Discord CTA */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+        }
+        .stat-value { font-size: 1.8rem; font-weight: 700; color: var(--horde-red-light); }
+        .stat-label { font-size: 0.8rem; color: var(--text-muted); }
+
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: var(--text-muted);
+        }
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border-subtle);
+            border-top-color: var(--horde-red);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
         .discord-cta {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 16px;
-            padding: 20px;
-            background: linear-gradient(135deg, rgba(88, 101, 242, 0.15), transparent);
-            border: 1px solid rgba(88, 101, 242, 0.3);
+            justify-content: space-between;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
             border-radius: 12px;
-            margin-top: 32px;
+            padding: 20px;
+            margin-top: 24px;
         }
-        .discord-cta p { color: var(--text-secondary); font-size: 0.95rem; }
-        .discord-cta strong { color: #5865F2; }
         .discord-btn {
             display: inline-flex;
             align-items: center;
@@ -205,90 +120,35 @@
             color: white;
             font-weight: 600;
             border-radius: 8px;
+            text-decoration: none;
         }
         .discord-btn:hover { background: #4752c4; }
         .discord-btn svg { width: 18px; height: 18px; }
 
-        /* Top Parses Section */
-        .top-parses {
+        .filter-bar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 8px 16px;
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 24px;
-        }
-        .top-parses-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 16px;
-        }
-        .top-parses-header h3 {
-            font-size: 1.1rem;
-            color: var(--horde-red-light);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .top-parses-header a {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-decoration: none;
-        }
-        .top-parses-header a:hover { color: var(--horde-red-light); }
-        .parses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
-        }
-        .parse-card {
-            background: var(--bg-tertiary);
-            border-radius: 8px;
-            padding: 12px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .parse-rank {
-            width: 32px;
-            height: 32px;
             border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.85rem;
         }
-        .parse-rank.gold { background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000; }
-        .parse-rank.silver { background: linear-gradient(135deg, #c0c0c0, #808080); color: #000; }
-        .parse-rank.bronze { background: linear-gradient(135deg, #cd7f32, #8b4513); color: #fff; }
-        .parse-info { flex: 1; min-width: 0; }
-        .parse-name {
-            font-weight: 600;
-            font-size: 0.9rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        .filter-btn:hover { background: var(--bg-tertiary); }
+        .filter-btn.active { background: var(--horde-red); border-color: var(--horde-red); color: white; }
+
+        @media (max-width: 600px) {
+            .raid-card { flex-direction: column; align-items: flex-start; }
+            .raid-actions { width: 100%; }
+            .raid-link { flex: 1; text-align: center; }
+            .discord-cta { flex-direction: column; text-align: center; gap: 12px; }
         }
-        .parse-details {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            display: flex;
-            gap: 8px;
-        }
-        .parse-dps {
-            font-weight: 700;
-            color: var(--horde-red-light);
-        }
-        .parse-link {
-            padding: 4px 8px;
-            background: rgba(196, 31, 59, 0.1);
-            border: 1px solid var(--horde-red);
-            border-radius: 4px;
-            font-size: 0.7rem;
-            color: var(--horde-red-light);
-        }
-        .parse-link:hover { background: var(--horde-red); color: white; }
     </style>
 </head>
 <body>
@@ -318,386 +178,43 @@
         <div class="page-header">
             <div class="container">
                 <h1>Raid History</h1>
-                <p>Past raids with rosters and logs</p>
+                <p>Past raids with UwU logs</p>
             </div>
         </div>
 
         <div class="container" style="padding: 24px 0;">
-
-            <div class="raid-history">
-
-                <!-- Raid: Jan 26, 2026 -->
-                <div class="raid-entry expanded" data-raid="20260126">
-                    <div class="raid-entry-header" onclick="toggleRaid(this)">
-                        <div class="raid-entry-title">
-                            <h3>ICC 25 HC LOD 6.2 + GS</h3>
-                            <span class="raid-badge heroic">Heroic</span>
-                        </div>
-                        <div class="raid-entry-meta">
-                            <span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                                Jan 26, 2026 - 17:00 ST
-                            </span>
-                            <span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                                25 players
-                            </span>
-                        </div>
-                        <div class="raid-entry-toggle">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                        </div>
-                    </div>
-                    <div class="raid-entry-body">
-                        <div class="roster-grid">
-                            <div class="roster-column">
-                                <div class="roster-column-header tanks">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-                                    Tanks (2)
-                                </div>
-                                <div class="roster-column-body">
-                                    <div class="roster-player"><img src="icons/deathknight.png" alt="" class="roster-player-icon"><span class="class-dk">Chagra</span> <span class="spec">Blood DK</span></div>
-                                    <div class="roster-player"><img src="icons/paladin.png" alt="" class="roster-player-icon"><span class="class-paladin">Waawaa</span> <span class="spec">Prot</span></div>
-                                </div>
-                            </div>
-                            <div class="roster-column">
-                                <div class="roster-column-header melee">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
-                                    Melee (11)
-                                </div>
-                                <div class="roster-column-body">
-                                    <div class="roster-player"><img src="icons/deathknight.png" alt="" class="roster-player-icon"><span class="class-dk">Halo</span> <span class="spec">Unholy</span></div>
-                                    <div class="roster-player"><img src="icons/warrior.png" alt="" class="roster-player-icon"><span class="class-warrior">CEIFADOR</span> <span class="spec">Fury</span></div>
-                                    <div class="roster-player"><img src="icons/warrior.png" alt="" class="roster-player-icon"><span class="class-warrior">CannabisZL</span> <span class="spec">Fury</span></div>
-                                    <div class="roster-player"><img src="icons/warrior.png" alt="" class="roster-player-icon"><span class="class-warrior">Verdinho</span> <span class="spec">Fury</span></div>
-                                    <div class="roster-player"><img src="icons/warrior.png" alt="" class="roster-player-icon"><span class="class-warrior">Neonate</span> <span class="spec">Fury</span></div>
-                                    <div class="roster-player"><img src="icons/deathknight.png" alt="" class="roster-player-icon"><span class="class-dk">Croma</span> <span class="spec">Frost</span></div>
-                                    <div class="roster-player"><img src="icons/paladin.png" alt="" class="roster-player-icon"><span class="class-paladin">TryXer</span> <span class="spec">Ret</span></div>
-                                    <div class="roster-player"><img src="icons/paladin.png" alt="" class="roster-player-icon"><span class="class-paladin">Yea</span> <span class="spec">Ret</span></div>
-                                    <div class="roster-player"><img src="icons/rogue.png" alt="" class="roster-player-icon"><span class="class-rogue">IcyThunder</span> <span class="spec">Combat</span></div>
-                                    <div class="roster-player"><img src="icons/rogue.png" alt="" class="roster-player-icon"><span class="class-rogue">Arius</span> <span class="spec">Combat</span></div>
-                                    <div class="roster-player"><img src="icons/druid.png" alt="" class="roster-player-icon"><span class="class-druid">Capivara</span> <span class="spec">Feral</span></div>
-                                </div>
-                            </div>
-                            <div class="roster-column">
-                                <div class="roster-column-header ranged">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
-                                    Ranged (10)
-                                </div>
-                                <div class="roster-column-body">
-                                    <div class="roster-player"><img src="icons/druid.png" alt="" class="roster-player-icon"><span class="class-druid">Chibz</span> <span class="spec">Boomkin</span></div>
-                                    <div class="roster-player"><img src="icons/druid.png" alt="" class="roster-player-icon"><span class="class-druid">Sensei</span> <span class="spec">Boomkin</span></div>
-                                    <div class="roster-player"><img src="icons/druid.png" alt="" class="roster-player-icon"><span class="class-druid">Oldmb</span> <span class="spec">Boomkin</span></div>
-                                    <div class="roster-player"><img src="icons/hunter.png" alt="" class="roster-player-icon"><span class="class-hunter">Ndm</span> <span class="spec">MM</span></div>
-                                    <div class="roster-player"><img src="icons/hunter.png" alt="" class="roster-player-icon"><span class="class-hunter">Snip</span> <span class="spec">MM</span></div>
-                                    <div class="roster-player"><img src="icons/mage.png" alt="" class="roster-player-icon"><span class="class-mage">Icecoldop</span> <span class="spec">Fire</span></div>
-                                    <div class="roster-player"><img src="icons/mage.png" alt="" class="roster-player-icon"><span class="class-mage">rf</span> <span class="spec">Fire</span></div>
-                                    <div class="roster-player"><img src="icons/warlock.png" alt="" class="roster-player-icon"><span class="class-warlock">Paadron</span> <span class="spec">Demo</span></div>
-                                    <div class="roster-player"><img src="icons/priest.png" alt="" class="roster-player-icon"><span class="class-priest">Mbc</span> <span class="spec">Shadow</span></div>
-                                    <div class="roster-player"><img src="icons/priest.png" alt="" class="roster-player-icon"><span class="class-priest">ATreff</span> <span class="spec">Shadow</span></div>
-                                </div>
-                            </div>
-                            <div class="roster-column">
-                                <div class="roster-column-header healers">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
-                                    Healers (3)
-                                </div>
-                                <div class="roster-column-body">
-                                    <div class="roster-player"><img src="icons/paladin.png" alt="" class="roster-player-icon"><span class="class-paladin">Harpia</span> <span class="spec">Holy</span></div>
-                                    <div class="roster-player"><img src="icons/priest.png" alt="" class="roster-player-icon"><span class="class-priest">Bartu</span> <span class="spec">Disc</span></div>
-                                    <div class="roster-player"><img src="icons/shaman.png" alt="" class="roster-player-icon"><span class="class-shaman">Goldhope</span> <span class="spec">Resto</span></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="uwu-log-section">
-                            <h4>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                                UwU Logs
-                            </h4>
-                            <a href="https://uwu-logs.xyz/reports/26-01-26--17-41--Caelestis--Icecrown/" target="_blank" class="uwu-log-link">View Full Log on UwU Logs</a>
-                        </div>
-                    </div>
+            <div class="stats-bar" id="statsBar">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalRaids">-</div>
+                    <div class="stat-label">Total Raids</div>
                 </div>
-
-                <!-- Raid: Jan 25, 2026 -->
-                <div class="raid-entry" data-raid="20260125">
-                    <div class="raid-entry-header" onclick="toggleRaid(this)">
-                        <div class="raid-entry-title">
-                            <h3>ICC 25 HC LOD 6.2 + GS</h3>
-                            <span class="raid-badge heroic">Heroic</span>
-                        </div>
-                        <div class="raid-entry-meta">
-                            <span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                                Jan 25, 2026 - 16:30 ST
-                            </span>
-                            <span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                                25 players
-                            </span>
-                        </div>
-                        <div class="raid-entry-toggle">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                        </div>
-                    </div>
-                    <div class="raid-entry-body">
-                        <div class="roster-grid">
-                            <div class="roster-column">
-                                <div class="roster-column-header tanks">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-                                    Tanks (2)
-                                </div>
-                                <div class="roster-column-body">
-                                    <div class="roster-player"><img src="icons/deathknight.png" alt="" class="roster-player-icon"><span class="class-dk">Kredoring</span> <span class="spec">Blood DK</span></div>
-                                    <div class="roster-player"><img src="icons/paladin.png" alt="" class="roster-player-icon"><span class="class-paladin">Chagra</span> <span class="spec">Prot</span></div>
-                                </div>
-                            </div>
-                            <div class="roster-column">
-                                <div class="roster-column-header melee">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
-                                    Melee (9)
-                                </div>
-                                <div class="roster-column-body">
-                                    <div class="roster-player"><img src="icons/deathknight.png" alt="" class="roster-player-icon"><span class="class-dk">Bartu</span> <span class="spec">Unholy</span></div>
-                                    <div class="roster-player"><img src="icons/warrior.png" alt="" class="roster-player-icon"><span class="class-warrior">Penatrated</span> <span class="spec">Fury</span></div>
-                                    <div class="roster-player"><img src="icons/warrior.png" alt="" class="roster-player-icon"><span class="class-warrior">Oldmb</span> <span class="spec">Fury</span></div>
-                                    <div class="roster-player"><img src="icons/warrior.png" alt="" class="roster-player-icon"><span class="class-warrior">CBDCisJail</span> <span class="spec">Fury</span></div>
-                                    <div class="roster-player"><img src="icons/paladin.png" alt="" class="roster-player-icon"><span class="class-paladin">Hitsu</span> <span class="spec">Ret</span></div>
-                                    <div class="roster-player"><img src="icons/paladin.png" alt="" class="roster-player-icon"><span class="class-paladin">Waawaa</span> <span class="spec">Ret</span></div>
-                                    <div class="roster-player"><img src="icons/rogue.png" alt="" class="roster-player-icon"><span class="class-rogue">Ellenor</span> <span class="spec">Combat</span></div>
-                                    <div class="roster-player"><img src="icons/rogue.png" alt="" class="roster-player-icon"><span class="class-rogue">rf</span> <span class="spec">Combat</span></div>
-                                    <div class="roster-player"><img src="icons/druid.png" alt="" class="roster-player-icon"><span class="class-druid">kaczor</span> <span class="spec">Feral</span></div>
-                                </div>
-                            </div>
-                            <div class="roster-column">
-                                <div class="roster-column-header ranged">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
-                                    Ranged (11)
-                                </div>
-                                <div class="roster-column-body">
-                                    <div class="roster-player"><img src="icons/druid.png" alt="" class="roster-player-icon"><span class="class-druid">Rasta</span> <span class="spec">Boomkin</span></div>
-                                    <div class="roster-player"><img src="icons/druid.png" alt="" class="roster-player-icon"><span class="class-druid">Djubretarka</span> <span class="spec">Boomkin</span></div>
-                                    <div class="roster-player"><img src="icons/hunter.png" alt="" class="roster-player-icon"><span class="class-hunter">Doloriann</span> <span class="spec">MM</span></div>
-                                    <div class="roster-player"><img src="icons/hunter.png" alt="" class="roster-player-icon"><span class="class-hunter">Shatzie</span> <span class="spec">MM</span></div>
-                                    <div class="roster-player"><img src="icons/mage.png" alt="" class="roster-player-icon"><span class="class-mage">Verbalabuse</span> <span class="spec">Fire</span></div>
-                                    <div class="roster-player"><img src="icons/mage.png" alt="" class="roster-player-icon"><span class="class-mage">Tito</span> <span class="spec">Fire</span></div>
-                                    <div class="roster-player"><img src="icons/mage.png" alt="" class="roster-player-icon"><span class="class-mage">Halo</span> <span class="spec">Fire</span></div>
-                                    <div class="roster-player"><img src="icons/mage.png" alt="" class="roster-player-icon"><span class="class-mage">Seerhona</span> <span class="spec">Fire</span></div>
-                                    <div class="roster-player"><img src="icons/warlock.png" alt="" class="roster-player-icon"><span class="class-warlock">Tropyco</span> <span class="spec">Demo</span></div>
-                                    <div class="roster-player"><img src="icons/priest.png" alt="" class="roster-player-icon"><span class="class-priest">Schwepsy</span> <span class="spec">Shadow</span></div>
-                                    <div class="roster-player"><img src="icons/priest.png" alt="" class="roster-player-icon"><span class="class-priest">Xerxei</span> <span class="spec">Shadow</span></div>
-                                </div>
-                            </div>
-                            <div class="roster-column">
-                                <div class="roster-column-header healers">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
-                                    Healers (3)
-                                </div>
-                                <div class="roster-column-body">
-                                    <div class="roster-player"><img src="icons/paladin.png" alt="" class="roster-player-icon"><span class="class-paladin">bral</span> <span class="spec">Holy</span></div>
-                                    <div class="roster-player"><img src="icons/priest.png" alt="" class="roster-player-icon"><span class="class-priest">Arius</span> <span class="spec">Disc</span></div>
-                                    <div class="roster-player"><img src="icons/shaman.png" alt="" class="roster-player-icon"><span class="class-shaman">Paadron</span> <span class="spec">Resto</span></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="uwu-log-section">
-                            <h4>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                                UwU Logs
-                            </h4>
-                            <a href="https://uwu-logs.xyz/reports/26-01-25--10-32--Ellenorqt--Icecrown/" target="_blank" class="uwu-log-link">View Full Log on UwU Logs</a>
-                        </div>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="totalLogs">-</div>
+                    <div class="stat-label">UwU Logs</div>
                 </div>
-
-                <!-- Raid: Jan 24, 2026 -->
-                <div class="raid-entry" data-raid="20260124">
-                    <div class="raid-entry-header" onclick="toggleRaid(this)">
-                        <div class="raid-entry-title">
-                            <h3>ICC 25 LoD</h3>
-                            <span class="raid-badge heroic">Heroic</span>
-                        </div>
-                        <div class="raid-entry-meta">
-                            <span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                                Jan 24, 2026
-                            </span>
-                            <span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                                25 players
-                            </span>
-                        </div>
-                        <div class="raid-entry-toggle">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                        </div>
-                    </div>
-                    <div class="raid-entry-body">
-                        <div class="roster-grid">
-                            <div class="roster-column">
-                                <div class="roster-column-header tanks">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-                                    Tanks (2)
-                                </div>
-                                <div class="roster-column-body">
-                                    <div class="roster-player"><img src="icons/deathknight.png" alt="" class="roster-player-icon"><span class="class-dk">Verbalabuse</span> <span class="spec">Blood DK</span></div>
-                                    <div class="roster-player"><img src="icons/paladin.png" alt="" class="roster-player-icon"><span class="class-paladin">Chambers</span> <span class="spec">Prot</span></div>
-                                </div>
-                            </div>
-                            <div class="roster-column">
-                                <div class="roster-column-header melee">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
-                                    Melee (11)
-                                </div>
-                                <div class="roster-column-body">
-                                    <div class="roster-player"><img src="icons/deathknight.png" alt="" class="roster-player-icon"><span class="class-dk">Novosadista</span> <span class="spec">Unholy</span></div>
-                                    <div class="roster-player"><img src="icons/warrior.png" alt="" class="roster-player-icon"><span class="class-warrior">Schwepsy</span> <span class="spec">Fury</span></div>
-                                    <div class="roster-player"><img src="icons/warrior.png" alt="" class="roster-player-icon"><span class="class-warrior">Oldmb</span> <span class="spec">Fury</span></div>
-                                    <div class="roster-player"><img src="icons/warrior.png" alt="" class="roster-player-icon"><span class="class-warrior">David Rodrigues</span> <span class="spec">Fury</span></div>
-                                    <div class="roster-player"><img src="icons/warrior.png" alt="" class="roster-player-icon"><span class="class-warrior">CBDCisJail</span> <span class="spec">Fury</span></div>
-                                    <div class="roster-player"><img src="icons/paladin.png" alt="" class="roster-player-icon"><span class="class-paladin">TryXer</span> <span class="spec">Ret</span></div>
-                                    <div class="roster-player"><img src="icons/paladin.png" alt="" class="roster-player-icon"><span class="class-paladin">Snip</span> <span class="spec">Ret</span></div>
-                                    <div class="roster-player"><img src="icons/rogue.png" alt="" class="roster-player-icon"><span class="class-rogue">Cylax</span> <span class="spec">Combat</span></div>
-                                    <div class="roster-player"><img src="icons/rogue.png" alt="" class="roster-player-icon"><span class="class-rogue">Brale</span> <span class="spec">Combat</span></div>
-                                    <div class="roster-player"><img src="icons/druid.png" alt="" class="roster-player-icon"><span class="class-druid">Chagra</span> <span class="spec">Feral</span></div>
-                                </div>
-                            </div>
-                            <div class="roster-column">
-                                <div class="roster-column-header ranged">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
-                                    Ranged (11)
-                                </div>
-                                <div class="roster-column-body">
-                                    <div class="roster-player"><img src="icons/druid.png" alt="" class="roster-player-icon"><span class="class-druid">Rileba</span> <span class="spec">Boomkin</span></div>
-                                    <div class="roster-player"><img src="icons/druid.png" alt="" class="roster-player-icon"><span class="class-druid">Shadowko</span> <span class="spec">Boomkin</span></div>
-                                    <div class="roster-player"><img src="icons/druid.png" alt="" class="roster-player-icon"><span class="class-druid">Harpia</span> <span class="spec">Boomkin</span></div>
-                                    <div class="roster-player"><img src="icons/hunter.png" alt="" class="roster-player-icon"><span class="class-hunter">Shatzie</span> <span class="spec">MM</span></div>
-                                    <div class="roster-player"><img src="icons/hunter.png" alt="" class="roster-player-icon"><span class="class-hunter">Ceifador</span> <span class="spec">MM</span></div>
-                                    <div class="roster-player"><img src="icons/mage.png" alt="" class="roster-player-icon"><span class="class-mage">rf</span> <span class="spec">Fire</span></div>
-                                    <div class="roster-player"><img src="icons/mage.png" alt="" class="roster-player-icon"><span class="class-mage">Tito</span> <span class="spec">Fire</span></div>
-                                    <div class="roster-player"><img src="icons/mage.png" alt="" class="roster-player-icon"><span class="class-mage">Latya</span> <span class="spec">Fire</span></div>
-                                    <div class="roster-player"><img src="icons/warlock.png" alt="" class="roster-player-icon"><span class="class-warlock">Xerxei</span> <span class="spec">Demo</span></div>
-                                    <div class="roster-player"><img src="icons/priest.png" alt="" class="roster-player-icon"><span class="class-priest">Strangedude</span> <span class="spec">Shadow</span></div>
-                                    <div class="roster-player"><img src="icons/priest.png" alt="" class="roster-player-icon"><span class="class-priest">Extet</span> <span class="spec">Shadow</span></div>
-                                </div>
-                            </div>
-                            <div class="roster-column">
-                                <div class="roster-column-header healers">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
-                                    Healers (3)
-                                </div>
-                                <div class="roster-column-body">
-                                    <div class="roster-player"><img src="icons/paladin.png" alt="" class="roster-player-icon"><span class="class-paladin">Waawaa</span> <span class="spec">Holy</span></div>
-                                    <div class="roster-player"><img src="icons/priest.png" alt="" class="roster-player-icon"><span class="class-priest">Rasta</span> <span class="spec">Disc</span></div>
-                                    <div class="roster-player"><img src="icons/shaman.png" alt="" class="roster-player-icon"><span class="class-shaman">Paadron</span> <span class="spec">Resto</span></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="uwu-log-section">
-                            <h4>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                                UwU Logs
-                            </h4>
-                            <div class="uwu-placeholder">Logs will be added by Waawaa after the raid</div>
-                        </div>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="iccCount">-</div>
+                    <div class="stat-label">ICC 25 HC</div>
                 </div>
-
-                <!-- Raid: Jan 23, 2026 (Yesterday) -->
-                <div class="raid-entry" data-raid="20260123">
-                    <div class="raid-entry-header" onclick="toggleRaid(this)">
-                        <div class="raid-entry-title">
-                            <h3>ICC 25 LoD</h3>
-                            <span class="raid-badge heroic">Heroic</span>
-                        </div>
-                        <div class="raid-entry-meta">
-                            <span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                                Jan 23, 2026
-                            </span>
-                            <span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                                25 players
-                            </span>
-                        </div>
-                        <div class="raid-entry-toggle">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                        </div>
-                    </div>
-                    <div class="raid-entry-body">
-                        <div class="roster-grid">
-                            <div class="roster-column">
-                                <div class="roster-column-header tanks">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-                                    Tanks (2)
-                                </div>
-                                <div class="roster-column-body">
-                                    <div class="roster-player"><img src="icons/deathknight.png" alt="" class="roster-player-icon"><span class="class-dk">Capivara Com Asa</span> <span class="spec">Blood DK</span></div>
-                                    <div class="roster-player"><img src="icons/paladin.png" alt="" class="roster-player-icon"><span class="class-paladin">Waawaa</span> <span class="spec">Prot</span></div>
-                                </div>
-                            </div>
-                            <div class="roster-column">
-                                <div class="roster-column-header melee">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
-                                    Melee (10)
-                                </div>
-                                <div class="roster-column-body">
-                                    <div class="roster-player"><img src="icons/deathknight.png" alt="" class="roster-player-icon"><span class="class-dk">Disciplineop</span> <span class="spec">Unholy</span></div>
-                                    <div class="roster-player"><img src="icons/warrior.png" alt="" class="roster-player-icon"><span class="class-warrior">Chibz</span> <span class="spec">Fury</span></div>
-                                    <div class="roster-player"><img src="icons/warrior.png" alt="" class="roster-player-icon"><span class="class-warrior">TryXer</span> <span class="spec">Fury</span></div>
-                                    <div class="roster-player"><img src="icons/warrior.png" alt="" class="roster-player-icon"><span class="class-warrior">Snip</span> <span class="spec">Fury</span></div>
-                                    <div class="roster-player"><img src="icons/paladin.png" alt="" class="roster-player-icon"><span class="class-paladin">Brale</span> <span class="spec">Ret</span></div>
-                                    <div class="roster-player"><img src="icons/paladin.png" alt="" class="roster-player-icon"><span class="class-paladin">Schwepsy</span> <span class="spec">Ret</span></div>
-                                    <div class="roster-player"><img src="icons/paladin.png" alt="" class="roster-player-icon"><span class="class-paladin">Paadron</span> <span class="spec">Ret</span></div>
-                                    <div class="roster-player"><img src="icons/rogue.png" alt="" class="roster-player-icon"><span class="class-rogue">Seerhona</span> <span class="spec">Combat</span></div>
-                                    <div class="roster-player"><img src="icons/rogue.png" alt="" class="roster-player-icon"><span class="class-rogue">Tito</span> <span class="spec">Combat</span></div>
-                                    <div class="roster-player"><img src="icons/druid.png" alt="" class="roster-player-icon"><span class="class-druid">Mbc</span> <span class="spec">Feral</span></div>
-                                </div>
-                            </div>
-                            <div class="roster-column">
-                                <div class="roster-column-header ranged">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
-                                    Ranged (10)
-                                </div>
-                                <div class="roster-column-body">
-                                    <div class="roster-player"><img src="icons/druid.png" alt="" class="roster-player-icon"><span class="class-druid">Moonspring</span> <span class="spec">Boomkin</span></div>
-                                    <div class="roster-player"><img src="icons/druid.png" alt="" class="roster-player-icon"><span class="class-druid">Rasta</span> <span class="spec">Boomkin</span></div>
-                                    <div class="roster-player"><img src="icons/hunter.png" alt="" class="roster-player-icon"><span class="class-hunter">Kredoring</span> <span class="spec">MM</span></div>
-                                    <div class="roster-player"><img src="icons/hunter.png" alt="" class="roster-player-icon"><span class="class-hunter">Salic</span> <span class="spec">MM</span></div>
-                                    <div class="roster-player"><img src="icons/mage.png" alt="" class="roster-player-icon"><span class="class-mage">Latya</span> <span class="spec">Fire</span></div>
-                                    <div class="roster-player"><img src="icons/mage.png" alt="" class="roster-player-icon"><span class="class-mage">Cylax</span> <span class="spec">Fire</span></div>
-                                    <div class="roster-player"><img src="icons/mage.png" alt="" class="roster-player-icon"><span class="class-mage">Trigu</span> <span class="spec">Fire</span></div>
-                                    <div class="roster-player"><img src="icons/warlock.png" alt="" class="roster-player-icon"><span class="class-warlock">Chagra</span> <span class="spec">Demo</span></div>
-                                    <div class="roster-player"><img src="icons/priest.png" alt="" class="roster-player-icon"><span class="class-priest">Tropyco</span> <span class="spec">Shadow</span></div>
-                                </div>
-                            </div>
-                            <div class="roster-column">
-                                <div class="roster-column-header healers">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
-                                    Healers (3)
-                                </div>
-                                <div class="roster-column-body">
-                                    <div class="roster-player"><img src="icons/paladin.png" alt="" class="roster-player-icon"><span class="class-paladin">Sensei</span> <span class="spec">Holy</span></div>
-                                    <div class="roster-player"><img src="icons/priest.png" alt="" class="roster-player-icon"><span class="class-priest">Djubretarka</span> <span class="spec">Disc</span></div>
-                                    <div class="roster-player"><img src="icons/shaman.png" alt="" class="roster-player-icon"><span class="class-shaman">rf</span> <span class="spec">Resto</span></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="uwu-log-section">
-                            <h4>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                                UwU Logs
-                            </h4>
-                            <div class="uwu-placeholder">Logs will be added by Waawaa</div>
-                        </div>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="rsCount">-</div>
+                    <div class="stat-label">RS 25 HC</div>
                 </div>
-
             </div>
 
-            <!-- Discord CTA -->
+            <div class="filter-bar">
+                <button class="filter-btn active" onclick="filterRaids('all', this)">All Raids</button>
+                <button class="filter-btn" onclick="filterRaids('ICC', this)">ICC 25 HC</button>
+                <button class="filter-btn" onclick="filterRaids('RS', this)">RS 25 HC</button>
+            </div>
+
+            <div class="raid-history" id="raidHistory">
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading raids...</p>
+                </div>
+            </div>
+
             <div class="discord-cta">
                 <p>Sign up for raids using <strong>Raid Helper</strong> in Discord</p>
                 <a href="https://discord.gg/nYYsxhmA" target="_blank" class="discord-btn">
@@ -719,9 +236,80 @@
     </footer>
 
     <script>
-        function toggleRaid(header) {
-            const entry = header.closest('.raid-entry');
-            entry.classList.toggle('expanded');
+        let allRaids = [];
+
+        async function loadRaids() {
+            try {
+                const response = await fetch('/api/raids');
+                const data = await response.json();
+                allRaids = data.raids || [];
+
+                // Update stats
+                const iccRaids = allRaids.filter(r => r.raidName.includes('ICC'));
+                const rsRaids = allRaids.filter(r => r.raidName.includes('RS'));
+                const logsCount = allRaids.filter(r => r.uwuLogUrl).length;
+
+                document.getElementById('totalRaids').textContent = allRaids.length;
+                document.getElementById('totalLogs').textContent = logsCount;
+                document.getElementById('iccCount').textContent = iccRaids.length;
+                document.getElementById('rsCount').textContent = rsRaids.length;
+
+                displayRaids(allRaids);
+            } catch (error) {
+                document.getElementById('raidHistory').innerHTML = `
+                    <div class="loading">
+                        <p style="color: var(--horde-red);">Error loading raids: ${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        function displayRaids(raids) {
+            const container = document.getElementById('raidHistory');
+
+            if (raids.length === 0) {
+                container.innerHTML = '<div class="loading"><p>No raids found.</p></div>';
+                return;
+            }
+
+            container.innerHTML = raids.map(raid => {
+                const date = new Date(raid.date);
+                const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+                return `
+                    <div class="raid-card">
+                        <div class="raid-info">
+                            <h3>
+                                ${raid.raidName}
+                                <span class="raid-badge heroic">Heroic</span>
+                                <span class="raid-badge completed">Completed</span>
+                            </h3>
+                            <div class="raid-meta">
+                                <span>
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                    ${dateStr}
+                                </span>
+                                ${raid.logger ? `<span>Logger: ${raid.logger}</span>` : ''}
+                                ${raid.notes ? `<span>${raid.notes}</span>` : ''}
+                            </div>
+                        </div>
+                        <div class="raid-actions">
+                            ${raid.uwuLogUrl ? `<a href="${raid.uwuLogUrl}" target="_blank" class="raid-link">View Log</a>` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function filterRaids(type, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            if (type === 'all') {
+                displayRaids(allRaids);
+            } else {
+                displayRaids(allRaids.filter(r => r.raidName.includes(type)));
+            }
         }
 
         // Mobile nav toggle
@@ -733,6 +321,9 @@
         window.addEventListener('scroll', () => {
             document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
         });
+
+        // Load raids on page load
+        loadRaids();
     </script>
 </body>
 </html>
