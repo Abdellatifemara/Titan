@@ -166,12 +166,12 @@ function parseComposition(text) {
     const lines = text.replace(/\r/g, '').split('\n');
     let currentRole = null;
 
-    // Role section markers (case insensitive)
+    // Role section markers (case insensitive) - more lenient matching
     const rolePatterns = {
-        tanks: /^[-:]*\s*(tanks?|tank)\s*[-:]*$/i,
-        melee: /^[-:]*\s*(melee|meele)\s*(dps)?\s*[-:]*$/i,
-        ranged: /^[-:]*\s*(ranged?|range)\s*(dps)?\s*[-:]*$/i,
-        healers: /^[-:]*\s*(healers?|healer|heals?)\s*[-:]*$/i
+        tanks: /[-]*\s*tanks?\s*[-]*/i,
+        melee: /[-]*\s*(melee|meele)\s*(dps)?\s*[-]*/i,
+        ranged: /[-]*\s*(ranged?|range)\s*(dps)?\s*[-]*/i,
+        healers: /[-]*\s*(healers?|healer|heals?)\s*[-]*/i
     };
 
     // Spec to role mapping
@@ -233,11 +233,12 @@ function parseComposition(text) {
 
         const lineLower = trimmed.toLowerCase();
 
-        // Try @mentions first
-        const mentions = trimmed.match(/@(\w+)/g);
+        // Try @mentions first - handle special chars in names
+        const mentions = trimmed.match(/@[\w\[\]\$\(\)]+/g);
         if (mentions) {
             for (const mention of mentions) {
-                const playerName = mention.replace('@', '');
+                // Clean up the name - remove @ and special chars
+                let playerName = mention.replace('@', '').replace(/[\[\]\$\(\)]/g, '');
                 let playerClass = 'Unknown';
                 let detectedRole = currentRole;
 
