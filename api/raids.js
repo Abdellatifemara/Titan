@@ -166,13 +166,15 @@ function parseComposition(text) {
     const lines = text.replace(/\r/g, '').split('\n');
     let currentRole = null;
 
-    // Role section markers (case insensitive) - more lenient matching
-    const rolePatterns = {
-        tanks: /[-]*\s*tanks?\s*[-]*/i,
-        melee: /[-]*\s*(melee|meele)\s*(dps)?\s*[-]*/i,
-        ranged: /[-]*\s*(ranged?|range)\s*(dps)?\s*[-]*/i,
-        healers: /[-]*\s*(healers?|healer|heals?)\s*[-]*/i
-    };
+    // Simple role detection - just look for keywords anywhere in line
+    function detectRoleHeader(line) {
+        const lower = line.toLowerCase();
+        if (lower.includes('tank')) return 'tanks';
+        if (lower.includes('melee') || lower.includes('meele')) return 'melee';
+        if (lower.includes('range')) return 'ranged';
+        if (lower.includes('heal')) return 'healers';
+        return null;
+    }
 
     // Spec to role mapping
     const specRoles = {
@@ -215,16 +217,18 @@ function parseComposition(text) {
         const trimmed = line.trim();
         if (!trimmed) continue;
 
-        // Check for role section headers
-        let isRoleHeader = false;
-        for (const [role, pattern] of Object.entries(rolePatterns)) {
-            if (pattern.test(trimmed)) {
-                currentRole = role;
-                isRoleHeader = true;
-                break;
+        // Check for role section headers (lines starting with - or containing role keywords without @)
+        const hasAtMention = trimmed.includes('@');
+        const startsWithDash = trimmed.startsWith('-');
+
+        // If line starts with dash and has no @mention, it's likely a header
+        if (startsWithDash && !hasAtMention) {
+            const detectedHeader = detectRoleHeader(trimmed);
+            if (detectedHeader) {
+                currentRole = detectedHeader;
+                continue;
             }
         }
-        if (isRoleHeader) continue;
 
         // Try to extract player names - multiple formats supported
         // Format 1: @PlayerName
