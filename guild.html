@@ -448,7 +448,8 @@
     </footer>
 
     <!-- Load member data from external file (831 level 80 members) -->
-    <script src="guild-data.js"></script>
+    <!-- Members loaded from API now -->
+    <script>const staticMembers = [];</script>
     <script src="js/guild-dps.js"></script>
     <script src="js/uwu-scraper.js"></script>
     <script src="js/guild-dps.js"></script>
@@ -528,17 +529,15 @@
         let displayCount = 50; // Initial number of members to display
         const LOAD_MORE_COUNT = 50; // How many more to load each time
 
-        // Static members loaded from guild-data.js (831 level 80 members)
-
-        // Fetch guild members
+        // Fetch guild members from our KV database API
         async function fetchGuildMembers() {
             try {
-                // Try API first (works when hosted, not locally due to CORS)
-                const response = await fetch('https://armory.warmane.com/api/guild/T+I+T+A+N/Icecrown/members');
+                // Load from our KV database API
+                const response = await fetch('/api/members');
                 const data = await response.json();
 
-                if (data && Array.isArray(data)) {
-                    allMembers = data.sort((a, b) => {
+                if (data && data.members && data.members.length > 0) {
+                    allMembers = data.members.sort((a, b) => {
                         if (b.level !== a.level) return b.level - a.level;
                         return a.name.localeCompare(b.name);
                     });
@@ -547,22 +546,32 @@
                     buildClassFilters();
                     renderMembers();
                 } else {
-                    throw new Error('Invalid API response');
+                    throw new Error('No members in database');
                 }
             } catch (error) {
-                console.warn('API failed, using static data:', error.message);
-                // Use static fallback data
-                allMembers = staticMembers.sort((a, b) => {
-                    if (b.level !== a.level) return b.level - a.level;
-                    return a.name.localeCompare(b.name);
-                });
+                console.warn('KV API failed, trying Warmane API:', error.message);
 
-                updateStats();
-                buildClassFilters();
-                renderMembers();
+                // Fallback: try Warmane API directly
+                try {
+                    const warmaneResponse = await fetch('https://armory.warmane.com/api/guild/T+I+T+A+N/Icecrown/members');
+                    const warmaneData = await warmaneResponse.json();
 
-                // Show notice that we're using cached data
-                document.getElementById('memberCount').innerHTML = `${allMembers.length} Raiders <span style="font-size: 0.7rem; color: var(--text-muted);">(cached)</span>`;
+                    if (warmaneData && Array.isArray(warmaneData)) {
+                        allMembers = warmaneData.sort((a, b) => {
+                            if (b.level !== a.level) return b.level - a.level;
+                            return a.name.localeCompare(b.name);
+                        });
+
+                        updateStats();
+                        buildClassFilters();
+                        renderMembers();
+                    } else {
+                        throw new Error('Warmane API failed');
+                    }
+                } catch (e) {
+                    // Final fallback: show error
+                    showError('Could not load members. Please refresh or try later.');
+                }
             }
         }
 
