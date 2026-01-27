@@ -161,90 +161,13 @@
             </div>
 
             <!-- Recent Raids Grid -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-lg);">
-                <!-- Raid 1 - Jan 26 -->
-                <div class="raid-card">
-                    <div class="raid-card-header">
-                        <div class="raid-card-title">
-                            <h3>ICC 25 HC LOD 6.2 + GS</h3>
-                            <span class="raid-difficulty heroic">Heroic</span>
-                        </div>
-                        <div class="raid-meta">
-                            <span class="raid-meta-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                                Jan 26, 2026 - 17:00 ST
-                            </span>
-                        </div>
-                    </div>
-                    <div class="raid-card-body" style="padding: var(--space-md);">
-                        <div style="display: flex; gap: var(--space-lg); flex-wrap: wrap;">
-                            <div style="font-size: 0.85rem;">
-                                <span style="color: var(--text-muted);">Tanks:</span>
-                                <span style="color: #4fc3f7;">Chagra, Waawaa</span>
-                            </div>
-                            <div style="font-size: 0.85rem;">
-                                <span style="color: var(--text-muted);">Healers:</span>
-                                <span style="color: #66bb6a;">Harpia, Bartu, Goldhope</span>
-                            </div>
-                        </div>
-                        <div style="margin-top: var(--space-sm); font-size: 0.85rem; color: var(--text-muted);">
-                            25 players including TryXer, Halo, Oldmb, Paadron...
-                        </div>
-                    </div>
-                    <div class="raid-card-footer">
-                        <a href="raids.html" class="btn btn-secondary btn-sm">View Details</a>
-                    </div>
+            <div id="recentRaidsGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-lg);">
+                <!-- Raids loaded dynamically -->
+                <div class="raid-card" style="display: flex; align-items: center; justify-content: center; min-height: 200px;">
+                    <p style="color: var(--text-muted);">Loading raids...</p>
                 </div>
 
-                <!-- Raid 2 - Jan 25 -->
-                <div class="raid-card">
-                    <div class="raid-card-header">
-                        <div class="raid-card-title">
-                            <h3>ICC 25 LoD</h3>
-                            <span class="raid-difficulty heroic">Heroic</span>
-                        </div>
-                        <div class="raid-meta">
-                            <span class="raid-meta-item">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                                Jan 24, 2026
-                            </span>
-                        </div>
-                    </div>
-                    <div class="raid-card-body" style="padding: var(--space-md);">
-                        <div style="display: flex; gap: var(--space-lg); flex-wrap: wrap;">
-                            <div style="font-size: 0.85rem;">
-                                <span style="color: var(--text-muted);">Tanks:</span>
-                                <span style="color: #4fc3f7;">Verbalabuse, Chambers</span>
-                            </div>
-                            <div style="font-size: 0.85rem;">
-                                <span style="color: var(--text-muted);">Healers:</span>
-                                <span style="color: #66bb6a;">Waawaa, Rasta, Paadron</span>
-                            </div>
-                        </div>
-                        <div style="margin-top: var(--space-sm); font-size: 0.85rem; color: var(--text-muted);">
-                            25 players including Schwepsy, TryXer, Cylax, Rileba...
-                        </div>
-                    </div>
-                    <div class="raid-card-footer">
-                        <a href="raids.html" class="btn btn-secondary btn-sm">View Details</a>
-                    </div>
                 </div>
-
-                <!-- Join CTA Card -->
-                <div class="raid-card" style="background: linear-gradient(135deg, rgba(196,31,59,0.1), var(--bg-card)); border-color: var(--horde-red);">
-                    <div class="raid-card-body" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-height: 200px; padding: var(--space-xl);">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--horde-red-light)" stroke-width="2" style="margin-bottom: var(--space-md);">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                        </svg>
-                        <h3 style="color: var(--horde-red-light); margin-bottom: var(--space-sm);">Join Our Raids</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: var(--space-md);">Sign up via Raid Helper in Discord</p>
-                        <a href="https://discord.gg/nYYsxhmA" target="_blank" class="btn btn-primary">Join Discord</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -374,7 +297,95 @@
             document.querySelector('.nav-links').classList.toggle('active');
         });
 
-        document.addEventListener('DOMContentLoaded', createParticles);
+        // Load recent raids from API
+        async function loadRecentRaids() {
+            const container = document.getElementById('recentRaidsGrid');
+            if (!container) return;
+
+            try {
+                const response = await fetch('/api/raids');
+                const data = await response.json();
+
+                if (data.raids && data.raids.length > 0) {
+                    const raids = data.raids.slice(0, 2); // Get latest 2
+                    let html = '';
+
+                    raids.forEach(raid => {
+                        const date = new Date(raid.date);
+                        const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                        const timeStr = raid.time || '19:00 ST';
+                        const comp = raid.composition || { tanks: [], melee: [], ranged: [], healers: [] };
+                        const totalPlayers = (comp.tanks?.length || 0) + (comp.melee?.length || 0) + (comp.ranged?.length || 0) + (comp.healers?.length || 0);
+
+                        const tankNames = comp.tanks?.slice(0, 2).map(p => p.name).join(', ') || 'TBD';
+                        const healerNames = comp.healers?.slice(0, 3).map(p => p.name).join(', ') || 'TBD';
+                        const allPlayers = [...(comp.tanks || []), ...(comp.melee || []), ...(comp.ranged || []), ...(comp.healers || [])];
+                        const otherPlayers = allPlayers.slice(5, 9).map(p => p.name).join(', ');
+
+                        html += `
+                            <div class="raid-card">
+                                <div class="raid-card-header">
+                                    <div class="raid-card-title">
+                                        <h3>${raid.raidName || 'ICC 25 HC'}</h3>
+                                        <span class="raid-difficulty heroic">Heroic</span>
+                                    </div>
+                                    <div class="raid-meta">
+                                        <span class="raid-meta-item">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                            ${dateStr} - ${timeStr}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="raid-card-body" style="padding: var(--space-md);">
+                                    <div style="display: flex; gap: var(--space-lg); flex-wrap: wrap;">
+                                        <div style="font-size: 0.85rem;">
+                                            <span style="color: var(--text-muted);">Tanks:</span>
+                                            <span style="color: #4fc3f7;">${tankNames}</span>
+                                        </div>
+                                        <div style="font-size: 0.85rem;">
+                                            <span style="color: var(--text-muted);">Healers:</span>
+                                            <span style="color: #66bb6a;">${healerNames}</span>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top: var(--space-sm); font-size: 0.85rem; color: var(--text-muted);">
+                                        ${totalPlayers} players${otherPlayers ? ' including ' + otherPlayers + '...' : ''}
+                                    </div>
+                                </div>
+                                <div class="raid-card-footer">
+                                    <a href="raids.html" class="btn btn-secondary btn-sm">View Details</a>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    // Add Join CTA Card
+                    html += `
+                        <div class="raid-card" style="background: linear-gradient(135deg, rgba(196,31,59,0.1), var(--bg-card)); border-color: var(--horde-red);">
+                            <div class="raid-card-body" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-height: 200px; padding: var(--space-xl);">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--horde-red-light)" stroke-width="2" style="margin-bottom: var(--space-md);">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                                <h3 style="color: var(--horde-red-light); margin-bottom: var(--space-sm);">Join Our Raids</h3>
+                                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: var(--space-md);">Sign up via Raid Helper in Discord</p>
+                                <a href="https://discord.gg/nYYsxhmA" target="_blank" class="btn btn-primary">Join Discord</a>
+                            </div>
+                        </div>
+                    `;
+
+                    container.innerHTML = html;
+                }
+            } catch (error) {
+                console.error('Failed to load raids:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            loadRecentRaids();
+        });
     </script>
 </body>
 </html>
