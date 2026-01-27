@@ -204,14 +204,14 @@ function parseComposition(text) {
     // Class patterns
     const classMap = {
         'dk': 'Death Knight', 'death knight': 'Death Knight', 'deathknight': 'Death Knight',
-        'blood': 'Death Knight', 'unholy': 'Death Knight',
-        'druid': 'Druid', 'feral': 'Druid', 'balance': 'Druid', 'resto': 'Druid', 'boomkin': 'Druid',
+        'blood': 'Death Knight', 'unholy': 'Death Knight', 'fdk': 'Death Knight', 'frost dk': 'Death Knight',
+        'druid': 'Druid', 'feral': 'Druid', 'balance': 'Druid', 'resto': 'Druid', 'boomkin': 'Druid', 'boomie': 'Druid', 'boomy': 'Druid',
         'hunter': 'Hunter', 'mm': 'Hunter', 'surv': 'Hunter', 'bm': 'Hunter', 'survival': 'Hunter', 'marksman': 'Hunter',
         'mage': 'Mage', 'fire': 'Mage', 'arcane': 'Mage',
         'paladin': 'Paladin', 'pala': 'Paladin', 'ret': 'Paladin', 'prot': 'Paladin', 'holy': 'Paladin', 'protection': 'Paladin',
-        'priest': 'Priest', 'shadow': 'Priest', 'disc': 'Priest', 'discipline': 'Priest',
+        'priest': 'Priest', 'shadow': 'Priest', 'disc': 'Priest', 'discipline': 'Priest', 'disco': 'Priest',
         'rogue': 'Rogue', 'assa': 'Rogue', 'combat': 'Rogue', 'assassination': 'Rogue',
-        'shaman': 'Shaman', 'ele': 'Shaman', 'enhance': 'Shaman', 'elemental': 'Shaman', 'enhancement': 'Shaman',
+        'shaman': 'Shaman', 'ele': 'Shaman', 'enhance': 'Shaman', 'elemental': 'Shaman', 'enhancement': 'Shaman', 'shamanresto': 'Shaman',
         'warlock': 'Warlock', 'lock': 'Warlock', 'affli': 'Warlock', 'destro': 'Warlock', 'demo': 'Warlock',
         'warrior': 'Warrior', 'warr': 'Warrior', 'arms': 'Warrior', 'fury': 'Warrior'
     };
