@@ -321,12 +321,12 @@
         <!-- Admin Panel -->
         <div class="admin-panel container" id="adminPanel">
             <div class="admin-tabs">
-                <button class="admin-tab active" onclick="showTab('raids')">Raids</button>
-                <button class="admin-tab" onclick="showTab('add-raid')">Add Raid</button>
-                <button class="admin-tab" onclick="showTab('parse-logs')">Parse Logs</button>
-                <button class="admin-tab" onclick="showTab('rankings')">Rankings</button>
-                <button class="admin-tab" onclick="showTab('members')">Members</button>
-                <button class="admin-tab" onclick="showTab('guides')">Guides/Addons</button>
+                <button class="admin-tab active" onclick="showTab('raids', this)">Raids</button>
+                <button class="admin-tab" onclick="showTab('add-raid', this)">Add Raid</button>
+                <button class="admin-tab" onclick="showTab('parse-logs', this)">Parse Logs</button>
+                <button class="admin-tab" onclick="showTab('rankings', this)">Rankings</button>
+                <button class="admin-tab" onclick="showTab('members', this)">Members</button>
+                <button class="admin-tab" onclick="showTab('guides', this)">Guides/Addons</button>
             </div>
 
             <!-- Manage Raids Tab -->
@@ -334,7 +334,11 @@
                 <div class="admin-card">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
                         <h3 style="margin-bottom: 0;">Raid List</h3>
-                        <button class="btn btn-primary" onclick="loadRaids()">Refresh</button>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn btn-primary" onclick="loadRaids()">Refresh</button>
+                            <button class="btn btn-secondary" onclick="resetRaids()" style="background: #8b5cf6;">Sync with Raids Page</button>
+                            <button class="btn btn-secondary" onclick="clearAllRaids()" style="background: #ef4444;">Clear All</button>
+                        </div>
                     </div>
 
                     <div class="filter-buttons">
@@ -649,6 +653,20 @@
                 <input type="url" class="form-input" id="editRaidLogUrl" placeholder="https://uwu-logs.xyz/reports/...">
             </div>
 
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Status</label>
+                    <select class="form-select" id="editRaidStatus">
+                        <option value="upcoming">Upcoming</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Logger</label>
+                    <input type="text" class="form-input" id="editRaidLogger" placeholder="Who logged the raid">
+                </div>
+            </div>
+
             <div class="form-group">
                 <label class="form-label">Notes</label>
                 <input type="text" class="form-input" id="editRaidNotes">
@@ -700,11 +718,14 @@
             loadRankingsStatus();
         }
 
-        function showTab(tabId) {
+        function showTab(tabId, clickedElement) {
             document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
 
-            event.target.classList.add('active');
+            // Find the tab button to highlight
+            const tabButton = clickedElement || document.querySelector(`.admin-tab[onclick*="'${tabId}'"]`);
+            if (tabButton) tabButton.classList.add('active');
+
             document.getElementById(tabId + '-tab').classList.add('active');
 
             // Load data for the selected tab
@@ -715,6 +736,63 @@
         }
 
         // ==================== RAIDS MANAGEMENT ====================
+
+        let raidSearchTerm = '';
+        let currentRaidFilter = 'all';
+
+        async function resetRaids() {
+            if (!confirm('This will clear all raids and sync with the 4 raids shown on the public Raids page. Continue?')) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/clear-raids', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Admin-Password': ADMIN_PASSWORD
+                    },
+                    body: JSON.stringify({ action: 'clear-and-seed' })
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    alert('Raids synced successfully! Now showing ' + result.raids + ' raids.');
+                    loadRaids();
+                } else {
+                    alert('Error: ' + result.error);
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+
+        async function clearAllRaids() {
+            if (!confirm('This will DELETE ALL raids. Are you sure?')) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/clear-raids', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Admin-Password': ADMIN_PASSWORD
+                    },
+                    body: JSON.stringify({ action: 'clear' })
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    alert('All raids cleared.');
+                    loadRaids();
+                } else {
+                    alert('Error: ' + result.error);
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
 
         async function loadRaids() {
             const container = document.getElementById('raidsList');
@@ -735,44 +813,121 @@
         function displayRaids(raids) {
             const container = document.getElementById('raidsList');
 
-            if (raids.length === 0) {
-                container.innerHTML = '<div class="empty-state"><p>No raids found. Add your first raid!</p></div>';
+            // Apply search filter
+            let filtered = raids;
+            if (raidSearchTerm) {
+                const term = raidSearchTerm.toLowerCase();
+                filtered = raids.filter(r =>
+                    (r.raidName || '').toLowerCase().includes(term) ||
+                    (r.logger || r.postedBy || '').toLowerCase().includes(term) ||
+                    (r.date || '').toLowerCase().includes(term) ||
+                    (r.notes || '').toLowerCase().includes(term)
+                );
+            }
+
+            // Apply status filter
+            if (currentRaidFilter !== 'all') {
+                filtered = filtered.filter(r => (r.status || 'completed') === currentRaidFilter);
+            }
+
+            let html = `
+                <div style="margin-bottom: 16px;">
+                    <input type="text" class="form-input" placeholder="Search raids (name, logger, date, notes)..."
+                           value="${raidSearchTerm}"
+                           oninput="raidSearchTerm = this.value; displayRaids(allRaids)">
+                </div>
+                <p style="color: var(--text-muted); margin-bottom: 12px;">Showing ${filtered.length} of ${raids.length} raids</p>
+            `;
+
+            if (filtered.length === 0) {
+                html += '<div class="empty-state"><p>No raids found matching your criteria.</p></div>';
+                container.innerHTML = html;
                 return;
             }
 
-            container.innerHTML = raids.map(raid => `
-                <div class="raid-item" data-status="${raid.status}">
+            html += filtered.map((raid, idx) => {
+                // Find actual index in allRaids for edit/delete
+                const actualIndex = allRaids.findIndex(r => r.id === raid.id);
+                const status = raid.status || 'completed';
+                const raidName = raid.raidName || 'Unknown Raid';
+                const dateStr = formatDate(raid.date);
+                const logger = raid.logger || raid.postedBy || '';
+                const loggerInfo = logger ? ` | Logger: ${logger}` : '';
+                const notes = raid.notes ? ` | ${raid.notes.substring(0, 40)}${raid.notes.length > 40 ? '...' : ''}` : '';
+
+                return `
+                <div class="raid-item" data-status="${status}">
                     <div class="raid-item-info">
-                        <h4>${raid.raidName} - ${formatDate(raid.date)}</h4>
+                        <h4>${raidName} - ${dateStr}</h4>
                         <p>
-                            <span class="status-badge status-${raid.status}">${raid.status}</span>
-                            ${raid.notes ? ` | ${raid.notes}` : ''}
-                            ${raid.uwuLogUrl ? ' | Has log' : ''}
+                            <span class="status-badge status-${status}">${status}</span>
+                            ${loggerInfo}${notes}
                         </p>
                     </div>
                     <div class="raid-item-actions">
-                        ${raid.uwuLogUrl ? `<button class="btn-parse" onclick="parseRaidLog('${raid.id}', '${raid.uwuLogUrl}')">Parse</button>` : ''}
-                        <button class="btn-edit" onclick="editRaid('${raid.id}')">Edit</button>
-                        <button class="btn-delete" onclick="deleteRaid('${raid.id}')">Delete</button>
+                        ${raid.uwuLogUrl ? `<a href="${raid.uwuLogUrl}" target="_blank" class="btn-parse" style="text-decoration: none;">View</a>` : ''}
+                        ${raid.uwuLogUrl ? `<button class="btn-parse" onclick="parseRaidByIndex(${actualIndex})" style="background: #8b5cf6;">Parse</button>` : ''}
+                        <button class="btn-edit" onclick="editRaidByIndex(${actualIndex})">Edit</button>
+                        <button class="btn-delete" onclick="deleteRaidByIndex(${actualIndex})">Delete</button>
                     </div>
-                </div>
-            `).join('');
+                </div>`;
+            }).join('');
+
+            container.innerHTML = html;
         }
 
-        function filterRaids(status, btn) {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+        // Use index-based functions to avoid escaping issues
+        function editRaidByIndex(index) {
+            const raid = allRaids[index];
+            if (raid) editRaid(raid.id);
+        }
 
-            if (status === 'all') {
-                displayRaids(allRaids);
-            } else {
-                displayRaids(allRaids.filter(r => r.status === status));
+        function deleteRaidByIndex(index) {
+            const raid = allRaids[index];
+            if (raid) deleteRaid(raid.id);
+        }
+
+        function parseRaidByIndex(index) {
+            const raid = allRaids[index];
+            if (raid && raid.uwuLogUrl) {
+                document.getElementById('parseLogUrl').value = raid.uwuLogUrl;
+                showTab('parse-logs');
+                parseLog();
             }
         }
 
+        function filterRaids(status, btn) {
+            document.querySelectorAll('#raids-tab .filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentRaidFilter = status;
+            displayRaids(allRaids);
+        }
+
         function formatDate(dateStr) {
-            const date = new Date(dateStr);
-            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            if (!dateStr) return 'No date';
+            try {
+                // Handle various date formats
+                let date = new Date(dateStr);
+
+                // If invalid, try parsing common formats
+                if (isNaN(date.getTime())) {
+                    // Try DD-MM-YY or DD-MM-YYYY format
+                    const parts = dateStr.split(/[-\/]/);
+                    if (parts.length === 3) {
+                        const day = parseInt(parts[0]);
+                        const month = parseInt(parts[1]) - 1;
+                        let year = parseInt(parts[2]);
+                        if (year < 100) year += 2000;
+                        date = new Date(year, month, day);
+                    }
+                }
+
+                if (isNaN(date.getTime())) return dateStr; // Return original if still invalid
+
+                return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            } catch (e) {
+                return dateStr;
+            }
         }
 
         async function addRaid() {
@@ -825,11 +980,13 @@
             if (!raid) return;
 
             document.getElementById('editRaidId').value = raid.id;
-            document.getElementById('editRaidType').value = raid.raidName;
-            document.getElementById('editRaidDate').value = raid.date;
+            document.getElementById('editRaidType').value = raid.raidName || 'ICC 25 HC';
+            document.getElementById('editRaidDate').value = raid.date || '';
             document.getElementById('editRaidLogUrl').value = raid.uwuLogUrl || '';
             document.getElementById('editRaidNotes').value = raid.notes || '';
             document.getElementById('editRaidComposition').value = raid.compositionText || '';
+            document.getElementById('editRaidStatus').value = raid.status || 'completed';
+            document.getElementById('editRaidLogger').value = raid.logger || raid.postedBy || '';
 
             document.getElementById('editRaidModal').style.display = 'flex';
         }
@@ -854,7 +1011,9 @@
                         date: document.getElementById('editRaidDate').value,
                         uwuLogUrl: document.getElementById('editRaidLogUrl').value,
                         notes: document.getElementById('editRaidNotes').value,
-                        compositionText: document.getElementById('editRaidComposition').value
+                        compositionText: document.getElementById('editRaidComposition').value,
+                        status: document.getElementById('editRaidStatus').value,
+                        logger: document.getElementById('editRaidLogger').value
                     })
                 });
 
@@ -938,12 +1097,6 @@
             btn.textContent = 'Parse Log';
         }
 
-        async function parseRaidLog(raidId, logUrl) {
-            document.getElementById('parseLogUrl').value = logUrl;
-            showTab('parse-logs');
-            document.querySelectorAll('.admin-tab')[2].click();
-            await parseLog();
-        }
 
         function displayParseResults(result) {
             const container = document.getElementById('parseResultsContent');
