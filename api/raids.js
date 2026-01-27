@@ -151,7 +151,7 @@ module.exports = async (req, res) => {
     }
 };
 
-// Parse Discord-style composition text into structured data
+// Parse composition text into structured data - supports multiple formats
 function parseComposition(text) {
     if (!text) return { tanks: [], melee: [], ranged: [], healers: [] };
 
@@ -163,21 +163,43 @@ function parseComposition(text) {
     };
 
     // Normalize text
-    const lines = text.toLowerCase().replace(/\r/g, '').split('\n');
+    const lines = text.replace(/\r/g, '').split('\n');
     let currentRole = null;
 
-    // Role section markers
+    // Role section markers (case insensitive)
     const rolePatterns = {
-        tanks: /-?\s*(tanks?|tank)\s*-?/i,
-        melee: /-?\s*(melee|meele)\s*(dps)?\s*-?/i,
-        ranged: /-?\s*(ranged?|range)\s*(dps)?\s*-?/i,
-        healers: /-?\s*(healers?|healer|heals?)\s*-?/i
+        tanks: /^[-:]*\s*(tanks?|tank)\s*[-:]*$/i,
+        melee: /^[-:]*\s*(melee|meele)\s*(dps)?\s*[-:]*$/i,
+        ranged: /^[-:]*\s*(ranged?|range)\s*(dps)?\s*[-:]*$/i,
+        healers: /^[-:]*\s*(healers?|healer|heals?)\s*[-:]*$/i
+    };
+
+    // Spec to role mapping
+    const specRoles = {
+        // Tanks
+        'blood': 'tanks', 'prot': 'tanks', 'protection': 'tanks', 'bear': 'tanks', 'feral tank': 'tanks',
+        // Melee DPS
+        'fury': 'melee', 'arms': 'melee', 'ret': 'melee', 'retribution': 'melee',
+        'combat': 'melee', 'assa': 'melee', 'assassination': 'melee', 'subtlety': 'melee',
+        'unholy': 'melee', 'frost dk': 'melee', 'feral': 'melee', 'feral cat': 'melee', 'cat': 'melee',
+        'enhance': 'melee', 'enhancement': 'melee',
+        // Ranged DPS
+        'mm': 'ranged', 'marksman': 'ranged', 'marksmanship': 'ranged', 'surv': 'ranged', 'survival': 'ranged', 'bm': 'ranged',
+        'fire': 'ranged', 'arcane': 'ranged', 'frost mage': 'ranged',
+        'shadow': 'ranged', 'spriest': 'ranged',
+        'balance': 'ranged', 'boomkin': 'ranged', 'moonkin': 'ranged', 'boomy': 'ranged',
+        'ele': 'ranged', 'elemental': 'ranged',
+        'affli': 'ranged', 'affliction': 'ranged', 'demo': 'ranged', 'demonology': 'ranged', 'destro': 'ranged', 'destruction': 'ranged',
+        // Healers
+        'holy': 'healers', 'disc': 'healers', 'discipline': 'healers',
+        'resto': 'healers', 'restoration': 'healers', 'rsham': 'healers', 'rdruid': 'healers',
+        'hpal': 'healers', 'hpriest': 'healers'
     };
 
     // Class patterns
     const classMap = {
         'dk': 'Death Knight', 'death knight': 'Death Knight', 'deathknight': 'Death Knight',
-        'blood': 'Death Knight', 'frost': 'Death Knight', 'unholy': 'Death Knight',
+        'blood': 'Death Knight', 'unholy': 'Death Knight',
         'druid': 'Druid', 'feral': 'Druid', 'balance': 'Druid', 'resto': 'Druid', 'boomkin': 'Druid',
         'hunter': 'Hunter', 'mm': 'Hunter', 'surv': 'Hunter', 'bm': 'Hunter', 'survival': 'Hunter', 'marksman': 'Hunter',
         'mage': 'Mage', 'fire': 'Mage', 'arcane': 'Mage',
@@ -194,32 +216,73 @@ function parseComposition(text) {
         if (!trimmed) continue;
 
         // Check for role section headers
+        let isRoleHeader = false;
         for (const [role, pattern] of Object.entries(rolePatterns)) {
             if (pattern.test(trimmed)) {
                 currentRole = role;
+                isRoleHeader = true;
                 break;
             }
         }
+        if (isRoleHeader) continue;
 
-        // Extract player names from @ mentions
+        // Try to extract player names - multiple formats supported
+        // Format 1: @PlayerName
+        // Format 2: Plain name (one per line or after role markers)
+        // Format 3: emoji :class: Name - @mention
+
+        const lineLower = trimmed.toLowerCase();
+
+        // Try @mentions first
         const mentions = trimmed.match(/@(\w+)/g);
-        if (mentions && currentRole) {
+        if (mentions) {
             for (const mention of mentions) {
                 const playerName = mention.replace('@', '');
-
-                // Try to detect class from the line
                 let playerClass = 'Unknown';
+                let detectedRole = currentRole;
+
+                // Detect class and role from line context
                 for (const [keyword, cls] of Object.entries(classMap)) {
-                    if (trimmed.includes(keyword)) {
+                    if (lineLower.includes(keyword)) {
                         playerClass = cls;
                         break;
                     }
                 }
 
-                composition[currentRole].push({
-                    name: playerName,
-                    class: playerClass
-                });
+                // Try to detect role from spec if no current role
+                if (!detectedRole) {
+                    for (const [spec, role] of Object.entries(specRoles)) {
+                        if (lineLower.includes(spec)) {
+                            detectedRole = role;
+                            break;
+                        }
+                    }
+                }
+
+                if (detectedRole) {
+                    composition[detectedRole].push({ name: playerName, class: playerClass });
+                }
+            }
+        }
+        // No @mentions - try plain name (single word/name per line under a role header)
+        else if (currentRole && trimmed.length > 0 && trimmed.length < 30) {
+            // Skip lines that look like headers or descriptions
+            if (!/^[-:=*#]/.test(trimmed) && !/^\d+\s*(players?|ppl)/.test(lineLower)) {
+                // Extract just the name part - might be "PlayerName" or "PlayerName - spec"
+                let playerName = trimmed.split(/[-–—]/)[0].trim();
+                // Remove any emojis or special chars at start
+                playerName = playerName.replace(/^[:\s\w]*:\s*/, '').trim();
+                // If it looks like a name (alphanumeric, reasonable length)
+                if (playerName && /^[a-zA-Z][\w]{1,15}$/.test(playerName)) {
+                    let playerClass = 'Unknown';
+                    for (const [keyword, cls] of Object.entries(classMap)) {
+                        if (lineLower.includes(keyword)) {
+                            playerClass = cls;
+                            break;
+                        }
+                    }
+                    composition[currentRole].push({ name: playerName, class: playerClass });
+                }
             }
         }
     }
