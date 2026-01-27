@@ -115,8 +115,24 @@
             cursor: pointer;
             border: none;
         }
-        .btn-upload { background: var(--horde-red); color: white; }
-        .btn-upload:hover { background: var(--horde-red-dark); }
+        .btn-edit { background: #3b82f6; color: white; }
+        .btn-edit:hover { background: #2563eb; }
+        .btn-delete { background: #ef4444; color: white; }
+        .btn-delete:hover { background: #dc2626; }
+        .btn-parse { background: #22c55e; color: white; }
+        .btn-parse:hover { background: #16a34a; }
+
+        /* Status badges */
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .status-upcoming { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+        .status-completed { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
 
         /* Form */
         .form-group { margin-bottom: 20px; }
@@ -134,26 +150,72 @@
         .form-textarea { min-height: 120px; font-family: monospace; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
-        /* Log Upload */
-        .log-upload-box {
-            border: 2px dashed var(--border-subtle);
-            border-radius: 12px;
-            padding: 32px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .log-upload-box:hover { border-color: var(--horde-red); }
-        .log-upload-box svg { width: 48px; height: 48px; color: var(--text-muted); margin-bottom: 12px; }
-        .log-upload-box h4 { color: var(--text-primary); margin-bottom: 4px; }
-        .log-upload-box p { color: var(--text-muted); font-size: 0.85rem; }
-
-        .log-link-input {
+        /* Composition Editor */
+        .composition-tabs {
             display: flex;
-            gap: 12px;
-            margin-top: 20px;
+            gap: 4px;
+            margin-bottom: 16px;
         }
-        .log-link-input input { flex: 1; }
+        .composition-tab {
+            padding: 8px 16px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        .composition-tab.active { background: var(--horde-red); border-color: var(--horde-red); color: white; }
+
+        .composition-panel { display: none; }
+        .composition-panel.active { display: block; }
+
+        .player-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .player-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            background: var(--bg-primary);
+            border-radius: 6px;
+        }
+        .player-item .class-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+        }
+        .player-item .player-name { flex: 1; color: var(--text-primary); }
+        .player-item .player-class { color: var(--text-muted); font-size: 0.85rem; }
+        .player-item .remove-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 4px;
+        }
+        .player-item .remove-btn:hover { color: #ef4444; }
+
+        /* Parse Results */
+        .parse-results {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+        .parse-results h4 { color: var(--text-primary); margin-bottom: 12px; }
+        .parse-result-item {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+        }
+        .parse-result-item:last-child { border-bottom: none; }
+        .new-record { color: #22c55e; }
 
         .success-msg {
             padding: 16px;
@@ -164,6 +226,59 @@
             text-align: center;
             margin-top: 16px;
             display: none;
+        }
+
+        .error-msg {
+            padding: 16px;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444;
+            border-radius: 8px;
+            color: #ef4444;
+            text-align: center;
+            margin-top: 16px;
+            display: none;
+        }
+
+        /* Loading spinner */
+        .loading {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid transparent;
+            border-top-color: currentColor;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Filter buttons */
+        .filter-buttons {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .filter-btn {
+            padding: 6px 14px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        .filter-btn.active { background: var(--horde-red); border-color: var(--horde-red); color: white; }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+        }
+        .empty-state svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 16px;
+            opacity: 0.5;
         }
     </style>
 </head>
@@ -207,34 +322,30 @@
         <div class="admin-panel container" id="adminPanel">
             <div class="admin-tabs">
                 <button class="admin-tab active" onclick="showTab('raids')">Raids</button>
-                <button class="admin-tab" onclick="showTab('add-raid')">Add New Raid</button>
-                <button class="admin-tab" onclick="showTab('upload-logs')">Upload UwU Logs</button>
-                <button class="admin-tab" onclick="showTab('roster')">Manage Roster</button>
-                <button class="admin-tab" onclick="showTab('loot')">Add Loot</button>
+                <button class="admin-tab" onclick="showTab('add-raid')">Add Raid</button>
+                <button class="admin-tab" onclick="showTab('parse-logs')">Parse Logs</button>
+                <button class="admin-tab" onclick="showTab('rankings')">Rankings</button>
+                <button class="admin-tab" onclick="showTab('members')">Members</button>
+                <button class="admin-tab" onclick="showTab('guides')">Guides/Addons</button>
             </div>
 
-            <!-- Raids Tab -->
+            <!-- Manage Raids Tab -->
             <div class="admin-section active" id="raids-tab">
                 <div class="admin-card">
-                    <h3>Manage Raids</h3>
-
-                    <div class="raid-item">
-                        <div class="raid-item-info">
-                            <h4>ICC 25 LoD - Jan 24, 2026</h4>
-                            <p>25 players | Heroic | Waawaa healing</p>
-                        </div>
-                        <div class="raid-item-actions">
-                            <button class="btn-upload" onclick="showLogUpload('20260124')">Upload Log</button>
-                        </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                        <h3 style="margin-bottom: 0;">Raid List</h3>
+                        <button class="btn btn-primary" onclick="loadRaids()">Refresh</button>
                     </div>
 
-                    <div class="raid-item">
-                        <div class="raid-item-info">
-                            <h4>ICC 25 LoD - Jan 23, 2026</h4>
-                            <p>25 players | Heroic | Waawaa tanking</p>
-                        </div>
-                        <div class="raid-item-actions">
-                            <button class="btn-upload" onclick="showLogUpload('20260123')">Upload Log</button>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" onclick="filterRaids('all', this)">All</button>
+                        <button class="filter-btn" onclick="filterRaids('upcoming', this)">Upcoming</button>
+                        <button class="filter-btn" onclick="filterRaids('completed', this)">Completed</button>
+                    </div>
+
+                    <div id="raidsList">
+                        <div class="empty-state">
+                            <p>Loading raids...</p>
                         </div>
                     </div>
                 </div>
@@ -249,124 +360,155 @@
                         <div class="form-group">
                             <label class="form-label">Raid Type</label>
                             <select class="form-select" id="newRaidType">
-                                <option value="icc25">ICC 25 LoD</option>
-                                <option value="rs25">RS 25</option>
-                                <option value="togc25">ToGC 25</option>
+                                <option value="ICC 25 HC">ICC 25 HC (LoD)</option>
+                                <option value="RS 25 HC">RS 25 HC</option>
+                                <option value="ToGC 25">ToGC 25</option>
+                                <option value="ICC 10 HC">ICC 10 HC</option>
+                                <option value="RS 10 HC">RS 10 HC</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Difficulty</label>
-                            <select class="form-select" id="newRaidDiff">
-                                <option value="heroic">Heroic</option>
-                                <option value="normal">Normal</option>
-                            </select>
+                            <label class="form-label">Date</label>
+                            <input type="date" class="form-input" id="newRaidDate">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label">Date</label>
-                            <input type="date" class="form-input" id="newRaidDate">
+                            <label class="form-label">Start Time (Server Time)</label>
+                            <input type="time" class="form-input" id="newRaidTime" value="20:30">
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Time (ST)</label>
-                            <input type="time" class="form-input" id="newRaidTime" value="20:30">
+                            <label class="form-label">UwU Log URL (optional)</label>
+                            <input type="url" class="form-input" id="newRaidLogUrl" placeholder="https://uwu-logs.xyz/reports/...">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Paste Roster from Raid Helper</label>
+                        <label class="form-label">Notes (optional)</label>
+                        <input type="text" class="form-input" id="newRaidNotes" placeholder="e.g., LOD, BIS healers, etc.">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Paste Roster from Discord/Raid Helper (optional)</label>
                         <textarea class="form-textarea" id="newRaidRoster" placeholder="-Tanks-
 :DK: Death Knight Tank - @PlayerName
 :Protection: Prot Paladin - @PlayerName
 
 -Meele Dps-
+:Fury: Arms Warrior - @PlayerName
+...
+
+-Range Dps-
+:Fire: Fire Mage - @PlayerName
+...
+
+-Healer-
+:Restoration: Resto Druid - @PlayerName
 ..."></textarea>
                     </div>
 
                     <button class="btn btn-primary" onclick="addRaid()">Add Raid</button>
-                    <div class="success-msg" id="addRaidSuccess">Raid added successfully! Edit raids.html to display it.</div>
+                    <div class="success-msg" id="addRaidSuccess">Raid added successfully!</div>
+                    <div class="error-msg" id="addRaidError"></div>
                 </div>
             </div>
 
-            <!-- Upload Logs Tab -->
-            <div class="admin-section" id="upload-logs-tab">
+            <!-- Parse Logs Tab -->
+            <div class="admin-section" id="parse-logs-tab">
                 <div class="admin-card">
-                    <h3>Add UwU Log Link for DPS Rankings</h3>
+                    <h3>Parse UwU Log</h3>
                     <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;">
-                        Paste UwU-logs.xyz links to add to the boss rankings database. The system will automatically
-                        fetch and update best DPS records if new bests are found.
+                        Enter a UwU-logs.xyz URL to parse composition and DPS data. The system will update
+                        top parser rankings if new records are found.
                     </p>
 
                     <div class="form-group">
                         <label class="form-label">UwU-logs.xyz Link</label>
-                        <div class="log-link-input">
-                            <input type="url" class="form-input" id="uwuLogLink" placeholder="https://uwu-logs.xyz/reports/26-01-25--20-30--Waawaa--Icecrown/">
-                            <button class="btn btn-primary" onclick="addLogLink()">Add Log</button>
+                        <div style="display: flex; gap: 12px;">
+                            <input type="url" class="form-input" id="parseLogUrl" placeholder="https://uwu-logs.xyz/reports/26-01-25--20-30--Waawaa--Icecrown/">
+                            <button class="btn btn-primary" id="parseLogBtn" onclick="parseLog()">Parse Log</button>
                         </div>
-                        <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 8px;">
-                            Format: https://uwu-logs.xyz/reports/YY-MM-DD--HH-MM--CharacterName--Icecrown/
+                    </div>
+
+                    <div id="parseResults" style="display: none;">
+                        <div class="parse-results">
+                            <h4>Parse Results</h4>
+                            <div id="parseResultsContent"></div>
+                        </div>
+                    </div>
+
+                    <div class="success-msg" id="parseSuccess"></div>
+                    <div class="error-msg" id="parseError"></div>
+
+                    <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-subtle);">
+                        <h4 style="color: var(--text-secondary); margin-bottom: 16px;">Manual Composition Entry</h4>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 16px;">
+                            If automatic parsing fails, paste the raid composition from Discord here.
                         </p>
-                    </div>
 
-                    <div class="success-msg" id="logAddSuccess">Log added to queue! Run the fetch script to update rankings.</div>
-
-                    <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border-subtle);">
-                        <h4 style="color: var(--text-secondary); margin-bottom: 16px;">Queued Log Links</h4>
-                        <div id="queuedLogs" style="font-size: 0.85rem; color: var(--text-muted); max-height: 200px; overflow-y: auto;">
-                            No logs queued.
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border-subtle);">
-                        <h4 style="color: var(--text-secondary); margin-bottom: 16px;">Bulk Add Logs</h4>
                         <div class="form-group">
-                            <label class="form-label">Paste Multiple UwU Log Links (one per line)</label>
-                            <textarea class="form-textarea" id="bulkLogLinks" placeholder="https://uwu-logs.xyz/reports/26-01-25--20-30--Waawaa--Icecrown/
-https://uwu-logs.xyz/reports/26-01-24--21-00--Waawaa--Icecrown/
+                            <label class="form-label">Select Raid to Update</label>
+                            <select class="form-select" id="manualRaidSelect">
+                                <option value="">-- Select a raid --</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Paste Composition</label>
+                            <textarea class="form-textarea" id="manualComposition" placeholder="-Tanks-
+:DK: Blood DK - @PlayerName
 ..."></textarea>
                         </div>
-                        <button class="btn btn-secondary" onclick="addBulkLogs()">Add All Logs</button>
-                    </div>
 
-                    <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border-subtle);">
-                        <h4 style="color: var(--text-secondary); margin-bottom: 12px;">Current Rankings Status</h4>
-                        <div id="rankingsStatus" style="font-size: 0.85rem; color: var(--text-muted);">
-                            Loading...
-                        </div>
+                        <button class="btn btn-secondary" onclick="saveManualComposition()">Save Composition</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Roster Management Tab -->
-            <div class="admin-section" id="roster-tab">
+            <!-- Rankings Tab -->
+            <div class="admin-section" id="rankings-tab">
                 <div class="admin-card">
-                    <h3>Manage Guild Roster</h3>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;">
-                        Update the guild roster by pasting data from Warmane Armory or manually adding members.
-                    </p>
+                    <h3>Top Parsers Status</h3>
 
-                    <div class="form-group">
-                        <label class="form-label">Paste Roster Data (JSON format from guild-data.js)</label>
-                        <textarea class="form-textarea" id="rosterPasteData" style="min-height: 200px; font-family: monospace; font-size: 0.8rem;" placeholder="Paste the staticMembers array content here...
-Example:
-{ name: 'Waawaa', class: 'Priest', level: 80, rank: 0 },
-{ name: 'Waawaasap', class: 'Shaman', level: 80, rank: 1 },
-..."></textarea>
+                    <div id="rankingsStatus" style="margin-bottom: 24px;">
+                        <p style="color: var(--text-muted);">Loading...</p>
                     </div>
 
-                    <button class="btn btn-primary" onclick="updateRoster()">Update Roster</button>
-                    <div class="success-msg" id="rosterUpdateSuccess">Roster data updated! Copy the output below to guild-data.js</div>
+                    <div style="display: flex; gap: 12px; margin-bottom: 24px;">
+                        <button class="btn btn-secondary" onclick="loadRankingsStatus()">Refresh Status</button>
+                        <button class="btn btn-secondary" onclick="exportRankings()">Export Data</button>
+                    </div>
 
-                    <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-subtle);">
-                        <h4 style="color: var(--text-secondary); margin-bottom: 16px;">Current Roster Stats</h4>
-                        <div id="rosterStats" style="font-size: 0.85rem; color: var(--text-muted);">
-                            Loading...
+                    <div style="padding-top: 24px; border-top: 1px solid var(--border-subtle);">
+                        <h4 style="color: var(--text-secondary); margin-bottom: 16px;">Import Rankings Data</h4>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 16px;">
+                            Import rankings data from a JSON file.
+                        </p>
+                        <div class="form-group">
+                            <textarea class="form-textarea" id="importRankingsData" placeholder='Paste JSON data here...'></textarea>
                         </div>
+                        <button class="btn btn-primary" onclick="importRankings()">Import Data</button>
+                        <div class="success-msg" id="importSuccess">Data imported successfully!</div>
+                        <div class="error-msg" id="importError"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Members Tab -->
+            <div class="admin-section" id="members-tab">
+                <div class="admin-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                        <h3 style="margin-bottom: 0;">Guild Members</h3>
+                        <button class="btn btn-primary" onclick="loadMembers()">Refresh</button>
                     </div>
 
-                    <div style="margin-top: 24px;">
-                        <h4 style="color: var(--text-secondary); margin-bottom: 12px;">Quick Add Member</h4>
+                    <div id="membersStats" style="margin-bottom: 20px;">
+                        <p style="color: var(--text-muted);">Loading stats...</p>
+                    </div>
+
+                    <div style="padding: 20px; background: var(--bg-tertiary); border-radius: 8px; margin-bottom: 20px;">
+                        <h4 style="color: var(--text-secondary); margin-bottom: 16px;">Add New Member</h4>
                         <div class="form-row">
                             <div class="form-group">
                                 <label class="form-label">Character Name</label>
@@ -390,91 +532,136 @@ Example:
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label class="form-label">Level</label>
-                                <input type="number" class="form-input" id="newMemberLevel" value="80" min="1" max="80">
+                                <label class="form-label">Rank</label>
+                                <select class="form-select" id="newMemberRank">
+                                    <option value="0">Guild Master</option>
+                                    <option value="1">Officer</option>
+                                    <option value="2">Veteran</option>
+                                    <option value="3">Raider</option>
+                                    <option value="4" selected>Member</option>
+                                    <option value="5">Initiate</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Rank (0=GM, 1=Officer, 4=Member)</label>
-                                <input type="number" class="form-input" id="newMemberRank" value="4" min="0" max="9">
+                                <label class="form-label">Spec (optional)</label>
+                                <input type="text" class="form-input" id="newMemberSpec" placeholder="e.g., Holy, Arms, Frost">
                             </div>
                         </div>
-                        <button class="btn btn-secondary" onclick="addMember()">Add Member</button>
+                        <button class="btn btn-primary" onclick="addMember()">Add Member</button>
+                        <div class="success-msg" id="addMemberSuccess">Member added!</div>
+                        <div class="error-msg" id="addMemberError"></div>
+                    </div>
+
+                    <div id="membersList">
+                        <div class="empty-state"><p>Loading members...</p></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Add Loot Tab -->
-            <div class="admin-section" id="loot-tab">
+            <!-- Guides/Addons Tab -->
+            <div class="admin-section" id="guides-tab">
                 <div class="admin-card">
-                    <h3>Add Loot Entry</h3>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;">Add items distributed during raids. Data is stored in browser localStorage.</p>
+                    <h3>Manage Guides, Addons & WeakAuras</h3>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Item Name</label>
-                            <input type="text" class="form-input" id="lootItemName" placeholder="e.g., Bryntroll, the Bone Arbiter">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Wowhead Item ID</label>
-                            <input type="number" class="form-input" id="lootItemId" placeholder="e.g., 50709">
-                        </div>
+                    <div class="filter-buttons" style="margin-bottom: 20px;">
+                        <button class="filter-btn active" onclick="switchGuideType('addons', this)">Addons</button>
+                        <button class="filter-btn" onclick="switchGuideType('weakauras', this)">WeakAuras</button>
+                        <button class="filter-btn" onclick="switchGuideType('guides', this)">Guides</button>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Player Name</label>
-                            <input type="text" class="form-input" id="lootPlayer" placeholder="e.g., Waawaa">
+                    <div style="padding: 20px; background: var(--bg-tertiary); border-radius: 8px; margin-bottom: 20px;">
+                        <h4 style="color: var(--text-secondary); margin-bottom: 16px;">Add New <span id="guideTypeLabel">Addon</span></h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-input" id="newGuideName" placeholder="e.g., DBM, WeakAuras">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Category</label>
+                                <select class="form-select" id="newGuideCategory">
+                                    <option value="Essential">Essential</option>
+                                    <option value="Raiding">Raiding</option>
+                                    <option value="UI">UI</option>
+                                    <option value="Class">Class Specific</option>
+                                    <option value="Utility">Utility</option>
+                                    <option value="Optional">Optional</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Player Class</label>
-                            <select class="form-select" id="lootClass">
-                                <option value="dk">Death Knight</option>
-                                <option value="druid">Druid</option>
-                                <option value="hunter">Hunter</option>
-                                <option value="mage">Mage</option>
-                                <option value="paladin">Paladin</option>
-                                <option value="priest">Priest</option>
-                                <option value="rogue">Rogue</option>
-                                <option value="shaman">Shaman</option>
-                                <option value="warlock">Warlock</option>
-                                <option value="warrior">Warrior</option>
-                            </select>
+                            <label class="form-label">Description</label>
+                            <input type="text" class="form-input" id="newGuideDesc" placeholder="Brief description...">
                         </div>
+                        <div class="form-group">
+                            <label class="form-label">URL (optional)</label>
+                            <input type="url" class="form-input" id="newGuideUrl" placeholder="https://...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Content/Import String (optional)</label>
+                            <textarea class="form-textarea" id="newGuideContent" placeholder="For WeakAuras, paste the import string here..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Priority (higher = shown first)</label>
+                            <input type="number" class="form-input" id="newGuidePriority" value="0" min="0" max="100">
+                        </div>
+                        <button class="btn btn-primary" onclick="addGuide()">Add</button>
+                        <div class="success-msg" id="addGuideSuccess">Added successfully!</div>
+                        <div class="error-msg" id="addGuideError"></div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Raid</label>
-                            <select class="form-select" id="lootRaid">
-                                <option value="icc">ICC 25 HC</option>
-                                <option value="rs">RS 25 HC</option>
-                                <option value="togc">ToGC 25</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Date</label>
-                            <input type="date" class="form-input" id="lootDate">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Item Quality</label>
-                        <select class="form-select" id="lootQuality">
-                            <option value="epic">Epic (Purple)</option>
-                            <option value="legendary">Legendary (Orange)</option>
-                        </select>
-                    </div>
-
-                    <button class="btn btn-primary" onclick="addLoot()">Add Loot Entry</button>
-                    <div class="success-msg" id="lootAddSuccess">Loot entry added! View it on the Loot History page.</div>
-
-                    <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-subtle);">
-                        <h4 style="color: var(--text-secondary); margin-bottom: 12px;">Recent Entries</h4>
-                        <div id="recentLoot" style="font-size: 0.85rem; color: var(--text-muted);">
-                            Loading...
-                        </div>
+                    <div id="guidesList">
+                        <div class="empty-state"><p>Loading...</p></div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Raid Modal -->
+    <div id="editRaidModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center;">
+        <div style="background: var(--bg-card); border-radius: 16px; padding: 32px; max-width: 600px; width: 90%; max-height: 90vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                <h3 style="color: var(--horde-red-light);">Edit Raid</h3>
+                <button onclick="closeEditModal()" style="background: none; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer;">&times;</button>
+            </div>
+
+            <input type="hidden" id="editRaidId">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Raid Type</label>
+                    <select class="form-select" id="editRaidType">
+                        <option value="ICC 25 HC">ICC 25 HC (LoD)</option>
+                        <option value="RS 25 HC">RS 25 HC</option>
+                        <option value="ToGC 25">ToGC 25</option>
+                        <option value="ICC 10 HC">ICC 10 HC</option>
+                        <option value="RS 10 HC">RS 10 HC</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Date</label>
+                    <input type="date" class="form-input" id="editRaidDate">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">UwU Log URL</label>
+                <input type="url" class="form-input" id="editRaidLogUrl" placeholder="https://uwu-logs.xyz/reports/...">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Notes</label>
+                <input type="text" class="form-input" id="editRaidNotes">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Composition (from Discord)</label>
+                <textarea class="form-textarea" id="editRaidComposition"></textarea>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 24px;">
+                <button class="btn btn-primary" onclick="saveRaidEdit()">Save Changes</button>
+                <button class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
             </div>
         </div>
     </div>
@@ -488,8 +675,9 @@ Example:
     </footer>
 
     <script>
-        // Simple password check (change this password!)
+        // Admin password - verified server-side
         const ADMIN_PASSWORD = 'titan2026';
+        let allRaids = [];
 
         function login() {
             const pwd = document.getElementById('passwordInput').value;
@@ -497,6 +685,8 @@ Example:
                 document.getElementById('loginScreen').style.display = 'none';
                 document.getElementById('adminPanel').classList.add('active');
                 localStorage.setItem('titanAdmin', 'true');
+                loadRaids();
+                loadRankingsStatus();
             } else {
                 document.getElementById('loginError').style.display = 'block';
             }
@@ -506,6 +696,8 @@ Example:
         if (localStorage.getItem('titanAdmin') === 'true') {
             document.getElementById('loginScreen').style.display = 'none';
             document.getElementById('adminPanel').classList.add('active');
+            loadRaids();
+            loadRankingsStatus();
         }
 
         function showTab(tabId) {
@@ -516,21 +708,77 @@ Example:
             document.getElementById(tabId + '-tab').classList.add('active');
         }
 
-        function showLogUpload(raidId) {
-            showTab('upload-logs');
-            document.getElementById('logRaidSelect').value = raidId;
-            document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.admin-tab')[2].classList.add('active');
+        // ==================== RAIDS MANAGEMENT ====================
+
+        async function loadRaids() {
+            const container = document.getElementById('raidsList');
+            container.innerHTML = '<div class="empty-state"><span class="loading"></span> Loading...</div>';
+
+            try {
+                const response = await fetch('/api/raids');
+                const data = await response.json();
+                allRaids = data.raids || [];
+
+                displayRaids(allRaids);
+                populateRaidSelect();
+            } catch (error) {
+                container.innerHTML = `<div class="empty-state"><p style="color: #ef4444;">Error loading raids: ${error.message}</p></div>`;
+            }
+        }
+
+        function displayRaids(raids) {
+            const container = document.getElementById('raidsList');
+
+            if (raids.length === 0) {
+                container.innerHTML = '<div class="empty-state"><p>No raids found. Add your first raid!</p></div>';
+                return;
+            }
+
+            container.innerHTML = raids.map(raid => `
+                <div class="raid-item" data-status="${raid.status}">
+                    <div class="raid-item-info">
+                        <h4>${raid.raidName} - ${formatDate(raid.date)}</h4>
+                        <p>
+                            <span class="status-badge status-${raid.status}">${raid.status}</span>
+                            ${raid.notes ? ` | ${raid.notes}` : ''}
+                            ${raid.uwuLogUrl ? ' | Has log' : ''}
+                        </p>
+                    </div>
+                    <div class="raid-item-actions">
+                        ${raid.uwuLogUrl ? `<button class="btn-parse" onclick="parseRaidLog('${raid.id}', '${raid.uwuLogUrl}')">Parse</button>` : ''}
+                        <button class="btn-edit" onclick="editRaid('${raid.id}')">Edit</button>
+                        <button class="btn-delete" onclick="deleteRaid('${raid.id}')">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterRaids(status, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            if (status === 'all') {
+                displayRaids(allRaids);
+            } else {
+                displayRaids(allRaids.filter(r => r.status === status));
+            }
+        }
+
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
         }
 
         async function addRaid() {
             const date = document.getElementById('newRaidDate').value;
-            const raidType = document.getElementById('newRaidType').value;
-            const difficulty = document.getElementById('newRaidDiff').value;
+            const raidName = document.getElementById('newRaidType').value;
+            const time = document.getElementById('newRaidTime').value;
+            const logUrl = document.getElementById('newRaidLogUrl').value;
+            const notes = document.getElementById('newRaidNotes').value;
             const roster = document.getElementById('newRaidRoster').value;
 
             if (!date) {
-                alert('Please select a date');
+                showError('addRaidError', 'Please select a date');
                 return;
             }
 
@@ -543,61 +791,117 @@ Example:
                     },
                     body: JSON.stringify({
                         date: date,
-                        raidName: raidType === 'icc25' ? 'ICC 25 HC' : raidType === 'rs25' ? 'RS 25 HC' : 'ToGC 25',
-                        bossKills: 12,
-                        compositionText: roster,
-                        notes: difficulty
+                        raidName: raidName,
+                        uwuLogUrl: logUrl,
+                        notes: notes + (time ? ` | ${time} ST` : ''),
+                        compositionText: roster
                     })
                 });
 
                 const result = await response.json();
                 if (result.success) {
-                    document.getElementById('addRaidSuccess').style.display = 'block';
+                    showSuccess('addRaidSuccess', 'Raid added successfully!');
+                    document.getElementById('newRaidDate').value = '';
+                    document.getElementById('newRaidLogUrl').value = '';
+                    document.getElementById('newRaidNotes').value = '';
                     document.getElementById('newRaidRoster').value = '';
-                    setTimeout(() => {
-                        document.getElementById('addRaidSuccess').style.display = 'none';
-                    }, 5000);
+                    loadRaids();
+                } else {
+                    showError('addRaidError', result.error);
+                }
+            } catch (error) {
+                showError('addRaidError', error.message);
+            }
+        }
+
+        function editRaid(raidId) {
+            const raid = allRaids.find(r => r.id === raidId);
+            if (!raid) return;
+
+            document.getElementById('editRaidId').value = raid.id;
+            document.getElementById('editRaidType').value = raid.raidName;
+            document.getElementById('editRaidDate').value = raid.date;
+            document.getElementById('editRaidLogUrl').value = raid.uwuLogUrl || '';
+            document.getElementById('editRaidNotes').value = raid.notes || '';
+            document.getElementById('editRaidComposition').value = raid.compositionText || '';
+
+            document.getElementById('editRaidModal').style.display = 'flex';
+        }
+
+        function closeEditModal() {
+            document.getElementById('editRaidModal').style.display = 'none';
+        }
+
+        async function saveRaidEdit() {
+            const id = document.getElementById('editRaidId').value;
+
+            try {
+                const response = await fetch('/api/raids', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Admin-Password': ADMIN_PASSWORD
+                    },
+                    body: JSON.stringify({
+                        id: id,
+                        raidName: document.getElementById('editRaidType').value,
+                        date: document.getElementById('editRaidDate').value,
+                        uwuLogUrl: document.getElementById('editRaidLogUrl').value,
+                        notes: document.getElementById('editRaidNotes').value,
+                        compositionText: document.getElementById('editRaidComposition').value
+                    })
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    closeEditModal();
                     loadRaids();
                 } else {
                     alert('Error: ' + result.error);
                 }
             } catch (error) {
-                alert('Error adding raid: ' + error.message);
+                alert('Error: ' + error.message);
             }
         }
 
-        async function loadRaids() {
+        async function deleteRaid(raidId) {
+            if (!confirm('Are you sure you want to delete this raid?')) return;
+
             try {
-                const response = await fetch('/api/raids');
-                const data = await response.json();
-                // Update raids display
+                const response = await fetch(`/api/raids?id=${raidId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-Admin-Password': ADMIN_PASSWORD
+                    }
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    loadRaids();
+                } else {
+                    alert('Error: ' + result.error);
+                }
             } catch (error) {
-                console.error('Error loading raids:', error);
+                alert('Error: ' + error.message);
             }
         }
 
-        // Log Link Management
-        function getLogQueue() {
-            const stored = localStorage.getItem('titanLogQueue');
-            return stored ? JSON.parse(stored) : [];
-        }
+        // ==================== LOG PARSING ====================
 
-        function saveLogQueue(queue) {
-            localStorage.setItem('titanLogQueue', JSON.stringify(queue));
-        }
-
-        async function addLogLink() {
-            const link = document.getElementById('uwuLogLink').value.trim();
-
-            if (!link || !link.includes('uwu-logs.xyz')) {
-                alert('Please enter a valid UwU-logs.xyz link');
+        async function parseLog() {
+            const logUrl = document.getElementById('parseLogUrl').value.trim();
+            if (!logUrl || !logUrl.includes('uwu-logs.xyz')) {
+                showError('parseError', 'Please enter a valid UwU-logs.xyz link');
                 return;
             }
 
-            // Show loading state
-            const btn = event.target;
+            const btn = document.getElementById('parseLogBtn');
             btn.disabled = true;
-            btn.textContent = 'Parsing...';
+            btn.innerHTML = '<span class="loading"></span> Parsing...';
+
+            document.getElementById('parseResults').style.display = 'none';
+            document.getElementById('parseSuccess').style.display = 'none';
+            document.getElementById('parseError').style.display = 'none';
 
             try {
                 const response = await fetch('/api/parse-uwu', {
@@ -606,235 +910,529 @@ Example:
                         'Content-Type': 'application/json',
                         'X-Admin-Password': ADMIN_PASSWORD
                     },
-                    body: JSON.stringify({ logUrl: link })
+                    body: JSON.stringify({ logUrl: logUrl })
                 });
 
                 const result = await response.json();
 
                 if (result.success) {
-                    document.getElementById('uwuLogLink').value = '';
-                    document.getElementById('logAddSuccess').textContent =
-                        `Log parsed! ${result.updates.length} new records found.`;
-                    document.getElementById('logAddSuccess').style.display = 'block';
-
-                    // Show updates
-                    if (result.updates.length > 0) {
-                        let updateText = 'New records:\\n';
-                        result.updates.slice(0, 5).forEach(u => {
-                            updateText += `${u.boss}: ${u.new.player} (${u.new.class}) - ${u.new.dps} DPS\\n`;
-                        });
-                        if (result.updates.length > 5) {
-                            updateText += `...and ${result.updates.length - 5} more`;
-                        }
-                        alert(updateText);
-                    }
-
-                    setTimeout(() => {
-                        document.getElementById('logAddSuccess').style.display = 'none';
-                    }, 5000);
-
+                    displayParseResults(result);
+                    showSuccess('parseSuccess', `Log parsed! ${result.updates?.length || 0} new records found.`);
                     loadRankingsStatus();
+                } else if (result.fallback) {
+                    showError('parseError', 'Could not automatically parse log. Please use manual composition entry below.');
+                } else {
+                    showError('parseError', result.error || 'Failed to parse log');
+                }
+            } catch (error) {
+                showError('parseError', error.message);
+            }
+
+            btn.disabled = false;
+            btn.textContent = 'Parse Log';
+        }
+
+        async function parseRaidLog(raidId, logUrl) {
+            document.getElementById('parseLogUrl').value = logUrl;
+            showTab('parse-logs');
+            document.querySelectorAll('.admin-tab')[2].click();
+            await parseLog();
+        }
+
+        function displayParseResults(result) {
+            const container = document.getElementById('parseResultsContent');
+            let html = '';
+
+            html += `<p><strong>Log ID:</strong> ${result.logId}</p>`;
+            html += `<p><strong>Parse Method:</strong> ${result.parseMethod}</p>`;
+
+            if (result.raidInfo) {
+                html += `<p><strong>Date:</strong> ${result.raidInfo.date}</p>`;
+                html += `<p><strong>Raid:</strong> ${result.raidInfo.raid}</p>`;
+                html += `<p><strong>Boss Kills:</strong> ${result.raidInfo.bossKills}</p>`;
+            }
+
+            if (result.updates && result.updates.length > 0) {
+                html += '<h5 style="margin-top: 16px; color: var(--text-primary);">New Records:</h5>';
+                result.updates.slice(0, 10).forEach(u => {
+                    const value = u.type === 'dps' ? u.new.dps : u.new.hps;
+                    html += `<div class="parse-result-item">
+                        <span>${u.boss}</span>
+                        <span class="new-record">${u.new.player} (${u.new.class}) - ${value.toLocaleString()} ${u.type.toUpperCase()}</span>
+                    </div>`;
+                });
+                if (result.updates.length > 10) {
+                    html += `<p style="color: var(--text-muted); margin-top: 8px;">...and ${result.updates.length - 10} more</p>`;
+                }
+            }
+
+            if (result.composition) {
+                const comp = result.composition;
+                const total = (comp.tanks?.length || 0) + (comp.melee?.length || 0) +
+                              (comp.ranged?.length || 0) + (comp.healers?.length || 0);
+                if (total > 0) {
+                    html += `<h5 style="margin-top: 16px; color: var(--text-primary);">Composition (${total} players):</h5>`;
+                    html += `<p>Tanks: ${comp.tanks?.length || 0} | Melee: ${comp.melee?.length || 0} | Ranged: ${comp.ranged?.length || 0} | Healers: ${comp.healers?.length || 0}</p>`;
+                }
+            }
+
+            container.innerHTML = html;
+            document.getElementById('parseResults').style.display = 'block';
+        }
+
+        function populateRaidSelect() {
+            const select = document.getElementById('manualRaidSelect');
+            select.innerHTML = '<option value="">-- Select a raid --</option>';
+            allRaids.forEach(raid => {
+                select.innerHTML += `<option value="${raid.id}">${raid.raidName} - ${formatDate(raid.date)}</option>`;
+            });
+        }
+
+        async function saveManualComposition() {
+            const raidId = document.getElementById('manualRaidSelect').value;
+            const composition = document.getElementById('manualComposition').value.trim();
+
+            if (!raidId) {
+                alert('Please select a raid');
+                return;
+            }
+            if (!composition) {
+                alert('Please enter composition data');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/parse-uwu', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Admin-Password': ADMIN_PASSWORD
+                    },
+                    body: JSON.stringify({
+                        raidId: raidId,
+                        manualComposition: composition
+                    })
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    alert(`Composition saved! ${result.playerCount} players parsed.`);
+                    document.getElementById('manualComposition').value = '';
+                    loadRaids();
                 } else {
                     alert('Error: ' + result.error);
                 }
             } catch (error) {
-                // Fallback to queue mode if server not running
-                const queue = getLogQueue();
-                if (!queue.includes(link)) {
-                    queue.push(link);
-                    saveLogQueue(queue);
-                    document.getElementById('uwuLogLink').value = '';
-                    document.getElementById('logAddSuccess').textContent =
-                        'Server not running. Log added to queue for later processing.';
-                    document.getElementById('logAddSuccess').style.display = 'block';
-                    displayQueuedLogs();
-                } else {
-                    alert('This log is already in the queue!');
-                }
+                alert('Error: ' + error.message);
             }
-
-            btn.disabled = false;
-            btn.textContent = 'Add Log';
         }
 
-        function addBulkLogs() {
-            const text = document.getElementById('bulkLogLinks').value.trim();
-            if (!text) {
-                alert('Please paste some log links');
-                return;
-            }
-
-            const links = text.split('\n').map(l => l.trim()).filter(l => l.includes('uwu-logs.xyz'));
-            if (links.length === 0) {
-                alert('No valid UwU-logs.xyz links found');
-                return;
-            }
-
-            const queue = getLogQueue();
-            let added = 0;
-
-            links.forEach(link => {
-                if (!queue.includes(link)) {
-                    queue.push(link);
-                    added++;
-                }
-            });
-
-            saveLogQueue(queue);
-            document.getElementById('bulkLogLinks').value = '';
-            alert(`Added ${added} new logs to queue (${links.length - added} duplicates skipped)`);
-            displayQueuedLogs();
-        }
-
-        function displayQueuedLogs() {
-            const queue = getLogQueue();
-            const container = document.getElementById('queuedLogs');
-
-            if (queue.length === 0) {
-                container.innerHTML = 'No logs queued.';
-                return;
-            }
-
-            container.innerHTML = queue.map((link, idx) => {
-                const logId = link.split('/reports/')[1]?.replace(/\/$/, '') || 'Unknown';
-                return `<div style="padding: 6px 0; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between;">
-                    <span>${idx + 1}. ${logId}</span>
-                    <button onclick="removeLog(${idx})" style="background: none; border: none; color: var(--horde-red); cursor: pointer; font-size: 0.8rem;">Remove</button>
-                </div>`;
-            }).join('');
-        }
-
-        function removeLog(idx) {
-            const queue = getLogQueue();
-            queue.splice(idx, 1);
-            saveLogQueue(queue);
-            displayQueuedLogs();
-        }
+        // ==================== RANKINGS ====================
 
         async function loadRankingsStatus() {
+            const container = document.getElementById('rankingsStatus');
+
             try {
-                const response = await fetch('data/top-parsers.json');
+                const response = await fetch('/api/top-parsers');
                 const data = await response.json();
-                const bossCount = Object.keys(data.dps || {}).length;
-                document.getElementById('rankingsStatus').innerHTML = `
-                    <p>Total logs analyzed: ${data.totalLogs || 0}</p>
-                    <p>Date range: ${data.dateRange?.from || 'N/A'} to ${data.dateRange?.to || 'N/A'}</p>
-                    <p>Last updated: ${data.generated ? new Date(data.generated).toLocaleDateString() : 'Unknown'}</p>
-                    <p>Bosses tracked: ${bossCount}</p>
+
+                const dpsCount = Object.keys(data.dps || {}).length;
+                const hpsCount = Object.keys(data.hps || {}).length;
+
+                container.innerHTML = `
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px;">
+                        <div style="background: var(--bg-tertiary); padding: 16px; border-radius: 8px;">
+                            <p style="color: var(--text-muted); font-size: 0.85rem;">Total Logs</p>
+                            <p style="color: var(--text-primary); font-size: 1.5rem; font-weight: 600;">${data.totalLogs || 0}</p>
+                        </div>
+                        <div style="background: var(--bg-tertiary); padding: 16px; border-radius: 8px;">
+                            <p style="color: var(--text-muted); font-size: 0.85rem;">DPS Bosses</p>
+                            <p style="color: var(--text-primary); font-size: 1.5rem; font-weight: 600;">${dpsCount}</p>
+                        </div>
+                        <div style="background: var(--bg-tertiary); padding: 16px; border-radius: 8px;">
+                            <p style="color: var(--text-muted); font-size: 0.85rem;">HPS Bosses</p>
+                            <p style="color: var(--text-primary); font-size: 1.5rem; font-weight: 600;">${hpsCount}</p>
+                        </div>
+                        <div style="background: var(--bg-tertiary); padding: 16px; border-radius: 8px;">
+                            <p style="color: var(--text-muted); font-size: 0.85rem;">Last Updated</p>
+                            <p style="color: var(--text-primary); font-size: 0.9rem;">${data.generated ? new Date(data.generated).toLocaleDateString() : 'N/A'}</p>
+                        </div>
+                    </div>
+                    <p style="margin-top: 16px; color: var(--text-muted); font-size: 0.85rem;">
+                        Date range: ${data.dateRange?.from || 'N/A'} to ${data.dateRange?.to || 'N/A'}
+                    </p>
                 `;
             } catch (error) {
-                document.getElementById('rankingsStatus').innerHTML = `<p style="color: var(--horde-red);">Error loading status: ${error.message}</p>`;
+                container.innerHTML = `<p style="color: #ef4444;">Error loading status: ${error.message}</p>`;
             }
         }
 
-        // Roster Management
-        function updateRoster() {
-            const data = document.getElementById('rosterPasteData').value.trim();
-            if (!data) {
-                alert('Please paste roster data');
+        async function exportRankings() {
+            try {
+                const response = await fetch('/api/top-parsers');
+                const data = await response.json();
+
+                const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `titan-rankings-${new Date().toISOString().split('T')[0]}.json`;
+                a.click();
+                URL.revokeObjectURL(url);
+            } catch (error) {
+                alert('Error exporting: ' + error.message);
+            }
+        }
+
+        async function importRankings() {
+            const dataStr = document.getElementById('importRankingsData').value.trim();
+            if (!dataStr) {
+                showError('importError', 'Please paste JSON data');
                 return;
             }
 
-            document.getElementById('rosterUpdateSuccess').style.display = 'block';
-            setTimeout(() => {
-                document.getElementById('rosterUpdateSuccess').style.display = 'none';
-            }, 5000);
+            try {
+                const data = JSON.parse(dataStr);
+
+                const response = await fetch('/api/top-parsers', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Admin-Password': ADMIN_PASSWORD
+                    },
+                    body: JSON.stringify({
+                        action: 'import',
+                        data: data
+                    })
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    showSuccess('importSuccess', 'Data imported successfully!');
+                    document.getElementById('importRankingsData').value = '';
+                    loadRankingsStatus();
+                } else {
+                    showError('importError', result.error);
+                }
+            } catch (error) {
+                showError('importError', 'Invalid JSON: ' + error.message);
+            }
         }
 
-        function addMember() {
+        // ==================== MEMBERS MANAGEMENT ====================
+
+        let allMembers = [];
+
+        async function loadMembers() {
+            const container = document.getElementById('membersList');
+            container.innerHTML = '<div class="empty-state"><span class="loading"></span> Loading...</div>';
+
+            try {
+                const response = await fetch('/api/members');
+                const data = await response.json();
+                allMembers = data.members || [];
+
+                // Update stats
+                document.getElementById('membersStats').innerHTML = `
+                    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                        <span style="color: var(--text-primary);">Total: <strong>${data.totalMembers || 0}</strong></span>
+                        ${Object.entries(data.byClass || {}).map(([cls, count]) =>
+                            `<span style="color: var(--text-muted);">${cls}: ${count}</span>`
+                        ).join('')}
+                    </div>
+                `;
+
+                displayMembers(allMembers);
+            } catch (error) {
+                container.innerHTML = `<div class="empty-state"><p style="color: #ef4444;">Error: ${error.message}</p></div>`;
+            }
+        }
+
+        function displayMembers(members) {
+            const container = document.getElementById('membersList');
+
+            if (members.length === 0) {
+                container.innerHTML = '<div class="empty-state"><p>No members found. Add your first member!</p></div>';
+                return;
+            }
+
+            const rankNames = { 0: 'GM', 1: 'Officer', 2: 'Veteran', 3: 'Raider', 4: 'Member', 5: 'Initiate' };
+
+            container.innerHTML = members.map(member => `
+                <div class="raid-item">
+                    <div class="raid-item-info">
+                        <h4>${member.name}</h4>
+                        <p>${member.class} ${member.spec ? `(${member.spec})` : ''} | ${rankNames[member.rank] || 'Member'}</p>
+                    </div>
+                    <div class="raid-item-actions">
+                        <button class="btn-edit" onclick="editMember('${member.id}')">Edit</button>
+                        <button class="btn-delete" onclick="deleteMember('${member.id}')">Remove</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function addMember() {
             const name = document.getElementById('newMemberName').value.trim();
-            const cls = document.getElementById('newMemberClass').value;
-            const level = parseInt(document.getElementById('newMemberLevel').value);
+            const playerClass = document.getElementById('newMemberClass').value;
             const rank = parseInt(document.getElementById('newMemberRank').value);
+            const spec = document.getElementById('newMemberSpec').value.trim();
 
             if (!name) {
-                alert('Please enter a character name');
+                showError('addMemberError', 'Please enter a character name');
                 return;
             }
 
-            const memberStr = `{ name: '${name}', class: '${cls}', level: ${level}, rank: ${rank} }`;
-            alert(`Add this to guild-data.js:\n\n${memberStr}`);
+            try {
+                const response = await fetch('/api/members', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Admin-Password': ADMIN_PASSWORD
+                    },
+                    body: JSON.stringify({
+                        name,
+                        class: playerClass,
+                        rank,
+                        spec
+                    })
+                });
 
-            document.getElementById('newMemberName').value = '';
+                const result = await response.json();
+                if (result.success) {
+                    showSuccess('addMemberSuccess', 'Member added!');
+                    document.getElementById('newMemberName').value = '';
+                    document.getElementById('newMemberSpec').value = '';
+                    loadMembers();
+                } else {
+                    showError('addMemberError', result.error);
+                }
+            } catch (error) {
+                showError('addMemberError', error.message);
+            }
         }
 
-        // Loot Management
-        function getLootData() {
-            const stored = localStorage.getItem('titanLoot');
-            return stored ? JSON.parse(stored) : [];
+        function editMember(memberId) {
+            const member = allMembers.find(m => m.id === memberId);
+            if (!member) return;
+
+            const newName = prompt('Character Name:', member.name);
+            if (newName === null) return;
+
+            const newSpec = prompt('Spec:', member.spec || '');
+            if (newSpec === null) return;
+
+            updateMember(memberId, { name: newName, spec: newSpec });
         }
 
-        function saveLootData(data) {
-            localStorage.setItem('titanLoot', JSON.stringify(data));
+        async function updateMember(memberId, updates) {
+            try {
+                const response = await fetch('/api/members', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Admin-Password': ADMIN_PASSWORD
+                    },
+                    body: JSON.stringify({ id: memberId, ...updates })
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    loadMembers();
+                } else {
+                    alert('Error: ' + result.error);
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
         }
 
-        function addLoot() {
-            const item = document.getElementById('lootItemName').value.trim();
-            const itemId = document.getElementById('lootItemId').value.trim();
-            const player = document.getElementById('lootPlayer').value.trim();
-            const playerClass = document.getElementById('lootClass').value;
-            const raid = document.getElementById('lootRaid').value;
-            const date = document.getElementById('lootDate').value;
-            const quality = document.getElementById('lootQuality').value;
+        async function deleteMember(memberId) {
+            if (!confirm('Remove this member?')) return;
 
-            if (!item || !player || !date) {
-                alert('Please fill in Item Name, Player, and Date');
+            try {
+                const response = await fetch(`/api/members?id=${memberId}`, {
+                    method: 'DELETE',
+                    headers: { 'X-Admin-Password': ADMIN_PASSWORD }
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    loadMembers();
+                } else {
+                    alert('Error: ' + result.error);
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+
+        // ==================== GUIDES/ADDONS MANAGEMENT ====================
+
+        let currentGuideType = 'addons';
+        let allGuides = [];
+
+        function switchGuideType(type, btn) {
+            currentGuideType = type;
+            document.querySelectorAll('#guides-tab .filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const labels = { addons: 'Addon', weakauras: 'WeakAura', guides: 'Guide' };
+            document.getElementById('guideTypeLabel').textContent = labels[type] || 'Item';
+
+            loadGuides();
+        }
+
+        async function loadGuides() {
+            const container = document.getElementById('guidesList');
+            container.innerHTML = '<div class="empty-state"><span class="loading"></span> Loading...</div>';
+
+            try {
+                const response = await fetch(`/api/guides?type=${currentGuideType}`);
+                const data = await response.json();
+                allGuides = data.items || [];
+
+                displayGuides(allGuides);
+            } catch (error) {
+                container.innerHTML = `<div class="empty-state"><p style="color: #ef4444;">Error: ${error.message}</p></div>`;
+            }
+        }
+
+        function displayGuides(items) {
+            const container = document.getElementById('guidesList');
+
+            if (items.length === 0) {
+                container.innerHTML = '<div class="empty-state"><p>No items found. Add your first one!</p></div>';
                 return;
             }
 
-            const lootData = getLootData();
-            lootData.unshift({
-                item: item,
-                itemId: itemId ? parseInt(itemId) : 0,
-                player: player,
-                class: playerClass,
-                raid: raid,
-                date: date,
-                quality: quality
-            });
-            saveLootData(lootData);
-
-            // Clear form
-            document.getElementById('lootItemName').value = '';
-            document.getElementById('lootItemId').value = '';
-            document.getElementById('lootPlayer').value = '';
-
-            // Show success
-            document.getElementById('lootAddSuccess').style.display = 'block';
-            setTimeout(() => {
-                document.getElementById('lootAddSuccess').style.display = 'none';
-            }, 5000);
-
-            // Refresh recent entries
-            displayRecentLoot();
+            container.innerHTML = items.map(item => `
+                <div class="raid-item">
+                    <div class="raid-item-info">
+                        <h4>${item.name}</h4>
+                        <p>${item.category} ${item.description ? `| ${item.description}` : ''} ${item.url ? '| Has URL' : ''}</p>
+                    </div>
+                    <div class="raid-item-actions">
+                        ${item.url ? `<a href="${item.url}" target="_blank" class="btn-parse" style="text-decoration: none;">Open</a>` : ''}
+                        <button class="btn-edit" onclick="editGuide('${item.id}')">Edit</button>
+                        <button class="btn-delete" onclick="deleteGuide('${item.id}')">Remove</button>
+                    </div>
+                </div>
+            `).join('');
         }
 
-        function displayRecentLoot() {
-            const lootData = getLootData();
-            const container = document.getElementById('recentLoot');
+        async function addGuide() {
+            const name = document.getElementById('newGuideName').value.trim();
+            const category = document.getElementById('newGuideCategory').value;
+            const description = document.getElementById('newGuideDesc').value.trim();
+            const url = document.getElementById('newGuideUrl').value.trim();
+            const content = document.getElementById('newGuideContent').value.trim();
+            const priority = parseInt(document.getElementById('newGuidePriority').value) || 0;
 
-            if (lootData.length === 0) {
-                container.innerHTML = 'No loot entries yet.';
+            if (!name) {
+                showError('addGuideError', 'Please enter a name');
                 return;
             }
 
-            const recent = lootData.slice(0, 5);
-            container.innerHTML = recent.map(l =>
-                `<div style="padding: 8px 0; border-bottom: 1px solid var(--border-subtle);">
-                    <strong>${l.item}</strong> → ${l.player} (${l.raid.toUpperCase()}) - ${l.date}
-                </div>`
-            ).join('');
+            try {
+                const response = await fetch(`/api/guides?type=${currentGuideType}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Admin-Password': ADMIN_PASSWORD
+                    },
+                    body: JSON.stringify({ name, category, description, url, content, priority })
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    showSuccess('addGuideSuccess', 'Added successfully!');
+                    document.getElementById('newGuideName').value = '';
+                    document.getElementById('newGuideDesc').value = '';
+                    document.getElementById('newGuideUrl').value = '';
+                    document.getElementById('newGuideContent').value = '';
+                    document.getElementById('newGuidePriority').value = '0';
+                    loadGuides();
+                } else {
+                    showError('addGuideError', result.error);
+                }
+            } catch (error) {
+                showError('addGuideError', error.message);
+            }
         }
 
-        // Initialize on page load
-        if (document.getElementById('recentLoot')) {
-            displayRecentLoot();
+        function editGuide(itemId) {
+            const item = allGuides.find(g => g.id === itemId);
+            if (!item) return;
+
+            const newName = prompt('Name:', item.name);
+            if (newName === null) return;
+
+            const newDesc = prompt('Description:', item.description || '');
+            if (newDesc === null) return;
+
+            const newUrl = prompt('URL:', item.url || '');
+            if (newUrl === null) return;
+
+            updateGuide(itemId, { name: newName, description: newDesc, url: newUrl });
         }
-        if (document.getElementById('queuedLogs')) {
-            displayQueuedLogs();
+
+        async function updateGuide(itemId, updates) {
+            try {
+                const response = await fetch(`/api/guides?type=${currentGuideType}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Admin-Password': ADMIN_PASSWORD
+                    },
+                    body: JSON.stringify({ id: itemId, ...updates })
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    loadGuides();
+                } else {
+                    alert('Error: ' + result.error);
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
         }
-        if (document.getElementById('rankingsStatus')) {
-            loadRankingsStatus();
+
+        async function deleteGuide(itemId) {
+            if (!confirm('Remove this item?')) return;
+
+            try {
+                const response = await fetch(`/api/guides?type=${currentGuideType}&id=${itemId}`, {
+                    method: 'DELETE',
+                    headers: { 'X-Admin-Password': ADMIN_PASSWORD }
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    loadGuides();
+                } else {
+                    alert('Error: ' + result.error);
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+
+        // ==================== UTILITIES ====================
+
+        function showSuccess(elementId, message) {
+            const el = document.getElementById(elementId);
+            el.textContent = message;
+            el.style.display = 'block';
+            setTimeout(() => { el.style.display = 'none'; }, 5000);
+        }
+
+        function showError(elementId, message) {
+            const el = document.getElementById(elementId);
+            el.textContent = message;
+            el.style.display = 'block';
+            setTimeout(() => { el.style.display = 'none'; }, 5000);
         }
 
         // Mobile nav toggle
@@ -845,6 +1443,16 @@ Example:
 
         window.addEventListener('scroll', () => {
             document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Close modal on escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeEditModal();
+        });
+
+        // Close modal on outside click
+        document.getElementById('editRaidModal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeEditModal();
         });
     </script>
 </body>
