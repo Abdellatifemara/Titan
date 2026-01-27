@@ -324,8 +324,12 @@
 
         <div class="container" style="padding: 24px 0;">
 
-            <div class="raid-history">
+            <div class="raid-history" id="raidHistory">
+                <div class="loading-raids" style="text-align: center; padding: 40px; color: var(--text-muted);">Loading raids...</div>
+            </div>
 
+            <!-- Fallback hardcoded raids (hidden, kept for reference) -->
+            <div class="raid-history-fallback" style="display: none;">
                 <!-- Raid: Jan 26, 2026 -->
                 <div class="raid-entry expanded" data-raid="20260126">
                     <div class="raid-entry-header" onclick="toggleRaid(this)">
@@ -696,6 +700,7 @@
                 </div>
 
             </div>
+            </div><!-- end fallback -->
 
             <!-- Discord CTA -->
             <div class="discord-cta">
@@ -733,6 +738,117 @@
         window.addEventListener('scroll', () => {
             document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
         });
+
+        // Class to CSS class mapping
+        const classMap = {
+            'Death Knight': { css: 'class-dk', icon: 'deathknight' },
+            'Druid': { css: 'class-druid', icon: 'druid' },
+            'Hunter': { css: 'class-hunter', icon: 'hunter' },
+            'Mage': { css: 'class-mage', icon: 'mage' },
+            'Paladin': { css: 'class-paladin', icon: 'paladin' },
+            'Priest': { css: 'class-priest', icon: 'priest' },
+            'Rogue': { css: 'class-rogue', icon: 'rogue' },
+            'Shaman': { css: 'class-shaman', icon: 'shaman' },
+            'Warlock': { css: 'class-warlock', icon: 'warlock' },
+            'Warrior': { css: 'class-warrior', icon: 'warrior' },
+            'Unknown': { css: 'class-unknown', icon: 'unknown' }
+        };
+
+        function renderPlayer(player) {
+            const classInfo = classMap[player.class] || classMap['Unknown'];
+            const spec = player.spec || '';
+            return `<div class="roster-player"><img src="icons/${classInfo.icon}.png" alt="" class="roster-player-icon"><span class="${classInfo.css}">${player.name}</span>${spec ? ` <span class="spec">${spec}</span>` : ''}</div>`;
+        }
+
+        function renderRosterColumn(title, players, roleClass, icon) {
+            if (!players || players.length === 0) return '';
+            return `
+                <div class="roster-column">
+                    <div class="roster-column-header ${roleClass}">
+                        ${icon}
+                        ${title} (${players.length})
+                    </div>
+                    <div class="roster-column-body">
+                        ${players.map(p => renderPlayer(p)).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderRaid(raid, index) {
+            const date = new Date(raid.date);
+            const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            const timeStr = raid.time || '19:00 ST';
+            const comp = raid.composition || { tanks: [], melee: [], ranged: [], healers: [] };
+            const totalPlayers = (comp.tanks?.length || 0) + (comp.melee?.length || 0) + (comp.ranged?.length || 0) + (comp.healers?.length || 0);
+            const isExpanded = index === 0 ? 'expanded' : '';
+
+            const tankIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>';
+            const dpsIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>';
+            const healIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>';
+
+            return `
+                <div class="raid-entry ${isExpanded}" data-raid="${raid.id}">
+                    <div class="raid-entry-header" onclick="toggleRaid(this)">
+                        <div class="raid-entry-title">
+                            <h3>${raid.raidName || 'ICC 25 HC'}</h3>
+                            <span class="raid-badge heroic">Heroic</span>
+                        </div>
+                        <div class="raid-entry-meta">
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                ${dateStr} - ${timeStr}
+                            </span>
+                            <span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                                ${totalPlayers || '?'} players
+                            </span>
+                        </div>
+                        <div class="raid-entry-toggle">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </div>
+                    </div>
+                    <div class="raid-entry-body">
+                        <div class="roster-grid">
+                            ${renderRosterColumn('Tanks', comp.tanks, 'tanks', tankIcon)}
+                            ${renderRosterColumn('Melee', comp.melee, 'melee', dpsIcon)}
+                            ${renderRosterColumn('Ranged', comp.ranged, 'ranged', dpsIcon)}
+                            ${renderRosterColumn('Healers', comp.healers, 'healers', healIcon)}
+                        </div>
+                        ${raid.uwuLogUrl ? `
+                        <div class="uwu-log-section">
+                            <h4>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                UwU Logs
+                            </h4>
+                            <a href="${raid.uwuLogUrl}" target="_blank" class="uwu-log-link">View Full Log on UwU Logs</a>
+                        </div>
+                        ` : ''}
+                        ${raid.notes ? `<div class="raid-notes" style="margin-top: 16px; padding: 12px; background: var(--bg-tertiary); border-radius: 8px; color: var(--text-muted); font-size: 0.9rem;">${raid.notes}</div>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        async function loadRaids() {
+            const container = document.getElementById('raidHistory');
+            try {
+                const response = await fetch('/api/raids');
+                const data = await response.json();
+
+                if (data.raids && data.raids.length > 0) {
+                    container.innerHTML = data.raids.map((raid, i) => renderRaid(raid, i)).join('');
+                } else {
+                    container.innerHTML = '<div style="text-align: center; padding: 40px; color: var(--text-muted);">No raids scheduled yet. Check Discord for upcoming raids!</div>';
+                }
+            } catch (error) {
+                console.error('Failed to load raids:', error);
+                container.innerHTML = '<div style="text-align: center; padding: 40px; color: var(--text-muted);">Failed to load raids. Please refresh the page.</div>';
+            }
+        }
+
+        // Load raids on page load
+        document.addEventListener('DOMContentLoaded', loadRaids);
     </script>
 </body>
 </html>
