@@ -134,6 +134,37 @@
             .addon-item { grid-template-columns: 1fr; gap: 8px; }
             .addon-item .btn { width: 100%; }
         }
+
+        /* WeakAuras Grid */
+        .wa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 8px;
+        }
+        .wa-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+        }
+        .wa-item:hover { border-color: var(--horde-red); }
+        .wa-name {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+        }
+        .wa-link {
+            padding: 4px 12px;
+            background: var(--horde-red);
+            border-radius: 4px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .wa-link:hover { background: #a01830; }
     </style>
 </head>
 <body>
@@ -300,18 +331,83 @@
 
             <!-- WEAKAURAS SECTION -->
             <div class="guide-section" id="weakauras">
-                <h3 class="section-title">WeakAura Import Strings</h3>
-                <div class="install-box" style="border-left: 3px solid var(--horde-red);">
-                    <p style="color: var(--horde-red-light); font-weight: 600;">WeakAuras will be added by Waawaa</p>
-                    <p style="margin-top: 8px;">Copy-pastable import strings for ICC/RS encounters and class rotations coming soon. Check back or ask in Discord.</p>
-                </div>
-
-                <h3 class="section-title">How to Import</h3>
+                <h3 class="section-title">How to Import WeakAuras</h3>
                 <div class="install-box">
                     <p><strong>1.</strong> Install WeakAuras addon (link above)</p>
-                    <p><strong>2.</strong> In-game type <code style="display: inline; margin: 0;">/wa</code></p>
-                    <p><strong>3.</strong> Click "Import" in top left</p>
-                    <p><strong>4.</strong> Paste the string and click "Import"</p>
+                    <p><strong>2.</strong> Click a link below to open wago.io</p>
+                    <p><strong>3.</strong> Click "Copy WeakAura Import String" on wago.io</p>
+                    <p><strong>4.</strong> In-game type <code style="display: inline; margin: 0;">/wa</code> → Import → Paste</p>
+                </div>
+
+                <h3 class="section-title">DPS WeakAuras</h3>
+                <div class="wa-grid">
+                    <div class="wa-item"><span class="wa-name">Fury Warrior</span><a href="https://wago.io/B8vu1dbWs" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Combat Rogue</span><a href="https://wago.io/Y_5G9r2BW" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Assassination Rogue</span><a href="https://wago.io/8s4Gq4SFh" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Retribution Paladin</span><a href="https://wago.io/KTLaxIexq" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Feral Druid</span><a href="https://wago.io/ooV04rqhr" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Balance Druid</span><a href="https://wago.io/zk8HoTVUO" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Frost DK</span><a href="https://wago.io/vZ6gs9AbY" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Unholy DK</span><a href="https://wago.io/TLuemnuHk" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">MM Hunter</span><a href="https://wago.io/ZMUpgFthJ" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Survival Hunter</span><a href="https://wago.io/v3rbkAFQT" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Fire Mage</span><a href="https://wago.io/XoTCW-6Xu" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Arcane Mage</span><a href="https://wago.io/ztT6Y9iiR" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Shadow Priest</span><a href="https://wago.io/FpGvSvCHs" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Elemental Shaman</span><a href="https://wago.io/hHlPFqUkN" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Enhancement Shaman</span><a href="https://wago.io/ICX5AgEe-" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Affliction Warlock</span><a href="https://wago.io/33IiwDQBa" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Demonology Warlock</span><a href="https://wago.io/qmCwAwwq4" target="_blank" class="wa-link">Open</a></div>
+                </div>
+
+                <h3 class="section-title">Healer WeakAuras</h3>
+                <div class="wa-grid">
+                    <div class="wa-item"><span class="wa-name">Holy Paladin</span><a href="https://wago.io/oseX5OcMM" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Restoration Shaman</span><a href="https://wago.io/RE167IifA" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Restoration Druid</span><a href="https://wago.io/t3-D2Mz-b" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Holy Priest</span><a href="https://wago.io/eBFEumA9g" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Discipline Priest</span><a href="https://wago.io/sDOpoBE2x" target="_blank" class="wa-link">Open</a></div>
+                </div>
+
+                <h3 class="section-title">Tank WeakAuras</h3>
+                <div class="wa-grid">
+                    <div class="wa-item"><span class="wa-name">Blood DK</span><a href="https://wago.io/K4uULEVMm" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Protection Paladin</span><a href="https://wago.io/yutPnI6XZ" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Protection Warrior</span><a href="https://wago.io/s6dh6x9lg" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Feral Bear</span><a href="https://wago.io/HfLKWSqVs" target="_blank" class="wa-link">Open</a></div>
+                </div>
+
+                <h3 class="section-title">ICC Boss Mechanics</h3>
+                <div class="wa-grid">
+                    <div class="wa-item"><span class="wa-name">Lord Marrowgar</span><a href="https://wago.io/dQbfvrPZB" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Lady Deathwhisper</span><a href="https://wago.io/hCmpAg_4c" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Professor Putricide</span><a href="https://wago.io/i_gNzIyXV" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Blood Prince Council</span><a href="https://wago.io/HfeFMeWZp" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Sindragosa</span><a href="https://wago.io/FHcSSJrPq" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Lich King</span><a href="https://wago.io/Qu55hX34Y" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">ICC Core Library</span><a href="https://wago.io/4Ed4K2AbB" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">ICC Assistance Pack</span><a href="https://wago.io/q9-VKiMvh" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Infest Counter</span><a href="https://wago.io/ZEswMWPxg" target="_blank" class="wa-link">Open</a></div>
+                </div>
+
+                <h3 class="section-title">Utility WeakAuras</h3>
+                <div class="wa-grid">
+                    <div class="wa-item"><span class="wa-name">Combat Text</span><a href="https://wago.io/dKkmIbovp" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Item ICDs & Procs</span><a href="https://wago.io/V1ibZh8G9" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Damage Reduction Suite</span><a href="https://wago.io/vVdzG1c3y" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Power Infusion Assistant</span><a href="https://wago.io/86orn5eUe" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Raid Buffs Reminder</span><a href="https://wago.io/21mE5Z33B" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Boss Swing Timer</span><a href="https://wago.io/oHVnqP5rj" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Simple Stats</span><a href="https://wago.io/IgOXJw9DS" target="_blank" class="wa-link">Open</a></div>
+                </div>
+
+                <h3 class="section-title">Raid Leader WeakAuras</h3>
+                <div class="wa-grid">
+                    <div class="wa-item"><span class="wa-name">Raid Cooldowns (Dep)</span><a href="https://wago.io/hInmmxY9k" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Raid Cooldowns (Main)</span><a href="https://wago.io/TPMuElKHh" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Raid Target Markers</span><a href="https://wago.io/MVNfKD7TF" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Master Loot WA</span><a href="https://wago.io/DqzZxB0io" target="_blank" class="wa-link">Open</a></div>
+                    <div class="wa-item"><span class="wa-name">Healer Mana Assistant</span><a href="https://wago.io/PJhr9f7bo" target="_blank" class="wa-link">Open</a></div>
                 </div>
             </div>
 
