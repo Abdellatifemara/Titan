@@ -706,6 +706,12 @@
 
             event.target.classList.add('active');
             document.getElementById(tabId + '-tab').classList.add('active');
+
+            // Load data for the selected tab
+            if (tabId === 'members') loadMembers();
+            if (tabId === 'guides') loadGuides();
+            if (tabId === 'raids') loadRaids();
+            if (tabId === 'rankings') loadRankingsStatus();
         }
 
         // ==================== RAIDS MANAGEMENT ====================
@@ -1148,6 +1154,9 @@
             }
         }
 
+        let membersDisplayCount = 50;
+        let memberSearchTerm = '';
+
         function displayMembers(members) {
             const container = document.getElementById('membersList');
 
@@ -1156,9 +1165,28 @@
                 return;
             }
 
-            const rankNames = { 0: 'GM', 1: 'Officer', 2: 'Veteran', 3: 'Raider', 4: 'Member', 5: 'Initiate' };
+            // Filter by search
+            let filtered = members;
+            if (memberSearchTerm) {
+                filtered = members.filter(m =>
+                    m.name.toLowerCase().includes(memberSearchTerm.toLowerCase()) ||
+                    m.class.toLowerCase().includes(memberSearchTerm.toLowerCase())
+                );
+            }
 
-            container.innerHTML = members.map(member => `
+            const rankNames = { 0: 'GM', 1: 'Officer', 2: 'Veteran', 3: 'Raider', 4: 'Member', 5: 'Initiate' };
+            const toShow = filtered.slice(0, membersDisplayCount);
+
+            let html = `
+                <div style="margin-bottom: 16px;">
+                    <input type="text" class="form-input" placeholder="Search members..."
+                           value="${memberSearchTerm}"
+                           oninput="memberSearchTerm = this.value; membersDisplayCount = 50; displayMembers(allMembers)">
+                </div>
+                <p style="color: var(--text-muted); margin-bottom: 12px;">Showing ${toShow.length} of ${filtered.length} members</p>
+            `;
+
+            html += toShow.map(member => `
                 <div class="raid-item">
                     <div class="raid-item-info">
                         <h4>${member.name}</h4>
@@ -1170,6 +1198,15 @@
                     </div>
                 </div>
             `).join('');
+
+            if (toShow.length < filtered.length) {
+                html += `<button class="btn btn-secondary" style="width: 100%; margin-top: 12px;"
+                                 onclick="membersDisplayCount += 50; displayMembers(allMembers)">
+                            Load More (${filtered.length - toShow.length} remaining)
+                         </button>`;
+            }
+
+            container.innerHTML = html;
         }
 
         async function addMember() {
