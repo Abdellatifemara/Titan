@@ -1,7 +1,27 @@
-const { kv } = require('@vercel/kv');
+const fs = require('fs');
+const path = require('path');
+
+let kv = null;
+try {
+    kv = require('@vercel/kv').kv;
+} catch (e) {
+    console.log('Vercel KV not available, using JSON fallback');
+}
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'titan2026';
 const TOP_PARSERS_KEY = 'titan:top-parsers';
+
+// Fallback: Load from JSON file
+function loadFromJson() {
+    try {
+        const jsonPath = path.join(process.cwd(), 'data', 'top-parsers.json');
+        const data = fs.readFileSync(jsonPath, 'utf8');
+        return JSON.parse(data);
+    } catch (e) {
+        console.error('Failed to load JSON:', e);
+        return null;
+    }
+}
 
 module.exports = async (req, res) => {
     // Enable CORS
@@ -16,9 +36,23 @@ module.exports = async (req, res) => {
     try {
         // GET - Fetch top parsers data
         if (req.method === 'GET') {
-            let data = await kv.get(TOP_PARSERS_KEY);
+            let data = null;
 
-            // If no data in KV, return default structure
+            // Try KV first
+            if (kv && process.env.KV_REST_API_URL) {
+                try {
+                    data = await kv.get(TOP_PARSERS_KEY);
+                } catch (e) {
+                    console.log('KV fetch failed, using JSON fallback');
+                }
+            }
+
+            // Fallback to JSON file
+            if (!data) {
+                data = loadFromJson();
+            }
+
+            // If still no data, return default structure
             if (!data) {
                 data = {
                     dps: {},

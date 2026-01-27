@@ -1,7 +1,67 @@
-const { kv } = require('@vercel/kv');
+const fs = require('fs');
+const path = require('path');
+
+let kv = null;
+try {
+    kv = require('@vercel/kv').kv;
+} catch (e) {
+    console.log('Vercel KV not available, using JSON fallback');
+}
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'titan2026';
 const RAIDS_KEY = 'titan:raids';
+
+// JSON file path for fallback
+const JSON_PATH = path.join(process.cwd(), 'data', 'raid-logs.json');
+
+// Fallback: Load from JSON file
+function loadRaidsFromJson() {
+    try {
+        if (fs.existsSync(JSON_PATH)) {
+            const data = fs.readFileSync(JSON_PATH, 'utf8');
+            return JSON.parse(data);
+        }
+    } catch (e) {
+        console.error('Failed to load raids JSON:', e);
+    }
+    return [];
+}
+
+// Fallback: Save to JSON file
+function saveRaidsToJson(raids) {
+    try {
+        fs.writeFileSync(JSON_PATH, JSON.stringify(raids, null, 2));
+        return true;
+    } catch (e) {
+        console.error('Failed to save raids JSON:', e);
+        return false;
+    }
+}
+
+// Helper to get raids (KV with JSON fallback)
+async function getRaids() {
+    if (kv && process.env.KV_REST_API_URL) {
+        try {
+            return await getRaids();
+        } catch (e) {
+            console.log('KV fetch failed, using JSON fallback');
+        }
+    }
+    return loadRaidsFromJson();
+}
+
+// Helper to save raids (KV with JSON fallback)
+async function saveRaids(raids) {
+    if (kv && process.env.KV_REST_API_URL) {
+        try {
+            await saveRaids(raids);
+            return true;
+        } catch (e) {
+            console.log('KV save failed, using JSON fallback');
+        }
+    }
+    return saveRaidsToJson(raids);
+}
 
 // Helper to generate unique ID
 function generateId() {
@@ -27,7 +87,7 @@ module.exports = async (req, res) => {
     try {
         // GET - Fetch all raids
         if (req.method === 'GET') {
-            const raids = await kv.get(RAIDS_KEY) || [];
+            const raids = await getRaids();
             return res.json({
                 raids,
                 totalRaids: raids.length
@@ -46,7 +106,7 @@ module.exports = async (req, res) => {
                 return res.status(400).json({ error: 'Date and raidName are required' });
             }
 
-            const raids = await kv.get(RAIDS_KEY) || [];
+            const raids = await getRaids() || [];
 
             const newRaid = {
                 id: generateId(),
@@ -63,7 +123,7 @@ module.exports = async (req, res) => {
             };
 
             raids.unshift(newRaid); // Add to beginning (newest first)
-            await kv.set(RAIDS_KEY, raids);
+            await saveRaids(raids);
 
             return res.json({
                 success: true,
@@ -84,7 +144,7 @@ module.exports = async (req, res) => {
                 return res.status(400).json({ error: 'Raid ID is required' });
             }
 
-            const raids = await kv.get(RAIDS_KEY) || [];
+            const raids = await getRaids() || [];
             const raidIndex = raids.findIndex(r => r.id === id);
 
             if (raidIndex === -1) {
@@ -103,7 +163,7 @@ module.exports = async (req, res) => {
                 raids[raidIndex].composition = parseComposition(updates.compositionText);
             }
 
-            await kv.set(RAIDS_KEY, raids);
+            await saveRaids(raids);
 
             return res.json({
                 success: true,
@@ -124,7 +184,7 @@ module.exports = async (req, res) => {
                 return res.status(400).json({ error: 'Raid ID is required' });
             }
 
-            let raids = await kv.get(RAIDS_KEY) || [];
+            let raids = await getRaids() || [];
             const initialLength = raids.length;
             raids = raids.filter(r => r.id !== id);
 
@@ -132,7 +192,7 @@ module.exports = async (req, res) => {
                 return res.status(404).json({ error: 'Raid not found' });
             }
 
-            await kv.set(RAIDS_KEY, raids);
+            await saveRaids(raids);
 
             return res.json({
                 success: true,
