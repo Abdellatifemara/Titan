@@ -98,8 +98,8 @@ module.exports = async (req, res) => {
                 updatedAt: new Date().toISOString()
             };
 
-            // Re-parse composition if compositionText changed
-            if (updates.compositionText && !updates.composition) {
+            // Always re-parse composition from compositionText
+            if (updates.compositionText) {
                 raids[raidIndex].composition = parseComposition(updates.compositionText);
             }
 
