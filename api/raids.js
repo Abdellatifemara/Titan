@@ -166,9 +166,12 @@ function parseComposition(text) {
     const lines = text.replace(/\r/g, '').split('\n');
     let currentRole = null;
 
-    // Simple role detection - just look for keywords anywhere in line
+    // Simple role detection - look for role keywords in short lines (headers)
     function detectRoleHeader(line) {
         const lower = line.toLowerCase();
+        // Skip long lines or lines that look like titles/descriptions
+        if (line.length > 30 || lower.includes('composition') || lower.includes('group')) return null;
+
         if (lower.includes('tank')) return 'tanks';
         if (lower.includes('melee') || lower.includes('meele')) return 'melee';
         if (lower.includes('range')) return 'ranged';
@@ -217,12 +220,11 @@ function parseComposition(text) {
         const trimmed = line.trim();
         if (!trimmed) continue;
 
-        // Check for role section headers (lines starting with - or containing role keywords without @)
+        // Check for role section headers - lines without @ that contain role keywords
         const hasAtMention = trimmed.includes('@');
-        const startsWithDash = trimmed.startsWith('-');
 
-        // If line starts with dash and has no @mention, it's likely a header
-        if (startsWithDash && !hasAtMention) {
+        // If no @mention, check if it's a role header
+        if (!hasAtMention) {
             const detectedHeader = detectRoleHeader(trimmed);
             if (detectedHeader) {
                 currentRole = detectedHeader;
