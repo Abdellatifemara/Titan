@@ -50,6 +50,49 @@
             color: white;
         }
 
+        /* Player of the Month */
+        .potm-card {
+            margin-left: auto;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 140, 0, 0.1));
+            border: 2px solid #ffd700;
+            border-radius: 12px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+        .potm-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #ffd700;
+            object-fit: cover;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+        .potm-info {
+            text-align: left;
+        }
+        .potm-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffd700;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .potm-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            font-family: 'Cinzel', serif;
+        }
+        .potm-title {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
         /* Search & Filters */
         .roster-controls {
             display: flex;
@@ -329,6 +372,7 @@
         @media (max-width: 768px) {
             .guild-header-content { flex-direction: column; text-align: center; }
             .guild-meta { justify-content: center; }
+            .potm-card { margin: 16px auto 0; }
             .roster-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -367,6 +411,14 @@
                             <span class="horde-badge">HORDE</span>
                             <span>Icecrown</span>
                             <span id="memberCount">Loading...</span>
+                        </div>
+                    </div>
+                    <div class="potm-card">
+                        <img src="test abood.png" alt="Player of the Month" class="potm-avatar">
+                        <div class="potm-info">
+                            <div class="potm-label">Player of the Month</div>
+                            <div class="potm-name">Aboodpaladin</div>
+                            <div class="potm-title">January 2026</div>
                         </div>
                     </div>
                 </div>
