@@ -22,7 +22,9 @@ const bossOrder = [
     'Blood Prince Council',
     'Blood-Queen Lana\'thel',
     'Sindragosa',
-    'The Lich King'
+    'The Lich King',
+    'Halion (Outside)',
+    'Halion (Inside)'
 ];
 
 let rankingsData = null;
