@@ -62,6 +62,16 @@
     font-size: 1rem;
 }
 
+/* Log breakdown styling */
+.log-breakdown {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    font-family: 'Inter', sans-serif;
+    margin-top: 4px;
+}
+
 /* Boss Card */
 .boss-card {
     background: var(--bg-card);
@@ -340,12 +350,70 @@
 }
 
 @media (max-width: 768px) {
-    .parsers-hero h1 { font-size: 2rem; }
-    .log-counter { flex-direction: column; text-align: center; gap: 8px; }
+    .parsers-page { padding-top: 60px; }
+    .parsers-hero { padding: 40px 16px; }
+    .parsers-hero h1 { font-size: 1.8rem; }
+    .parsers-hero p { font-size: 0.95rem; }
+    .log-counter {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+        padding: 12px 20px;
+    }
+    .log-counter-number { font-size: 2rem; }
     .log-counter-label { text-align: center; }
+    .log-breakdown { font-size: 0.8rem; }
+
+    .container { padding: 16px !important; }
+    .section-title { font-size: 1.2rem; }
+
+    /* Boss cards mobile */
+    .boss-card { margin-bottom: 12px; }
+    .boss-card-header { padding: 14px 16px; }
+    .boss-card-name { font-size: 1.1rem; }
+    .boss-card-content { padding: 16px; }
+
     .champion-display { flex-direction: column; gap: 8px; }
     .champion-info { text-align: center; }
-    .class-grid { grid-template-columns: 1fr; }
-    .top-table { font-size: 0.8rem; }
-    .top-table th, .top-table td { padding: 8px; }
+    .champion-dps { font-size: 1.2rem; }
+
+    /* Class grid mobile */
+    .class-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    .class-card { padding: 10px; }
+    .class-card-icon { width: 24px; height: 24px; }
+    .class-card-player { font-size: 0.85rem; }
+    .class-card-value { font-size: 0.9rem; }
+
+    /* Tables mobile - horizontal scroll wrapper */
+    .top-table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 -16px;
+        padding: 0 16px;
+    }
+    .top-table {
+        font-size: 0.75rem;
+        min-width: 450px;
+    }
+    .top-table th, .top-table td {
+        padding: 8px 6px;
+        white-space: nowrap;
+    }
+    .top-table th:first-child,
+    .top-table td:first-child { padding-left: 10px; }
+    .rank-badge { width: 26px; height: 26px; font-size: 0.75rem; }
+    .rank-badge.rank-1::before { font-size: 0.8rem; margin-right: 4px; }
+
+    /* Top All Time table mobile */
+    .top-alltime-table { min-width: 500px; }
+    .top-alltime-section {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 -16px;
+        padding: 0 16px 16px;
+    }
+    .alltime-crown { font-size: 0.9rem; }
 }

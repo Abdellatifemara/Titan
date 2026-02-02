@@ -22,9 +22,8 @@ const bossOrder = [
     'Blood Prince Council',
     'Blood-Queen Lana\'thel',
     'Sindragosa',
-    'The Lich King',
-    'Halion (Outside)',
-    'Halion (Inside)'
+    'The Lich King'
+    // Halion will be added once correct phase-specific data is available
 ];
 
 let rankingsData = null;
@@ -34,7 +33,15 @@ async function loadRankings() {
         const response = await fetch('data/top-parsers.json');
         rankingsData = await response.json();
 
-        document.getElementById('logCount').textContent = rankingsData.totalLogs;
+        // Display log count with breakdown
+        const breakdown = rankingsData.logBreakdown;
+        if (breakdown) {
+            document.getElementById('logCount').innerHTML =
+                `${rankingsData.totalLogs} <span class="log-breakdown">(${breakdown.icc} LoD, ${breakdown.halion} Halion)</span>`;
+        } else {
+            document.getElementById('logCount').textContent = rankingsData.totalLogs;
+        }
+
         document.getElementById('dateRange').textContent =
             `${rankingsData.dateRange.from} to ${rankingsData.dateRange.to}`;
         document.getElementById('lastUpdated').textContent =
@@ -167,6 +174,7 @@ function renderTopTable(topPerfs, type) {
     const valueClass = type === 'dps' ? 'table-dps' : 'table-hps';
 
     let html = `
+        <div class="top-table-wrapper">
         <table class="top-table">
             <thead>
                 <tr>
@@ -195,7 +203,7 @@ function renderTopTable(topPerfs, type) {
         `;
     });
 
-    html += '</tbody></table>';
+    html += '</tbody></table></div>';
     return html;
 }
 

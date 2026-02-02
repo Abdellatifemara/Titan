@@ -1,6 +1,10 @@
 {
   "generated": "2026-02-02T10:19:19.134Z",
   "totalLogs": 41,
+  "logBreakdown": {
+    "icc": 38,
+    "halion": 3
+  },
   "dateRange": {
     "from": "2025-09-20",
     "to": "2026-02-01"
