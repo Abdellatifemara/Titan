@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-02T10:19:19.134Z",
+  "generated": "2026-02-02T10:34:31.344Z",
   "totalLogs": 41,
   "logBreakdown": {
     "icc": 38,
@@ -1472,117 +1472,68 @@
     },
     "Halion (Outside)": {
       "bestOverall": {
-        "player": "Ninellisfake",
-        "class": "Warrior",
-        "dps": 13857.2,
+        "player": "Extetdudu",
+        "class": "Druid",
+        "dps": 14546.4,
         "date": "2026-01-28",
         "logId": "26-01-28--19-08--Felesminor--Icecrown"
       },
       "bestByClass": {
-        "Warrior": {
-          "player": "Ninellisfake",
-          "class": "Warrior",
-          "dps": 13857.2,
-          "date": "2026-01-28",
-          "logId": "26-01-28--19-08--Felesminor--Icecrown"
-        },
         "Druid": {
           "player": "Extetdudu",
           "class": "Druid",
-          "dps": 12620.2,
+          "dps": 14546.4,
+          "date": "2026-01-28",
+          "logId": "26-01-28--19-08--Felesminor--Icecrown"
+        },
+        "Warrior": {
+          "player": "Ninellisfake",
+          "class": "Warrior",
+          "dps": 14369.6,
           "date": "2026-01-28",
           "logId": "26-01-28--19-08--Felesminor--Icecrown"
         },
         "Paladin": {
           "player": "Avaya",
           "class": "Paladin",
-          "dps": 8813.3,
-          "date": "2026-01-28",
-          "logId": "26-01-28--19-08--Felesminor--Icecrown"
-        },
-        "Rogue": {
-          "player": "Penetratorcr",
-          "class": "Rogue",
-          "dps": 5531.6,
-          "date": "2026-01-28",
-          "logId": "26-01-28--19-08--Felesminor--Icecrown"
-        },
-        "Mage": {
-          "player": "Reckles",
-          "class": "Mage",
-          "dps": 5168.1,
+          "dps": 9623.6,
           "date": "2026-01-28",
           "logId": "26-01-28--19-08--Felesminor--Icecrown"
         }
       },
       "topPerformances": [
         {
+          "player": "Extetdudu",
+          "class": "Druid",
+          "dps": 14546.4,
+          "date": "2026-01-28",
+          "logId": "26-01-28--19-08--Felesminor--Icecrown"
+        },
+        {
           "player": "Ninellisfake",
           "class": "Warrior",
-          "dps": 13857.2,
+          "dps": 14369.6,
           "date": "2026-01-28",
           "logId": "26-01-28--19-08--Felesminor--Icecrown"
         },
         {
           "player": "Oldmb",
           "class": "Warrior",
-          "dps": 12628.1,
-          "date": "2026-01-28",
-          "logId": "26-01-28--19-08--Felesminor--Icecrown"
-        },
-        {
-          "player": "Extetdudu",
-          "class": "Druid",
-          "dps": 12620.2,
+          "dps": 13613.2,
           "date": "2026-01-28",
           "logId": "26-01-28--19-08--Felesminor--Icecrown"
         },
         {
           "player": "Ymortus",
           "class": "Warrior",
-          "dps": 10415.8,
+          "dps": 10713.4,
           "date": "2026-01-28",
           "logId": "26-01-28--19-08--Felesminor--Icecrown"
         },
         {
           "player": "Avaya",
           "class": "Paladin",
-          "dps": 8813.3,
-          "date": "2026-01-28",
-          "logId": "26-01-28--19-08--Felesminor--Icecrown"
-        },
-        {
-          "player": "Penetratorcr",
-          "class": "Rogue",
-          "dps": 5531.6,
-          "date": "2026-01-28",
-          "logId": "26-01-28--19-08--Felesminor--Icecrown"
-        },
-        {
-          "player": "Lalakers",
-          "class": "Paladin",
-          "dps": 5442.9,
-          "date": "2026-01-28",
-          "logId": "26-01-28--19-08--Felesminor--Icecrown"
-        },
-        {
-          "player": "Reckles",
-          "class": "Mage",
-          "dps": 5168.1,
-          "date": "2026-01-28",
-          "logId": "26-01-28--19-08--Felesminor--Icecrown"
-        },
-        {
-          "player": "Waawaarogue",
-          "class": "Rogue",
-          "dps": 5044.7,
-          "date": "2026-01-28",
-          "logId": "26-01-28--19-08--Felesminor--Icecrown"
-        },
-        {
-          "player": "Gefjon",
-          "class": "Warrior",
-          "dps": 4973.9,
+          "dps": 9623.6,
           "date": "2026-01-28",
           "logId": "26-01-28--19-08--Felesminor--Icecrown"
         }
@@ -1590,112 +1541,84 @@
     },
     "Halion (Inside)": {
       "bestOverall": {
-        "player": "Fedeksinjo",
-        "class": "Warrior",
-        "dps": 12660.2,
+        "player": "Chemtrailsky",
+        "class": "Rogue",
+        "dps": 19121.5,
         "date": "2026-01-28",
-        "logId": "26-01-28--20-15--Senrysuta--Icecrown"
+        "logId": "26-01-28--19-39--Absorbs--Icecrown"
       },
       "bestByClass": {
+        "Rogue": {
+          "player": "Chemtrailsky",
+          "class": "Rogue",
+          "dps": 19121.5,
+          "date": "2026-01-28",
+          "logId": "26-01-28--19-39--Absorbs--Icecrown"
+        },
+        "Death Knight": {
+          "player": "Gnomieta",
+          "class": "Death Knight",
+          "dps": 14325,
+          "date": "2026-01-28",
+          "logId": "26-01-28--19-39--Absorbs--Icecrown"
+        },
+        "Druid": {
+          "player": "Extetdruid",
+          "class": "Druid",
+          "dps": 14279.7,
+          "date": "2026-01-28",
+          "logId": "26-01-28--19-39--Absorbs--Icecrown"
+        },
+        "Warlock": {
+          "player": "Straxedix",
+          "class": "Warlock",
+          "dps": 13019.8,
+          "date": "2026-01-28",
+          "logId": "26-01-28--19-39--Absorbs--Icecrown"
+        },
         "Warrior": {
           "player": "Fedeksinjo",
           "class": "Warrior",
           "dps": 12660.2,
           "date": "2026-01-28",
           "logId": "26-01-28--20-15--Senrysuta--Icecrown"
-        },
-        "Druid": {
-          "player": "Senrysuta",
-          "class": "Druid",
-          "dps": 12352.3,
-          "date": "2026-01-28",
-          "logId": "26-01-28--20-15--Senrysuta--Icecrown"
-        },
-        "Mage": {
-          "player": "Recklesmage",
-          "class": "Mage",
-          "dps": 11661.9,
-          "date": "2026-01-28",
-          "logId": "26-01-28--19-39--Absorbs--Icecrown"
-        },
-        "Warlock": {
-          "player": "Kissme",
-          "class": "Warlock",
-          "dps": 11340.8,
-          "date": "2026-01-28",
-          "logId": "26-01-28--19-39--Absorbs--Icecrown"
         }
       },
       "topPerformances": [
         {
-          "player": "Fedeksinjo",
-          "class": "Warrior",
-          "dps": 12660.2,
-          "date": "2026-01-28",
-          "logId": "26-01-28--20-15--Senrysuta--Icecrown"
-        },
-        {
-          "player": "Pljugetina",
-          "class": "Warrior",
-          "dps": 12377,
-          "date": "2026-01-28",
-          "logId": "26-01-28--20-15--Senrysuta--Icecrown"
-        },
-        {
-          "player": "Senrysuta",
-          "class": "Druid",
-          "dps": 12352.3,
-          "date": "2026-01-28",
-          "logId": "26-01-28--20-15--Senrysuta--Icecrown"
-        },
-        {
-          "player": "Recklesmage",
-          "class": "Mage",
-          "dps": 11661.9,
+          "player": "Chemtrailsky",
+          "class": "Rogue",
+          "dps": 19121.5,
           "date": "2026-01-28",
           "logId": "26-01-28--19-39--Absorbs--Icecrown"
-        },
-        {
-          "player": "Rayleigh",
-          "class": "Mage",
-          "dps": 11560.3,
-          "date": "2026-01-28",
-          "logId": "26-01-28--20-15--Senrysuta--Icecrown"
-        },
-        {
-          "player": "Kissme",
-          "class": "Warlock",
-          "dps": 11340.8,
-          "date": "2026-01-28",
-          "logId": "26-01-28--19-39--Absorbs--Icecrown"
-        },
-        {
-          "player": "Chibzfury",
-          "class": "Warrior",
-          "dps": 9954.3,
-          "date": "2026-01-28",
-          "logId": "26-01-28--20-15--Senrysuta--Icecrown"
         },
         {
           "player": "Gnomieta",
-          "class": "Mage",
-          "dps": 9752.1,
+          "class": "Death Knight",
+          "dps": 14325,
           "date": "2026-01-28",
           "logId": "26-01-28--19-39--Absorbs--Icecrown"
         },
         {
           "player": "Extetdruid",
           "class": "Druid",
-          "dps": 9183.3,
+          "dps": 14279.7,
           "date": "2026-01-28",
           "logId": "26-01-28--19-39--Absorbs--Icecrown"
         },
         {
-          "player": "Chemtrailsky",
+          "player": "Straxedix",
           "class": "Warlock",
-          "dps": 9111.9,
+          "dps": 13019.8,
           "date": "2026-01-28",
           "logId": "26-01-28--19-39--Absorbs--Icecrown"
+        },
+        {
+          "player": "Fedeksinjo",
+          "class": "Warrior",
+          "dps": 12660.2,
+          "date": "2026-01-28",
+          "logId": "26-01-28--20-15--Senrysuta--Icecrown"
         }
       ]
     }
