@@ -1160,7 +1160,10 @@
 
             // Find all parses for this player across all bosses
             const playerParses = [];
-            for (const [bossName, records] of Object.entries(topParsersData.dps)) {
+            for (const [bossName, bossData] of Object.entries(topParsersData.dps)) {
+                // Handle both formats: array directly or object with topPerformances
+                const records = Array.isArray(bossData) ? bossData : (bossData.topPerformances || []);
+
                 const playerRecord = records.find(r => r.player === member.name);
                 if (playerRecord) {
                     // Find rank (position in the list + 1)
