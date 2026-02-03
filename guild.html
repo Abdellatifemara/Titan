@@ -1277,7 +1277,7 @@
 
             // Try each spec in order until we find data
             for (const spec of specs) {
-                const url = `https://uwu-logs.xyz/character?name=${encodeURIComponent(member.name)}&server=Icecrown&spec=${spec}`;
+                const url = `/api/uwu-proxy?name=${encodeURIComponent(member.name)}&server=Icecrown&spec=${spec}`;
                 try {
                     html = await fetchUwuHtml(url);
                     if (html) {
@@ -1315,7 +1315,7 @@
 
         async function fetchGearOnly(member) {
             // Try spec 1 (usually healer) for Shamans
-            const url = `https://uwu-logs.xyz/character?name=${encodeURIComponent(member.name)}&server=Icecrown&spec=1`;
+            const url = `/api/uwu-proxy?name=${encodeURIComponent(member.name)}&server=Icecrown&spec=1`;
             try {
                 const html = await fetchUwuHtml(url);
                 if (html) {
