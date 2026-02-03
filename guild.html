@@ -985,8 +985,8 @@
                     ? `<a href="https://uwu-logs.xyz/character?name=${encodeURIComponent(member.name)}&server=Icecrown&spec=${spec}" target="_blank" class="member-link" title="UwU Logs">UWU</a>`
                     : '';
 
-                // Determine if card should be clickable (only for ranked players at level 80)
-                const isClickable = member.level === 80 && ['Guild Master', 'Officer', 'Core Raider', 'Raider'].includes(rank);
+                // Determine if card should be clickable (any player in logs)
+                const isClickable = member.level === 80 && isPlayerInLogs(member.name);
                 const clickableClass = isClickable ? 'clickable' : '';
                 const dataAttr = isClickable ? `data-player="${member.name}"` : '';
 
@@ -1068,43 +1068,60 @@
         });
 
         // Load all data and then members
-        loadGuildRanks().then(() => {
+        Promise.all([
+            loadGuildRanks(),
+            loadTopParsersData()
+        ]).then(() => {
             fetchGuildMembers();
         });
-
-        // Load top parsers data for modal
-        loadTopParsersData();
 
         // =============================================
         // Player Stats Modal Functions
         // =============================================
 
-        // Ranks that can show parses (clickable)
-        const clickableRanks = ['Guild Master', 'Officer', 'Core Raider', 'Raider'];
-
         let currentModalMember = null;
-        let topParsersData = null; // Loaded from our API
+        let topParsersData = null; // Loaded from JSON
 
         // Load top parsers data on page load
         async function loadTopParsersData() {
             try {
-                const response = await fetch('/api/top-parsers');
+                const response = await fetch('data/top-parsers.json');
                 if (response.ok) {
                     topParsersData = await response.json();
                     console.log('Loaded top parsers data:', topParsersData.totalLogs, 'logs');
+                    // Build a set of all players in the logs for quick lookup
+                    buildPlayersInLogsSet();
                 }
             } catch (error) {
                 console.error('Failed to load top parsers data:', error);
             }
         }
 
-        function isClickableRank(rank) {
-            return clickableRanks.includes(rank);
+        // Set of all player names found in logs
+        let playersInLogs = new Set();
+
+        function buildPlayersInLogsSet() {
+            if (!topParsersData || !topParsersData.dps) return;
+
+            for (const [bossName, bossData] of Object.entries(topParsersData.dps)) {
+                const records = Array.isArray(bossData) ? bossData : (bossData.topPerformances || []);
+                for (const record of records) {
+                    if (record.player) {
+                        playersInLogs.add(record.player);
+                    }
+                }
+            }
+            console.log('Players in logs:', playersInLogs.size);
+        }
+
+        function isPlayerInLogs(playerName) {
+            return playersInLogs.has(playerName);
         }
 
         function openPlayerModal(member) {
+            if (!isPlayerInLogs(member.name)) return;
+
             const rank = getPlayerRank(member.name);
-            if (!isClickableRank(rank)) return;
 
             currentModalMember = member;
             const cls = classData[member.class] || { color: '#666', icon: '', css: 'class-warrior' };
