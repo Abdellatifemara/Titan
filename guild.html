@@ -1068,10 +1068,10 @@
                 // Determine if card should be clickable (only for ranked players at level 80)
                 const isClickable = member.level === 80 && ['Guild Master', 'Officer', 'Core Raider', 'Raider'].includes(rank);
                 const clickableClass = isClickable ? 'clickable' : '';
-                const clickHandler = isClickable ? `onclick="openPlayerModal(${JSON.stringify(member).replace(/"/g, '&quot;')})"` : '';
+                const dataAttr = isClickable ? `data-player="${member.name}"` : '';
 
                 return `
-                    <div class="member-card ${clickableClass}" ${clickHandler}>
+                    <div class="member-card ${clickableClass}" ${dataAttr}>
                         <img src="${cls.icon}" alt="${member.class}" class="member-icon" style="border-color: ${cls.color};">
                         <div class="member-info">
                             <div class="member-name ${cls.css}">${member.name}</div>
@@ -1082,7 +1082,7 @@
                             </div>
                             ${dpsHtml}
                         </div>
-                        <div class="member-links" onclick="event.stopPropagation()">
+                        <div class="member-links">
                             <a href="https://armory.warmane.com/character/${encodeURIComponent(member.name)}/Icecrown/summary" target="_blank" class="member-link" title="Armory">ARM</a>
                             ${uwuLink}
                         </div>
@@ -1492,6 +1492,21 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && document.getElementById('playerModal').classList.contains('active')) {
                 closePlayerModal();
+            }
+        });
+
+        // Event delegation for clickable member cards
+        document.getElementById('rosterGrid').addEventListener('click', (e) => {
+            // Ignore clicks on links
+            if (e.target.closest('.member-links') || e.target.tagName === 'A') {
+                return;
+            }
+            const card = e.target.closest('.member-card.clickable');
+            if (card && card.dataset.player) {
+                const member = allMembers.find(m => m.name === card.dataset.player);
+                if (member) {
+                    openPlayerModal(member);
+                }
             }
         });
     </script>
