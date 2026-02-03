@@ -1,9 +1,9 @@
 {
-  "generated": "2026-02-02T10:39:52.468Z",
-  "totalLogs": 38,
+  "generated": "2026-02-03T12:00:00.000Z",
+  "totalLogs": 41,
   "dateRange": {
     "from": "2025-09-20",
-    "to": "2026-02-01"
+    "to": "2026-02-02"
   },
   "dps": {
     "Lord Marrowgar": {
@@ -154,19 +154,19 @@
     },
     "Lady Deathwhisper": {
       "bestOverall": {
-        "player": "Penatrated",
+        "player": "Ceiffador",
         "class": "Warrior",
-        "dps": 22364.9,
-        "date": "2026-01-20",
-        "logId": "26-01-20--18-51--Shatzed--Icecrown"
+        "dps": 23300.5,
+        "date": "2026-01-31",
+        "logId": "26-01-31--15-08--Waawa--Icecrown"
       },
       "bestByClass": {
         "Warrior": {
-          "player": "Penatrated",
+          "player": "Ceiffador",
           "class": "Warrior",
-          "dps": 22364.9,
-          "date": "2026-01-20",
-          "logId": "26-01-20--18-51--Shatzed--Icecrown"
+          "dps": 23300.5,
+          "date": "2026-01-31",
+          "logId": "26-01-31--15-08--Waawa--Icecrown"
         },
         "Warlock": {
           "player": "Felhart",
@@ -176,18 +176,18 @@
           "logId": "25-10-11--21-14--Duleferal--Icecrown"
         },
         "Rogue": {
-          "player": "Waawaasap",
+          "player": "Rounat",
           "class": "Rogue",
-          "dps": 17904,
-          "date": "2026-01-17",
-          "logId": "26-01-17--21-06--Absorbs--Icecrown"
+          "dps": 21417.6,
+          "date": "2026-02-02",
+          "logId": "26-02-02--15-22--Waawaabomka--Icecrown"
         },
         "Mage": {
-          "player": "Jurabomb",
+          "player": "Pinkypie",
           "class": "Mage",
-          "dps": 21400.5,
-          "date": "2026-01-20",
-          "logId": "26-01-20--18-51--Shatzed--Icecrown"
+          "dps": 22019.0,
+          "date": "2026-01-31",
+          "logId": "26-01-31--15-08--Waawa--Icecrown"
         },
         "Hunter": {
           "player": "Leldorin",
@@ -227,6 +227,13 @@
       },
       "topPerformances": [
         {
+          "player": "Ceiffador",
+          "class": "Warrior",
+          "dps": 23300.5,
+          "date": "2026-01-31",
+          "logId": "26-01-31--15-08--Waawa--Icecrown"
+        },
+        {
           "player": "Penatrated",
           "class": "Warrior",
           "dps": 22364.9,
@@ -234,67 +241,60 @@
           "logId": "26-01-20--18-51--Shatzed--Icecrown"
         },
         {
+          "player": "Pinkypie",
+          "class": "Mage",
+          "dps": 22019.0,
+          "date": "2026-01-31",
+          "logId": "26-01-31--15-08--Waawa--Icecrown"
+        },
+        {
+          "player": "Sueka",
+          "class": "Mage",
+          "dps": 21757.8,
+          "date": "2026-01-31",
+          "logId": "26-01-31--15-08--Waawa--Icecrown"
+        },
+        {
+          "player": "Anibubble",
+          "class": "Paladin",
+          "dps": 21637.7,
+          "date": "2026-02-02",
+          "logId": "26-02-02--15-22--Waawaabomka--Icecrown"
+        },
+        {
+          "player": "Hashbang",
+          "class": "Warrior",
+          "dps": 21618.4,
+          "date": "2026-02-02",
+          "logId": "26-02-02--15-22--Waawaabomka--Icecrown"
+        },
+        {
+          "player": "Rounat",
+          "class": "Rogue",
+          "dps": 21417.6,
+          "date": "2026-02-02",
+          "logId": "26-02-02--15-22--Waawaabomka--Icecrown"
+        },
+        {
+          "player": "Sundermachin",
+          "class": "Warrior",
+          "dps": 21408.5,
+          "date": "2026-01-31",
+          "logId": "26-01-31--15-08--Waawa--Icecrown"
+        },
+        {
+          "player": "Powerpump",
+          "class": "Mage",
+          "dps": 21377.1,
+          "date": "2026-01-31",
+          "logId": "26-01-31--15-08--Waawa--Icecrown"
+        },
+        {
           "player": "Jurabomb",
           "class": "Mage",
           "dps": 21400.5,
           "date": "2026-01-20",
           "logId": "26-01-20--18-51--Shatzed--Icecrown"
-        },
-        {
-          "player": "Extetmage",
-          "class": "Mage",
-          "dps": 20160.1,
-          "date": "2026-01-10",
-          "logId": "26-01-10--20-54--Senrysuta--Icecrown"
-        },
-        {
-          "player": "Carnaged",
-          "class": "Warrior",
-          "dps": 19584.4,
-          "date": "2026-02-01",
-          "logId": "26-02-01--17-39--Yeapriesttwo--Icecrown"
-        },
-        {
-          "player": "Leldorin",
-          "class": "Hunter",
-          "dps": 19408.3,
-          "date": "2026-01-20",
-          "logId": "26-01-20--18-51--Shatzed--Icecrown"
-        },
-        {
-          "player": "Alkaizer",
-          "class": "Warrior",
-          "dps": 19359.6,
-          "date": "2026-01-20",
-          "logId": "26-01-20--18-51--Shatzed--Icecrown"
-        },
-        {
-          "player": "Oldmb",
-          "class": "Warrior",
-          "dps": 18864.3,
-          "date": "2026-01-10",
-          "logId": "26-01-10--17-31--Absorbs--Icecrown"
-        },
-        {
-          "player": "Nyc",
-          "class": "Warrior",
-          "dps": 18255.3,
-          "date": "2026-01-27",
-          "logId": "26-01-27--17-33--Yearog--Icecrown"
-        },
-        {
-          "player": "Penatrated",
-          "class": "Warrior",
-          "dps": 18037.6,
-          "date": "2026-01-24",
-          "logId": "26-01-24--17-40--Kannibalka--Icecrown"
-        },
-        {
-          "player": "Extethunt",
-          "class": "Hunter",
-          "dps": 18019.6,
-          "date": "2026-01-16",
-          "logId": "26-01-16--20-48--Thedrink--Icecrown"
         }
       ]
     },
@@ -656,11 +656,11 @@
           "logId": "26-01-31--20-49--Yeapalatwo--Icecrown"
         },
         "Priest": {
-          "player": "Devilheal",
+          "player": "Cucni",
           "class": "Priest",
-          "dps": 17013.5,
-          "date": "2026-01-27",
-          "logId": "26-01-27--17-33--Yearog--Icecrown"
+          "dps": 19863.3,
+          "date": "2026-02-02",
+          "logId": "26-02-02--17-37--Orckhan--Icecrown"
         }
       },
       "topPerformances": [
@@ -884,26 +884,26 @@
     },
     "Blood Prince Council": {
       "bestOverall": {
-        "player": "Extetmage",
+        "player": "Dunderknug",
         "class": "Mage",
-        "dps": 20794.5,
-        "date": "2026-01-10",
-        "logId": "26-01-10--20-54--Senrysuta--Icecrown"
+        "dps": 22572.3,
+        "date": "2026-02-02",
+        "logId": "26-02-02--15-22--Waawaabomka--Icecrown"
       },
       "bestByClass": {
         "Mage": {
-          "player": "Extetmage",
+          "player": "Dunderknug",
           "class": "Mage",
-          "dps": 20794.5,
-          "date": "2026-01-10",
-          "logId": "26-01-10--20-54--Senrysuta--Icecrown"
+          "dps": 22572.3,
+          "date": "2026-02-02",
+          "logId": "26-02-02--15-22--Waawaabomka--Icecrown"
         },
         "Rogue": {
-          "player": "Mancek",
+          "player": "Immavatoloco",
           "class": "Rogue",
-          "dps": 17626.9,
-          "date": "2025-12-06",
-          "logId": "25-12-06--20-52--Ndmiiqt--Icecrown"
+          "dps": 20544.7,
+          "date": "2026-01-31",
+          "logId": "26-01-31--15-08--Waawa--Icecrown"
         },
         "Warlock": {
           "player": "Jedenzdrugim",
@@ -913,18 +913,18 @@
           "logId": "26-01-26--17-41--Caelestis--Icecrown"
         },
         "Druid": {
-          "player": "Panetone",
+          "player": "Feraldosis",
           "class": "Druid",
-          "dps": 17107.3,
-          "date": "2026-01-17",
-          "logId": "26-01-17--18-42--Shotzy--Icecrown"
+          "dps": 17344.4,
+          "date": "2026-02-02",
+          "logId": "26-02-02--15-22--Waawaabomka--Icecrown"
         },
         "Warrior": {
-          "player": "Mekambe",
+          "player": "Sundermachin",
           "class": "Warrior",
-          "dps": 18405.2,
-          "date": "2026-01-10",
-          "logId": "26-01-10--20-54--Senrysuta--Icecrown"
+          "dps": 21225.3,
+          "date": "2026-01-31",
+          "logId": "26-01-31--15-08--Waawa--Icecrown"
         },
         "Death Knight": {
           "player": "Selkodk",
@@ -957,6 +957,27 @@
       },
       "topPerformances": [
         {
+          "player": "Dunderknug",
+          "class": "Mage",
+          "dps": 22572.3,
+          "date": "2026-02-02",
+          "logId": "26-02-02--15-22--Waawaabomka--Icecrown"
+        },
+        {
+          "player": "Sundermachin",
+          "class": "Warrior",
+          "dps": 21225.3,
+          "date": "2026-01-31",
+          "logId": "26-01-31--15-08--Waawa--Icecrown"
+        },
+        {
+          "player": "Powerpump",
+          "class": "Mage",
+          "dps": 20826.5,
+          "date": "2026-01-31",
+          "logId": "26-01-31--15-08--Waawa--Icecrown"
+        },
+        {
           "player": "Extetmage",
           "class": "Mage",
           "dps": 20794.5,
@@ -971,6 +992,20 @@
           "logId": "26-01-17--18-42--Shotzy--Icecrown"
         },
         {
+          "player": "Immavatoloco",
+          "class": "Rogue",
+          "dps": 20544.7,
+          "date": "2026-01-31",
+          "logId": "26-01-31--15-08--Waawa--Icecrown"
+        },
+        {
+          "player": "Potodosis",
+          "class": "Rogue",
+          "dps": 20143.2,
+          "date": "2026-01-31",
+          "logId": "26-01-31--15-08--Waawa--Icecrown"
+        },
+        {
           "player": "Itsmage",
           "class": "Mage",
           "dps": 20159.4,
@@ -978,53 +1013,18 @@
           "logId": "26-02-01--17-39--Yeapriesttwo--Icecrown"
         },
         {
-          "player": "Schweppsy",
-          "class": "Mage",
-          "dps": 19195.1,
-          "date": "2026-01-17",
-          "logId": "26-01-17--21-06--Absorbs--Icecrown"
-        },
-        {
-          "player": "Lalakers",
-          "class": "Mage",
-          "dps": 18926.1,
-          "date": "2025-12-06",
-          "logId": "25-12-06--20-52--Ndmiiqt--Icecrown"
-        },
-        {
-          "player": "Lalakers",
-          "class": "Mage",
-          "dps": 18765.8,
-          "date": "2026-01-17",
-          "logId": "26-01-17--21-06--Absorbs--Icecrown"
-        },
-        {
-          "player": "Mekambe",
+          "player": "Brunkungenn",
           "class": "Warrior",
-          "dps": 18405.2,
-          "date": "2026-01-10",
-          "logId": "26-01-10--20-54--Senrysuta--Icecrown"
+          "dps": 20097.8,
+          "date": "2026-02-02",
+          "logId": "26-02-02--15-22--Waawaabomka--Icecrown"
         },
         {
-          "player": "Waawaafire",
+          "player": "Sueka",
           "class": "Mage",
-          "dps": 18296.6,
-          "date": "2026-02-01",
-          "logId": "26-02-01--17-39--Yeapriesttwo--Icecrown"
-        },
-        {
-          "player": "Atreff",
-          "class": "Mage",
-          "dps": 17646.9,
-          "date": "2026-01-15",
-          "logId": "26-01-15--20-56--Catalyzer--Icecrown"
-        },
-        {
-          "player": "Mancek",
-          "class": "Rogue",
-          "dps": 17626.9,
-          "date": "2025-12-06",
-          "logId": "25-12-06--20-52--Ndmiiqt--Icecrown"
+          "dps": 19925.6,
+          "date": "2026-01-31",
+          "logId": "26-01-31--15-08--Waawa--Icecrown"
         }
       ]
     },
@@ -1087,11 +1087,11 @@
           "logId": "26-01-26--17-41--Caelestis--Icecrown"
         },
         "Priest": {
-          "player": "Warka",
+          "player": "Cucni",
           "class": "Priest",
-          "dps": 27407.3,
-          "date": "2026-01-17",
-          "logId": "26-01-17--18-42--Shotzy--Icecrown"
+          "dps": 35372.3,
+          "date": "2026-02-02",
+          "logId": "26-02-02--17-37--Orckhan--Icecrown"
         },
         "Warlock": {
           "player": "Xerxsei",
@@ -1219,11 +1219,11 @@
           "logId": "26-01-20--18-51--Shatzed--Icecrown"
         },
         "Druid": {
-          "player": "Feralforte",
+          "player": "Fyla",
           "class": "Druid",
-          "dps": 13218.8,
-          "date": "2026-01-27",
-          "logId": "26-01-27--17-33--Yearog--Icecrown"
+          "dps": 14745.8,
+          "date": "2026-02-02",
+          "logId": "26-02-02--15-22--Waawaabomka--Icecrown"
         },
         "Death Knight": {
           "player": "Waawaadko",
