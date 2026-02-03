@@ -1,0 +1,582 @@
+[
+  {
+    "boss": "Lord Marrowgar",
+    "player": "Trompowsky",
+    "class": "Death Knight",
+    "dps": 18667.1,
+    "prevRecord": 18267.8,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Anibubble",
+    "class": "Paladin",
+    "dps": 21637.7,
+    "prevRecord": 14879.9,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Rounat",
+    "class": "Rogue",
+    "dps": 21417.6,
+    "prevRecord": 17904,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Wajda",
+    "class": "Rogue",
+    "dps": 20585.2,
+    "prevRecord": 17904,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Zugzugp",
+    "class": "Paladin",
+    "dps": 19581,
+    "prevRecord": 14879.9,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Trompowsky",
+    "class": "Death Knight",
+    "dps": 19093.7,
+    "prevRecord": 14098.2,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Joeyx",
+    "class": "Priest",
+    "dps": 16533.5,
+    "prevRecord": 16384.4,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Deathbringer Saurfang",
+    "player": "Wajda",
+    "class": "Rogue",
+    "dps": 23293.9,
+    "prevRecord": 22320.8,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Deathbringer Saurfang",
+    "player": "Anibubble",
+    "class": "Paladin",
+    "dps": 21136.1,
+    "prevRecord": 19225.3,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Deathbringer Saurfang",
+    "player": "Joeyx",
+    "class": "Priest",
+    "dps": 20751.8,
+    "prevRecord": 20364.9,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Deathbringer Saurfang",
+    "player": "Trompowsky",
+    "class": "Death Knight",
+    "dps": 20431.4,
+    "prevRecord": 19842.8,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Deathbringer Saurfang",
+    "player": "Zugzugp",
+    "class": "Paladin",
+    "dps": 19507.5,
+    "prevRecord": 19225.3,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Rotface",
+    "player": "Trompowsky",
+    "class": "Death Knight",
+    "dps": 19307.8,
+    "prevRecord": 19144.2,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Festergut",
+    "player": "Trompowsky",
+    "class": "Death Knight",
+    "dps": 18403.6,
+    "prevRecord": 18033.6,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Festergut",
+    "player": "Joeyx",
+    "class": "Priest",
+    "dps": 17203.6,
+    "prevRecord": 17013.5,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Professor Putricide",
+    "player": "Trompowsky",
+    "class": "Death Knight",
+    "dps": 16886.3,
+    "prevRecord": 15082.5,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Professor Putricide",
+    "player": "Zugzugp",
+    "class": "Paladin",
+    "dps": 15219.8,
+    "prevRecord": 14455.8,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Dunderknug",
+    "class": "Mage",
+    "dps": 22572.3,
+    "prevRecord": 20794.5,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "overall+class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Brunkungenn",
+    "class": "Warrior",
+    "dps": 20097.8,
+    "prevRecord": 18405.2,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Trompowsky",
+    "class": "Death Knight",
+    "dps": 17243.3,
+    "prevRecord": 14731.1,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Zugzugp",
+    "class": "Paladin",
+    "dps": 16285.4,
+    "prevRecord": 13951.4,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Tilanin",
+    "class": "Warlock",
+    "dps": 14215.3,
+    "prevRecord": 14183.9,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Sindragosa",
+    "player": "Fyla",
+    "class": "Druid",
+    "dps": 14745.8,
+    "prevRecord": 13218.8,
+    "logId": "26-02-02--15-22--Waawaabomka--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Ceiffador",
+    "class": "Warrior",
+    "dps": 23300.5,
+    "prevRecord": 22364.9,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "overall+class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Pinkypie",
+    "class": "Mage",
+    "dps": 22019,
+    "prevRecord": 21400.5,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Sueka",
+    "class": "Mage",
+    "dps": 21757.8,
+    "prevRecord": 21400.5,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Numberonedog",
+    "class": "Paladin",
+    "dps": 20737.8,
+    "prevRecord": 14879.9,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Line",
+    "class": "Priest",
+    "dps": 20218.7,
+    "prevRecord": 16384.4,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Waawa",
+    "class": "Paladin",
+    "dps": 20072,
+    "prevRecord": 14879.9,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Potodosis",
+    "class": "Rogue",
+    "dps": 19593.6,
+    "prevRecord": 17904,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Ravotril",
+    "class": "Death Knight",
+    "dps": 17734.5,
+    "prevRecord": 14098.2,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Deathbringer Saurfang",
+    "player": "Ravotril",
+    "class": "Death Knight",
+    "dps": 20777,
+    "prevRecord": 19842.8,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Deathbringer Saurfang",
+    "player": "Waawa",
+    "class": "Paladin",
+    "dps": 20349.9,
+    "prevRecord": 19225.3,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Rotface",
+    "player": "Waawa",
+    "class": "Paladin",
+    "dps": 19520.4,
+    "prevRecord": 18983,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Rotface",
+    "player": "Line",
+    "class": "Priest",
+    "dps": 19447.6,
+    "prevRecord": 19008.4,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Sundermachin",
+    "class": "Warrior",
+    "dps": 21225.3,
+    "prevRecord": 18405.2,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "overall+class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Powerpump",
+    "class": "Mage",
+    "dps": 20826.5,
+    "prevRecord": 20794.5,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "overall+class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Immavatoloco",
+    "class": "Rogue",
+    "dps": 20544.7,
+    "prevRecord": 17626.9,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Potodosis",
+    "class": "Rogue",
+    "dps": 20143.2,
+    "prevRecord": 17626.9,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Ggmoon",
+    "class": "Druid",
+    "dps": 19887.2,
+    "prevRecord": 17107.3,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Line",
+    "class": "Priest",
+    "dps": 18261.8,
+    "prevRecord": 15497,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Waawa",
+    "class": "Paladin",
+    "dps": 16917.6,
+    "prevRecord": 13951.4,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Ravotril",
+    "class": "Death Knight",
+    "dps": 16468.9,
+    "prevRecord": 14731.1,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Numberonedog",
+    "class": "Paladin",
+    "dps": 16375.1,
+    "prevRecord": 13951.4,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Demosmor",
+    "class": "Warlock",
+    "dps": 14421.8,
+    "prevRecord": 14183.9,
+    "logId": "26-01-31--15-08--Waawa--Icecrown",
+    "date": "2026-26-01",
+    "type": "class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Cucni",
+    "class": "Priest",
+    "dps": 18920.2,
+    "prevRecord": 16384.4,
+    "logId": "26-02-02--17-37--Orckhan--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Hoolyshiet",
+    "class": "Paladin",
+    "dps": 18436.7,
+    "prevRecord": 14879.9,
+    "logId": "26-02-02--17-37--Orckhan--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Xerksei",
+    "class": "Paladin",
+    "dps": 16823.7,
+    "prevRecord": 14879.9,
+    "logId": "26-02-02--17-37--Orckhan--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Shatzed",
+    "class": "Warlock",
+    "dps": 16417.2,
+    "prevRecord": 14597.7,
+    "logId": "26-02-02--17-37--Orckhan--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Lady Deathwhisper",
+    "player": "Dotrundot",
+    "class": "Warlock",
+    "dps": 15356,
+    "prevRecord": 14597.7,
+    "logId": "26-02-02--17-37--Orckhan--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Deathbringer Saurfang",
+    "player": "Cucni",
+    "class": "Priest",
+    "dps": 20772.7,
+    "prevRecord": 20364.9,
+    "logId": "26-02-02--17-37--Orckhan--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Rotface",
+    "player": "Cucni",
+    "class": "Priest",
+    "dps": 20192.4,
+    "prevRecord": 19008.4,
+    "logId": "26-02-02--17-37--Orckhan--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Festergut",
+    "player": "Cucni",
+    "class": "Priest",
+    "dps": 19863.3,
+    "prevRecord": 17013.5,
+    "logId": "26-02-02--17-37--Orckhan--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Cucni",
+    "class": "Priest",
+    "dps": 15590.3,
+    "prevRecord": 15497,
+    "logId": "26-02-02--17-37--Orckhan--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Xerksei",
+    "class": "Paladin",
+    "dps": 15413.9,
+    "prevRecord": 13951.4,
+    "logId": "26-02-02--17-37--Orckhan--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Shatzed",
+    "class": "Warlock",
+    "dps": 14799.5,
+    "prevRecord": 14183.9,
+    "logId": "26-02-02--17-37--Orckhan--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Blood Prince Council",
+    "player": "Hoolyshiet",
+    "class": "Paladin",
+    "dps": 14644.7,
+    "prevRecord": 13951.4,
+    "logId": "26-02-02--17-37--Orckhan--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  },
+  {
+    "boss": "Blood-Queen Lana'thel",
+    "player": "Cucni",
+    "class": "Priest",
+    "dps": 35372.3,
+    "prevRecord": 27407.3,
+    "logId": "26-02-02--17-37--Orckhan--Icecrown",
+    "date": "2026-26-02",
+    "type": "class"
+  }
+]

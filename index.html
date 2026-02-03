@@ -32,7 +32,7 @@
             </a>
             <ul class="nav-links">
                 <li><a href="/" class="nav-link active">Home</a></li>
-                <li><a href="raids.html" class="nav-link">Raids</a></li>
+                <!-- <li><a href="raids.html" class="nav-link">Raids</a></li> -->
                 <li><a href="guild.html" class="nav-link">Guild</a></li>
                 <li><a href="top-parsers.html" class="nav-link">Top Parsers</a></li>
                 <li><a href="bis.html" class="nav-link">BiS List</a></li>
@@ -89,8 +89,8 @@
 
                     <!-- CTA buttons -->
                     <div class="hero-cta" style="display: flex; gap: var(--space-md);">
-                        <a href="raids.html" class="btn btn-primary btn-lg">Join Raid</a>
-                        <a href="join.html" class="btn btn-secondary btn-lg">Join Now</a>
+                        <!-- <a href="raids.html" class="btn btn-primary btn-lg">Join Raid</a> -->
+                        <a href="join.html" class="btn btn-primary btn-lg">Join Now</a>
                     </div>
                 </div>
 
@@ -149,7 +149,7 @@
         </div>
     </section>
 
-    <!-- Recent Raids Preview -->
+    <!-- Recent Raids Preview - HIDDEN
     <section style="padding: var(--space-3xl) 0;">
         <div class="container">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-2xl);">
@@ -160,9 +160,7 @@
                 <a href="raids.html" class="btn btn-secondary">View All Raids</a>
             </div>
 
-            <!-- Recent Raids Grid -->
             <div id="recentRaidsGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-lg);">
-                <!-- Raids loaded dynamically -->
                 <div class="raid-card" style="display: flex; align-items: center; justify-content: center; min-height: 200px;">
                     <p style="color: var(--text-muted);">Loading raids...</p>
                 </div>
@@ -170,6 +168,7 @@
                 </div>
         </div>
     </section>
+    -->
 
     <!-- Features Section -->
     <section style="padding: var(--space-3xl) 0; background: var(--bg-secondary);">
@@ -230,10 +229,12 @@
                     <h4>Navigation</h4>
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="raids.html">Raids</a></li>
+                        <!-- <li><a href="raids.html">Raids</a></li> -->
                         <li><a href="guild.html">Guild Roster</a></li>
+                        <li><a href="top-parsers.html">Top Parsers</a></li>
                     </ul>
                 </div>
+                <!-- Raids footer section hidden
                 <div class="footer-links">
                     <h4>Raids</h4>
                     <ul>
@@ -242,6 +243,7 @@
                         <li><a href="raids.html">RS 25</a></li>
                     </ul>
                 </div>
+                -->
                 <div class="footer-links">
                     <h4>Connect</h4>
                     <ul>
@@ -384,7 +386,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             createParticles();
-            loadRecentRaids();
+            // loadRecentRaids(); // Hidden for now
         });
     </script>
 </body>

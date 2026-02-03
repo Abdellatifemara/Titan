@@ -38,7 +38,26 @@
       "Bash(npm install:*)",
       "Bash(git init:*)",
       "Bash(git add:*)",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "WebFetch(domain:titan-pi-three.vercel.app)",
+      "WebFetch(domain:wago.io)",
+      "WebFetch(domain:data.wago.io)",
+      "Bash(grep:*)",
+      "Bash(git checkout:*)",
+      "Bash(ls:*)",
+      "Bash(npx vercel --prod)",
+      "Bash(npx vercel:*)",
+      "Bash(for log in \"26-01-29--21-03--Yeadudutwo--Icecrown\" \"26-01-30--17-34--Yeapalathree--Icecrown\" \"26-01-31--20-49--Yeapalatwo--Icecrown\")",
+      "Bash(do)",
+      "Bash(echo:*)",
+      "Bash(done)",
+      "Bash(powershell.exe -Command \"Invoke-RestMethod -Uri ''https://armory.warmane.com/api/guild/T+I+T+A+N/Icecrown/members'' | ConvertTo-Json -Depth 10\")",
+      "Bash(powershell.exe -Command \"$data = Invoke-RestMethod -Uri ''https://armory.warmane.com/api/guild/T+I+T+A+N/Icecrown/members''; $level80 = $data.roster | Where-Object { $_level -eq ''80'' } | Select-Object -ExpandProperty name; $level80 | ForEach-Object { $_}\")",
+      "Bash(powershell.exe -Command \"$data = Invoke-RestMethod -Uri ''https://armory.warmane.com/api/guild/T+I+T+A+N/Icecrown/members''; $level80 = $data.roster | Where-Object { [int]$_level -eq 80 } | Select-Object -ExpandProperty name; $level80\")"
     ]
   }
 }
