@@ -438,35 +438,11 @@
             line-height: 1;
         }
         .modal-close:hover { color: var(--horde-red); }
-        .modal-tabs {
-            display: flex;
-            border-bottom: 1px solid var(--border-subtle);
-            background: var(--bg-tertiary);
-        }
-        .modal-tab {
-            flex: 1;
-            padding: 12px 16px;
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            border-bottom: 2px solid transparent;
-        }
-        .modal-tab:hover { color: var(--text-primary); }
-        .modal-tab.active {
-            color: var(--horde-red-light);
-            border-bottom-color: var(--horde-red);
-            background: var(--bg-card);
-        }
         .modal-body {
             padding: 16px 20px;
             overflow-y: auto;
             flex: 1;
         }
-        .modal-tab-content { display: none; }
-        .modal-tab-content.active { display: block; }
         .modal-loading {
             text-align: center;
             padding: 40px;
@@ -525,49 +501,6 @@
         .parse-rank.common { background: #666; color: #fff; }
         .parse-date { color: var(--text-muted); font-size: 0.8rem; }
 
-        /* Items Grid */
-        .items-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 8px;
-        }
-        .item-slot {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 12px;
-            background: var(--bg-tertiary);
-            border-radius: 6px;
-            border: 1px solid var(--border-subtle);
-        }
-        .item-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 4px;
-            border: 2px solid #666;
-            background: var(--bg-card);
-        }
-        .item-icon.quality-legendary { border-color: #ff8000; }
-        .item-icon.quality-epic { border-color: #a335ee; }
-        .item-icon.quality-rare { border-color: #0070dd; }
-        .item-icon.quality-uncommon { border-color: #1eff00; }
-        .item-info { flex: 1; min-width: 0; }
-        .item-name {
-            font-size: 0.85rem;
-            font-weight: 500;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .item-name.quality-legendary { color: #ff8000; }
-        .item-name.quality-epic { color: #a335ee; }
-        .item-name.quality-rare { color: #0070dd; }
-        .item-name.quality-uncommon { color: #1eff00; }
-        .item-slot-label {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
         .no-data {
             text-align: center;
             padding: 40px;
@@ -595,7 +528,6 @@
             .modal-body { padding: 12px 16px; }
             .parses-table { font-size: 0.8rem; }
             .parses-table th, .parses-table td { padding: 8px 6px; }
-            .items-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -725,21 +657,11 @@
                 </div>
                 <button class="modal-close" onclick="closePlayerModal()">&times;</button>
             </div>
-            <div class="modal-tabs">
-                <button class="modal-tab active" data-tab="parses" onclick="switchModalTab('parses')">Parses</button>
-                <button class="modal-tab" data-tab="items" onclick="switchModalTab('items')">Items</button>
-            </div>
             <div class="modal-body">
-                <div class="modal-tab-content active" id="parsesTab">
+                <div id="parsesTab">
                     <div class="modal-loading">
                         <div class="loading-spinner"></div>
                         <p>Loading parse data...</p>
-                    </div>
-                </div>
-                <div class="modal-tab-content" id="itemsTab">
-                    <div class="modal-loading">
-                        <div class="loading-spinner"></div>
-                        <p>Loading gear data...</p>
                     </div>
                 </div>
             </div>
@@ -1150,29 +1072,31 @@
             fetchGuildMembers();
         });
 
+        // Load top parsers data for modal
+        loadTopParsersData();
+
         // =============================================
         // Player Stats Modal Functions
         // =============================================
-
-        // DPS spec mapping for each class (which spec to try for DPS data)
-        const dpsSpecMap = {
-            'Death Knight': [3],      // Unholy
-            'Druid': [1, 2],          // Balance first, then Feral
-            'Hunter': [3],            // Any DPS spec
-            'Mage': [2],              // Fire
-            'Paladin': [3],           // Ret
-            'Priest': [3],            // Shadow
-            'Rogue': [3],             // Any DPS spec
-            'Shaman': null,           // Skip (healers in this guild)
-            'Warlock': [2],           // Demonology
-            'Warrior': [2]            // Fury
-        };
 
         // Ranks that can show parses (clickable)
         const clickableRanks = ['Guild Master', 'Officer', 'Core Raider', 'Raider'];
 
         let currentModalMember = null;
-        let modalDataCache = {}; // Cache fetched data
+        let topParsersData = null; // Loaded from our API
+
+        // Load top parsers data on page load
+        async function loadTopParsersData() {
+            try {
+                const response = await fetch('/api/top-parsers');
+                if (response.ok) {
+                    topParsersData = await response.json();
+                    console.log('Loaded top parsers data:', topParsersData.totalLogs, 'logs');
+                }
+            } catch (error) {
+                console.error('Failed to load top parsers data:', error);
+            }
+        }
 
         function isClickableRank(rank) {
             return clickableRanks.includes(rank);
@@ -1205,29 +1129,12 @@
                 rankEl.classList.add('rank-core');
             }
 
-            // Reset tabs to first tab
-            switchModalTab('parses');
-
-            // Show loading state
-            document.getElementById('parsesTab').innerHTML = `
-                <div class="modal-loading">
-                    <div class="loading-spinner"></div>
-                    <p>Loading parse data...</p>
-                </div>
-            `;
-            document.getElementById('itemsTab').innerHTML = `
-                <div class="modal-loading">
-                    <div class="loading-spinner"></div>
-                    <p>Loading gear data...</p>
-                </div>
-            `;
-
             // Show modal
             document.getElementById('playerModal').classList.add('active');
             document.body.style.overflow = 'hidden';
 
-            // Fetch data
-            fetchPlayerParses(member);
+            // Load player parses from our stored data
+            loadPlayerParsesFromData(member);
         }
 
         function closePlayerModal() {
@@ -1236,204 +1143,83 @@
             currentModalMember = null;
         }
 
-        function switchModalTab(tabName) {
-            document.querySelectorAll('.modal-tab').forEach(tab => {
-                tab.classList.toggle('active', tab.dataset.tab === tabName);
-            });
-            document.querySelectorAll('.modal-tab-content').forEach(content => {
-                content.classList.toggle('active', content.id === tabName + 'Tab');
-            });
-        }
+        function loadPlayerParsesFromData(member) {
+            const container = document.getElementById('parsesTab');
 
-        async function fetchPlayerParses(member) {
-            const cacheKey = `${member.name}_${member.class}`;
-
-            // Check cache first
-            if (modalDataCache[cacheKey]) {
-                renderParsesTab(modalDataCache[cacheKey].parses);
-                renderItemsTab(modalDataCache[cacheKey].items);
-                return;
-            }
-
-            const specs = dpsSpecMap[member.class];
-
-            // Handle Shamans (healers) - show gear only
-            if (specs === null) {
-                document.getElementById('parsesTab').innerHTML = `
+            if (!topParsersData || !topParsersData.dps) {
+                container.innerHTML = `
                     <div class="no-data">
-                        <p>No DPS data available</p>
-                        <p style="font-size: 0.8rem; margin-top: 8px;">${member.name} plays a healing spec</p>
-                    </div>
-                `;
-                // Try to fetch gear from any spec
-                await fetchGearOnly(member);
-                return;
-            }
-
-            let parsedData = null;
-            let html = null;
-
-            // Try each spec in order until we find data
-            for (const spec of specs) {
-                const url = `/api/uwu-proxy?name=${encodeURIComponent(member.name)}&server=Icecrown&spec=${spec}`;
-                try {
-                    html = await fetchUwuHtml(url);
-                    if (html) {
-                        parsedData = parseUwuCharacterPage(html);
-                        if (parsedData.parses && parsedData.parses.length > 0) {
-                            break; // Found data, stop trying
-                        }
-                    }
-                } catch (error) {
-                    console.error('Error fetching player data:', error);
-                }
-            }
-
-            if (parsedData) {
-                modalDataCache[cacheKey] = parsedData;
-                renderParsesTab(parsedData.parses);
-                renderItemsTab(parsedData.items);
-            } else {
-                document.getElementById('parsesTab').innerHTML = `
-                    <div class="modal-error">
-                        <div class="modal-error-icon">⚠️</div>
-                        <p>Could not load parse data</p>
+                        <p>Parse data not loaded</p>
                         <p style="font-size: 0.8rem; margin-top: 8px;">
                             <a href="https://uwu-logs.xyz/character?name=${encodeURIComponent(member.name)}&server=Icecrown&spec=3" target="_blank" style="color: var(--horde-red-light);">View on UwU-Logs</a>
                         </p>
                     </div>
                 `;
-                document.getElementById('itemsTab').innerHTML = `
-                    <div class="no-data">
-                        <p>No gear data available</p>
-                    </div>
-                `;
+                return;
             }
-        }
 
-        async function fetchGearOnly(member) {
-            // Try spec 1 (usually healer) for Shamans
-            const url = `/api/uwu-proxy?name=${encodeURIComponent(member.name)}&server=Icecrown&spec=1`;
-            try {
-                const html = await fetchUwuHtml(url);
-                if (html) {
-                    const parsedData = parseUwuCharacterPage(html);
-                    renderItemsTab(parsedData.items);
-                } else {
-                    document.getElementById('itemsTab').innerHTML = `
-                        <div class="no-data">
-                            <p>No gear data available</p>
-                        </div>
-                    `;
+            // Find all parses for this player across all bosses
+            const playerParses = [];
+            for (const [bossName, records] of Object.entries(topParsersData.dps)) {
+                const playerRecord = records.find(r => r.player === member.name);
+                if (playerRecord) {
+                    // Find rank (position in the list + 1)
+                    const rank = records.findIndex(r => r.player === member.name) + 1;
+                    playerParses.push({
+                        boss: bossName,
+                        dps: playerRecord.dps,
+                        date: playerRecord.date,
+                        rank: rank,
+                        totalPlayers: records.length
+                    });
                 }
-            } catch (error) {
-                document.getElementById('itemsTab').innerHTML = `
-                    <div class="no-data">
-                        <p>Could not load gear data</p>
-                    </div>
-                `;
-            }
-        }
-
-        function parseUwuCharacterPage(html) {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-
-            const parses = [];
-            const items = [];
-
-            // Parse boss performance table
-            const rows = doc.querySelectorAll('table.summary-table tbody tr');
-            rows.forEach(row => {
-                const cells = row.querySelectorAll('td');
-                if (cells.length >= 7) {
-                    const bossLink = cells[1]?.querySelector('a');
-                    const bossName = bossLink?.textContent?.trim() || '';
-                    const rankSpan = cells[0]?.querySelector('span');
-                    const rank = rankSpan?.textContent?.trim() || '';
-                    const points = cells[1]?.querySelector('span')?.textContent?.trim() || '';
-                    const dpsSpan = cells[2]?.querySelector('span');
-                    const dps = dpsSpan?.textContent?.trim() || '';
-                    const duration = cells[3]?.textContent?.trim() || '';
-                    const kills = cells[4]?.textContent?.trim() || '';
-                    const date = cells[5]?.textContent?.trim() || '';
-
-                    if (bossName) {
-                        parses.push({
-                            boss: bossName,
-                            rank: rank,
-                            dps: dps,
-                            duration: duration,
-                            kills: kills,
-                            date: date
-                        });
-                    }
-                }
-            });
-
-            // Parse gear section (items are in a grid/list format on uwu-logs)
-            // The gear section varies, but typically has item icons and names
-            const gearSection = doc.querySelector('.gear-section, .equipment, .items-container');
-            if (gearSection) {
-                const itemElements = gearSection.querySelectorAll('.item, .gear-item, [class*="item"]');
-                itemElements.forEach(itemEl => {
-                    const nameEl = itemEl.querySelector('.item-name, a');
-                    const iconEl = itemEl.querySelector('img');
-                    if (nameEl) {
-                        items.push({
-                            name: nameEl.textContent.trim(),
-                            icon: iconEl?.src || '',
-                            quality: detectItemQuality(itemEl)
-                        });
-                    }
-                });
             }
 
-            return { parses, items };
+            // Sort by DPS descending
+            playerParses.sort((a, b) => b.dps - a.dps);
+
+            renderParsesTab(playerParses, member);
         }
 
-        function detectItemQuality(element) {
-            const classList = element.className.toLowerCase();
-            const style = element.getAttribute('style') || '';
-
-            if (classList.includes('legendary') || style.includes('#ff8000')) return 'legendary';
-            if (classList.includes('epic') || style.includes('#a335ee')) return 'epic';
-            if (classList.includes('rare') || style.includes('#0070dd')) return 'rare';
-            if (classList.includes('uncommon') || style.includes('#1eff00')) return 'uncommon';
-            return 'common';
+        function formatDps(dps) {
+            if (dps >= 1000) {
+                return (dps / 1000).toFixed(1) + 'k';
+            }
+            return dps.toLocaleString();
         }
 
         function getRankClass(rank) {
-            const rankNum = parseInt(rank);
-            if (isNaN(rankNum)) return 'common';
-            if (rankNum <= 5) return 'legendary';
-            if (rankNum <= 25) return 'epic';
-            if (rankNum <= 50) return 'rare';
-            if (rankNum <= 75) return 'uncommon';
+            if (rank === 1) return 'legendary';
+            if (rank <= 3) return 'epic';
+            if (rank <= 5) return 'rare';
+            if (rank <= 10) return 'uncommon';
             return 'common';
         }
 
-        function renderParsesTab(parses) {
+        function renderParsesTab(parses, member) {
             const container = document.getElementById('parsesTab');
 
             if (!parses || parses.length === 0) {
                 container.innerHTML = `
                     <div class="no-data">
                         <p>No parse data available</p>
-                        <p style="font-size: 0.8rem; margin-top: 8px;">This player may not have any logged raids yet</p>
+                        <p style="font-size: 0.8rem; margin-top: 8px;">This player has no recorded kills in our ${topParsersData?.totalLogs || 0} logs</p>
+                        <p style="font-size: 0.8rem; margin-top: 8px;">
+                            <a href="https://uwu-logs.xyz/character?name=${encodeURIComponent(member.name)}&server=Icecrown&spec=3" target="_blank" style="color: var(--horde-red-light);">View on UwU-Logs</a>
+                        </p>
                     </div>
                 `;
                 return;
             }
 
             container.innerHTML = `
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px;">Best performance from ${topParsersData.totalLogs} guild logs</p>
                 <table class="parses-table">
                     <thead>
                         <tr>
                             <th>Boss</th>
                             <th>Rank</th>
                             <th>Best DPS</th>
-                            <th>Kills</th>
                             <th>Date</th>
                         </tr>
                     </thead>
@@ -1442,40 +1228,12 @@
                             <tr>
                                 <td class="parse-boss">${parse.boss}</td>
                                 <td><span class="parse-rank ${getRankClass(parse.rank)}">#${parse.rank}</span></td>
-                                <td class="parse-dps">${parse.dps}</td>
-                                <td>${parse.kills}</td>
-                                <td class="parse-date">${parse.date}</td>
+                                <td class="parse-dps">${formatDps(parse.dps)}</td>
+                                <td class="parse-date">${parse.date || 'N/A'}</td>
                             </tr>
                         `).join('')}
                     </tbody>
                 </table>
-            `;
-        }
-
-        function renderItemsTab(items) {
-            const container = document.getElementById('itemsTab');
-
-            if (!items || items.length === 0) {
-                container.innerHTML = `
-                    <div class="no-data">
-                        <p>No gear data available</p>
-                        <p style="font-size: 0.8rem; margin-top: 8px;">Gear information is not available for this character</p>
-                    </div>
-                `;
-                return;
-            }
-
-            container.innerHTML = `
-                <div class="items-grid">
-                    ${items.map(item => `
-                        <div class="item-slot">
-                            ${item.icon ? `<img src="${item.icon}" alt="" class="item-icon quality-${item.quality}">` : '<div class="item-icon"></div>'}
-                            <div class="item-info">
-                                <div class="item-name quality-${item.quality}">${item.name}</div>
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
             `;
         }
 
