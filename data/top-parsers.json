@@ -1,6 +1,6 @@
 {
-  "generated": "2026-02-10T08:51:10.049Z",
-  "totalLogs": 47,
+  "generated": "2026-02-10T08:53:40.129Z",
+  "totalLogs": 48,
   "dateRange": {
     "from": "2025-09-20",
     "to": "2026-02-08"
@@ -204,11 +204,11 @@
           "logId": "26-02-07--17-36--Ndmiisha--Icecrown"
         },
         "Death Knight": {
-          "player": "Snipdk",
+          "player": "Biruleibe",
           "class": "Death Knight",
-          "dps": 15859.4,
-          "date": "2026-02-07",
-          "logId": "26-02-07--17-36--Ndmiisha--Icecrown"
+          "dps": 17466.1,
+          "date": "2026-02-03",
+          "logId": "26-02-03--17-38--Yearog--Icecrown"
         },
         "Paladin": {
           "player": "Ellesmeraa",
@@ -1184,11 +1184,11 @@
       },
       "bestByClass": {
         "Warlock": {
-          "player": "Dotrundot",
+          "player": "Tikta",
           "class": "Warlock",
-          "dps": 14575.2,
-          "date": "2026-02-08",
-          "logId": "26-02-08--17-31--Catalyzer--Icecrown"
+          "dps": 15698.6,
+          "date": "2026-02-03",
+          "logId": "26-02-03--17-38--Yearog--Icecrown"
         },
         "Mage": {
           "player": "Capimage",
